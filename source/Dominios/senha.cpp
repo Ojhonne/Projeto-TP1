@@ -1,5 +1,5 @@
 #include <iostream>
-#include "senha.hpp"
+#include "Dominios/senha.hpp"
 
 bool Senha::validaSenha(string senha) {
     int tam_atual{};
