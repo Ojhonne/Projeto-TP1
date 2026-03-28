@@ -3,19 +3,17 @@
 
 #include <string>
 
-using namespace std;
-
 class Senha {
     private:
-        static const int tam_maximo = 6;
-        string senha;
-        bool validaSenha(string);
+        static const int TAM_MAXIMO = 6;
+        std::string senha;
+        bool validaSenha(std::string);
     public:
-        bool setSenha(string);
-        string getSenha();
+        bool setSenha(std::string);
+        std::string getSenha();
 };
 
-inline string Senha::getSenha() {
+inline std::string Senha::getSenha() {
     return senha;
 }
 
