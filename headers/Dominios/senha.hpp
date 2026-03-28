@@ -1,3 +1,6 @@
+#ifndef SENHA_HPP
+#define SENHA_HPP
+
 #include <string>
 
 using namespace std;
@@ -15,3 +18,5 @@ class Senha {
 inline string Senha::getSenha() {
     return senha;
 }
+
+#endif
