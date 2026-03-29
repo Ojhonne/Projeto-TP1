@@ -4,7 +4,7 @@
 #include <stdexcept>
 using namespace std;
 
-bool Nome::eValido(const string &nome){
+bool Nome::ehValido(const string &nome){
     for(char caracter : nome){ 
         if( (!isalpha(caracter)) && (!isspace(caracter)) ) return false;
     }
@@ -20,7 +20,7 @@ bool Nome::validar(const string& nome){
 
     if(nome.empty() || (nome.size() > TAM_MAXIMO) ) return false; //nome não pode ser vazio ou ter mais do que 10 caracteres
     if(isspace(nome.at(0)) || isspace(nome.at(nome.size() - 1))) return false; // o primeiro e ultimo caracter não pode ser espaço em branco
-    if(!eValido(nome)) return false; // verifica se existe caracteres nao permitidos na string
+    if(!ehValido(nome)) return false; // verifica se existe caracteres nao permitidos na string
     if(temEspacoInvalido(nome)) return false; //se o digito for vazio e proximo não for caracter 
 
    return true;
