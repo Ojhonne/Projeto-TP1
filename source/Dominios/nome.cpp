@@ -27,6 +27,6 @@ bool Nome::validar(const string& nome){
 }
 
 void Nome::setNome(const string &nome){
-    if(!validar(nome)) throw invalid_argument("Nome inválido");
+    if(!validar(nome)) throw invalid_argument("Nome invalido");
     this->nome = nome;
 }
