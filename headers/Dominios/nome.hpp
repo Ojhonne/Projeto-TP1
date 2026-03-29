@@ -1,5 +1,7 @@
 #pragma once
+
 #include <string>
+
 class Nome {
     private:
         static const int TAM_MAXIMO= 10;
