@@ -8,24 +8,26 @@ using namespace std;
 
 bool Texto::ehValido(const string& texto){
         for(char c : texto){ //percorre o vetor de char e verifica as condições dadas
-            if( !isalpha(c) && !isdigit(c) && (c != ',') && (c != '.') && !isspace(c) ) return false;
+            if( !isalpha(c) && !isdigit(c) && (c != ',') && (c != '.') && !isspace(c) ) return false; //se for não alfabeto e naõ for digito e não for virgula e não for ponto e não for espaço
         }
         return true;
 }
-bool Texto::temEspacoinvalida(const std::string& texto ){
-    for(size_t i = 0; i < texto.size() - 1; i++){  //percorre o vetor de char e verifica as condições dadas
-        if( isspace(texto.at(i)) && !(isalpha(texto.at(i+1)) || isdigit(texto.at(i+1)))) return false; 
+bool Texto::temFormatacaoValida(const std::string& texto ){
+    for(size_t i = 0; i < texto.size() - 1; i++){
+        if( (texto.at(i) == ',') && ( (texto.at(i + 1) == ',') || (texto.at(i + 1) == '.')  ) ) return false; // virgula seguida de virgula ou ponto
+        if( (texto.at(i) == '.') && ( (texto.at(i + 1) == ',') || (texto.at(i + 1) == '.')  ) ) return false; // ponto seguido de virgula ou ponto
     }
     return true;
 }
 
-bool Texto::temFormatacaoValida(const std::string& texto ){
-    for(size_t i = 0; i < texto.size() - 1; i++){
-        if( (texto.at(i) == ',') && ( (texto.at(i + 1) == ',') || (texto.at(i + 1) == '.')  ) ) return false;
-        if( (texto.at(i) == '.') && ( (texto.at(i + 1) == ',') || (texto.at(i + 1) == '.')  ) ) return false;
+bool Texto::temEspacoinvalida(const std::string& texto ){
+    for(size_t i = 0; i < texto.size() - 1; i++){  //percorre o vetor de char e verifica as condições dadas
+        if( isspace(texto.at(i)) && !(isalpha(texto.at(i+1)) || isdigit(texto.at(i+1)))) return false;  //se for espaço e o proximo não for alfabeto ou digito
     }
     return true;
 }
+
+
 bool Texto::validar(const string& texto){
 
     if( ( texto.empty() ) || ( texto.size() > TAM_MAXIMO) ) return false; //  texto não pode ser vazio ou ter mais de 40 caracteres
@@ -37,7 +39,6 @@ bool Texto::validar(const string& texto){
 
     return true;
 }
-
 
 void Texto::setTexto(const string& texto){
      if(!validar(texto)) throw invalid_argument("Texto invalido");
