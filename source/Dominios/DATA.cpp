@@ -1,4 +1,4 @@
-#include "DATA.hpp"
+#include "Dominios/data.hpp"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -39,12 +39,12 @@ bool Data::formatoValido(string str){
     else if(str[i] == '/'){
         contBarras++;
     }
-    else{ //se for qualquer outra coisa além de algarismo ou /
+    else{ //se for qualquer outra coisa alï¿½m de algarismo ou /
         return false;
     }
   }
 
-  if(str.size() == 9){ //preciso disso pois se o usuario digitar uma senha extremamente curta, as posiçoes nem sequer vao existir
+  if(str.size() == 9){ //preciso disso pois se o usuario digitar uma senha extremamente curta, as posiï¿½oes nem sequer vao existir
        return ((contAlgarismos == 7 && contBarras == 2) && (str[1] == '/' && str[4] == '/'));
   }
   if(str.size() == 10){
@@ -63,7 +63,7 @@ void Data::extrair(string str, int&d, int&m, int&a){
     d = stoi(str.substr(0, pos1));
     pos2 = str.find('/', pos1 + 1);
     m = stoi(str.substr(pos1 + 1, pos2 - pos1 - 1));
-    a = stoi(str.substr(pos2 + 1));//pq ano é 4 casas.
+    a = stoi(str.substr(pos2 + 1));//pq ano ï¿½ 4 casas.
 }
 
 
@@ -97,12 +97,12 @@ bool Data::ehBissexto(int a){
 }
 
 
-bool Data::vemAntes(const Data &tempT) const{//primer const é pra assegurar nao mudança do meu objeto
+bool Data::vemAntes(const Data &tempT) const{//primer const ï¿½ pra assegurar nao mudanï¿½a do meu objeto
     return ((this->ano * 10000 + this->mes * 100 + this->dia) < (tempT.ano * 10000 + tempT.mes * 100 + tempT.dia));
 }
 
 string Data::getData()const{
-    stringstream sData; //pensei em fazer em substrings, mas tem ess funçao aqui que é tipo uma esteira
+    stringstream sData; //pensei em fazer em substrings, mas tem ess funï¿½ao aqui que ï¿½ tipo uma esteira
 
     sData << dia << '/';
     sData << setfill('0') << setw(2) << mes << '/'; //preenche com 0 se o mes nao vier com 2 casas
@@ -121,15 +121,15 @@ void Intervalo::imprimir()const{
         cerr << "ERRO! Data(s) nao inserida" << endl;
     }
     else {
-        cout << "Data de inicio: " << dataInicio.getData() << endl << "Data de término: " << dataTermino.getData() << endl;
+        cout << "Data de inicio: " << dataInicio.getData() << endl << "Data de tï¿½rmino: " << dataTermino.getData() << endl;
     }
 }
 
 
 bool Intervalo::setPeriodo(string strI, string strT){
 
-    Data tempI, tempT; //usei essas variaveis, pois no if abaixo se uma condiçao for aceita e a outra nao, uma data vai ser setada definitivamente e nao queremos isso
-    //e declarei elas aqui pois se fosse no hpp, toda vez que eu criasse um objeto Intervalo, ocupario o dobro do espaço, esses objetos sao simplesmente pra trabalho e soh existem enquanto esse metodo rodar
+    Data tempI, tempT; //usei essas variaveis, pois no if abaixo se uma condiï¿½ao for aceita e a outra nao, uma data vai ser setada definitivamente e nao queremos isso
+    //e declarei elas aqui pois se fosse no hpp, toda vez que eu criasse um objeto Intervalo, ocupario o dobro do espaï¿½o, esses objetos sao simplesmente pra trabalho e soh existem enquanto esse metodo rodar
      if (tempI.setDMA(strI) && tempT.setDMA(strT)){//if pra checar se as datas individuais estao blz
             if(tempI.vemAntes(tempT)){
                 this->dataInicio = tempI;
@@ -138,7 +138,7 @@ bool Intervalo::setPeriodo(string strI, string strT){
                 return true;
             }
             else{
-                cerr << "Data de termino nao eh maior que data de Início!" << endl;
+                cerr << "Data de termino nao eh maior que data de Inï¿½cio!" << endl;
                 return false;
             }
      }
