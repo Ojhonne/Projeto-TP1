@@ -10,12 +10,14 @@ bool Nome::ehValido(const string &nome){
     }
     return true;
 }
+
 bool Nome::temEspacoInvalido(const string &nome){
     for(size_t i = 0; i < nome.size() - 1; i++){
         if( (isspace(nome.at(i))) && (!isalpha(nome.at(i+1))) ) return true; //se for espaço;
     }
     return false;
 }
+
 bool Nome::validar(const string& nome){
 
     if(nome.empty() || (nome.size() > TAM_MAXIMO) ) return false; //nome não pode ser vazio ou ter mais do que 10 caracteres

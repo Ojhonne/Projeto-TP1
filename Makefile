@@ -1,29 +1,23 @@
 # 1. Detecção do Sistema Operacional
 ifeq ($(OS),Windows_NT)
-    # Comandos para Windows
+    # Força o uso do CMD no Windows para evitar conflitos com sh.exe do Git Bash
+    SHELL := cmd.exe
     RM = rmdir /s /q
-    MKDIR = mkdir
+    # No Windows, precisamos garantir que o caminho use backslashes para comandos do CMD
     FIX_PATH = $(subst /,\,$1)
     EXEC_EXT = .exe
+    # Comando para criar diretório se não existir
     SAFE_MKDIR = if not exist $(subst /,\,$1) mkdir $(subst /,\,$1)
-    # Regra de compilação para Windows
-    define CREATE_DIR_WIN
-        if not exist $(subst /,\,$(dir $@)) mkdir $(subst /,\,$(dir $@))
-    endef
+    RUN_CMD = $(subst /,\,$(TARGET))
 else
-    # Comandos para Linux/Mac
     RM = rm -rf
-    MKDIR = mkdir -p
     FIX_PATH = $1
     EXEC_EXT =
     SAFE_MKDIR = mkdir -p $1
-    # Regra de compilação para Linux
-    define CREATE_DIR_LINUX
-        mkdir -p $(dir $@)
-    endef
+    RUN_CMD = ./$(TARGET)
 endif
 
-# 2. Configurações de Compilação
+# 2. Configurações
 CXX      := g++
 CXXFLAGS := -Wall -std=c++17 -Iheaders
 SRC_DIR  := source
@@ -39,25 +33,21 @@ OBJECTS  := $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(SAFE_MKDIR) $(BIN_DIR)
+	@$(call SAFE_MKDIR, $(BIN_DIR))
 	$(CXX) $(OBJECTS) -o $(TARGET)
 
-# Regra condicional para criar diretórios
-ifeq ($(OS),Windows_NT)
+# Regra genérica para objetos
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CREATE_DIR_WIN)
+	@$(call SAFE_MKDIR, $(dir $@))
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-else
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-endif
 
 clean:
-	$(RM) $(OBJ_DIR) $(BIN_DIR)
+	@$(SAFE_MKDIR) $(OBJ_DIR)
+	@$(SAFE_MKDIR) $(BIN_DIR)
+	$(RM) $(OBJ_DIR)
+	$(RM) $(BIN_DIR)
 
-# Regra para rodar o programa direto pelo make
 run: all
-	./$(TARGET)
+	$(RUN_CMD)
 
 .PHONY: all clean run

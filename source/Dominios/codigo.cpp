@@ -26,7 +26,7 @@ bool Codigo::valida(const char s[])
 bool Codigo::setCodigo(const char *s)
 {
    if (!valida(s))
-    return false;
+        return false;
 
     //atribui o c�digo ao objeto
     strcpy(codigo,s);

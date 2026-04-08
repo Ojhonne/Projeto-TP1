@@ -12,6 +12,7 @@ bool Texto::ehValido(const string& texto){
         }
         return true;
 }
+
 bool Texto::temFormatacaoValida(const std::string& texto ){
     for(size_t i = 0; i < texto.size() - 1; i++){
         if( (texto.at(i) == ',') && ( (texto.at(i + 1) == ',') || (texto.at(i + 1) == '.')  ) ) return false; // virgula seguida de virgula ou ponto
@@ -26,7 +27,6 @@ bool Texto::temEspacoinvalida(const std::string& texto ){
     }
     return true;
 }
-
 
 bool Texto::validar(const string& texto){
 
