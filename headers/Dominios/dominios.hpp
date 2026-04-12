@@ -78,6 +78,11 @@ class Texto : public Dominio{
         bool temEspacoinvalida(const std::string& );
 };
 
+class Tempo : public Dominio{
+    private:
+        static const int TAM_MAXIMO = 365;
+        bool validar(const int &);
+};
 /*
 Falta DATA, TEMPO, PAPEL e EMAIL
 */

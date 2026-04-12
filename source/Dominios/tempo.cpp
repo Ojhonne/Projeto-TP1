@@ -4,6 +4,7 @@
 using namespace std;
 
 bool Tempo::validar(const int& tempo){
+
     if(tempo <= 0  || tempo > 365) return false; 
     return true;
 }
