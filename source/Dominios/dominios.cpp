@@ -68,7 +68,7 @@ bool Prioridade::validar(const std::string& prioridade) {
 bool Senha::validar(const std::string& senha) {
     int tam_atual{};
     tam_atual = senha.size();
-    if(tam_atual > TAM_MAXIMO || tam_atual < TAM_MAXIMO) return false;
+    if(tam_atual != TAM_MAXIMO) return false;
     int k{},j{};
     int check_min{}, check_mai{}, check_dig{};
     for(int i = 0; i < tam_atual; i++) {
@@ -78,7 +78,7 @@ bool Senha::validar(const std::string& senha) {
         if(islower(senha[i])) check_min++; // flag para letra minuscula
         if(isupper(senha[i])) check_mai++; // flag para letra maiuscula
         if(isdigit(senha[i])) check_dig++; // flag para digito
-        if(k && j < TAM_MAXIMO) {
+        if(k < TAM_MAXIMO && j < TAM_MAXIMO) {
             k++;
             j++;
         }
@@ -122,7 +122,12 @@ bool Texto::validar(const string& texto){
     return true;
 }
 
+bool Papel::validar(const string& papel) {
+    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE_SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
+    return true;
+}
+
 
 /*
-Falta  TEMPO, DATA , PAPEL E EMAIL
+Falta  TEMPO, DATA E EMAIL
 */

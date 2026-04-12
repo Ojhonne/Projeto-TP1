@@ -78,8 +78,13 @@ class Texto : public Dominio{
         bool temEspacoinvalida(const std::string& );
 };
 
+class Papel : public Dominio {
+    private:
+        bool validar(const std::string&);
+};
+
 /*
-Falta DATA, TEMPO, PAPEL e EMAIL
+Falta DATA, TEMPO e EMAIL
 */
 
 #endif
