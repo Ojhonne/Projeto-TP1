@@ -10,3 +10,4 @@ bool Prioridade::setPrioridade(std::string prioridade) {
     this->prioridade = prioridade;
     return true;
 }
+

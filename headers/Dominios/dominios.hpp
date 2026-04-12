@@ -4,7 +4,6 @@
 #include <string>
 
 class Dominio{
-
     private:
         std::string valor;
         virtual bool validar(const std::string&) = 0;
@@ -17,35 +16,31 @@ inline std::string Dominio::getValor() const {
     return valor;
 }
 
-class Codigo: public Dominio {
-
+class Codigo : public Dominio {
     private:
         static const int TAMANHO = 5;
         bool validar(const std::string&);
 };
 
-class Estado: Dominio{
+class Estado : public Dominio{
    private:
-       static const std::string estado1;
-       static const std::string estado2;
-       static const std::string estado3;
-        bool validarEstado(std::string)const;
+        static const std::string estado1;
+        static const std::string estado2;
+        static const std::string estado3;
+        bool validar(const std::string&) const;
    public:
        Estado();
-       bool setEstado(std::string);
-       std::string getEstado()const;
 };
 
 inline const std::string Estado::estado1 = "A FAZER";
 inline const std::string Estado::estado2 = "FAZENDO";
 inline const std::string Estado::estado3 = "FEITO";
 
-
 inline Estado::Estado(){
-       this->estado= "A FAZER";
+     // this->valor= "A FAZER";
 }
 
-inline bool Estado::validarEstado(std::string strEstado)const{
+inline bool Estado::validar(const std::string& strEstado) const{
 
       if(strEstado == estado1 || strEstado == estado2 || strEstado == estado3){
             return true;
@@ -53,16 +48,7 @@ inline bool Estado::validarEstado(std::string strEstado)const{
       else return false;
 }
 
-inline bool Estado::setEstado(string strEstado){
-      if(validarEstado(strEstado)){
-           this->estado = strEstado;
-           return true;
-      }
-
-      return false;
-}
-
-class Nome: public Dominio{
+class Nome : public Dominio{
 
     private:
         static const int TAM_MAXIMO= 10;
@@ -72,21 +58,18 @@ class Nome: public Dominio{
         
 };
 
-class Prioridade: public Dominio {
-
+class Prioridade : public Dominio {
     private:
        bool validar(const std::string&);
 };
 
-class Senha: public Dominio {
-
+class Senha : public Dominio {
     private:
         static const int TAM_MAXIMO = 6;
         bool validar(const std::string&);
 };
 
-class Texto{
-
+class Texto : public Dominio{
     private:
         static const int TAM_MAXIMO = 40;
         bool validar(const std::string& );
@@ -94,5 +77,9 @@ class Texto{
         bool temFormatacaoValida(const std::string& );
         bool temEspacoinvalida(const std::string& );
 };
+
+/*
+Falta DATA, TEMPO, PAPEL e EMAIL
+*/
 
 #endif
