@@ -22,6 +22,10 @@ bool Texto::temFormatacaoValida(const std::string& texto ){
 }
 
 bool Texto::temEspacoinvalida(const std::string& texto ){
+    if (texto.size() <= 1) { //verifica se é unico caractere
+        return false; 
+    }
+
     for(size_t i = 0; i < texto.size() - 1; i++){  //percorre o vetor de char e verifica as condições dadas
         if( isspace(texto.at(i)) && !(isalpha(texto.at(i+1)) || isdigit(texto.at(i+1)))) return false;  //se for espaço e o proximo não for alfabeto ou digito
     }

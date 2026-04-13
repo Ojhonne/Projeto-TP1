@@ -1,5 +1,5 @@
-#ifndef TEXTO_HPP
-#define TEXTO_HPP
+#ifndef DOMINIOS_HPP_INCLUDED
+#define DOMINIOS_HPP_INCLUDED
 
 #include <string>
 
@@ -27,7 +27,7 @@ class Estado : public Dominio{
         static const std::string estado1;
         static const std::string estado2;
         static const std::string estado3;
-        bool validar(const std::string&) const;
+        bool validar(const std::string&);
    public:
        Estado();
 };
@@ -40,7 +40,7 @@ inline Estado::Estado(){
      // this->valor= "A FAZER";
 }
 
-inline bool Estado::validar(const std::string& strEstado) const{
+inline bool Estado::validar(const std::string& strEstado){
 
       if(strEstado == estado1 || strEstado == estado2 || strEstado == estado3){
             return true;
@@ -49,13 +49,12 @@ inline bool Estado::validar(const std::string& strEstado) const{
 }
 
 class Nome : public Dominio{
-
     private:
         static const int TAM_MAXIMO= 10;
         bool validar(const std::string&);
         bool ehValido(const std::string&);
         bool temEspacoInvalido(const std::string&);
-        
+
 };
 
 class Prioridade : public Dominio {
@@ -81,10 +80,11 @@ class Texto : public Dominio{
 class Tempo : public Dominio{
     private:
         static const int TAM_MAXIMO = 365;
-        bool validar(const int &);
+        static const int TAM_MINIMO = 1;
+        bool validar(const std::string&);
 };
 /*
-Falta DATA, TEMPO, PAPEL e EMAIL
+Falta DATA,  PAPEL e EMAIL
 */
 
 #endif
