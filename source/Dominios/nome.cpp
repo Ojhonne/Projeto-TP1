@@ -12,6 +12,10 @@ bool Nome::ehValido(const string &nome){
 }
 
 bool Nome::temEspacoInvalido(const string &nome){
+    if (nome.size() <= 1) { //verifica se é unico caractere
+        return false; 
+    }
+
     for(size_t i = 0; i < nome.size() - 1; i++){
         if( (isspace(nome.at(i))) && (!isalpha(nome.at(i+1))) ) return true; //se for espaço;
     }
