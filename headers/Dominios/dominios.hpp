@@ -54,7 +54,6 @@ class Nome : public Dominio{
         bool validar(const std::string&);
         bool ehValido(const std::string&);
         bool temEspacoInvalido(const std::string&);
-
 };
 
 class Prioridade : public Dominio {
@@ -90,7 +89,7 @@ class Papel : public Dominio {
 };
 
 /*
-Falta DATA,  e EMAIL
+Falta DATA e EMAIL
 */
 
 #endif
