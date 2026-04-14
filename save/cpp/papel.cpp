@@ -1,7 +1,7 @@
 #include "Dominios/papel.hpp"
 
 bool Papel::validaPapel(std::string papel) {
-    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE_SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
+    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
     return true;
 }
 

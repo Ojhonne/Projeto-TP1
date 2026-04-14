@@ -129,11 +129,6 @@ bool Texto::validar(const string& texto){
     return true;
 }
 
-bool Papel::validar(const string& papel) {
-    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE_SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
-    return true;
-}
-
 bool Tempo::validar(const string& tempo){
     // 1. Se for vazia, volta
     if (tempo.empty()) {
@@ -159,6 +154,13 @@ bool Tempo::validar(const string& tempo){
         return false;
     }
 }
+
+
+bool Papel::validar(const string& papel) {
+    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
+    return true;
+}
+
 
 /*
 Falta  DATA , PAPEL E EMAIL

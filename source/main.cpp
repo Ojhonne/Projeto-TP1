@@ -75,6 +75,11 @@ int main() {
         {"0", "366", "15abc", "-5", " ", ""} // Inválidos
     );
 
+    rodarTestes<Papel>("Tempo",
+        {"DESENVOLVEDOR", "MESTRE SCRUM", "PROPRIETARIO DE PRODUTO"}, // Válidos
+        {"0", "366", "15abc", "-5", " ", ""} // Inválidos
+    );
+
     cout << "Bateria de testes finalizada." << endl;
     return 0;
 }
