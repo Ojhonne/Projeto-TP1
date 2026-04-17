@@ -3,23 +3,31 @@
 
 #include <string>
 
-class Dominio{
+class Dominio{ //classe base Abstrata
     private:
         std::string valor;
-        virtual bool validar(const std::string&) = 0;
+        virtual bool validar(const std::string&) = 0; // metodo que as classes filhas devem implementar
     public:
         void setValor(const std::string&);
         std::string getValor() const;
 };
 
-inline std::string Dominio::getValor() const {
+inline std::string Dominio::getValor() const { //implementação do metodo get
     return valor;
 }
 
-class Codigo : public Dominio {
+class Codigo : public Dominio { // classe codigo
     private:
         static const int TAMANHO = 5;
         bool validar(const std::string&);
+};
+
+class Email : public Dominio{
+    private:
+        static const int LIMITE_DOMINIO = 255;
+        static const int LIMITE_PARTE = 64;
+        bool validar(const std::string& );
+        bool verificaSeparadores(const std::string& );
 };
 
 class Estado : public Dominio{
@@ -41,7 +49,6 @@ inline Estado::Estado(){
 }
 
 inline bool Estado::validar(const std::string& strEstado){
-
       if(strEstado == estado1 || strEstado == estado2 || strEstado == estado3){
             return true;
       }
@@ -50,10 +57,15 @@ inline bool Estado::validar(const std::string& strEstado){
 
 class Nome : public Dominio{
     private:
-        static const int TAM_MAXIMO= 10;
+        static const int TAM_MAXIMO{10};
         bool validar(const std::string&);
         bool ehValido(const std::string&);
-        bool temEspacoInvalido(const std::string&);
+        bool temEspacoValido(const std::string&);
+};
+
+class Papel : public Dominio {
+    private:
+        bool validar(const std::string&);
 };
 
 class Prioridade : public Dominio {
@@ -67,29 +79,27 @@ class Senha : public Dominio {
         bool validar(const std::string&);
 };
 
-class Texto : public Dominio{
-    private:
-        static const int TAM_MAXIMO = 40;
-        bool validar(const std::string& );
-        bool ehValido(const std::string& );
-        bool temFormatacaoValida(const std::string& );
-        bool temEspacoinvalida(const std::string& );
-};
-
 class Tempo : public Dominio{
     private:
-        static const int TAM_MAXIMO = 365;
-        static const int TAM_MINIMO = 1;
-        bool validar(const std::string&);
+        static const int TAM_MAXIMO{365};
+        static const int TAM_MINIMO{1};
+        void validar(const std::string&);
+};
+class Texto : public Dominio{
+
+    private:
+        static const int TAM_MAXIMO{40};
+        void validar(const std::string& );
+
+        bool ehValido(const std::string& );
+        bool temFormatacaoValida(const std::string& );
+        bool temEspacoValido(const std::string& );
+
 };
 
-class Papel : public Dominio {
-    private:
-        bool validar(const std::string&);
-};
 
 /*
-Falta DATA e EMAIL
+Falta DATA
 */
 
 #endif

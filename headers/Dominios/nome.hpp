@@ -1,0 +1,21 @@
+#pragma once
+
+#include <string>
+
+class Nome {
+
+    private:
+        static const int TAM_MAXIMO{10};
+        std::string nome;
+
+        void validar(const std::string&);
+        bool ehValido(const std::string&);
+        bool temEspacoValido(const std::string&);
+        
+    public:
+        void setNome(const std::string&);
+        std::string getNome() const;
+};
+inline  std::string Nome::getNome() const{
+    return nome;
+}
