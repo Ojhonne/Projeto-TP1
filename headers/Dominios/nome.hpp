@@ -8,14 +8,14 @@ class Nome {
         static const int TAM_MAXIMO= 10;
         std::string nome;
 
-        bool validar(const std::string&);
-        bool ehValido(const std::string& );
-        bool temEspacoInvalido(const std::string&);
+        void validar(const std::string&);
+        bool ehValido(const std::string&);
+        bool temEspacoValido(const std::string&);
         
     public:
         void setNome(const std::string&);
-        std::string getNome() const;
+       const std::string& getNome() const noexcept;
 };
-inline std::string Nome::getNome() const {
+inline const std::string& Nome::getNome() const noexcept{
     return nome;
 }

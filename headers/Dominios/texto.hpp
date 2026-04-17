@@ -9,16 +9,16 @@ class Texto{
         static const int TAM_MAXIMO = 40;
         std::string texto;
 
-        bool validar(const std::string& );
+        void validar(const std::string& );
         bool ehValido(const std::string& );
         bool temFormatacaoValida(const std::string& );
         bool temEspacoinvalida(const std::string& );
         
     public:
         void setTexto(const std::string& );
-        std::string getTexto() const;
+        const std::string& getTexto() const noexcept;
 };
-inline std::string Texto::getTexto() const {
+inline const std::string& Texto::getTexto() const noexcept {
     return texto;
 }
 
