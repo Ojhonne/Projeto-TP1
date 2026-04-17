@@ -21,11 +21,7 @@ bool Texto::temFormatacaoValida(const std::string& texto ){
     return true;
 }
 
-bool Texto::temEspacoinvalida(const std::string& texto ){
-    if (texto.size() <= 1) { //verifica se é unico caractere
-        return false; 
-    }
-
+bool Texto::temEspacoValido(const std::string& texto ){
     for(size_t i = 0; i < texto.size() - 1; i++){  //percorre o vetor de char e verifica as condições dadas
         if( isspace(texto.at(i)) && !(isalpha(texto.at(i+1)) || isdigit(texto.at(i+1)))) return false;  //se for espaço e o proximo não for alfabeto ou digito
     }
@@ -39,7 +35,7 @@ void Texto::validar(const string& texto){
     if( ( texto.back() == ',' ) || ( texto.back() == '.') || ( isspace(texto.back())) ) throw invalid_argument("Formato da classe texto invalido"); // último caracter não pode ser vírgula, ponto ou espaço em branco.
     if( !ehValido(texto) )  throw invalid_argument("Formato da classe texto invalido"); // confere se o caracter é letra (a-z ou A-Z), dígito (0-9), vírgula, ponto ou espaço em branco;
     if( !temFormatacaoValida(texto) )  throw invalid_argument("Formato da classe texto invalido"); // confere se vírgula não pode ser seguida por vírgula ou ponto e ponto não pode ser seguido por vírgula ou ponto; 
-    if( !temEspacoinvalida(texto) )  throw invalid_argument("Formato da classe texto invalido");// confere se o digito é  espaço em branco o prox é seguido por letra ou dígito;
+    if( !temEspacoValido(texto) )  throw invalid_argument("Formato da classe texto invalido");// confere se o digito é  espaço em branco o prox é seguido por letra ou dígito;
 
 }
 

@@ -6,14 +6,14 @@ class Tempo{
     private:
         std::string tempo; 
         void validar(const std::string&);
-        static const int TAM_MAXIMO = 365;
-        static const int TAM_MINIMO = 1;
+        static const int TAM_MAXIMO{365};
+        static const int TAM_MINIMO{1};
     public:
         void setTempo(const std::string&);
-        const std::string& getTempo() const noexcept;
+        std::string getTempo() const;
 
 };
-inline const std::string& Tempo::getTempo() const noexcept{
+inline std::string Tempo::getTempo() const {
     return tempo;
 }
 /*

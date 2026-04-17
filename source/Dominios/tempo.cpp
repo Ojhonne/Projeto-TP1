@@ -17,7 +17,7 @@ void Tempo::validar(const string& tempo){
             throw std::out_of_range("Valor da classe tempo esta fora do intervalo permitido");
         }
     } catch (const out_of_range& e) {
-        // Intercepta o erro caso o usuário digite uma sequência gigantesca de números
+        // caso seja um numero maior que o limite
         throw std::out_of_range("O numero digitado eh muito grande");
     }
 }

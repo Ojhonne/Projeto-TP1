@@ -5,7 +5,7 @@
 class Nome {
 
     private:
-        static const int TAM_MAXIMO= 10;
+        static const int TAM_MAXIMO{10};
         std::string nome;
 
         void validar(const std::string&);
@@ -14,8 +14,8 @@ class Nome {
         
     public:
         void setNome(const std::string&);
-       const std::string& getNome() const noexcept;
+        std::string getNome() const;
 };
-inline const std::string& Nome::getNome() const noexcept{
+inline  std::string Nome::getNome() const{
     return nome;
 }
