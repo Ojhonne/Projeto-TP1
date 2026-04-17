@@ -8,7 +8,7 @@ using namespace std;
 class Estado{
    private:
        string estado;
-       static const string estado1{ "A FAZER"};
+       static const string estado1;
        static const string estado2;
        static const string estado3;
         bool validarEstado(string)const;
