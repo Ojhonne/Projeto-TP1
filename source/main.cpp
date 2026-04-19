@@ -7,6 +7,7 @@
 #include "Dominios/senha.hpp"
 #include "Dominios/tempo.hpp"
 #include "Dominios/texto.hpp"   
+#include "Dominios/papel.hpp"   
 #include <iostream>
 #include <string>
 #include <vector>
