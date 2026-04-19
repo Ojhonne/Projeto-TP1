@@ -1,0 +1,1 @@
+#include  "Entidades/historiaDeUsuario.hpp"
