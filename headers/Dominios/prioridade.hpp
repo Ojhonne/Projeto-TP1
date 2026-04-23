@@ -6,9 +6,9 @@
 class Prioridade {
     private:
        std::string prioridade;
-       bool validaPrioridade(std::string);
+       void validaPrioridade(std::string);
     public:
-        bool setPrioridade(std::string);
+        void setPrioridade(std::string);
         std::string getPrioridade() const;
 };
 

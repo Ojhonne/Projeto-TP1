@@ -2,14 +2,15 @@
 #define SENHA_HPP
 
 #include <string>
+#include <stdexcept>
 
 class Senha {
     private:
         static const int TAM_MAXIMO = 6;
         std::string senha;
-        bool validaSenha(std::string);
+        void validaSenha(std::string);
     public:
-        bool setSenha(std::string);
+        void setSenha(std::string);
         std::string getSenha();
 };
 

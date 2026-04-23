@@ -6,9 +6,9 @@
 class Papel {
     private:
        std::string papel;
-       bool validaPapel(std::string);
+       void validaPapel(std::string);
     public:
-        bool setPapel(std::string);
+        void setPapel(std::string);
         std::string getPapel() const;
 };
 
