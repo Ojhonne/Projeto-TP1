@@ -1,12 +1,10 @@
 #include "Dominios/prioridade.hpp"
 
-bool Prioridade::validaPrioridade(std::string prioridade) {
-    if(prioridade != "BAIXA" && prioridade !=  "ALTA" && prioridade != "MEDIA") return false;
-    return true;
+void Prioridade::validaPrioridade(std::string prioridade) {
+    if(prioridade != "BAIXA" && prioridade !=  "ALTA" && prioridade != "MEDIA") throw invalid_argument("Prioridade invalida.");
 }
 
-bool Prioridade::setPrioridade(std::string prioridade) {
-    if(!validaPrioridade(prioridade)) return false;
+void Prioridade::setPrioridade(std::string prioridade) {
+    validaPrioridade(prioridade);
     this->prioridade = prioridade;
-    return true;
 }

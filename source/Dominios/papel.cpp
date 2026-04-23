@@ -1,12 +1,10 @@
 #include "Dominios/papel.hpp"
 
-bool Papel::validaPapel(std::string papel) {
-    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE SCRUM" && papel != "PROPRIETARIO DE PRODUTO") return false;
-    return true;
+void Papel::validaPapel(std::string papel) {
+    if(papel != "DESENVOLVEDOR" && papel !=  "MESTRE SCRUM" && papel != "PROPRIETARIO DE PRODUTO") throw invalid_argument("Papel invalido");
 }
 
-bool Papel::setPapel(std::string papel) {
-    if(!validaPapel(papel)) return false;
+void Papel::setPapel(std::string papel) {
+    validaPapel(papel)
     this->papel = papel;
-    return true;
 }
