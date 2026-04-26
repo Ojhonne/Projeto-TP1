@@ -1,34 +1,31 @@
-#include "Dominios/codigo.hpp"
+#include "codigo.hpp"
 #include <cstring>
 #include <cctype>
+#include <stdexcept>
 
-bool Codigo::valida(const char s[])
+void Codigo::valida(const char s[])
 {
     //verifica o tamaho da string
     if(strlen(s) != TAMANHO)
-        return false;
+        throw invalid_argument("Codigo invalido.");
 
-    //verifica se as primeiras duas letras s�o mai�sculas
+    //verifica se as primeiras duas letras sao maiusculas
     if(!isupper(s[0]) || !isupper(s[1]))
-        return false;
+        throw invalid_argument("Codigo invalido.");
 
-    //verifica se os �ltimos carateres s�o digitos
+    //verifica se os ultimos carateres sao digitos
     for(int i = 0; i < 3; i++)
     {
         if(!isdigit(s[i + 2]))
-            return false;
+            throw invalid_argument("Codigo invalido.");
     }
 
-    // se passou por todas as verifica��es, est� correto
-    return true;
 }
 
-bool Codigo::setCodigo(const char *s)
+void Codigo::setCodigo(const char *s)
 {
-   if (!valida(s))
-    return false;
+    valida(s);
 
-    //atribui o c�digo ao objeto
+    //atribui o codigo ao objeto
     strcpy(codigo,s);
-    return true;
 }
