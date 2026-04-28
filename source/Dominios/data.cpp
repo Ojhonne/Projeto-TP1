@@ -1,8 +1,15 @@
-//#include "Dominios/data.hpp"
+#include "Dominios/dominios.hpp"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <cctype>
+#include <stdexcept>
+
+using namespace std;
+
+void Data::setValor(const string& str){
+    setDMA(str);//o setDMA ja valida e lança exceçao
+}
 
 Data::Data(){
   this->dia = 1;
@@ -10,25 +17,24 @@ Data::Data(){
   this->ano = 2000;
 }
 
+void Data::setDMA(string str){
+       validar(str);
 
-bool Data::setDMA(string str){
-       if(!formatoValido(str)){
-         return false;
-       }
        int d, m, a;
        extrair(str, d, m, a);
 
-       if(validarData(d, m, a)){
-          this->dia = d;
-          this->mes = m;
-          this->ano = a;
-          return true;
-       }
-       return false;
+       //se validarData encontrar erro, o setDMA para e o programa busca o catch
+       validarData(d, m, a);
+
+       this->dia = d;
+       this->mes = m;
+       this->ano = a;
+
+       Dominio::setValor(getData());//vamos passar a data individual ja validada pra atribuir a "valor"
+
 }
 
-
-bool Data::formatoValido(string str){
+void Data::validar(const string& str){
 
   int contAlgarismos = 0, contBarras = 0;
 
@@ -39,20 +45,23 @@ bool Data::formatoValido(string str){
     else if(str[i] == '/'){
         contBarras++;
     }
-    else{ //se for qualquer outra coisa al�m de algarismo ou /
-        return false;
+    else{ //se for qualquer outra coisa além de algarismo ou /
+        throw invalid_argument("Formato Invalido: inserçao de caracter nao valido!"); //return false;
     }
   }
 
-  if(str.size() == 9){ //preciso disso pois se o usuario digitar uma senha extremamente curta, as posi�oes nem sequer vao existir
-       return ((contAlgarismos == 7 && contBarras == 2) && (str[1] == '/' && str[4] == '/'));
+  if(str.size() == 9){ //preciso disso pois se o usuario digitar uma senha extremamente curta, as posiçoes nem sequer vao existir
+       if (!((contAlgarismos == 7 && contBarras == 2) && (str[1] == '/' && str[4] == '/'))) throw invalid_argument("Formato Invalido (D/MM/AAAA)");
   }
-  if(str.size() == 10){
-       if(str[0]=='0') return false; //nao vamo aceitar input formato 01, 02, 03 pra dia
-       return ((contAlgarismos == 8 && contBarras == 2) && (str[2] == '/' && str[5] == '/'));
+  else if(str.size() == 10){
+       if(str[0]=='0') throw invalid_argument("Formato Invalido. Dia nao pode comçar com zero!"); //nao vamo aceitar input formato 01, 02, 03 pra dia
+       if(!((contAlgarismos == 8 && contBarras == 2) && (str[2] == '/' && str[5] == '/'))) throw invalid_argument("Formato Invalido (D/MM/AAAA)");
   }
 
-  return false;
+  else{
+      throw invalid_argument("Formato Invalido: Tamanho incorreto.");
+  }
+
 }
 
 
@@ -63,15 +72,30 @@ void Data::extrair(string str, int&d, int&m, int&a){
     d = stoi(str.substr(0, pos1));
     pos2 = str.find('/', pos1 + 1);
     m = stoi(str.substr(pos1 + 1, pos2 - pos1 - 1));
-    a = stoi(str.substr(pos2 + 1));//pq ano � 4 casas.
+    a = stoi(str.substr(pos2 + 1));//pq ano é 4 casas.
 }
 
 
-bool Data::validarData(int d, int m, int a){
-    if (m < MIN_MES || m > MAX_MES || a < MIN_ANO || a > MAX_ANO) return false;
+void Data::validarData(int d, int m, int a){ 
+    if(m < MIN_MES){
+        throw out_of_range("O mes esta ABAIXO do minimo estableecido!");
+    }
+    if(m > MAX_MES){
+        throw out_of_range("O mes esta ACIMA do maximo estabelecido!");
+    }
+    if(a < MIN_ANO){
+        throw out_of_range("O ano esta ABAIXO do minimo estabelecido!");
+    }
+    if(a > MAX_ANO){
+        throw out_of_range("O ano esta ACIMA do maximo estabelecido!");
+    }
+
     int gDm = getDiasMes(m, a);//ainda vou calcular se eh bissexto
-    if (d <= gDm && d >= MIN_DIA) return true;
-    return false;
+
+    if (d > gDm || d < MIN_DIA){
+        throw out_of_range("Dia incorreto para o mes e ano fornecidos");
+    }
+    //se chegou ao fim sem lançar nada, a data é valida por definiçao
 }
 
 
@@ -97,7 +121,7 @@ bool Data::ehBissexto(int a){
 }
 
 
-bool Data::vemAntes(const Data &tempT) const{//primer const � pra assegurar nao mudan�a do meu objeto
+bool Data::vemAntes(const Data &tempT) const{//primer const é pra assegurar nao mudança do meu objeto
     return ((this->ano * 10000 + this->mes * 100 + this->dia) < (tempT.ano * 10000 + tempT.mes * 100 + tempT.dia));
 }
 
@@ -126,22 +150,22 @@ void Intervalo::imprimir()const{
 }
 
 
-bool Intervalo::setPeriodo(string strI, string strT){
+void Intervalo::setPeriodo(string strI, string strT){
+    Data tempI, tempT;
 
-    Data tempI, tempT; //usei essas variaveis, pois no if abaixo se uma condi�ao for aceita e a outra nao, uma data vai ser setada definitivamente e nao queremos isso
-    //e declarei elas aqui pois se fosse no hpp, toda vez que eu criasse um objeto Intervalo, ocupario o dobro do espa�o, esses objetos sao simplesmente pra trabalho e soh existem enquanto esse metodo rodar
-     if (tempI.setDMA(strI) && tempT.setDMA(strT)){//if pra checar se as datas individuais estao blz
-            if(tempI.vemAntes(tempT)){
-                this->dataInicio = tempI;
-                this->dataTermino = tempT;
-                this->dataInserida = true;
-                return true;
-            }
-            else{
-                cerr << "Data de termino nao eh maior que data de In�cio!" << endl;
-                return false;
-            }
-     }
+    tempI.setDMA(strI);
+    tempT.setDMA(strT);
 
-     return false;
+
+    if(tempI.vemAntes(tempT)){
+
+        this->dataInicio = tempI;
+        this->dataTermino = tempT;
+        this->dataInserida = true;
+    }
+
+    else{
+        throw invalid_argument("Data de inicio deve ser menor que data de termino!");
+    }
+
 }

@@ -1,10 +1,7 @@
 #ifndef HISTORIADEUSUARIO_HPP
 #define HISTORIADEUSUARIO_HPP
-#include "Dominios/codigo.hpp"
-#include "Dominios/texto.hpp"
-#include "Dominios/tempo.hpp"
-#include "Dominios/estado.hpp"
-#include "Dominios/prioridade.hpp"
+#include "Dominios/dominios.hpp"
+
 
 class HistoriaDeUsuario {
     private:
