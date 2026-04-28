@@ -1,9 +1,9 @@
-#include "codigo.hpp"
+//#include "codigo.hpp"
 #include <cstring>
 #include <cctype>
 #include <stdexcept>
 
-void Codigo::valida(const char s[])
+void Codigo::validar(const& char s[])
 {
     //verifica o tamaho da string
     if(strlen(s) != TAMANHO)

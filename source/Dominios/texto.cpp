@@ -1,4 +1,5 @@
-#include "Dominios/texto.hpp"
+//#include "Dominios/texto.hpp"
+#include "Dominios/dominios.hpp"
 
 #include <cctype>
 #include <string>
@@ -38,8 +39,3 @@ void Texto::validar(const string& texto){
     if( !temEspacoValido(texto) )  throw invalid_argument("Formato da classe texto invalido");// confere se o digito é  espaço em branco o prox é seguido por letra ou dígito;
 
 }
-
-void Texto::setTexto(const string& texto){
-     validar(texto);
-     this->texto = texto;
- }

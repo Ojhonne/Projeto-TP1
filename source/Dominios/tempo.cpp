@@ -1,4 +1,5 @@
-#include "Dominios/tempo.hpp"
+//#include "Dominios/tempo.hpp"
+#include "Dominios/dominios.hpp"
 #include <stdexcept>
 #include <string>
 
@@ -21,8 +22,3 @@ void Tempo::validar(const string& tempo){
         throw std::out_of_range("O numero digitado eh muito grande");
     }
 }
-
- void Tempo::setTempo(const string& tempo){
-    validar(tempo);
-    this->tempo = tempo;
- }

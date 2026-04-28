@@ -1,4 +1,4 @@
-#include "Dominios/data.hpp"
+//#include "Dominios/data.hpp"
 #include <iostream>
 #include <sstream>
 #include <iomanip>

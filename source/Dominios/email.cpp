@@ -3,7 +3,8 @@
 #include <cstring>
 #include <cctype>
 #include <stdexcept>
-#include "email.hpp"
+//#include "email.hpp"
+#include "Dominios/dominios.hpp"
 
 
 using namespace std;
@@ -30,7 +31,7 @@ void Email:: verificaSeparadores(const std::string& s)
 
 }
 
-void Email::verifica(const std::string& entrada)
+void Email::validar(const std::string& entrada)
 {
     size_t pos = entrada.find('@');
 
@@ -81,10 +82,3 @@ void Email::verifica(const std::string& entrada)
 
 }
 
-
-void Email:: set(const std::string& entrada)
-{
-    verifica(entrada);
-
-    this->entrada = entrada;
-}

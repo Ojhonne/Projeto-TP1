@@ -1,4 +1,5 @@
-#include "Dominios/nome.hpp"
+//#include "Dominios/nome.hpp"
+#include "Dominios/dominios.hpp"
 #include <cctype>
 #include <string>
 #include <stdexcept>
@@ -25,9 +26,4 @@ void Nome::validar(const string& nome){
     if(!ehValido(nome)) throw invalid_argument("Formato da classe nome invalido") ; // verifica se existe caracteres nao permitidos na string
     if(!temEspacoValido(nome)) throw invalid_argument("Formato da classe nome invalido"); //se o digito for vazio e proximo não for caracter 
 
-}
-
-void Nome::setNome(const string &nome){
-    validar(nome);
-    this->nome = nome;
 }
