@@ -2,6 +2,8 @@
 #include <stdexcept>
 #include "Dominios/senha.hpp"
 
+using namespace std;
+
 void Senha::validaSenha(std::string senha) {
     int tam_atual{};
     tam_atual = senha.size();
