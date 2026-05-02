@@ -11,10 +11,10 @@ class Senha {
         void validaSenha(std::string);
     public:
         void setSenha(std::string);
-        std::string getSenha();
+        std::string getSenha() const;
 };
 
-inline std::string Senha::getSenha() {
+inline std::string Senha::getSenha() const {
     return senha;
 }
 
