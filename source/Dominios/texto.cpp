@@ -1,4 +1,3 @@
-//#include "Dominios/texto.hpp"
 #include "Dominios/dominios.hpp"
 
 #include <cctype>

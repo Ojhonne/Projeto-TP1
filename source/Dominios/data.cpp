@@ -38,7 +38,7 @@ void Data::validar(const string& str){
 
   int contAlgarismos = 0, contBarras = 0;
 
-  for(int i = 0; i < str.size(); i++){
+  for(size_t i = 0; i < str.size(); i++){
     if(isdigit(str[i])){
         contAlgarismos++;
     }

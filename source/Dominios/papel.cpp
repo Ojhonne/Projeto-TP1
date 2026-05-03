@@ -1,4 +1,3 @@
-//#include "Dominios/papel.hpp"
 #include "Dominios/dominios.hpp"
 #include <stdexcept>
 

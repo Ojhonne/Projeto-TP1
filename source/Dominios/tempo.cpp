@@ -1,4 +1,3 @@
-//#include "Dominios/tempo.hpp"
 #include "Dominios/dominios.hpp"
 #include <stdexcept>
 #include <string>

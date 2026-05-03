@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdexcept>
-//#include "Dominios/senha.hpp"
 #include "Dominios/dominios.hpp"
 
 void Senha::validar(const std::string& senha) {

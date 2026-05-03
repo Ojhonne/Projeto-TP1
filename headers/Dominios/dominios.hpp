@@ -13,7 +13,7 @@ class Dominio{ //classe base Abstrata
         std::string getValor() const;
 };
 
-inline std::string Dominio::getValor() const { //implementação do metodo get
+inline std::string Dominio::getValor() const { 
     return valor;
 }
 
@@ -22,7 +22,7 @@ inline void Dominio::setValor(const std::string &valor){
     this->valor = valor;
 }
 
-class Codigo : public Dominio { // classe codigo
+class Codigo : public Dominio { 
     private:
         static const int TAMANHO = 5;
         void validar(const std::string&);
@@ -44,7 +44,7 @@ class Estado : public Dominio{
         void validar(const std::string&);
    public:
        Estado();
-       // void setValor(const std::string&) override;
+       void setValor(const std::string&) override;
 };
 
 inline const std::string Estado::estado1 = "A FAZER";
@@ -128,7 +128,6 @@ class Data : public Dominio{
        Data();
 };
 
-
 inline int Data::getDia()const{
         return dia;
 }
@@ -138,7 +137,6 @@ inline int Data::getMes()const{
 inline int Data::getAno()const{
         return ano;
 }
-
 
 class Intervalo{
     private:
@@ -152,6 +150,5 @@ class Intervalo{
         Intervalo();
 
 };
-
 
 #endif

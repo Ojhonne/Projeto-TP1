@@ -1,4 +1,3 @@
-//#include "Dominios/prioridade.hpp"
 #include "Dominios/dominios.hpp"
 #include <stdexcept>
 
