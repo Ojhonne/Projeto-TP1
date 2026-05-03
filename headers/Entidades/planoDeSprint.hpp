@@ -1,7 +1,7 @@
 #ifndef PLANODESPRINT
 #define PLANODESPRINT
-#include "Dominios/texto.hpp"
-#include "Dominios/tempo.hpp"
+#include "Dominios/dominios.hpp"
+
 
 using namespace std;
 

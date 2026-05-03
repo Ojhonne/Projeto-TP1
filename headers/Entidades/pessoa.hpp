@@ -1,10 +1,7 @@
 #ifndef PESSOA_HPP
 #define PESSOA_HPP
 
-#include "Dominios/email.hpp"
-#include "Dominios/nome.hpp"
-#include "Dominios/senha.hpp"
-#include "Dominios/papel.hpp"
+#include "Dominios/dominios.hpp"
 
 
 class Pessoa{

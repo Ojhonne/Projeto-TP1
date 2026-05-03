@@ -1,13 +1,4 @@
-#include "Dominios/codigo.hpp" // Certifique-se de que este header declara todas as classes e constantes (TAMANHO, TAM_MAXIMO, etc.)
-#include "Dominios/data.hpp" 
-#include "Dominios/email.hpp" 
-#include "Dominios/estado.hpp" 
-#include "Dominios/nome.hpp"
-#include "Dominios/prioridade.hpp" 
-#include "Dominios/senha.hpp"
-#include "Dominios/tempo.hpp"
-#include "Dominios/texto.hpp"   
-#include "Dominios/papel.hpp"   
+#include "Dominios/dominios.hpp" // Certifique-se de que este header declara todas as classes e constantes (TAMANHO, TAM_MAXIMO, etc.)
 #include <iostream>
 #include <string>
 #include <vector>
@@ -83,12 +74,11 @@ int main() {
         {"1", "15", "365"}, // Válidos
         {"0", "366", "15abc", "-5", " ", ""} // Inválidos
     );
-
-    rodarTestes<Papel>("Tempo",
+    //7.teste
+    rodarTestes<Papel>("Papel",
         {"DESENVOLVEDOR", "MESTRE SCRUM", "PROPRIETARIO DE PRODUTO"}, // Válidos
         {"0", "366", "15abc", "-5", " ", ""} // Inválidos
     );
-
     cout << "Bateria de testes finalizada." << endl;
     return 0;
 }
