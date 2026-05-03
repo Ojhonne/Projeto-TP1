@@ -61,6 +61,11 @@ inline void Estado::validar(const std::string& strEstado){
       }
 }
 
+inline void Estado::setValor(const std::string& strEstado){
+      validar(strEstado);
+      Dominio::setValor(strEstado);
+}
+
 class Nome : public Dominio{
     private:
         static const int TAM_MAXIMO{10};
