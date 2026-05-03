@@ -8,7 +8,7 @@ class Codigo {
     private:
         char codigo[6];
         static const int TAMANHO = 5;
-        void valida(const char s[]);
+        void validar(const char s[]);
 
     public:
         void setCodigo(const char* s);
