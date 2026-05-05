@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['getacao_0',['getAcao',['../class_historia_de_usuario.html#adbd0cd871c37e75f466c83994fcbf6e8',1,'HistoriaDeUsuario']]],
+  ['getano_1',['getAno',['../class_data.html#a986bec10cbca338f08c9096d8e51efb5',1,'Data']]],
+  ['getcodigo_2',['getCodigo',['../class_historia_de_usuario.html#a9fd6c96a529835a6d439f19524bd458b',1,'HistoriaDeUsuario::getCodigo()'],['../class_projeto.html#a65ffd393d41b7c28acd987efa295fcd0',1,'Projeto::getCodigo()']]],
+  ['getdata_3',['getData',['../class_data.html#a13f25eafdc138d743e99eb4086d765a2',1,'Data']]],
+  ['getdia_4',['getDia',['../class_data.html#aa9b7bdc683d9c493d903184e85f1e6b3',1,'Data']]],
+  ['getemail_5',['getEmail',['../class_pessoa.html#a904654f6a79a0936d0df1cd6c36a7e8d',1,'Pessoa']]],
+  ['getestado_6',['getEstado',['../class_historia_de_usuario.html#ad188c71dd7fe94ec6aec8bb6d127cdfa',1,'HistoriaDeUsuario']]],
+  ['getestimativa_7',['getEstimativa',['../class_historia_de_usuario.html#a761945883a676d207e7f63735df30d0c',1,'HistoriaDeUsuario']]],
+  ['getinicio_8',['getInicio',['../class_projeto.html#a9ca5841d6fd682b22905e2a40dd479af',1,'Projeto']]],
+  ['getmes_9',['getMes',['../class_data.html#a1df6f5e1695c7cae56b9ee752a6895e8',1,'Data']]],
+  ['getnome_10',['getNome',['../class_pessoa.html#a6332603563e192e1f692fde126a55105',1,'Pessoa::getNome()'],['../class_projeto.html#a906fb612fca916d274c478c400913abb',1,'Projeto::getNome()']]],
+  ['getpapel_11',['getPapel',['../class_historia_de_usuario.html#a07027b7ba4596cd7843ff7ae4ac5c000',1,'HistoriaDeUsuario::getPapel()'],['../class_pessoa.html#a54f7ae519388a447626671167f43c8b1',1,'Pessoa::getPapel()']]],
+  ['getprioridade_12',['getPrioridade',['../class_historia_de_usuario.html#ada483a77ca6dcfb29c131d78d1fb565c',1,'HistoriaDeUsuario']]],
+  ['getsenha_13',['getSenha',['../class_pessoa.html#a622b211563983aa0e520c5c02b18098a',1,'Pessoa']]],
+  ['gettempo_14',['getTempo',['../class_plano_de_sprint.html#a594568b8c02fa2fa8973a444c0bb4ea0',1,'PlanoDeSprint']]],
+  ['gettermino_15',['getTermino',['../class_projeto.html#a5de0f35ce9c298bb0b21950c9073e9af',1,'Projeto']]],
+  ['gettexto_16',['getTexto',['../class_plano_de_sprint.html#a0a848b1574f1d406a9c75547ee9224fc',1,'PlanoDeSprint']]],
+  ['gettitulo_17',['getTitulo',['../class_historia_de_usuario.html#a0b0732a8307164b63f9d82a13d273b8a',1,'HistoriaDeUsuario']]],
+  ['getvalor_18',['getValor',['../class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3',1,'Dominio::getValor()'],['../class_historia_de_usuario.html#a949104cc7185f2037f53276f351e7180',1,'HistoriaDeUsuario::getValor()']]]
+];
