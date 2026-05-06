@@ -11,7 +11,7 @@ class Dominio{ //classe base Abstrata
     public:
         virtual void setValor(const std::string&);
         std::string getValor() const;
-};g
+};
 
 inline std::string Dominio::getValor() const { 
     return valor;
