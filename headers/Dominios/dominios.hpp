@@ -11,7 +11,7 @@ class Dominio{ //classe base Abstrata
     public:
         virtual void setValor(const std::string&);
         std::string getValor() const;
-};
+};g
 
 inline std::string Dominio::getValor() const { 
     return valor;
@@ -44,7 +44,6 @@ class Estado : public Dominio{
         void validar(const std::string&);
    public:
        Estado();
-       void setValor(const std::string&) override;
 };
 
 inline const std::string Estado::estado1 = "A FAZER";
@@ -61,10 +60,7 @@ inline void Estado::validar(const std::string& strEstado){
       }
 }
 
-inline void Estado::setValor(const std::string& strEstado){
-      validar(strEstado);
-      Dominio::setValor(strEstado);
-}
+
 
 class Nome : public Dominio{
     private:

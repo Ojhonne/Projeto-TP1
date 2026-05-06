@@ -79,6 +79,12 @@ int main() {
         {"DESENVOLVEDOR", "MESTRE SCRUM", "PROPRIETARIO DE PRODUTO"}, // Válidos
         {"0", "366", "15abc", "-5", " ", ""} // Inválidos
     );
+    rodarTestes<Estado>("Estado",
+        { "A FAZER", "FAZENDO", "FEITO"}, // Válidos
+        {"0", "a fazer", "fazendo", "feito", "  ", "4"} // Inválidos
+    );
+
+
     cout << "Bateria de testes finalizada." << endl;
     return 0;
 }
