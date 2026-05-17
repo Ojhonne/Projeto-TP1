@@ -171,6 +171,19 @@ class Senha : public Dominio {
         void validar(const std::string&);
 };
 
+/**
+ * @class Tempo
+ * @brief Representa o formato válido para armazenar um Tempo.
+ *
+ * A classe domínio Tempo herda as operações públicas da classe abstrata Dominio. \n
+ * A classe Tempo representa um valor numérico que determina a duração dos eventos com regras formais de limties e caracteres permitidos.
+ *
+ * Regras:
+ *  - O tamanho minimo é 1.
+ *  - O tamanho maximo é 365.
+ *  - Apenas números são permitidos.
+ */
+
 class Tempo : public Dominio{
     private:
         static const int TAM_MAXIMO{365};
