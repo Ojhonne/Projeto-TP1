@@ -53,6 +53,7 @@ class Dominio{
          * @return std::string O valor validado.
          */
         std::string getValor() const;
+        Dominio() = default;
 };
 
 inline std::string Dominio::getValor() const { 
@@ -64,19 +65,32 @@ inline void Dominio::setValor(const std::string &valor){
     this->valor = valor;
 }
 
-class Codigo : public Dominio { 
+
+class Codigo : public Dominio {
+    public:
+        Codigo(const std::string&);
     private:
         static const int TAMANHO = 5;
         void validar(const std::string&);
 };
 
+inline Codigo::Codigo(const std::string& codigo){
+    setValor(codigo);
+}
+
 class Email : public Dominio{
+    public:
+        Email(const std::string&);
     private:
         static const int LIMITE_DOMINIO = 255;
         static const int LIMITE_PARTE = 64;
         void validar(const std::string& );
         void verificaSeparadores(const std::string& );
 };
+
+inline Email::Email(const std::string& email){
+    setValor(email);
+}
 
 class Estado : public Dominio{
    private:
