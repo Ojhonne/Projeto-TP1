@@ -105,10 +105,10 @@ inline void Estado::validar(const std::string& strEstado){
 
 /**
  * @class Nome
- * @brief Representa o formato válido para armazenar um nome.
+ * @brief Representa o formato válido para armazenar um Nome.
  *
- * A classe domínio Nome herda as operações públicas da classe abstrata Dominio.
- * O dominiío Nome representa palavras que distinguem e identificam uma coisa própria com regras formais
+ * A classe domínio Nome herda as operações públicas da classe abstrata Dominio. \n
+ * A classe Nome representa palavras que distinguem e identificam uma coisa própria com regras formais
  * de espaçamento e caracteres permitidos.
  *
  * Regras:
@@ -146,7 +146,7 @@ class Nome : public Dominio{
         /**
          * @brief Construtor padrão.
          *
-         * Inicializa o nome com string "Sem nome".
+         * Inicializa o nome com string "Sem nome". \n
          * O valor só será validado quando setValor() for chamado.
          */
         Nome();
@@ -183,6 +183,23 @@ inline Tempo::Tempo(){
     setValor("1");
 }
 
+/**
+ * @class Texto
+ * @brief Representa o formato válido para armazenar um Texto.
+ *
+ * A classe domínio Texto herda as operações públicas da classe abstrata Dominio. \n
+ * A classe Texto representa palavras que formam uma maneira de transmitir uma mensagem com regras formais
+ * de espaçamento e caracteres permitidos.
+ *
+ * Regras:
+ *  - Tamanho de até 40 caracteres.
+ *  - Não pode começar ou terminar com espaço em branco, virgula ou ponto.
+ *  - Espaço em branco é deve ser seguido por letra ou digito.
+ *  - Ponto não pode ser seguido por virgula ou ponto.
+ *  - Virgula não pode ser seguido por virgula ou ponto.
+ *  - Apenas letras, espaços, digitos, ponto e virgula são permitidos.
+ */
+
 class Texto : public Dominio{
 
     private:
@@ -193,6 +210,12 @@ class Texto : public Dominio{
         bool temFormatacaoValida(const std::string& );
         bool temEspacoValido(const std::string& );
     public:
+            /**
+         * @brief Construtor padrão.
+         *
+         * Inicializa o nome com string "Sem Texto". \n
+         * O valor só será validado quando setValor() for chamado.
+         */
         Texto();
 };
 inline Texto::Texto(){
