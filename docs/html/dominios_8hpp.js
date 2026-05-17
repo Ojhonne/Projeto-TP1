@@ -4,12 +4,12 @@ var dominios_8hpp =
     [ "Codigo", "class_codigo.html", null ],
     [ "Email", "class_email.html", null ],
     [ "Estado", "class_estado.html", "class_estado" ],
-    [ "Nome", "class_nome.html", null ],
+    [ "Nome", "class_nome.html", "class_nome" ],
     [ "Papel", "class_papel.html", null ],
     [ "Prioridade", "class_prioridade.html", null ],
     [ "Senha", "class_senha.html", null ],
-    [ "Tempo", "class_tempo.html", null ],
-    [ "Texto", "class_texto.html", null ],
+    [ "Tempo", "class_tempo.html", "class_tempo" ],
+    [ "Texto", "class_texto.html", "class_texto" ],
     [ "Data", "class_data.html", "class_data" ],
     [ "Intervalo", "class_intervalo.html", "class_intervalo" ]
 ];

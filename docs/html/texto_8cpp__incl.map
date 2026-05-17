@@ -1,0 +1,13 @@
+<map id="source/Dominios/texto.cpp" name="source/Dominios/texto.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,248,32"/>
+<area shape="rect" id="Node000002" href="$dominios_8hpp.html" title=" " alt="" coords="23,80,180,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,31,123,70,119,66,147,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="23,155,76,181"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="82,35,44,53,27,65,13,81,8,96,11,111,29,142,24,144,6,113,3,95,9,79,23,62,41,48,84,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,155,191,181"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="170,30,191,64,197,86,195,107,175,144,172,140,190,106,191,86,186,66,168,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="255,80,316,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="181,30,253,71,248,73,181,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,106,69,144,65,140,90,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="112,105,138,142,132,142,109,110"/>
+</map>

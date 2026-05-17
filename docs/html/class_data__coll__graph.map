@@ -1,0 +1,5 @@
+<map id="Data" name="Data">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,144,96,363"/>
+<area shape="rect" id="Node000002" href="$class_dominio.html" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="11,5,90,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,109,53,145,48,144,51,114"/>
+</map>

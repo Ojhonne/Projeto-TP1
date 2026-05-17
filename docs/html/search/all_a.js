@@ -18,5 +18,5 @@ var searchData=
   ['settermino_15',['setTermino',['../class_projeto.html#a65941701bfe67bdb761ae3f826f62cec',1,'Projeto']]],
   ['settexto_16',['setTexto',['../class_plano_de_sprint.html#a8c973380f6db2549f1be8f52f95d7e95',1,'PlanoDeSprint']]],
   ['settitulo_17',['setTitulo',['../class_historia_de_usuario.html#afa61720731c9bf2f9eebdfee14fef78a',1,'HistoriaDeUsuario']]],
-  ['setvalor_18',['setValor',['../class_dominio.html#a220fafcb42edefedd265cedec3f84070',1,'Dominio::setValor()'],['../class_estado.html#a76ebb90b47f3c1268a87b9edd0f283f7',1,'Estado::setValor()'],['../class_data.html#ac2b49b528b07481cfddfb8600b2ef5f3',1,'Data::setValor()'],['../class_historia_de_usuario.html#a798877ec1aa80ca2975d8203e2981fff',1,'HistoriaDeUsuario::setValor()']]]
+  ['setvalor_18',['setValor',['../class_dominio.html#a220fafcb42edefedd265cedec3f84070',1,'Dominio::setValor()'],['../class_data.html#ac2b49b528b07481cfddfb8600b2ef5f3',1,'Data::setValor()'],['../class_historia_de_usuario.html#a798877ec1aa80ca2975d8203e2981fff',1,'HistoriaDeUsuario::setValor()']]]
 ];
