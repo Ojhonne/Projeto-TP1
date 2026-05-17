@@ -82,7 +82,12 @@ class Nome : public Dominio{
         void validar(const std::string&);
         bool ehValido(const std::string&);
         bool temEspacoValido(const std::string&);
+    public:
+        Nome();
 };
+inline Nome::Nome(){
+    setValor("Sem nome");
+}
 
 class Papel : public Dominio {
     private:
@@ -105,7 +110,13 @@ class Tempo : public Dominio{
         static const int TAM_MAXIMO{365};
         static const int TAM_MINIMO{1};
         void validar(const std::string&);
+    public:
+        Tempo();
 };
+inline Tempo::Tempo(){
+    setValor("1");
+}
+
 class Texto : public Dominio{
 
     private:
@@ -115,8 +126,13 @@ class Texto : public Dominio{
         bool ehValido(const std::string& );
         bool temFormatacaoValida(const std::string& );
         bool temEspacoValido(const std::string& );
-
+    public:
+        Texto();
 };
+inline Texto::Texto(){
+    setValor("Sem Texto");
+}
+
 
 class Data : public Dominio{
    private:
