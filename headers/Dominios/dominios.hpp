@@ -1,7 +1,6 @@
 /**
- * @file Dominio.hpp
- * @author João Francisco 
- * @brief Definição da classe de domínio Nome para gerenciar a validação do nome.
+ * @file dominios.hpp
+ * @brief Definição da classe base abstrata para os domínios do sistema.
  */
 #ifndef DOMINIOS_HPP_INCLUDED
 #define DOMINIOS_HPP_INCLUDED
@@ -37,6 +36,13 @@ class Dominio{
         virtual void validar(const std::string&) = 0;
     public:
         /**
+         * @brief Destrutor virtual.
+         * 
+         * garante a destruição correta de objetos derivados quando deletados através 
+         * de um ponteiro da classe base.
+         */
+        virtual ~Dominio() = default;
+        /**
          * @brief Define um novo valor para o domínio.
          * 
          * Este método recebe uma string e aciona internamente o método validar() 
@@ -53,6 +59,11 @@ class Dominio{
          * @return std::string O valor validado.
          */
         std::string getValor() const;
+         /**
+         * @brief Construtor padrão.
+         *
+         * Cria um objeto Dominios vazio, com domínios esperando definição.
+         */
         Dominio() = default;
 };
 
