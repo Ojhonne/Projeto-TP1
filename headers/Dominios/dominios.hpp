@@ -258,18 +258,36 @@ inline Nome::Nome(){
 class Papel : public Dominio {
     private:
         void validar(const std::string&);
+    public:
+        Papel(std::string& valor);
 };
+
+inline Papel::Papel(std::string& valor) {
+    setValor(valor);
+}
 
 class Prioridade : public Dominio {
     private:
        void validar(const std::string&);
+    public: 
+        Prioridade();
 };
+
+inline Prioridade::Prioridade() {
+    setValor("BAIXA");
+}
 
 class Senha : public Dominio {
     private:
         static const int TAM_MAXIMO = 6;
         void validar(const std::string&);
+    public:
+        Senha(std::string& valor);
 };
+
+inline Senha::Senha(std::string& valor) {
+    setValor(valor);
+}
 
 /**
  * @class Tempo
