@@ -1,8 +1,8 @@
 var dominios_8hpp =
 [
     [ "Dominio", "class_dominio.html", "class_dominio" ],
-    [ "Codigo", "class_codigo.html", null ],
-    [ "Email", "class_email.html", null ],
+    [ "Codigo", "class_codigo.html", "class_codigo" ],
+    [ "Email", "class_email.html", "class_email" ],
     [ "Estado", "class_estado.html", "class_estado" ],
     [ "Nome", "class_nome.html", "class_nome" ],
     [ "Papel", "class_papel.html", null ],

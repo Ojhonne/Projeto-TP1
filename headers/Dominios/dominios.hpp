@@ -76,27 +76,102 @@ inline void Dominio::setValor(const std::string &valor){
     this->valor = valor;
 }
 
-
+/**
+ * @class Codigo
+ * @brief Representa um codigo identificador valido.
+ *
+ * A classe Codigo herda da classe abstrata Dominio e representa
+ * um identificador de entidade no formato LLDDD, em que:
+ *
+ * - L representa uma letra maiuscula de A a Z.
+ * - D representa um digito de 0 a 9.
+ *
+ * Regras de validacao:
+ * - O codigo deve possuir exatamente 5 caracteres.
+ * - Os dois primeiros caracteres devem ser letras maiusculas.
+ * - Os tres ultimos caracteres devem ser digitos.
+ */
 class Codigo : public Dominio {
-    public:
-        Codigo(const std::string&);
-    private:
-        static const int TAMANHO = 5;
-        void validar(const std::string&);
+public:
+    /**
+     * @brief Constroi um objeto Codigo a partir de uma string.
+     *
+     * @param valor String contendo o codigo a ser validado.
+     *
+     * @throw std::invalid_argument Caso o valor informado nao obedeca
+     * ao formato LLDDD.
+     */
+    Codigo(const std::string& valor);
+
+private:
+    static const int TAMANHO = 5;
+
+    /**
+     * @brief Valida o formato do codigo informado.
+     *
+     * @param valor String a ser validada.
+     *
+     * @throw std::invalid_argument Caso o valor informado seja invalido.
+     */
+    void validar(const std::string& valor);
 };
 
 inline Codigo::Codigo(const std::string& codigo){
     setValor(codigo);
 }
 
-class Email : public Dominio{
-    public:
-        Email(const std::string&);
-    private:
-        static const int LIMITE_DOMINIO = 255;
-        static const int LIMITE_PARTE = 64;
-        void validar(const std::string& );
-        void verificaSeparadores(const std::string& );
+/**
+ * @class Email
+ * @brief Representa o formato valido para um endereco de email.
+ *
+ * Um email eh composto por duas partes separadas pelo caractere '@'(parte-local@dominio) e
+ * atua como identificador de uma entidade.
+ *
+ * Parte local:
+ * - Pode conter letra (a-z), digito (0-9), ponto (.) ou hifen (-).
+ * - Nao pode iniciar ou terminar com ponto ou hifen.
+ * - Ponto ou hifen deve ser seguido por letra(s) ou digito(s).
+ * - Comprimento maximo de 64 caracteres.
+ *
+ * Dominio:
+ * - Composto por uma ou mais partes separadas por ponto (.).
+ * - Cada parte pode conter letra (a-z), digito (0-9) ou hifen (-).
+ * - Nao pode iniciar ou terminar com hifen.
+ * - Comprimento maximo de 255 caracteres.
+ *
+ * Regras adicionais:
+ * - Deve existir exatamente um caractere '@' separando as partes.
+ * - Parte local e dominio nao podem ser vazios.
+ */
+class Email : public Dominio {
+public:
+    /**
+     * @brief Constroi um objeto Email a partir de uma string.
+     *
+     * @param valor String contendo o email a ser validado.
+     *
+     * @throw std::invalid_argument Caso o email nao obedeça
+     * as regras de formato especificadas.
+     */
+    Email(const std::string&);
+
+private:
+    static const int LIMITE_DOMINIO = 255;
+    static const int LIMITE_PARTE = 64;
+
+    /**
+     * @brief Valida o formato geral do email.
+     *
+     * @throw std::invalid_argument em caso de formato invalido.
+     */
+    void validar(const std::string&);
+
+    /**
+     * @brief Verifica o uso correto de separadores ('@', '.', '-').
+     *
+     * @throw std::invalid_argument se os separadores estiverem em posicoes invalidas.
+     */
+    void verificaSeparadores(const std::string&);
 };
 
 inline Email::Email(const std::string& email){

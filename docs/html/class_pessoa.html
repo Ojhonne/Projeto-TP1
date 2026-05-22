@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cProj-TP1: Referência da Classe Pessoa</title>
+<title>DocProj-TP1: Referência da Classe Pessoa</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">cProj-TP1
+   <div id="projectname">DocProj-TP1
    </div>
    <div id="projectbrief">Documentação do trabalho de TP1</div>
   </td>
@@ -120,36 +120,53 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_pessoa.h
 </div><!--header-->
 <div class="contents">
 
+<p>Entidade que representa um usuario do sistema.  
+ <a href="#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="pessoa_8hpp_source.html">pessoa.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de colaboração para Pessoa:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_pessoa__coll__graph.png" border="0" usemap="#a_pessoa_coll__map" loading="lazy" alt="Collaboration graph"/></div>
-<map name="a_pessoa_coll__map" id="a_pessoa_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,92,224"/>
-</map>
+<!-- MAP 0 -->
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
+<tr class="memitem:a07c9dc9687e897de901a0361cdae0401" id="r_a07c9dc9687e897de901a0361cdae0401"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07c9dc9687e897de901a0361cdae0401">setEmail</a> (const <a class="el" href="class_email.html">Email</a> &amp;email)</td></tr>
+<tr class="memdesc:a07c9dc9687e897de901a0361cdae0401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atribui um novo email a pessoa.  <br /></td></tr>
 <tr class="memitem:a904654f6a79a0936d0df1cd6c36a7e8d" id="r_a904654f6a79a0936d0df1cd6c36a7e8d"><td class="memItemLeft">const <a class="el" href="class_email.html">Email</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a904654f6a79a0936d0df1cd6c36a7e8d">getEmail</a> () const</td></tr>
-<tr class="memitem:aaa2c0e6dddfbf2e1a3c6218706ecb325" id="r_aaa2c0e6dddfbf2e1a3c6218706ecb325"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa2c0e6dddfbf2e1a3c6218706ecb325">setEmail</a> (const <a class="el" href="class_email.html">Email</a> &amp;)</td></tr>
+<tr class="memdesc:a904654f6a79a0936d0df1cd6c36a7e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera o email da pessoa.  <br /></td></tr>
+<tr class="memitem:afddbfe1fabc8e39b53f9b59b24702591" id="r_afddbfe1fabc8e39b53f9b59b24702591"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afddbfe1fabc8e39b53f9b59b24702591">setNome</a> (const <a class="el" href="class_nome.html">Nome</a> &amp;nome)</td></tr>
+<tr class="memdesc:afddbfe1fabc8e39b53f9b59b24702591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atribui um novo nome a pessoa.  <br /></td></tr>
 <tr class="memitem:a6332603563e192e1f692fde126a55105" id="r_a6332603563e192e1f692fde126a55105"><td class="memItemLeft">const <a class="el" href="class_nome.html">Nome</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6332603563e192e1f692fde126a55105">getNome</a> () const</td></tr>
-<tr class="memitem:a07eb389b22a0163d5d61617aa6c3fb64" id="r_a07eb389b22a0163d5d61617aa6c3fb64"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07eb389b22a0163d5d61617aa6c3fb64">setNome</a> (const <a class="el" href="class_nome.html">Nome</a> &amp;)</td></tr>
+<tr class="memdesc:a6332603563e192e1f692fde126a55105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera o nome da pessoa.  <br /></td></tr>
+<tr class="memitem:a57ed4246933f9585fc92a4adf9e1f69f" id="r_a57ed4246933f9585fc92a4adf9e1f69f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a57ed4246933f9585fc92a4adf9e1f69f">setSenha</a> (const <a class="el" href="class_senha.html">Senha</a> &amp;senha)</td></tr>
+<tr class="memdesc:a57ed4246933f9585fc92a4adf9e1f69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atribui uma nova senha a pessoa.  <br /></td></tr>
 <tr class="memitem:a622b211563983aa0e520c5c02b18098a" id="r_a622b211563983aa0e520c5c02b18098a"><td class="memItemLeft">const <a class="el" href="class_senha.html">Senha</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a622b211563983aa0e520c5c02b18098a">getSenha</a> () const</td></tr>
-<tr class="memitem:ac5c91d988dff484192c47644aa65c882" id="r_ac5c91d988dff484192c47644aa65c882"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac5c91d988dff484192c47644aa65c882">setSenha</a> (const <a class="el" href="class_senha.html">Senha</a> &amp;)</td></tr>
+<tr class="memdesc:a622b211563983aa0e520c5c02b18098a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera a senha da pessoa.  <br /></td></tr>
+<tr class="memitem:af9fd246c333ffb8c8deef7a4c00fed68" id="r_af9fd246c333ffb8c8deef7a4c00fed68"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9fd246c333ffb8c8deef7a4c00fed68">setPapel</a> (const <a class="el" href="class_papel.html">Papel</a> &amp;papel)</td></tr>
+<tr class="memdesc:af9fd246c333ffb8c8deef7a4c00fed68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o papel da pessoa no sistema.  <br /></td></tr>
 <tr class="memitem:a54f7ae519388a447626671167f43c8b1" id="r_a54f7ae519388a447626671167f43c8b1"><td class="memItemLeft">const <a class="el" href="class_papel.html">Papel</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a54f7ae519388a447626671167f43c8b1">getPapel</a> () const</td></tr>
-<tr class="memitem:ab6736309d629d451bb3e32e6b303c85d" id="r_ab6736309d629d451bb3e32e6b303c85d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab6736309d629d451bb3e32e6b303c85d">setPapel</a> (const <a class="el" href="class_papel.html">Papel</a> &amp;)</td></tr>
+<tr class="memdesc:a54f7ae519388a447626671167f43c8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera o papel da pessoa.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Entidade que representa um usuario do sistema. </p>
+<p>A entidade <a class="el" href="class_pessoa.html" title="Entidade que representa um usuario do sistema.">Pessoa</a> agrupa as informacoes basicas de um usuario, sendo composta por objetos de dominio responsaveis por validar seus respectivos formatos e regras.</p>
+<p>Os dominios utilizados sao:</p><ul>
+<li><a class="el" href="class_email.html" title="Representa o formato valido para um endereco de email.">Email</a> (identificador unico da pessoa)</li>
+<li><a class="el" href="class_nome.html" title="Representa o formato válido para armazenar um Nome.">Nome</a></li>
+<li><a class="el" href="class_senha.html">Senha</a></li>
+<li><a class="el" href="class_papel.html">Papel</a> (define o perfil ou permissao do usuario no sistema)</li>
+</ul>
+<p>Cada atributo encapsula sua propria validacao, garantindo que a entidade <a class="el" href="class_pessoa.html" title="Entidade que representa um usuario do sistema.">Pessoa</a> sempre esteja em um estado consistente.</p>
+<dl class="section note"><dt>Observação</dt><dd><b>Decisao de Arquitetura e Performance:</b> Todos os metodos de acesso (getters) e modificadores (setters) utilizam passagem e retorno por referencia constante (<span class="tt">const Tipo&amp;</span>). Isso evita copias desnecessarias dos objetos de dominio e melhora a performance, alem de manter o encapsulamento da entidade. </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="a904654f6a79a0936d0df1cd6c36a7e8d" name="a904654f6a79a0936d0df1cd6c36a7e8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a904654f6a79a0936d0df1cd6c36a7e8d">&#9670;&#160;</a></span>getEmail()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_email.html">Email</a> &amp; Pessoa::getEmail </td>
@@ -158,12 +175,10 @@ Membros Públicos</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Recupera o email da pessoa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>const <a class="el" href="class_email.html" title="Representa o formato valido para um endereco de email.">Email</a>&amp; Referencia constante para o email armazenado. </dd></dl>
 
 </div>
 </div>
@@ -172,9 +187,6 @@ Membros Públicos</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_nome.html">Nome</a> &amp; Pessoa::getNome </td>
@@ -183,12 +195,10 @@ Membros Públicos</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Recupera o nome da pessoa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>const <a class="el" href="class_nome.html" title="Representa o formato válido para armazenar um Nome.">Nome</a>&amp; Referencia constante para o nome armazenado. </dd></dl>
 
 </div>
 </div>
@@ -197,9 +207,6 @@ Membros Públicos</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_papel.html">Papel</a> &amp; Pessoa::getPapel </td>
@@ -208,12 +215,10 @@ Membros Públicos</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Recupera o papel da pessoa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>const <a class="el" href="class_papel.html">Papel</a>&amp; Referencia constante para o papel armazenado. </dd></dl>
 
 </div>
 </div>
@@ -222,9 +227,6 @@ Membros Públicos</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_senha.html">Senha</a> &amp; Pessoa::getSenha </td>
@@ -233,23 +235,18 @@ Membros Públicos</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Recupera a senha da pessoa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>const <a class="el" href="class_senha.html">Senha</a>&amp; Referencia constante para a senha armazenada. </dd></dl>
 
 </div>
 </div>
-<a id="aaa2c0e6dddfbf2e1a3c6218706ecb325" name="aaa2c0e6dddfbf2e1a3c6218706ecb325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa2c0e6dddfbf2e1a3c6218706ecb325">&#9670;&#160;</a></span>setEmail()</h2>
+<a id="a07c9dc9687e897de901a0361cdae0401" name="a07c9dc9687e897de901a0361cdae0401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c9dc9687e897de901a0361cdae0401">&#9670;&#160;</a></span>setEmail()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Pessoa::setEmail </td>
@@ -258,23 +255,23 @@ Membros Públicos</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Atribui um novo email a pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Referencia constante para o objeto de dominio <a class="el" href="class_email.html" title="Representa o formato valido para um endereco de email.">Email</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a07eb389b22a0163d5d61617aa6c3fb64" name="a07eb389b22a0163d5d61617aa6c3fb64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07eb389b22a0163d5d61617aa6c3fb64">&#9670;&#160;</a></span>setNome()</h2>
+<a id="afddbfe1fabc8e39b53f9b59b24702591" name="afddbfe1fabc8e39b53f9b59b24702591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afddbfe1fabc8e39b53f9b59b24702591">&#9670;&#160;</a></span>setNome()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Pessoa::setNome </td>
@@ -283,23 +280,23 @@ Membros Públicos</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Atribui um novo nome a pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Referencia constante para o objeto de dominio <a class="el" href="class_nome.html" title="Representa o formato válido para armazenar um Nome.">Nome</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ab6736309d629d451bb3e32e6b303c85d" name="ab6736309d629d451bb3e32e6b303c85d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6736309d629d451bb3e32e6b303c85d">&#9670;&#160;</a></span>setPapel()</h2>
+<a id="af9fd246c333ffb8c8deef7a4c00fed68" name="af9fd246c333ffb8c8deef7a4c00fed68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9fd246c333ffb8c8deef7a4c00fed68">&#9670;&#160;</a></span>setPapel()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Pessoa::setPapel </td>
@@ -308,23 +305,23 @@ Membros Públicos</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Define o papel da pessoa no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">papel</td><td>Referencia constante para o objeto de dominio <a class="el" href="class_papel.html">Papel</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ac5c91d988dff484192c47644aa65c882" name="ac5c91d988dff484192c47644aa65c882"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5c91d988dff484192c47644aa65c882">&#9670;&#160;</a></span>setSenha()</h2>
+<a id="a57ed4246933f9585fc92a4adf9e1f69f" name="a57ed4246933f9585fc92a4adf9e1f69f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ed4246933f9585fc92a4adf9e1f69f">&#9670;&#160;</a></span>setSenha()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Pessoa::setSenha </td>
@@ -333,12 +330,15 @@ Membros Públicos</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Atribui uma nova senha a pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">senha</td><td>Referencia constante para o objeto de dominio <a class="el" href="class_senha.html">Senha</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

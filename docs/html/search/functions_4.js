@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
+  ['imprimir_0',['imprimir',['../class_intervalo.html#a59bc1656113867fbc34d3bbd22f53355',1,'Intervalo']]],
+  ['intervalo_1',['Intervalo',['../class_intervalo.html#a9b5b23dda7ee26b444898457959cb03d',1,'Intervalo']]]
 ];

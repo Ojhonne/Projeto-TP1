@@ -1,5 +1,20 @@
 var searchData=
 [
-  ['tempo_0',['Tempo',['../class_tempo.html#a3e796235c481d2c820420567a3d75026',1,'Tempo']]],
-  ['texto_1',['Texto',['../class_texto.html#adb8ed911c0010361142803bc6f97c0db',1,'Texto']]]
+  ['setacao_0',['setAcao',['../class_historia_de_usuario.html#aab7aeabd6ed310fcd7c065daac70151f',1,'HistoriaDeUsuario']]],
+  ['setcodigo_1',['setCodigo',['../class_historia_de_usuario.html#a7b7a8b6070f7405a149b5207a8de720b',1,'HistoriaDeUsuario::setCodigo()'],['../class_projeto.html#adb1e1098e1f9d1eb23d3cb407c827988',1,'Projeto::setCodigo()']]],
+  ['setdma_2',['setDMA',['../class_data.html#ade3509765ddfff5515d38c6abc07b5b8',1,'Data']]],
+  ['setemail_3',['setEmail',['../class_pessoa.html#a07c9dc9687e897de901a0361cdae0401',1,'Pessoa']]],
+  ['setestado_4',['setEstado',['../class_historia_de_usuario.html#ab474655beab5b02759111dcee1faaa2e',1,'HistoriaDeUsuario']]],
+  ['setestimativa_5',['setEstimativa',['../class_historia_de_usuario.html#af450df77612e06df49401636b21601b9',1,'HistoriaDeUsuario']]],
+  ['setinicio_6',['setInicio',['../class_projeto.html#a3bdcc2628e1e9923fc4365f0cc87d3dd',1,'Projeto']]],
+  ['setnome_7',['setNome',['../class_pessoa.html#afddbfe1fabc8e39b53f9b59b24702591',1,'Pessoa::setNome()'],['../class_projeto.html#a653d8397857e75322e84fb346f150e37',1,'Projeto::setNome()']]],
+  ['setpapel_8',['setPapel',['../class_historia_de_usuario.html#ab8cba0ed537f0332800aca0498d8b67d',1,'HistoriaDeUsuario::setPapel()'],['../class_pessoa.html#af9fd246c333ffb8c8deef7a4c00fed68',1,'Pessoa::setPapel()']]],
+  ['setperiodo_9',['setPeriodo',['../class_intervalo.html#a93abe65d1660e6ddb504b82f7b9743de',1,'Intervalo']]],
+  ['setprioridade_10',['setPrioridade',['../class_historia_de_usuario.html#ae469900db4b1677a31eb966ff0f0b955',1,'HistoriaDeUsuario']]],
+  ['setsenha_11',['setSenha',['../class_pessoa.html#a57ed4246933f9585fc92a4adf9e1f69f',1,'Pessoa']]],
+  ['settempo_12',['setTempo',['../class_plano_de_sprint.html#a20c601600428de21269ce888fe8e29dc',1,'PlanoDeSprint']]],
+  ['settermino_13',['setTermino',['../class_projeto.html#a65941701bfe67bdb761ae3f826f62cec',1,'Projeto']]],
+  ['settexto_14',['setTexto',['../class_plano_de_sprint.html#a8c973380f6db2549f1be8f52f95d7e95',1,'PlanoDeSprint']]],
+  ['settitulo_15',['setTitulo',['../class_historia_de_usuario.html#afa61720731c9bf2f9eebdfee14fef78a',1,'HistoriaDeUsuario']]],
+  ['setvalor_16',['setValor',['../class_dominio.html#a220fafcb42edefedd265cedec3f84070',1,'Dominio::setValor()'],['../class_data.html#ac2b49b528b07481cfddfb8600b2ef5f3',1,'Data::setValor()'],['../class_historia_de_usuario.html#a798877ec1aa80ca2975d8203e2981fff',1,'HistoriaDeUsuario::setValor()']]]
 ];

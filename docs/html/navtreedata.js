@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "cProj-TP1", "index.html", [
+  [ "DocProj-TP1", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Lista de Classes", "annotated.html", "annotated_dup" ],
       [ "Índice dos Componentes", "classes.html", null ],
