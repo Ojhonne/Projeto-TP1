@@ -293,13 +293,34 @@ inline Papel::Papel(std::string& valor) {
 
 /**
  * @class Prioridade
- * @brief 
+ * @brief Representa o formato válido para armazenar uma prioridade do usuário.
+ * 
+ * A classe domínio Prioridade herda as operações públicas da classe abstrata Dominio. \n
+ * A classe Prioridade e responsável por garantir que cada usuário receba uma prioridade ao acessar
+ * o programa.
  */
 
 class Prioridade : public Dominio {
     private:
+         /**
+         * @brief Valida a string de acordo com as demandas da aplicação
+         * A string passada deve ser um dos papéis existentes:
+         *  - ALTA;
+         *  - MEDIA;
+         *  - BAIXA;
+         * 
+         * @param prioridade É a string que será verificada.
+         * 
+         */
        void validar(const std::string&);
     public: 
+        /**
+         * @brief Construtor padrão.
+         *
+         * Inicializa o nome com string "BAIXA".
+         * Com o valor baixo, a segurança da aplicação é mantida e seu valor será mudado assim 
+         * que um usuario com maior prioridade acesse o programa.
+         */
         Prioridade();
 };
 
@@ -330,7 +351,7 @@ class Senha : public Dominio {
         /**
          * @brief Valida ou não a senha de acordo com as obrigatoriedades.
          *
-         * @param valor Senha em formato string.
+         * @param senha Senha em formato string.
          * @throw std::invalid_argument Caso alguma regra seja violada.
          */
         void validar(const std::string&);
