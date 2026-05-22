@@ -255,16 +255,46 @@ inline Nome::Nome(){
     setValor("Sem nome");
 }
 
+/**
+ * @class Papel
+ * @brief Representa o formato válido para armazenar um papel do usuário.
+ * 
+ * A classe domínio Papel herda as operações públicas da classe abstrata Dominio. \n
+ * A classe Papel é responsavel por garantir que cada usuário possa receber um papel
+ * que representará seu nível de acesso ao programa
+ */
+
 class Papel : public Dominio {
     private:
+        /**
+         * @brief Valida a string de acordo com as demandas da aplicação
+         * A string passada deve ser um dos papéis existentes:
+         *  - DESENVOLVEDOR;
+         *  - MESTRE SCRUM;
+         *  - PROPRIETARIO DE PRODUTO;
+         * 
+         * @param papel É a string que será verificada
+         * 
+         */
         void validar(const std::string&);
     public:
+        /**
+         * @brief Construtor padrão.
+         *
+         * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de papel.
+         * 
+         */
         Papel(std::string& valor);
 };
 
 inline Papel::Papel(std::string& valor) {
     setValor(valor);
 }
+
+/**
+ * @class Prioridade
+ * @brief 
+ */
 
 class Prioridade : public Dominio {
     private:
@@ -277,11 +307,39 @@ inline Prioridade::Prioridade() {
     setValor("BAIXA");
 }
 
+/**
+ * @class Senha
+ * @brief Representa o formato válido para armazenar uma senha.
+ * 
+ * A senha deve ter exatamente 6 caracteres, eles podem ser: 
+ *  - Letras de A - Z podendo ser maiúsculas ou minúsculas;
+ *  - Digitos de 0 - 9;
+ * 
+ * Para uma senha ser considerada válida ele deve seguir as seguintes obrigatoriedades: 
+ *  - Letra não pode ser seguida por letra;
+ *  - Dígito não pode ser seguido por dígito;
+ *  - Existe pelo menos uma letra minúscula (a-z);
+ *  - Uma letra maiúscula (A-Z);
+ *  - Um dígito (0-9);
+ * 
+ */
+
 class Senha : public Dominio {
     private:
         static const int TAM_MAXIMO = 6;
+        /**
+         * @brief Valida ou não a senha de acordo com as obrigatoriedades.
+         *
+         * @param valor Senha em formato string.
+         * @throw std::invalid_argument Caso alguma regra seja violada.
+         */
         void validar(const std::string&);
     public:
+    /**
+         * @brief Construtor padrão.
+         *
+         * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de senha.
+         */
         Senha(std::string& valor);
 };
 
