@@ -1,0 +1,137 @@
+\doxysection{Plano\+De\+Sprint Class Reference}
+\hypertarget{class_plano_de_sprint}{}\label{class_plano_de_sprint}\index{PlanoDeSprint@{PlanoDeSprint}}
+
+
+Entidade que representa planos de sprint no sistema.  
+
+
+
+
+{\ttfamily \+\#include $<$plano\+De\+Sprint.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_plano_de_sprint_a8c973380f6db2549f1be8f52f95d7e95}{set\+Texto}} (const \doxymbox{\hyperlink{class_texto}{Texto}} \&objetivo)
+\begin{DoxyCompactList}\small\item\em Atribui um novo objetivo ao Plano de Sprint. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_texto}{Texto}} \& \doxymbox{\hyperlink{class_plano_de_sprint_a0a848b1574f1d406a9c75547ee9224fc}{get\+Texto}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o objetivo do Plano de Sprint. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_plano_de_sprint_a20c601600428de21269ce888fe8e29dc}{set\+Tempo}} (const \doxymbox{\hyperlink{class_tempo}{Tempo}} \&capacidade)
+\begin{DoxyCompactList}\small\item\em Atribui uma nova capacidade ao Plano de Sprint. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_tempo}{Tempo}} \& \doxymbox{\hyperlink{class_plano_de_sprint_a594568b8c02fa2fa8973a444c0bb4ea0}{get\+Tempo}} () const
+\begin{DoxyCompactList}\small\item\em Recupera a capacidade do Plano de Sprint. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_plano_de_sprint_a5e43c9da3b821e029055f6e4d824f52c}{set\+Codigo}} (const \doxymbox{\hyperlink{class_codigo}{Codigo}} \&codigo)
+\begin{DoxyCompactList}\small\item\em Atribui um novo código ao Plano de Sprint. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_codigo}{Codigo}} \& \doxymbox{\hyperlink{class_plano_de_sprint_aabd741d8576eb9c9aa84bf75b12471db}{get\+Codigo}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o código atual do Plano de Sprint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entidade que representa planos de sprint no sistema. 
+
+A entidade plano\+De\+Sprint representa uma classe capaz de agrupar informações sobre pĺanos de sprints elaborados pelo usuario a fim de facilitar a organização de projetos. A classe é composta por objetos de domínio, e estes são os responsáveis por garantir que todas as regras básicas de contrução de um plano de sprint, são eles:\+
+
+
+\begin{DoxyItemize}
+\item \doxylink{class_codigo}{Codigo}
+\item \doxylink{class_texto}{Texto}
+\item \doxylink{class_tempo}{Tempo}
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+{\bfseries{Decisão de Arquitetura e Performance:\+}} Todos os métodos de acesso (getters) e modificadores (setters) desta classe utilizam passagem e retorno por referência constante ({\ttfamily const Tipo\&}). Isso garante alta performance ao evitar chamadas aos construtores de cópia dos domínios, além de preservar rigorosamente o encapsulamento da entidade. 
+\end{DoxyNote}
+
+
+\label{class_plano_de_sprint_doc-func-members}
+\Hypertarget{class_plano_de_sprint_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plano_de_sprint_aabd741d8576eb9c9aa84bf75b12471db}\index{PlanoDeSprint@{PlanoDeSprint}!getCodigo@{getCodigo}}
+\index{getCodigo@{getCodigo}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{getCodigo()}{getCodigo()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_aabd741d8576eb9c9aa84bf75b12471db} 
+const \doxymbox{\hyperlink{class_codigo}{Codigo}} \& Plano\+De\+Sprint::\+get\+Codigo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Recupera o código atual do Plano de Sprint. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_codigo}{Codigo}\& Referência constante para o código armazenado. 
+\end{DoxyReturn}
+\Hypertarget{class_plano_de_sprint_a594568b8c02fa2fa8973a444c0bb4ea0}\index{PlanoDeSprint@{PlanoDeSprint}!getTempo@{getTempo}}
+\index{getTempo@{getTempo}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{getTempo()}{getTempo()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_a594568b8c02fa2fa8973a444c0bb4ea0} 
+const \doxymbox{\hyperlink{class_tempo}{Tempo}} \& Plano\+De\+Sprint::\+get\+Tempo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera a capacidade do Plano de Sprint. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_codigo}{Codigo}\& Referência constante para a capacidade armazenado. 
+\end{DoxyReturn}
+\Hypertarget{class_plano_de_sprint_a0a848b1574f1d406a9c75547ee9224fc}\index{PlanoDeSprint@{PlanoDeSprint}!getTexto@{getTexto}}
+\index{getTexto@{getTexto}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{getTexto()}{getTexto()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_a0a848b1574f1d406a9c75547ee9224fc} 
+const \doxymbox{\hyperlink{class_texto}{Texto}} \& Plano\+De\+Sprint::\+get\+Texto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera o objetivo do Plano de Sprint. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_codigo}{Codigo}\& Referência constante para o objetivo armazenado. 
+\end{DoxyReturn}
+\Hypertarget{class_plano_de_sprint_a5e43c9da3b821e029055f6e4d824f52c}\index{PlanoDeSprint@{PlanoDeSprint}!setCodigo@{setCodigo}}
+\index{setCodigo@{setCodigo}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{setCodigo()}{setCodigo()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_a5e43c9da3b821e029055f6e4d824f52c} 
+void Plano\+De\+Sprint::\+set\+Codigo (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_codigo}{Codigo}} \&}]{codigo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Atribui um novo código ao Plano de Sprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em codigo} & Referência constante para o objeto de domínio \doxylink{class_codigo}{Codigo}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_plano_de_sprint_a20c601600428de21269ce888fe8e29dc}\index{PlanoDeSprint@{PlanoDeSprint}!setTempo@{setTempo}}
+\index{setTempo@{setTempo}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{setTempo()}{setTempo()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_a20c601600428de21269ce888fe8e29dc} 
+void Plano\+De\+Sprint::\+set\+Tempo (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_tempo}{Tempo}} \&}]{capacidade}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Atribui uma nova capacidade ao Plano de Sprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capacidade} & Referência constante para o objeto de domínio \doxylink{class_tempo}{Tempo}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_plano_de_sprint_a8c973380f6db2549f1be8f52f95d7e95}\index{PlanoDeSprint@{PlanoDeSprint}!setTexto@{setTexto}}
+\index{setTexto@{setTexto}!PlanoDeSprint@{PlanoDeSprint}}
+\doxysubsubsection{\texorpdfstring{setTexto()}{setTexto()}}
+{\footnotesize\ttfamily \label{class_plano_de_sprint_a8c973380f6db2549f1be8f52f95d7e95} 
+void Plano\+De\+Sprint::\+set\+Texto (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_texto}{Texto}} \&}]{objetivo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Atribui um novo objetivo ao Plano de Sprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em objetivo} & Referência constante para o objeto de domínio \doxylink{class_texto}{Texto}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\+Entidades/\+\doxymbox{\hyperlink{plano_de_sprint_8hpp}{plano\+De\+Sprint.\+hpp}}\end{DoxyCompactItemize}

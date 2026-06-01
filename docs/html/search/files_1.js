@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['data_2ecpp_0',['data.cpp',['../data_8cpp.html',1,'']]],
-  ['dominios_2ehpp_1',['dominios.hpp',['../dominios_8hpp.html',1,'']]]
+  ['historiadeusuario_2ehpp_0',['historiaDeUsuario.hpp',['../historia_de_usuario_8hpp.html',1,'']]]
 ];

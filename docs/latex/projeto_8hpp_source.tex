@@ -1,0 +1,74 @@
+\doxysection{projeto.\+hpp}
+\hypertarget{projeto_8hpp_source}{}\label{projeto_8hpp_source}\index{headers/Entidades/projeto.hpp@{headers/Entidades/projeto.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ PROJETO\_H\_INCLUDED}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ PROJETO\_H\_INCLUDED}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dominios_8hpp}{Dominios/dominios.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_projeto_a4315b01b1f9136ccfcc8d844105bdfd9}{Projeto}}\{}
+\DoxyCodeLine{00032\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_codigo}{Codigo}}\ codigo;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_nome}{Nome}}\ nome;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_data}{Data}}\ inicio;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_data}{Data}}\ termino;}
+\DoxyCodeLine{00037\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_projeto_a4315b01b1f9136ccfcc8d844105bdfd9}{Projeto}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_adb1e1098e1f9d1eb23d3cb407c827988}{setCodigo}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_codigo}{Codigo}}\&\ codigo);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_codigo}{Codigo}}\&\ \doxymbox{\hyperlink{class_projeto_a65ffd393d41b7c28acd987efa295fcd0}{getCodigo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a653d8397857e75322e84fb346f150e37}{setNome}}\ (\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_nome}{Nome}}\&\ nome);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_nome}{Nome}}\&\ \doxymbox{\hyperlink{class_projeto_a906fb612fca916d274c478c400913abb}{getNome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a3bdcc2628e1e9923fc4365f0cc87d3dd}{setInicio}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ inicio);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ \doxymbox{\hyperlink{class_projeto_a9ca5841d6fd682b22905e2a40dd479af}{getInicio}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a65941701bfe67bdb761ae3f826f62cec}{setTermino}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ termino);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ \doxymbox{\hyperlink{class_projeto_a5de0f35ce9c298bb0b21950c9073e9af}{getTermino}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_adb1e1098e1f9d1eb23d3cb407c827988}{Projeto::setCodigo}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_codigo}{Codigo}}\&\ codigo)\{}
+\DoxyCodeLine{00096\ \ \ \ this-\/>codigo\ =\ codigo;}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_codigo}{Codigo}}\&\ \doxymbox{\hyperlink{class_projeto_a65ffd393d41b7c28acd987efa295fcd0}{Projeto::getCodigo}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00100\ \ \ \ \textcolor{keywordflow}{return}\ codigo;}
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a653d8397857e75322e84fb346f150e37}{Projeto::setNome}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_nome}{Nome}}\&\ nome)\{}
+\DoxyCodeLine{00104\ \ \ \ this-\/>nome\ =\ nome;}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_nome}{Nome}}\&\ \doxymbox{\hyperlink{class_projeto_a906fb612fca916d274c478c400913abb}{Projeto::getNome}}()\textcolor{keyword}{const}\{}
+\DoxyCodeLine{00108\ \ \ \ \textcolor{keywordflow}{return}\ nome;}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a3bdcc2628e1e9923fc4365f0cc87d3dd}{Projeto::setInicio}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ inicio)\{}
+\DoxyCodeLine{00112\ \ \ \ this-\/>inicio\ =\ inicio;}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ \doxymbox{\hyperlink{class_projeto_a9ca5841d6fd682b22905e2a40dd479af}{Projeto::getInicio}}()\textcolor{keyword}{const}\{}
+\DoxyCodeLine{00116\ \ \ \ \textcolor{keywordflow}{return}\ inicio;}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_projeto_a65941701bfe67bdb761ae3f826f62cec}{Projeto::setTermino}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ termino)\{}
+\DoxyCodeLine{00120\ \ \ \ this-\/>termino\ =\ termino;}
+\DoxyCodeLine{00121\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_data}{Data}}\&\ \doxymbox{\hyperlink{class_projeto_a5de0f35ce9c298bb0b21950c9073e9af}{Projeto::getTermino}}()\textcolor{keyword}{const}\{}
+\DoxyCodeLine{00124\ \ \ \ \textcolor{keywordflow}{return}\ termino;}
+\DoxyCodeLine{00125\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROJETO\_H\_INCLUDED}}
+
+\end{DoxyCode}

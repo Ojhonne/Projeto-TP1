@@ -1,0 +1,89 @@
+\doxysection{Intervalo Class Reference}
+\hypertarget{class_intervalo}{}\label{class_intervalo}\index{Intervalo@{Intervalo}}
+
+
+Gerencia um período de tempo composto por uma data de início e uma de término.  
+
+
+
+
+{\ttfamily \+\#include $<$dominios.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_intervalo_a93abe65d1660e6ddb504b82f7b9743de}{set\+Periodo}} (std::\+string strI, std::\+string strT)
+\begin{DoxyCompactList}\small\item\em Define e valida o período cronológico do intervalo, buscando primeiramente validar uma instancia de \doxylink{class_data}{Data} de inicio e termino individualmente. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_intervalo_a59bc1656113867fbc34d3bbd22f53355}{imprimir}} () const
+\begin{DoxyCompactList}\small\item\em Imprime o intervalo na tela de forma amigável. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_intervalo_a9b5b23dda7ee26b444898457959cb03d}{Intervalo}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gerencia um período de tempo composto por uma data de início e uma de término. 
+
+Esta classe é responsável por garantir a consistência cronológica de um intervalo, impedindo que a data de início seja posterior à data de término. 
+
+\label{class_intervalo_doc-constructors}
+\Hypertarget{class_intervalo_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_intervalo_a9b5b23dda7ee26b444898457959cb03d}\index{Intervalo@{Intervalo}!Intervalo@{Intervalo}}
+\index{Intervalo@{Intervalo}!Intervalo@{Intervalo}}
+\doxysubsubsection{\texorpdfstring{Intervalo()}{Intervalo()}}
+{\footnotesize\ttfamily \label{class_intervalo_a9b5b23dda7ee26b444898457959cb03d} 
+Intervalo::\+\+Intervalo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão. 
+
+
+\begin{DoxyItemize}
+\item Inicializa o intervalo marcando o estado interno de inserção de dados como falso. 
+\end{DoxyItemize}
+
+\label{class_intervalo_doc-func-members}
+\Hypertarget{class_intervalo_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_intervalo_a59bc1656113867fbc34d3bbd22f53355}\index{Intervalo@{Intervalo}!imprimir@{imprimir}}
+\index{imprimir@{imprimir}!Intervalo@{Intervalo}}
+\doxysubsubsection{\texorpdfstring{imprimir()}{imprimir()}}
+{\footnotesize\ttfamily \label{class_intervalo_a59bc1656113867fbc34d3bbd22f53355} 
+void Intervalo::\+imprimir (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Imprime o intervalo na tela de forma amigável. 
+
+
+\begin{DoxyItemize}
+\item Se o período não tiver sido configurado com sucesso previamente, emite um aviso de erro via cerr. 
+\end{DoxyItemize}\Hypertarget{class_intervalo_a93abe65d1660e6ddb504b82f7b9743de}\index{Intervalo@{Intervalo}!setPeriodo@{setPeriodo}}
+\index{setPeriodo@{setPeriodo}!Intervalo@{Intervalo}}
+\doxysubsubsection{\texorpdfstring{setPeriodo()}{setPeriodo()}}
+{\footnotesize\ttfamily \label{class_intervalo_a93abe65d1660e6ddb504b82f7b9743de} 
+void Intervalo::\+set\+Periodo (\begin{DoxyParamCaption}\item[{std::\+string}]{strI}{, }\item[{std::\+string}]{strT}{}\end{DoxyParamCaption})}
+
+
+
+Define e valida o período cronológico do intervalo, buscando primeiramente validar uma instancia de \doxylink{class_data}{Data} de inicio e termino individualmente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strI} & String representando a data de início. \\
+\hline
+{\em strT} & String representando a data de término. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+invalid\+\_\+argument} & Se a data de início não for cronologicamente menor que a de término. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\+Dominios/\+\doxymbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+source/\+\+Dominios/\+data.\+cpp\end{DoxyCompactItemize}

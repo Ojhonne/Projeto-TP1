@@ -1,0 +1,91 @@
+\doxysection{Email Class Reference}
+\hypertarget{class_email}{}\label{class_email}\index{Email@{Email}}
+
+
+Representa o formato valido para um endereco de email.  
+
+
+
+
+{\ttfamily \+\#include $<$dominios.\+hpp$>$}
+
+Inheritance diagram for Email:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_email}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_email_a61920b1f7602e5eb80edf1e4bd96e6c7}{Email}} (const std::\+string \&)
+\begin{DoxyCompactList}\small\item\em Constroi um objeto \doxylink{class_email}{Email} a partir de uma string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_dominio}{Dominio}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_dominio_a7dcc0fbb141f6bd1c65dd742bc6f2c11}{\texorpdfstring{$\sim$}{\string~}\+Dominio}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor virtual. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_dominio_a220fafcb42edefedd265cedec3f84070}{set\+Valor}} (const std::\+string \&)
+\begin{DoxyCompactList}\small\item\em Define um novo valor para o domínio. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_dominio_ab26077ed7823e2f75ebe81875b36ccb3}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor atualmente armazenado no domínio. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_dominio_a36e14a1dee7f834f9d481149928ba3e7}{Dominio}} ()=default
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa o formato valido para um endereco de email. 
+
+Um email eh composto por duas partes separadas pelo caractere \textquotesingle{}@\textquotesingle{}(parte-\/local@dominio) e atua como identificador de uma entidade.
+
+Parte local:\+
+\begin{DoxyItemize}
+\item Pode conter letra (a-\/z), digito (0-\/9), ponto (.) ou hifen (-\/).
+\item Nao pode iniciar ou terminar com ponto ou hifen.
+\item Ponto ou hifen deve ser seguido por letra(s) ou digito(s).
+\item Comprimento maximo de 64 caracteres.
+\end{DoxyItemize}
+
+\doxylink{class_dominio}{Dominio}:\+
+\begin{DoxyItemize}
+\item Composto por uma ou mais partes separadas por ponto (.).
+\item Cada parte pode conter letra (a-\/z), digito (0-\/9) ou hifen (-\/).
+\item Nao pode iniciar ou terminar com hifen.
+\item Comprimento maximo de 255 caracteres.
+\end{DoxyItemize}
+
+Regras adicionais:\+
+\begin{DoxyItemize}
+\item Deve existir exatamente um caractere \textquotesingle{}@\textquotesingle{} separando as partes.
+\item Parte local e dominio nao podem ser vazios. 
+\end{DoxyItemize}
+
+\label{class_email_doc-constructors}
+\Hypertarget{class_email_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_email_a61920b1f7602e5eb80edf1e4bd96e6c7}\index{Email@{Email}!Email@{Email}}
+\index{Email@{Email}!Email@{Email}}
+\doxysubsubsection{\texorpdfstring{Email()}{Email()}}
+{\footnotesize\ttfamily \label{class_email_a61920b1f7602e5eb80edf1e4bd96e6c7} 
+Email::\+\+Email (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{email}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constroi um objeto \doxylink{class_email}{Email} a partir de uma string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & String contendo o email a ser validado.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+invalid\+\_\+argument} & Caso o email nao obedeça as regras de formato especificadas. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\+Dominios/\+\doxymbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+source/\+\+Dominios/\+email.\+cpp\end{DoxyCompactItemize}

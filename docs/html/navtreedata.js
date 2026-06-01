@@ -24,22 +24,18 @@
 */
 var NAVTREE =
 [
-  [ "DocProj-TP1", "index.html", [
+  [ "My Project", "index.html", [
     [ "Classes", "annotated.html", [
-      [ "Lista de Classes", "annotated.html", "annotated_dup" ],
-      [ "Índice dos Componentes", "classes.html", null ],
-      [ "Hierarquia de Classes", "hierarchy.html", "hierarchy" ],
-      [ "Membros de classe", "functions.html", [
-        [ "Todos", "functions.html", null ],
-        [ "Funções", "functions_func.html", null ]
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
       ] ]
     ] ],
-    [ "Arquivos", "files.html", [
-      [ "Lista de Arquivos", "files.html", "files_dup" ],
-      [ "Membros dos Arquivos", "globals.html", [
-        [ "Todos", "globals.html", null ],
-        [ "Funções", "globals_func.html", null ]
-      ] ]
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
@@ -49,6 +45,6 @@ var NAVTREEINDEX =
 "annotated.html"
 ];
 
-const SYNCONMSG = 'clique para desativar a sincronização do painel';
-const SYNCOFFMSG = 'clique para ativar a sincronização do painel';
-const LISTOFALLMEMBERS = 'Lista de todos os Membros';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';

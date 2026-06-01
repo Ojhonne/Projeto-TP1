@@ -1,3 +1,4 @@
+
 /**
  * @file dominios.hpp
  * @brief Definição da classe base abstrata para os domínios do sistema.
@@ -17,7 +18,7 @@
  * para as classes derivadas (filhas) através de um método virtual puro.
  */
 
-class Dominio{ 
+class Dominio{
     private:
         /**
         * @brief string que represanta o valor interno armazenado após validação.
@@ -25,11 +26,11 @@ class Dominio{
         std::string valor;
         /**
          * @brief Método virtual puro para validação das regras de cada Domínio.
-         * 
-         * Este método dita o contrato de validação. Ele deve ser 
-         * obrigatoriamente implementado pelas classes filhas (como a classe Nome) 
+         *
+         * Este método dita o contrato de validação. Ele deve ser
+         * obrigatoriamente implementado pelas classes filhas (como a classe Nome)
          * contendo as regras específicas de formatação e tamanho.
-         * 
+         *
          * @param valor A string que será submetida à validação.
          * @throw std::invalid_argument Se o valor não atender às regras da classe filha.
          */
@@ -37,25 +38,25 @@ class Dominio{
     public:
         /**
          * @brief Destrutor virtual.
-         * 
-         * garante a destruição correta de objetos derivados quando deletados através 
+         *
+         * garante a destruição correta de objetos derivados quando deletados através
          * de um ponteiro da classe base.
          */
         virtual ~Dominio() = default;
         /**
          * @brief Define um novo valor para o domínio.
-         * 
-         * Este método recebe uma string e aciona internamente o método validar() 
-         * implementado pela classe filha. O valor só será armazenado se a 
+         *
+         * Este método recebe uma string e aciona internamente o método validar()
+         * implementado pela classe filha. O valor só será armazenado se a
          * validação for bem-sucedida.
-         * 
+         *
          * @param valor O novo valor a ser armazenado.
          * @throw std::invalid_argument Se a validação falhar.
          */
         virtual void setValor(const std::string&);
         /**
          * @brief Retorna o valor atualmente armazenado no domínio.
-         * 
+         *
          * @return std::string O valor validado.
          */
         std::string getValor() const;
@@ -67,7 +68,7 @@ class Dominio{
         Dominio() = default;
 };
 
-inline std::string Dominio::getValor() const { 
+inline std::string Dominio::getValor() const {
     return valor;
 }
 
@@ -178,6 +179,15 @@ inline Email::Email(const std::string& email){
     setValor(email);
 }
 
+/**
+ * @class Estado
+ * @brief Representa um estado válido de andamento de tarefa.
+ *
+ * A classe Estado herda as operações públicas da classe abstrata Dominio.
+ * A classe Estado é responsável por garantir que o usuário defina um estado válido, que por sua vez, são eles: "A FAZER", "FAZENDO", "FEITO".
+ *
+ * OBSERVAÇÃO: O estado deve ser EXATAMENTE igual a uma das 3 alternativas, sem letras minúsculas!
+ */
 class Estado : public Dominio{
    private:
         static const std::string estado1;
@@ -185,6 +195,12 @@ class Estado : public Dominio{
         static const std::string estado3;
         void validar(const std::string&);
    public:
+        /**
+         * @brief Construtor padrão.
+         *
+         * Inicializa o estado com estado1, que por sua vez é a string "A FAZER". \n
+         * O valor só será validado quando setValor() for chamado.
+         */
        Estado();
 };
 
@@ -258,7 +274,7 @@ inline Nome::Nome(){
 /**
  * @class Papel
  * @brief Representa o formato válido para armazenar um papel do usuário.
- * 
+ *
  * A classe domínio Papel herda as operações públicas da classe abstrata Dominio. \n
  * A classe Papel é responsavel por garantir que cada usuário possa receber um papel
  * que representará seu nível de acesso ao programa
@@ -272,9 +288,9 @@ class Papel : public Dominio {
          *  - DESENVOLVEDOR;
          *  - MESTRE SCRUM;
          *  - PROPRIETARIO DE PRODUTO;
-         * 
+         *
          * @param papel É a string que será verificada
-         * 
+         *
          */
         void validar(const std::string&);
     public:
@@ -282,7 +298,7 @@ class Papel : public Dominio {
          * @brief Construtor padrão.
          *
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de papel.
-         * 
+         *
          */
         Papel(std::string& valor);
 };
@@ -294,7 +310,7 @@ inline Papel::Papel(std::string& valor) {
 /**
  * @class Prioridade
  * @brief Representa o formato válido para armazenar uma prioridade do usuário.
- * 
+ *
  * A classe domínio Prioridade herda as operações públicas da classe abstrata Dominio. \n
  * A classe Prioridade e responsável por garantir que cada usuário receba uma prioridade ao acessar
  * o programa.
@@ -308,17 +324,17 @@ class Prioridade : public Dominio {
          *  - ALTA;
          *  - MEDIA;
          *  - BAIXA;
-         * 
+         *
          * @param prioridade É a string que será verificada.
-         * 
+         *
          */
        void validar(const std::string&);
-    public: 
+    public:
         /**
          * @brief Construtor padrão.
          *
          * Inicializa o nome com string "BAIXA".
-         * Com o valor baixo, a segurança da aplicação é mantida e seu valor será mudado assim 
+         * Com o valor baixo, a segurança da aplicação é mantida e seu valor será mudado assim
          * que um usuario com maior prioridade acesse o programa.
          */
         Prioridade();
@@ -331,18 +347,18 @@ inline Prioridade::Prioridade() {
 /**
  * @class Senha
  * @brief Representa o formato válido para armazenar uma senha.
- * 
- * A senha deve ter exatamente 6 caracteres, eles podem ser: 
+ *
+ * A senha deve ter exatamente 6 caracteres, eles podem ser:
  *  - Letras de A - Z podendo ser maiúsculas ou minúsculas;
  *  - Digitos de 0 - 9;
- * 
- * Para uma senha ser considerada válida ele deve seguir as seguintes obrigatoriedades: 
+ *
+ * Para uma senha ser considerada válida ele deve seguir as seguintes obrigatoriedades:
  *  - Letra não pode ser seguida por letra;
  *  - Dígito não pode ser seguido por dígito;
  *  - Existe pelo menos uma letra minúscula (a-z);
  *  - Uma letra maiúscula (A-Z);
  *  - Um dígito (0-9);
- * 
+ *
  */
 
 class Senha : public Dominio {
@@ -433,6 +449,16 @@ inline Texto::Texto(){
 }
 
 
+
+/**
+ * @class Data
+ * @brief Representa uma data válida no formato D/MM/AAAA ou DD/MM/AAAA.
+ *
+ * @details A classe Data herda as operações da classe abstrata Dominio e gerencia
+ * valores cronológicos compreendidos entre os anos de 2000 e 2099.
+ * Ela encapsula regras de validação para dias, meses, anos (incluindo anos bissextos)
+ * e impede formatos inconsistentes (como dias iniciados em zero '01/' e meses que nao estao no formato 'MM').
+ */
 class Data : public Dominio{
    private:
        int dia, mes, ano;
@@ -448,13 +474,55 @@ class Data : public Dominio{
        bool ehBissexto(int);//os metodos acima sao parametrizados pois nao sao valores que estoa associados a atributos da classe
 
    public:
+
+       /**
+        * @brief Sobrescreve o método base para definir e validar a data a partir de uma string.
+        * @param str String contendo a data a ser validada e armazenada.
+        * @throw std::invalid_argument Se o formato ou a consistência da data forem inválidos.
+        */
        void setValor(const std::string& str) override;//pq senao ia setar sem atualizar os inteiros componentes de data caso eu chamasse esse metodo antes de toda a etapa de validaçao
+
+       /**
+        * @brief Define individualmente os componentes inteiros de dia, mês e ano após validação.
+        * @param str String contendo a data completa no formato string.
+        * @throw std::invalid_argument ou std::out_of_range se a validação falhar.
+        */
        void setDMA(std::string str);
+
+       /** @brief Recupera o dia armazenado na data.
+        * @return int O valor numérico do dia.
+        */
        int getDia() const;
+
+       /**
+        * @brief Recupera o mês armazenado na data.
+        * @return int O valor numérico do mês.
+        */
        int getMes() const;
+
+       /**
+        * @brief Recupera o ano armazenado na data.
+        * @return int O valor numérico do ano.
+        */
        int getAno() const;
+
+       /**
+        * @brief Formata e retorna a data em formato textual padronizado.
+        * @return std::string A data formatada como string (ex: "5/04/2026").
+        */
        std::string getData() const;
+
+       /**
+        * @brief Verifica se a instância de termino tempT do domínio Data ocorre cronologicamente antes da data de inicio (tempI).
+        * @param tempT Referência constante para o objeto temporario tempT do domínio Data e que será comparado com a data de inicio (tempI).
+        * @return true se tempI for menor/anterior à tempT, false caso contrário.
+        */
        bool vemAntes(const Data&) const;
+
+       /**
+        * @brief Construtor padrão.
+        * * Inicializa a data de forma consistente com o valor padrão: 1/01/2000.
+        */
        Data();
 };
 
@@ -468,6 +536,14 @@ inline int Data::getAno()const{
         return ano;
 }
 
+
+/**
+ * @class Intervalo
+ * @brief Gerencia um período de tempo composto por uma data de início e uma de término.
+ *
+ * @details Esta classe é responsável por garantir a consistência cronológica de um intervalo,
+ * impedindo que a data de início seja posterior à data de término.
+ */
 class Intervalo{
     private:
         Data dataInicio;
@@ -475,8 +551,25 @@ class Intervalo{
         bool dataInserida;
 
     public:
+
+        /**
+         * @brief Define e valida o período cronológico do intervalo, buscando primeiramente validar uma instancia de Data de inicio e termino individualmente.
+         * @param strI String representando a data de início.
+         * @param strT String representando a data de término.
+         * @throw std::invalid_argument Se a data de início não for cronologicamente menor que a de término.
+         */
         void setPeriodo(std::string strI, std::string strT);
+
+        /**
+         * @brief Imprime o intervalo na tela de forma amigável.
+         * * Se o período não tiver sido configurado com sucesso previamente, emite um aviso de erro via cerr.
+         */
         void imprimir()const;
+
+        /**
+         * @brief Construtor padrão.
+         * * Inicializa o intervalo marcando o estado interno de inserção de dados como falso.
+        */
         Intervalo();
 
 };

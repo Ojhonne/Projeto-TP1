@@ -1,0 +1,188 @@
+\doxysection{Projeto Class Reference}
+\hypertarget{class_projeto}{}\label{class_projeto}\index{Projeto@{Projeto}}
+
+
+Classe que representa a entidade \doxylink{class_projeto}{Projeto} no sistema.  
+
+
+
+
+{\ttfamily \+\#include $<$projeto.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_projeto_a4315b01b1f9136ccfcc8d844105bdfd9}{Projeto}} ()=default
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_projeto_adb1e1098e1f9d1eb23d3cb407c827988}{set\+Codigo}} (const \doxymbox{\hyperlink{class_codigo}{Codigo}} \&codigo)
+\begin{DoxyCompactList}\small\item\em Define um objeto codigo para o projeto. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_codigo}{Codigo}} \& \doxymbox{\hyperlink{class_projeto_a65ffd393d41b7c28acd987efa295fcd0}{get\+Codigo}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o objeto codigo do projeto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_projeto_a653d8397857e75322e84fb346f150e37}{set\+Nome}} (const \doxymbox{\hyperlink{class_nome}{Nome}} \&nome)
+\begin{DoxyCompactList}\small\item\em Define um objeto nome ao projeto. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_nome}{Nome}} \& \doxymbox{\hyperlink{class_projeto_a906fb612fca916d274c478c400913abb}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o objeto nome do projeto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_projeto_a3bdcc2628e1e9923fc4365f0cc87d3dd}{set\+Inicio}} (const \doxymbox{\hyperlink{class_data}{Data}} \&inicio)
+\begin{DoxyCompactList}\small\item\em Define um objeto de data de inicio para o projeto. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_data}{Data}} \& \doxymbox{\hyperlink{class_projeto_a9ca5841d6fd682b22905e2a40dd479af}{get\+Inicio}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o objeto que indica inicio do projeto. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_projeto_a65941701bfe67bdb761ae3f826f62cec}{set\+Termino}} (const \doxymbox{\hyperlink{class_data}{Data}} \&termino)
+\begin{DoxyCompactList}\small\item\em Define um objeto de data de termino para o projeto. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{class_data}{Data}} \& \doxymbox{\hyperlink{class_projeto_a5de0f35ce9c298bb0b21950c9073e9af}{get\+Termino}} () const
+\begin{DoxyCompactList}\small\item\em Recupera o objeto que indica termino do projeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa a entidade \doxylink{class_projeto}{Projeto} no sistema. 
+
+A classe \doxylink{class_projeto}{Projeto} agrega os domínios de Código, \doxylink{class_nome}{Nome} e as Datas de início e término, centralizando as informações estruturais de um projeto da aplicação.
+
+Os dominios utilizados sao:\+
+\begin{DoxyItemize}
+\item \doxylink{class_codigo}{Codigo}
+\item \doxylink{class_nome}{Nome}
+\item \doxylink{class_data}{Data} (inicio e termino)
+\end{DoxyItemize}
+
+Cada atributo encapsula sua propria validacao, garantindo que a entidade \doxylink{class_projeto}{Projeto} sempre esteja em um estado consistente.
+
+\begin{DoxyNote}{Note}
+{\bfseries{Decisao de Arquitetura e Performance:\+}} Todos os metodos de acesso (getters) e modificadores (setters) utilizam passagem e retorno por referencia constante ({\ttfamily const Tipo\&}). Isso evita copias desnecessarias dos objetos de dominio e melhora a performance, alem de manter o encapsulamento da entidade. 
+\end{DoxyNote}
+
+
+\label{class_projeto_doc-constructors}
+\Hypertarget{class_projeto_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_projeto_a4315b01b1f9136ccfcc8d844105bdfd9}\index{Projeto@{Projeto}!Projeto@{Projeto}}
+\index{Projeto@{Projeto}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{Projeto()}{Projeto()}}
+{\footnotesize\ttfamily \label{class_projeto_a4315b01b1f9136ccfcc8d844105bdfd9} 
+Projeto::\+\+Projeto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construtor padrão. 
+
+Cria um objeto \doxylink{class_projeto}{Projeto} com seus atributos de domínio inicializados por seus respectivos construtores. 
+
+\label{class_projeto_doc-func-members}
+\Hypertarget{class_projeto_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_projeto_a65ffd393d41b7c28acd987efa295fcd0}\index{Projeto@{Projeto}!getCodigo@{getCodigo}}
+\index{getCodigo@{getCodigo}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{getCodigo()}{getCodigo()}}
+{\footnotesize\ttfamily \label{class_projeto_a65ffd393d41b7c28acd987efa295fcd0} 
+const \doxymbox{\hyperlink{class_codigo}{Codigo}} \& Projeto::\+get\+Codigo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera o objeto codigo do projeto. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_codigo}{Codigo}\& Referencia constante para o objeto (codigo) armazenado do domínio \doxylink{class_codigo}{Codigo}. 
+\end{DoxyReturn}
+\Hypertarget{class_projeto_a9ca5841d6fd682b22905e2a40dd479af}\index{Projeto@{Projeto}!getInicio@{getInicio}}
+\index{getInicio@{getInicio}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{getInicio()}{getInicio()}}
+{\footnotesize\ttfamily \label{class_projeto_a9ca5841d6fd682b22905e2a40dd479af} 
+const \doxymbox{\hyperlink{class_data}{Data}} \& Projeto::\+get\+Inicio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera o objeto que indica inicio do projeto. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_data}{Data}\& Referencia constante para o objeto (inicio) armazenado do domínio \doxylink{class_data}{Data}. 
+\end{DoxyReturn}
+\Hypertarget{class_projeto_a906fb612fca916d274c478c400913abb}\index{Projeto@{Projeto}!getNome@{getNome}}
+\index{getNome@{getNome}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_projeto_a906fb612fca916d274c478c400913abb} 
+const \doxymbox{\hyperlink{class_nome}{Nome}} \& Projeto::\+get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera o objeto nome do projeto. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_nome}{Nome}\& Referencia constante para o objeto (nome) armazenado do domínio \doxylink{class_nome}{Nome}. 
+\end{DoxyReturn}
+\Hypertarget{class_projeto_a5de0f35ce9c298bb0b21950c9073e9af}\index{Projeto@{Projeto}!getTermino@{getTermino}}
+\index{getTermino@{getTermino}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{getTermino()}{getTermino()}}
+{\footnotesize\ttfamily \label{class_projeto_a5de0f35ce9c298bb0b21950c9073e9af} 
+const \doxymbox{\hyperlink{class_data}{Data}} \& Projeto::\+get\+Termino (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recupera o objeto que indica termino do projeto. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_data}{Data}\& Referencia constante para o objeto (termino) armazenado do domínio \doxylink{class_data}{Data}. 
+\end{DoxyReturn}
+\Hypertarget{class_projeto_adb1e1098e1f9d1eb23d3cb407c827988}\index{Projeto@{Projeto}!setCodigo@{setCodigo}}
+\index{setCodigo@{setCodigo}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{setCodigo()}{setCodigo()}}
+{\footnotesize\ttfamily \label{class_projeto_adb1e1098e1f9d1eb23d3cb407c827988} 
+void Projeto::\+set\+Codigo (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_codigo}{Codigo}} \&}]{codigo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define um objeto codigo para o projeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em codigo} & Referencia constante para objeto de dominio \doxylink{class_codigo}{Codigo}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_projeto_a3bdcc2628e1e9923fc4365f0cc87d3dd}\index{Projeto@{Projeto}!setInicio@{setInicio}}
+\index{setInicio@{setInicio}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{setInicio()}{setInicio()}}
+{\footnotesize\ttfamily \label{class_projeto_a3bdcc2628e1e9923fc4365f0cc87d3dd} 
+void Projeto::\+set\+Inicio (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_data}{Data}} \&}]{inicio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define um objeto de data de inicio para o projeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Referencia constante para objeto de dominio \doxylink{class_data}{Data}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_projeto_a653d8397857e75322e84fb346f150e37}\index{Projeto@{Projeto}!setNome@{setNome}}
+\index{setNome@{setNome}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily \label{class_projeto_a653d8397857e75322e84fb346f150e37} 
+void Projeto::\+set\+Nome (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_nome}{Nome}} \&}]{nome}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define um objeto nome ao projeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Referencia constante para o objeto de dominio \doxylink{class_nome}{Nome}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_projeto_a65941701bfe67bdb761ae3f826f62cec}\index{Projeto@{Projeto}!setTermino@{setTermino}}
+\index{setTermino@{setTermino}!Projeto@{Projeto}}
+\doxysubsubsection{\texorpdfstring{setTermino()}{setTermino()}}
+{\footnotesize\ttfamily \label{class_projeto_a65941701bfe67bdb761ae3f826f62cec} 
+void Projeto::\+set\+Termino (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_data}{Data}} \&}]{termino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define um objeto de data de termino para o projeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em termino} & Referencia constante para objeto de dominio \doxylink{class_data}{Data}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\+Entidades/\+projeto.\+hpp\end{DoxyCompactItemize}

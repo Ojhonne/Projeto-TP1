@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cdeghimnprstv~",
+  0: "cdeghinpstv~",
   1: "cdehinpst",
-  2: "cdehmnpst",
-  3: "cdegimnprstv~"
+  2: "dhp",
+  3: "cdeginpstv~"
 };
 
 var indexSectionNames =
@@ -16,9 +16,9 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "Todos",
+  0: "All",
   1: "Classes",
-  2: "Arquivos",
-  3: "Funções"
+  2: "Files",
+  3: "Functions"
 };
 

@@ -1,0 +1,71 @@
+\doxysection{Nome Class Reference}
+\hypertarget{class_nome}{}\label{class_nome}\index{Nome@{Nome}}
+
+
+Representa o formato válido para armazenar um \doxylink{class_nome}{Nome}.  
+
+
+
+
+{\ttfamily \+\#include $<$dominios.\+hpp$>$}
+
+Inheritance diagram for Nome:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_nome}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_nome_a500b022728cd437dd749bfe625a26a4d}{Nome}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_dominio}{Dominio}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_dominio_a7dcc0fbb141f6bd1c65dd742bc6f2c11}{\texorpdfstring{$\sim$}{\string~}\+Dominio}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor virtual. \end{DoxyCompactList}\item 
+virtual void \doxymbox{\hyperlink{class_dominio_a220fafcb42edefedd265cedec3f84070}{set\+Valor}} (const std::\+string \&)
+\begin{DoxyCompactList}\small\item\em Define um novo valor para o domínio. \end{DoxyCompactList}\item 
+std::\+string \doxymbox{\hyperlink{class_dominio_ab26077ed7823e2f75ebe81875b36ccb3}{get\+Valor}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o valor atualmente armazenado no domínio. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_dominio_a36e14a1dee7f834f9d481149928ba3e7}{Dominio}} ()=default
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa o formato válido para armazenar um \doxylink{class_nome}{Nome}. 
+
+A classe domínio \doxylink{class_nome}{Nome} herda as operações públicas da classe abstrata \doxylink{class_dominio}{Dominio}. ~\newline
+A classe \doxylink{class_nome}{Nome} representa palavras que distinguem e identificam uma coisa própria com regras formais de espaçamento e caracteres permitidos.
+
+Regras:\+
+\begin{DoxyItemize}
+\item Tamanho de até 10 caracteres.
+\item Não pode ser vazio.
+\item Não pode começar ou terminar com espaço.
+\item Espaço em branco é deve ser seguido por letra.
+\item Cada termo deve iniciar com letra maiúscula ou minúscula.
+\item Apenas letras e espaços são permitidos. 
+\end{DoxyItemize}
+
+\label{class_nome_doc-constructors}
+\Hypertarget{class_nome_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_nome_a500b022728cd437dd749bfe625a26a4d}\index{Nome@{Nome}!Nome@{Nome}}
+\index{Nome@{Nome}!Nome@{Nome}}
+\doxysubsubsection{\texorpdfstring{Nome()}{Nome()}}
+{\footnotesize\ttfamily \label{class_nome_a500b022728cd437dd749bfe625a26a4d} 
+Nome::\+\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construtor padrão. 
+
+Inicializa o nome com string "{}\+Sem nome"{}. ~\newline
+O valor só será validado quando \doxylink{class_dominio_a220fafcb42edefedd265cedec3f84070}{set\+Valor()} for chamado. 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+headers/\+\+Dominios/\+\doxymbox{\hyperlink{dominios_8hpp}{dominios.\+hpp}}\item 
+source/\+\+Dominios/\+nome.\+cpp\end{DoxyCompactItemize}
