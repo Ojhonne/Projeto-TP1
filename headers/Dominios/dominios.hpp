@@ -262,13 +262,13 @@ class Nome : public Dominio{
         /**
          * @brief Construtor padrão.
          *
-         * Inicializa o nome com string "Sem nome". \n
+         * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
-        Nome();
+        Nome(const std::string&);
 };
-inline Nome::Nome(){
-    setValor("Sem nome");
+inline Nome::Nome(const std::string& nome){
+    setValor(nome);
 }
 
 /**
@@ -403,10 +403,16 @@ class Tempo : public Dominio{
         static const int TAM_MINIMO{1};
         void validar(const std::string&);
     public:
-        Tempo();
+        /**
+         * @brief Construtor padrão.
+         *
+         * Inicializa o nome com string recebida pelo usuario. \n
+         * O valor só será validado quando setValor() for chamado.
+         */
+        Tempo(const std::string& );
 };
-inline Tempo::Tempo(){
-    setValor("1");
+inline Tempo::Tempo(const std::string& tempo){
+    setValor(tempo);
 }
 
 /**
@@ -439,13 +445,13 @@ class Texto : public Dominio{
             /**
          * @brief Construtor padrão.
          *
-         * Inicializa o nome com string "Sem Texto". \n
+         * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
-        Texto();
+        Texto(const std::string&);
 };
-inline Texto::Texto(){
-    setValor("Sem Texto");
+inline Texto::Texto(const std::string& texto){
+    setValor(texto);
 }
 
 

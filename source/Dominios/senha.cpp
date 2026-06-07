@@ -5,6 +5,10 @@
 void Senha::validar(const std::string& senha) {
     int tam_atual{};
     tam_atual = senha.size();
+
+
+
+
     if(tam_atual > TAM_MAXIMO || tam_atual < TAM_MAXIMO) throw std::invalid_argument("Senha invalida");
     int k{},j{};
     int check_min{}, check_mai{}, check_dig{};

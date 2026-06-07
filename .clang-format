@@ -1,0 +1,34 @@
+---
+Language: Cpp
+# Usa o estilo do Google como base
+BasedOnStyle: Google
+
+# Sobrescreve o padrão do Google (que é 2) para 4 espaços, melhorando a leitura
+IndentWidth: 4
+
+# Mantém public/private alinhados à esquerda na classe
+AccessModifierOffset: -4
+
+# Chaves na mesma linha da declaração (if, while, funções, classes)
+BreakBeforeBraces: Attach
+
+# Impede que if e funções curtas fiquem em uma linha só
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+
+# Ponteiros e referências colados no tipo (ex: int* ptr, não int *ptr)
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Limite de colunas para quebra de linha automática (útil para não ter linhas infinitas)
+ColumnLimit: 120
+
+# Organiza automaticamente as suas bibliotecas (#include) em ordem alfabética
+SortIncludes: true:
+
+#Alinha verticalmente os sinais de igual (=) quando você declara várias variáveis em sequência
+AlignConsecutiveAssignments: true
+
+#Impede espaço em branco seguidos no meio do codigo
+MaxEmptyLinesToKeep: 1
+---
