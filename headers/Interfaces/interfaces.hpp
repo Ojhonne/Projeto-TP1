@@ -1,3 +1,8 @@
+/**
+ * @file interfaces.hpp
+ * @brief Definição das interfaces do sistema.
+ */
+
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
@@ -15,30 +20,92 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
 
+/**
+ * @interface Esta interface é responsável por permitir que o usuario faça login usando
+ *  o email como forma de autenticação.
+ */
+
 class IApresentacaoLogin {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
+
     virtual ~IApresentacaoLogin() = default;
+
+    /**
+     * @brief Autentica o usuário por meio da chave email.
+     * @param Email é a chave na qual o usuário deverá apresentar, caso o email esteja
+     * dentre os autenticados, o usuário poderá fazer login.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da autenticidade do email.
+     */
 
     virtual bool autenticar(Email&) = 0;
 };
 
+/**
+ * @interface Esta interface é responsável por iniciar a apresentação de cadastro
+ * caso o usuário não ainda não tenha.
+ */
+
 class IApresentacaoCadastro {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
     virtual ~IApresentacaoCadastro() = default;
+
+    /**
+     * @brief Executa a apresentação de cadastro de modo com que o usuário possa
+     * fazer o cadastro e, posteriormente, realizar o login, a fim de conseguir
+     * acesso ao sistema.
+     */
 
     virtual void executar() = 0;
 };
 
+    /**
+     * @interface Esta interface é responsável por permitir com que o usuário
+     * possa ter acesso ao planejamento de planos de sprint.
+     */
+
 class IApresentacaoPlanejamento {
 public:
+
+    /**
+     * @brief Desstrutor virtual padrão.
+     */
+
     virtual ~IApresentacaoPlanejamento() = default;
+
+    /**
+     * @brief Executa a interface de apresentação de planejamento, permitindo com que 
+     * o usuario possa usá-la.
+     * @param Email é utilizado com o intuito de identificar o usuário que está usando
+     * a interface e realizando o planejamento.
+     */
 
     virtual void executar(const Email&) = 0;
 };
 
+/**
+ * @interface Esta interface é a responsável por tornar possível a interação 
+ * do usuário com as histórias de usuário.
+ */
+
 class IApresentacaoBacklog {
 public:
+    /**
+     * @brief Destrutor padrão virtual.
+     */
     virtual ~IApresentacaoBacklog() = default;
+
+    /**
+     * @brief Executa a interface de backlog, permitindo com que o usuário possa
+     * ter acesso a tela de backlog e criar uma história de usuário.
+     * @param Email é utilizado com o intuito de identificar o usuário que está usando
+     * a interface e realizando a história.
+     */
 
     virtual void executar(const Email&) = 0;
 };
