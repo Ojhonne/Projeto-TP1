@@ -1,8 +1,6 @@
 #ifndef CRTLAPRESENTACAOLOGIN_H_INCLUDED
 #define CRTLAPRESENTACAOLOGIN_H_INCLUDED
 
-#include <string.h>
-
 #ifdef _WIN32
     #include <curses.h> 
 #elif __linux__
@@ -11,7 +9,10 @@
     #error "Sistema operacional nao suportado para esta biblioteca."
 #endif
 
+#include <string.h>
+#include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
+
 
 //------------------------------------------------------------------------
 // Declaração de controladora e implementação de método.
@@ -21,7 +22,7 @@ class CntrApresentacaoLogin : public IApresentacaoLogin{
         IServicoAutenticacao *servicoAutenticacao;  // Referência para servidor.
 
     public:
-        bool autenticar(Email&);
+        bool autenticar(const Email&);
         void setCtrlServicoAutenticacao(IServicoAutenticacao*);
 };
 

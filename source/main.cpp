@@ -13,10 +13,10 @@
     #error "Sistema operacional nao suportado para esta biblioteca."
 #endif
 
-#include "Dominios\dominios.hpp"
-#include "Interfaces\interfaces.hpp"
-#include "Controladoras\CrtlApresentacaoLogin.hpp"
-#include "Stubs\stubs.hpp"
+#include "Dominios/dominios.hpp"
+#include "Interfaces/interfaces.hpp"
+#include "Controladoras/CrtlApresentacaoLogin.hpp"
+#include "Stubs/stubs.hpp"
 
 
 using namespace std;
@@ -24,10 +24,9 @@ using namespace std;
 int main()
 {
     IApresentacaoLogin *cntr;
-    IServicoAutenticacao *stub;
+    IServicoAutenticacao *stub; 
 
     Email email("joaof@gmail.com");
-
 
     bool resultado;
 

@@ -1,11 +1,14 @@
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
-#include "Dominios/dominios.hpp"
-#include "Entidades/historiaDeUsuario.hpp"
-#include "Entidades/pessoa.hpp"
-#include "Entidades/planoDeSprint.hpp"
-#include "Entidades/projeto.hpp"
+class Email;
+class Senha;
+class Codigo;
+class Estado;
+class Pessoa;
+class Projeto;
+class PlanoDeSprint;
+class HistoriaDeUsuario;
 
 // Interfaces da camada de apresentacao
 /*
@@ -16,17 +19,21 @@ irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
 // Forward declarations.
 class IServicoAutenticacao;
+class IServicoPessoa;
+class IServicoPlanejamento;
+class IServicoBacklog;
 
 class IApresentacaoLogin {
 public:
     virtual ~IApresentacaoLogin() = default; // Método destrutor virtual.
     virtual void setCtrlServicoAutenticacao(IServicoAutenticacao*) = 0;   
-    virtual bool autenticar(Email&) = 0;
+    virtual bool autenticar(const Email&) = 0;
 };
 
 class IApresentacaoCadastro {
 public:
     virtual ~IApresentacaoCadastro() = default;
+    virtual void setCtrlServicoPessoa(IServicoPessoa*) = 0;
 
     virtual void executar() = 0;
 };
@@ -34,14 +41,14 @@ public:
 class IApresentacaoPlanejamento {
 public:
     virtual ~IApresentacaoPlanejamento() = default;
-
+    virtual void setCtrlServicoPlanejamento(IServicoPlanejamento*) = 0;
     virtual void executar(const Email&) = 0;
 };
 
 class IApresentacaoBacklog {
 public:
     virtual ~IApresentacaoBacklog() = default;
-
+    virtual void setCtrlServicoBacklog(IServicoBacklog*) = 0;
     virtual void executar(const Email&) = 0;
 };
 
