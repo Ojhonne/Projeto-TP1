@@ -118,58 +118,278 @@ já que esses sim serão parâmetros modificados. Uma observação importante, o
 os quais serão utilizados para referênciar a entidade que o método se aplicará.
 */
 
+/**
+ * @interface Esta interface é responsável por fazer o link entre a interface
+ * de apresentação de login e o sistema.
+ */
+
 class IServicoAutenticacao {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
     virtual ~IServicoAutenticacao() = default;
+
+    /**
+     * @brief Autentica um usuário por meio do email e da senha fornecidos.
+     * @param Email é a chave utilizada para identificar o usuário a ser autenticado.
+     * @param Senha é utilizada para verificar se a credencial apresentada é válida.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da autenticidade
+     * das credenciais fornecidas.
+     */
 
     virtual bool autenticarPessoa(const Email&, const Senha&) = 0;
 };
 
+/**
+ * @interface Esta interface é responsável por tornar possível a criação, leitura, atualização
+ * e exclusão de uma pessoa.
+ */
+
 class IServicoPessoa {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
     virtual ~IServicoPessoa() = default;
 
+    /**
+     * @brief Cria uma nova pessoa no sistema.
+     * @param Pessoa contém todos os dados necessários para o cadastro da pessoa.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
+     */
+
     virtual bool criarPessoa(const Pessoa&) = 0;
+
+    /**
+     * @brief Lê os dados de uma pessoa cadastrada no sistema.
+     * @param Email é a chave utilizada para identificar a pessoa a ser consultada.
+     * @param Pessoa será preenchida com os dados da pessoa encontrada.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência da pessoa.
+     */
+
     virtual bool lerPessoa(const Email&, Pessoa&) = 0;
+
+    /**
+     * @brief Atualiza os dados de uma pessoa cadastrada no sistema com base nos novos dados
+     * fornecidos pelo usuário.
+     * @param Pessoa contém os novos dados da pessoa a serem persistidos.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
+     */
+
     virtual bool atualizarPessoa(const Pessoa&) = 0;
+
+    /**
+     * @brief Exclui uma pessoa do sistema.
+     * @param Email é a chave utilizada para identificar a pessoa a ser removida.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
+     */
+
     virtual bool excluirPessoa(const Email&) = 0;
 };
 
+/**
+ * @interface Esta interface é responsável por fazer o link entre a interface
+ * de apresentação de planejamento e o sistema.
+ */
+
 class IServicoPlanejamento {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
     virtual ~IServicoPlanejamento() = default;
 
+    /**
+     * @brief Cria um novo projeto no sistema.
+     * @param Projeto contém os dados do projeto a ser criado.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
+     */
+
     virtual bool criarProjeto(const Projeto&) = 0;
+
+    /**
+     * @brief Lê os dados de um projeto cadastrado no sistema.
+     * @param Codigo é a chave utilizada para identificar o projeto.
+     * @param Projeto será preenchido com os dados do projeto encontrado.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do projeto.
+     */
+
     virtual bool lerProjeto(const Codigo&, Projeto&) = 0;
+
+    /**
+     * @brief Atualiza os dados de um projeto cadastrado no sistema com base nos novos dados
+     * fornecidos pelo usuário.
+     * @param Projeto contém os novos dados do projeto a serem persistidos.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
+     */
+
     virtual bool atualizarProjeto(const Projeto&) = 0;
+
+    /**
+     * @brief Exclui um projeto do sistema.
+     * @param Codigo é a chave utilizada para identificar o projeto a ser removido.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
+     */
+
     virtual bool excluirProjeto(const Codigo&) = 0;
 
+    /**
+     * @brief Cria um novo plano de sprint no sistema.
+     * @param PlanoDeSprint contém os dados do plano de sprint a ser criado.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
+     */
+
     virtual bool criarPlanoSprint(const PlanoDeSprint&) = 0;
+
+    /**
+     * @brief Lê os dados de um plano de sprint cadastrado no sistema.
+     * @param Codigo é a chave utilizada para identificar o plano de sprint.
+     * @param PlanoDeSprint será preenchido com os dados do plano encontrado.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do plano.
+     */
+
     virtual bool lerPlanoSprint(const Codigo&, PlanoDeSprint&) = 0;
+
+    /**
+     * @brief Atualiza os dados de um plano de sprint cadastrado no sistema com base nos novos dados
+     * fornecidos pelo usuário.
+     * @param PlanoDeSprint contém os novos dados do plano a serem persistidos.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
+     */
+
     virtual bool atualizarPlanoSprint(const PlanoDeSprint&) = 0;
+
+    /**
+     * @brief Exclui um plano de sprint do sistema.
+     * @param Codigo é a chave utilizada para identificar o plano a ser removido.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
+     */
+
     virtual bool excluirPlanoSprint(const Codigo&) = 0;
 
+    /**
+     * @brief Lista os projetos associados a uma pessoa.
+     * @param Email é a chave utilizada para identificar a pessoa.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados.
+     */
+
     virtual bool listarProjetosAssociadosPessoa(const Email&) = 0;
+
+    /**
+     * @brief Lista os planos de sprint associados a um projeto.
+     * @param Codigo é a chave utilizada para identificar o projeto.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de planos associados.
+     */
+
+
     virtual bool listarPlanosSprintAssociadosProjeto(const Codigo&) = 0;
 };
 
+/**
+ * @interface Esta interface é responsável por fazer o link entre a interface
+ * de apresentação de backlog e o sistema.
+ */
+
 class IServicoBacklog {
 public:
+    /**
+     * @brief Destrutor virtual padrão.
+     */
     virtual ~IServicoBacklog() = default;
 
+    /**
+     * @brief Cria uma nova história de usuário no sistema.
+     * @param HistoriaDeUsuario contém os dados da história a ser criada.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
+     */
+
     virtual bool criarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+
+    /**
+     * @brief Lê os dados de uma história de usuário cadastrada no sistema.
+     * @param Codigo é a chave utilizada para identificar a história.
+     * @param HistoriaDeUsuario será preenchida com os dados da história encontrada.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência da história.
+     */
+
     virtual bool lerHistoriaUsuario(const Codigo&, HistoriaDeUsuario&) = 0;
+
+    /**
+     * @brief Atualiza os dados de uma história de usuário cadastrada no sistema com base nos novos dados
+     * fornecidos pelo usuário.
+     * @param HistoriaDeUsuario contém os novos dados da história a serem persistidos.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
+     */
+
     virtual bool atualizarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+
+    /**
+     * @brief Exclui uma história de usuário do sistema.
+     * @param Codigo é a chave utilizada para identificar a história a ser removida.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
+     */
+
     virtual bool excluirHistoriaUsuario(const Codigo&) = 0;
 
+    /**
+     * @brief Associa uma história de usuário a uma pessoa.
+     * @param Codigo é a chave utilizada para identificar a história.
+     * @param Email é a chave utilizada para identificar a pessoa.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
+     */
+
     virtual bool associarHistoriaPessoa(const Codigo&, const Email&) = 0;
+
+    /**
+     * @brief Remove a associação entre uma história de usuário e uma pessoa.
+     * @param Codigo é a chave utilizada para identificar a história.
+     * @param Email é a chave utilizada para identificar a pessoa.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção.
+     */
+
     virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&) = 0;
 
+    /**
+     * @brief Lista as histórias de usuário associadas a um projeto.
+     * @param Codigo é a chave utilizada para identificar o projeto.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
+     */
+
     virtual bool listarHistoriasAssociadasProjeto(const Codigo&) = 0;
+
+    /**
+     * @brief Lista as histórias de usuário associadas a um plano de sprint.
+     * @param Codigo é a chave utilizada para identificar o plano de sprint.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
+     */
+    
     virtual bool listarHistoriasAssociadasPlanoSprint(const Codigo&) = 0;
+
+    /**
+     * @brief Lista as histórias de usuário associadas a uma pessoa.
+     * @param Email é a chave utilizada para identificar a pessoa.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
+     */
+
     virtual bool listarHistoriasAssociadasPessoa(const Email&) = 0;
 
+    /**
+     * @brief Move uma história de usuário de um projeto para um plano de sprint.
+     * @param Codigo é a chave utilizada para identificar a história.
+     * @param Codigo é a chave utilizada para identificar o plano de sprint de destino.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
+     */
+
     virtual bool moverHistoriaProjetoParaSprint(const Codigo&, const Codigo&) = 0;
+
+    /**
+     * @brief Altera o estado de uma história de usuário.
+     * @param Codigo é a chave utilizada para identificar a história.
+     * @param Estado representa o novo estado da história.
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da alteração.
+     */
+
     virtual bool alterarEstadoHistoria(const Codigo&, const Estado&) = 0;
 };
 
