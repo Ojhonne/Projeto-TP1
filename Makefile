@@ -6,6 +6,9 @@ ifeq ($(OS),Windows_NT)
     SAFE_MKDIR = if not exist $(subst /,\,$1) mkdir $(subst /,\,$1)
     EXEC_EXT = .exe
     
+    # Biblioteca de interface para Windows (MinGW)
+    LDLIBS = -lpdcurses
+    
     # Regra de compilação para criar a pasta do objeto no Windows
     define CREATE_DIR_WIN
         if not exist $(subst /,\,$(dir $@)) mkdir $(subst /,\,$(dir $@))
@@ -18,6 +21,9 @@ else
     RM = rm -rf
     SAFE_MKDIR = mkdir -p $1
     EXEC_EXT =
+    
+    # Biblioteca de interface nativa para Linux
+    LDLIBS = -lncurses
     
     # Regra de compilação para criar a pasta do objeto no Linux
     define CREATE_DIR_LINUX
@@ -43,9 +49,10 @@ OBJECTS  := $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 # 4. Regras
 all: $(TARGET)
 
+# O $(LDLIBS) DEVE vir no final do comando, após os objetos
 $(TARGET): $(OBJECTS)
 	$(call SAFE_MKDIR,$(BIN_DIR))
-	$(CXX) $(OBJECTS) -o $(TARGET)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDLIBS)
 
 # Regra condicional para criar diretórios durante a compilação dos .o
 ifeq ($(OS),Windows_NT)

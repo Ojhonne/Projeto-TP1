@@ -11,7 +11,7 @@
     #error "Sistema operacional nao suportado para esta biblioteca."
 #endif
 
-#include "interfaces.hpp"
+#include "Interfaces/interfaces.hpp"
 
 //------------------------------------------------------------------------
 // Declaração de controladora e implementação de método.
@@ -21,8 +21,8 @@ class CntrApresentacaoLogin : public IApresentacaoLogin{
         IServicoAutenticacao *servicoAutenticacao;  // Referência para servidor.
 
     public:
-        bool autenticar(Email&) override;
-        void setCtrlServicoAutenticacao(IServicoAutenticacao*) override;
+        bool autenticar(Email&);
+        void setCtrlServicoAutenticacao(IServicoAutenticacao*);
 };
 
 inline void CntrApresentacaoLogin::setCtrlServicoAutenticacao(IServicoAutenticacao* servicoAutenticacao){

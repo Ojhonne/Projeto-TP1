@@ -14,11 +14,13 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 . Com exceção da interface de cadastro, a qual não prove nenhum serviço diretamente ao usuário, somente cria a conta. Os métodos sempre
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
+// Forward declarations.
+class IServicoAutenticacao;
 
 class IApresentacaoLogin {
 public:
-    virtual ~IApresentacaoLogin() = default;
-
+    virtual ~IApresentacaoLogin() = default; // Método destrutor virtual.
+    virtual void setCtrlServicoAutenticacao(IServicoAutenticacao*) = 0;   
     virtual bool autenticar(Email&) = 0;
 };
 
