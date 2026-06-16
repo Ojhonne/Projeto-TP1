@@ -20,7 +20,7 @@
  * e os valida através da camada de serviço.
  */
 
-class CntrApresentacaoLogin : public IApresentacaoLogin{
+class CrtlApresentacaoLogin : public IApresentacaoLogin{
     private:
         IServicoAutenticacao *servicoAutenticacao;  // Referência para servidor.
 
@@ -28,7 +28,7 @@ class CntrApresentacaoLogin : public IApresentacaoLogin{
         /**
          * @brief Destrutor virtual padrão.
          */
-        virtual ~CntrApresentacaoLogin() = default;
+        virtual ~CrtlApresentacaoLogin() = default;
         /**
          * @brief Define o metodo para autenticar o usuário.
          * * Solicita o email e a senha via interface de terminal. Se as credenciais forem válidas,
@@ -46,7 +46,7 @@ class CntrApresentacaoLogin : public IApresentacaoLogin{
         void setCtrlServicoAutenticacao(IServicoAutenticacao*) override;
 };
 
-inline void CntrApresentacaoLogin::setCtrlServicoAutenticacao(IServicoAutenticacao* servicoAutenticacao){
+inline void CrtlApresentacaoLogin::setCtrlServicoAutenticacao(IServicoAutenticacao* servicoAutenticacao){
     this->servicoAutenticacao = servicoAutenticacao;
 }
 
