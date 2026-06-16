@@ -37,7 +37,7 @@ int main()
 
     initscr();                                                                      // Iniciar curses.
 
-    resultado = cntr->autenticar(email);                                             // Solicitar serviço de autenticacao.
+    resultado = cntr->executar(email);                                             // Solicitar serviço de autenticacao.
 
     endwin();                                                                       // Finalizar curses.
 

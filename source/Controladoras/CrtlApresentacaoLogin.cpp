@@ -1,9 +1,18 @@
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
+#ifdef _WIN32
+    #include <curses.h> 
+#elif __linux__
+    #include <ncurses.h>
+#else
+    #error "Sistema operacional nao suportado para esta biblioteca."
+#endif
+
+#include <string>
 #include <iostream>
 #include <stdexcept>
 #include <cstring>
 
-bool CntrApresentacaoLogin::autenticar(const Email&) {
+bool CntrApresentacaoLogin::executar(Email&) {
     initscr();
     start_color();
     cbreak();

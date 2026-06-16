@@ -1,29 +1,49 @@
+/**
+ * 
+ * @file CrtlApresentacaoLogin.hpp
+ * @brief Definição da controladora da apresentação de login.
+ */
+
 #ifndef CRTLAPRESENTACAOLOGIN_H_INCLUDED
 #define CRTLAPRESENTACAOLOGIN_H_INCLUDED
 
-#ifdef _WIN32
-    #include <curses.h> 
-#elif __linux__
-    #include <ncurses.h>
-#else
-    #error "Sistema operacional nao suportado para esta biblioteca."
-#endif
 
-#include <string.h>
 #include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
 
 
-//------------------------------------------------------------------------
-// Declaração de controladora e implementação de método.
+/**
+ * @class CntrApresentacaoLogin
+ * @brief Controladora da apresentação de login, responsável por interagir com o usuário e autenticá-lo.
+ * * Esta classe implementa a interface IApresentacaoLogin e utiliza um serviço de autenticação para verificar 
+ * as credenciais do usuário. A classe interage com o usuário via terminal (ncurses), captura o email e a senha, 
+ * e os valida através da camada de serviço.
+ */
 
 class CntrApresentacaoLogin : public IApresentacaoLogin{
     private:
         IServicoAutenticacao *servicoAutenticacao;  // Referência para servidor.
 
     public:
-        bool autenticar(const Email&);
-        void setCtrlServicoAutenticacao(IServicoAutenticacao*);
+        /**
+         * @brief Destrutor virtual padrão.
+         */
+        virtual ~CntrApresentacaoLogin() = default;
+        /**
+         * @brief Define o metodo para autenticar o usuário.
+         * * Solicita o email e a senha via interface de terminal. Se as credenciais forem válidas,
+         * o objeto passado por referência será populado.
+         * * @param email Objeto que receberá o email validado do usuário autenticado.
+         * @return Retorna true se a autenticação for bem-sucedida, false caso contrário.
+         */
+        bool executar(Email&) override;
+
+        /**
+         * @brief Define a referência para o serviço de autenticação a ser utilizado pela controladora de apresentação de login.
+         * @param IServicoAutenticacao é a referência para o serviço de autenticação que a controladora de apresentação de login utilizará para autenticar os usuários.
+         * @return O método é do tipo void, portanto não retorna nenhum valor.
+         */
+        void setCtrlServicoAutenticacao(IServicoAutenticacao*) override;
 };
 
 inline void CntrApresentacaoLogin::setCtrlServicoAutenticacao(IServicoAutenticacao* servicoAutenticacao){
