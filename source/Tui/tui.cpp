@@ -9,7 +9,7 @@ namespace Tui {
         while (i < tamanhoMaximo) {
             ch = wgetch(win);
             
-            // ESC (ASCII 27) cancela
+            // ESC (ASCII 27) 
             if (ch == 27) { 
                 return false;
             } 
@@ -43,4 +43,4 @@ namespace Tui {
         return true;
     }
 
-} // Fim do namespace Utils
+} 
