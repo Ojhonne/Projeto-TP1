@@ -6,6 +6,9 @@
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
+#include <vector>
+
+// Forward declarations.
 class Email;
 class Senha;
 class Codigo;
@@ -14,7 +17,6 @@ class Pessoa;
 class Projeto;
 class PlanoDeSprint;
 class HistoriaDeUsuario;
-
 // Interfaces da camada de apresentacao
 /*
 Montei as interfaces no mesmo padrão, um método construtor default para cada interface. Além disso, cada uma delas possui
@@ -22,7 +24,7 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 . Com exceção da interface de cadastro, a qual não prove nenhum serviço diretamente ao usuário, somente cria a conta. Os métodos sempre
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
-// Forward declarations.
+
 class IServicoAutenticacao;
 class IServicoPessoa;
 class IServicoPlanejamento;
@@ -40,6 +42,13 @@ public:
      */
 
     virtual ~IApresentacaoLogin() = default;
+    /**
+     * @brief Define a referência para o serviço de autenticação a ser utilizado pela interface de apresentação de login.
+     * @param IServicoAutenticacao é a referência para o serviço de autenticação que a interface de apresentação de login utilizará para autenticar os usuários.
+     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     * 
+     */
+    virtual void setCtrlServicoAutenticacao(IServicoAutenticacao*) = 0;
 
     /**
      * @brief Autentica o usuário por meio da chave email.
@@ -48,7 +57,7 @@ public:
      * @return O retorno será padrão verdadeiro ou falso, dependendo da autenticidade do email.
      */
 
-    virtual bool autenticar(Email&) = 0;
+    virtual bool executar(Email&) = 0;
 };
 
 /**
@@ -62,6 +71,11 @@ public:
      * @brief Destrutor virtual padrão.
      */
     virtual ~IApresentacaoCadastro() = default;
+    /**
+     * @brief Define a referência para o serviço de pessoa a ser utilizado pela interface de apresentação de cadastro.
+     * @param IServicoPessoa é a referência para o serviço de pessoa que a interface de apresentação de cadastro utilizará para gerenciar as pessoas.
+     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     */
     virtual void setCtrlServicoPessoa(IServicoPessoa*) = 0;
 
     /**
@@ -86,6 +100,11 @@ public:
      */
 
     virtual ~IApresentacaoPlanejamento() = default;
+    /**
+     * @brief Define a referência para o serviço de planejamento a ser utilizado pela interface de apresentação de planejamento.
+     * @param IServicoPlanejamento é a referência para o serviço de planejamento que a interface de apresentação de planejamento utilizará para gerenciar os planos de sprint.
+     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     */
     virtual void setCtrlServicoPlanejamento(IServicoPlanejamento*) = 0;
 
     /**
@@ -109,6 +128,11 @@ public:
      * @brief Destrutor padrão virtual.
      */
     virtual ~IApresentacaoBacklog() = default;
+    /**
+     * @brief Define a referência para o serviço de backlog a ser utilizado pela interface de apresentação de backlog.
+     * @param IServicoBacklog é a referência para o serviço de backlog que a interface de apresentação de backlog utilizará para gerenciar as histórias de usuário.
+     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     */
     virtual void setCtrlServicoBacklog(IServicoBacklog*) = 0;
 
     /**
@@ -282,19 +306,21 @@ public:
     /**
      * @brief Lista os projetos associados a uma pessoa.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param std::vector<Projeto>& é o vetor que será preenchido com os projetos associados à pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados.
      */
 
-    virtual bool listarProjetosAssociadosPessoa(const Email&) = 0;
+    virtual bool listarProjetosAssociadosPessoa(const Email&, std::vector<Projeto>&) = 0;
 
     /**
      * @brief Lista os planos de sprint associados a um projeto.
      * @param Codigo é a chave utilizada para identificar o projeto.
+     * @param std::vector<PlanoDeSprint>& é o vetor que será preenchido com os planos de sprint associados ao projeto.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de planos associados.
      */
 
 
-    virtual bool listarPlanosSprintAssociadosProjeto(const Codigo&) = 0;
+    virtual bool listarPlanosSprintAssociadosProjeto(const Codigo&, std::vector<PlanoDeSprint>&) = 0;
 };
 
 /**
@@ -364,26 +390,29 @@ public:
     /**
      * @brief Lista as histórias de usuário associadas a um projeto.
      * @param Codigo é a chave utilizada para identificar o projeto.
+     * @param std::vector<HistoriaDeUsuario>& é o vetor que será preenchido com as histórias associadas ao projeto.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
      */
 
-    virtual bool listarHistoriasAssociadasProjeto(const Codigo&) = 0;
+    virtual bool listarHistoriasAssociadasProjeto(const Codigo&, std::vector<HistoriaDeUsuario>&) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a um plano de sprint.
      * @param Codigo é a chave utilizada para identificar o plano de sprint.
+     * @param std::vector<HistoriaDeUsuario>& é o vetor que será preenchido com as histórias associadas ao plano de sprint.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
      */
     
-    virtual bool listarHistoriasAssociadasPlanoSprint(const Codigo&) = 0;
+    virtual bool listarHistoriasAssociadasPlanoSprint(const Codigo&, std::vector<HistoriaDeUsuario>&) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a uma pessoa.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param std::vector<HistoriaDeUsuario>& é o vetor que será preenchido com as histórias associadas à pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
      */
 
-    virtual bool listarHistoriasAssociadasPessoa(const Email&) = 0;
+    virtual bool listarHistoriasAssociadasPessoa(const Email&, std::vector<HistoriaDeUsuario>&) = 0;
 
     /**
      * @brief Move uma história de usuário de um projeto para um plano de sprint.
@@ -392,7 +421,7 @@ public:
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      */
 
-    virtual bool moverHistoriaProjetoParaSprint(const Codigo&, const Codigo&) = 0;
+    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint) = 0;
 
     /**
      * @brief Altera o estado de uma história de usuário.
