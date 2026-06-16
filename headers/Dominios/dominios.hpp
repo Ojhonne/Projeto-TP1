@@ -377,10 +377,10 @@ class Senha : public Dominio {
          *
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de senha.
          */
-        Senha(std::string& valor);
+        Senha(const std::string& valor);
 };
 
-inline Senha::Senha(std::string& valor) {
+inline Senha::Senha(const std::string& valor) {
     setValor(valor);
 }
 

@@ -6,11 +6,14 @@
 #ifndef INTERFACES_HPP_INCLUDED
 #define INTERFACES_HPP_INCLUDED
 
-#include "Dominios/dominios.hpp"
-#include "Entidades/historiaDeUsuario.hpp"
-#include "Entidades/pessoa.hpp"
-#include "Entidades/planoDeSprint.hpp"
-#include "Entidades/projeto.hpp"
+class Email;
+class Senha;
+class Codigo;
+class Estado;
+class Pessoa;
+class Projeto;
+class PlanoDeSprint;
+class HistoriaDeUsuario;
 
 // Interfaces da camada de apresentacao
 /*
@@ -19,6 +22,11 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 . Com exceção da interface de cadastro, a qual não prove nenhum serviço diretamente ao usuário, somente cria a conta. Os métodos sempre
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
+// Forward declarations.
+class IServicoAutenticacao;
+class IServicoPessoa;
+class IServicoPlanejamento;
+class IServicoBacklog;
 
 /**
  * @interface Esta interface é responsável por permitir que o usuario faça login usando
@@ -54,6 +62,7 @@ public:
      * @brief Destrutor virtual padrão.
      */
     virtual ~IApresentacaoCadastro() = default;
+    virtual void setCtrlServicoPessoa(IServicoPessoa*) = 0;
 
     /**
      * @brief Executa a apresentação de cadastro de modo com que o usuário possa
@@ -77,6 +86,7 @@ public:
      */
 
     virtual ~IApresentacaoPlanejamento() = default;
+    virtual void setCtrlServicoPlanejamento(IServicoPlanejamento*) = 0;
 
     /**
      * @brief Executa a interface de apresentação de planejamento, permitindo com que 
@@ -99,6 +109,7 @@ public:
      * @brief Destrutor padrão virtual.
      */
     virtual ~IApresentacaoBacklog() = default;
+    virtual void setCtrlServicoBacklog(IServicoBacklog*) = 0;
 
     /**
      * @brief Executa a interface de backlog, permitindo com que o usuário possa
