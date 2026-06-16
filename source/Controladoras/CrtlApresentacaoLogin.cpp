@@ -1,4 +1,4 @@
-#include "Controladoras/CrtlApresentacaoLogin.hpp"
+
 #ifdef _WIN32
     #include <curses.h> 
 #elif __linux__
@@ -7,12 +7,12 @@
     #error "Sistema operacional nao suportado para esta biblioteca."
 #endif
 
-#include <string>
-#include <iostream>
+#include "Controladoras/CrtlApresentacaoLogin.hpp"
+#include "Tui/tui.hpp"
 #include <stdexcept>
 #include <cstring>
 
-bool CntrApresentacaoLogin::executar(Email&) {
+bool CntrApresentacaoLogin::executar(Email& emailLogado) {
     initscr();
     start_color();
     cbreak();
@@ -34,7 +34,7 @@ bool CntrApresentacaoLogin::executar(Email&) {
     keypad(win, TRUE);
 
     bool autenticado{false};
-    char emailStr[80], senhaStr[30];
+    char emailStr[80], senhaStr[30]; // buffer para leitura de email e senha
 
     while (!autenticado) {
         werase(win);
@@ -46,15 +46,25 @@ bool CntrApresentacaoLogin::executar(Email&) {
 
         mvwprintw(win, 3, 5, "Email: ");
         mvwprintw(win, 5, 5, "Senha: ");
+        mvwprintw(win, 8, 2, "(Pressione ESC para cancelar e sair)");
         wrefresh(win);
 
-        // Captura o email
-        echo(); // habilita o echo para o email
-        mvwgetnstr(win, 3, 13, emailStr, 79);
-        noecho(); //desliga o echo para a senha
+        //captura de email
+        wmove(win, 3, 13);
+        wrefresh(win);
+        if (!Tui::lerEntradaTerminal(win, emailStr, 79, false)) {
+            break; 
+        }
 
-        // Captura a senha (mascarada)
-        mvwgetnstr(win, 5, 13, senhaStr, 29);
+        // captura de senha
+        wmove(win, 5, 13);
+        wrefresh(win);
+        if (!Tui::lerEntradaTerminal(win, senhaStr, 29, true)) {
+            break; 
+        }
+
+        mvwprintw(win, 8, 2, "                                      ");
+        wrefresh(win);
 
         try {
             Email emailLocal(emailStr);
@@ -62,15 +72,17 @@ bool CntrApresentacaoLogin::executar(Email&) {
 
             autenticado = servicoAutenticacao->autenticarPessoa(emailLocal, senhaLocal);
             if(autenticado){
+                emailLogado = emailLocal; // passar o email do usuário autenticado por referência
+
                 wattron(win, COLOR_PAIR(3));
                 mvwprintw(win, 8, 2, "Sucesso! Entrando no sistema...");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
-                napms(1500); // tempo  para o usuário ler a mensagem
+                napms(1500); // tempo para o usuário ler a mensagem
             }
             if (!autenticado) {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Credenciais invalidas!");
+                mvwprintw(win, 8, 2, "Credenciais invalidas! Tente novamente.");
                 wattroff(win, COLOR_PAIR(2));
                 wrefresh(win);
                 wgetch(win);
