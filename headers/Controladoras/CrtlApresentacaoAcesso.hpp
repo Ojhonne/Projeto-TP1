@@ -13,6 +13,9 @@ class IApresentacaoPlanejamento;
 class IApresentacaoBacklog;
 #include "Dominios/dominios.hpp"
 
+enum class MenuDeslogado { Login = 0, Cadastro, Sair };
+enum class MenuLogado { CadastroPessoas = 0, Projetos, Backlog, Logout, Sair };
+
 /**
  * @class CrtlApresentacaoAcesso
  * @brief Funciona como uma interface principal do sistema, ou seja, as telas e menus 
@@ -27,13 +30,13 @@ class CrtlApresentacaoAcesso {
         IApresentacaoPlanejamento* crtlPlanejamento;
         IApresentacaoBacklog* crtlBacklog;
 
-        //Email emailSessao; 
+        Email emailSessao; 
         bool logado{false};
         WINDOW* win;
 
         void inicializarInterface();
         void finalizaInterface();
-        void rotearEscolha(int escolha);
+        bool rotearEscolha(int escolha, bool logado);
     public:
       
         /**

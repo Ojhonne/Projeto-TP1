@@ -41,12 +41,6 @@ int main(void){
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
 
 
-    initscr();
-    cbreak();
-    noecho();
-    curs_set(0);
-    start_color();
-    keypad(stdscr, TRUE);
 
     try{
         crtlApresentacaoAcesso->executar();
@@ -55,8 +49,7 @@ int main(void){
         cout << "Erro de sistema." << endl;
     }
 
-    endwin();
-    
+
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;
     return 0;

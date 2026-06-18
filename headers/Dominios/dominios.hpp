@@ -154,6 +154,7 @@ public:
      * @throw std::invalid_argument Caso o email nao obedeça
      * as regras de formato especificadas.
      */
+    Email(){};
     Email(const std::string&);
 
 private:

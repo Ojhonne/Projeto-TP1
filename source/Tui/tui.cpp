@@ -52,7 +52,7 @@ namespace Tui {
             box(win, 0, 0);
             mvwprintw(win, 0, 2, " %s ", titulo.c_str());
 
-            for (size_t i = 0; i < opcoes.size(); i++) {
+            for (int i = 0; i < opcoes.size(); i++) {
                 if (i == emDestaque) {
                     wattron(win, A_REVERSE);
                     mvwprintw(win, i + 2, 2, "> %s", opcoes[i].c_str());

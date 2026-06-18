@@ -24,7 +24,7 @@ bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
     int startY = (LINES - altura) / 2;
     int startX = (COLS - largura) / 2;
 
-    WINDOW *win = newwin(altura, largura, startY, startX);
+    WINDOW* win = newwin(altura, largura, startY, startX);
     box(win, 0, 0); // Desenha borda na janela
     keypad(win, TRUE);
 
@@ -55,6 +55,7 @@ bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
         wmove(win, 5, 13);
         wrefresh(win);
         if (!Tui::lerEntradaTerminal(win, senhaStr, 29, true)) {
+            delwin(win);
             break; 
         }
 
