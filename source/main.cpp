@@ -16,6 +16,7 @@
 #include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
+#include "Controladoras/CrtlApresentacaoAcesso.hpp"
 #include "Stubs/stubs.hpp"
 
 
@@ -23,31 +24,19 @@ using namespace std;
 
 int main()
 {
-    IApresentacaoLogin *cntr;
-    IServicoAutenticacao *stub; 
 
-    Email email("joaof@gmail.com");
+    initscr();
+    cbreak();
+    noecho();
+    curs_set(0);
+    start_color();
+    keypad(stdscr, TRUE);
 
-    bool resultado;
+    CrtlApresentacaoAcesso ctrlAcesso; 
+    ctrlAcesso.executar();
 
-    cntr = new CntrApresentacaoLogin();                                      // Instanciar controladora.
-    stub = new StubServicoAutenticacao();                                           // Instanciar stub.
-
-    cntr->setCtrlServicoAutenticacao(stub);                                         // Inteligar controladora e stub.
-
-    initscr();                                                                      // Iniciar curses.
-
-    resultado = cntr->executar(email);                                             // Solicitar serviço de autenticacao.
-
-    endwin();                                                                       // Finalizar curses.
-
-    // Apresentar resultado do processo de autenticação.
-
-    if(resultado)
-        cout << "Sucesso na autenticacao";
-    else
-        cout << "Falha na autenticacao";
-
+    // 3. Finalização Global
+    endwin();
     return 0;
 }
 

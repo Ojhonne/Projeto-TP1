@@ -23,7 +23,7 @@ else
     EXEC_EXT =
     
     # Biblioteca de interface nativa para Linux
-    LDLIBS = -lncurses -ltinfo
+    LDLIBS = -lncurses -ltinfo 
     
     # Regra de compilação para criar a pasta do objeto no Linux
     define CREATE_DIR_LINUX

@@ -12,13 +12,8 @@
 #include <stdexcept>
 #include <cstring>
 
-bool CntrApresentacaoLogin::executar(Email& emailLogado) {
-    initscr();
-    start_color();
-    cbreak();
-    noecho();
-    keypad(stdscr, TRUE);
 
+bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
     // Definição das cores
     init_pair(1, COLOR_WHITE, COLOR_BLUE); // Título
     init_pair(2, COLOR_RED, COLOR_BLACK);  // Erro
@@ -96,8 +91,5 @@ bool CntrApresentacaoLogin::executar(Email& emailLogado) {
             wgetch(win);
         }
     }
-
-    delwin(win);
-    endwin();
     return autenticado;
 }

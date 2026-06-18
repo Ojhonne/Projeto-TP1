@@ -11,7 +11,7 @@ class IApresentacaoLogin;
 class IApresentacaoCadastro;
 class IApresentacaoPlanejamento;
 class IApresentacaoBacklog;
-
+#include "Dominios/dominios.hpp"
 
 /**
  * @class CrtlApresentacaoAcesso
@@ -27,9 +27,17 @@ class CrtlApresentacaoAcesso {
         IApresentacaoPlanejamento* crtlPlanejamento;
         IApresentacaoBacklog* crtlBacklog;
 
+        Email emailSessao; 
+        bool logado{false};
+        WINDOW* win;
+
+        void inicializarInterface();
+        void finalizaInterface();
+        void rotearEscolha(int escolha);
     public:
+      
         /**
-         * @brief Destrutor virtual padrão.
+         * @brief Destrutor virtual .
         */
         virtual ~CrtlApresentacaoAcesso() = default;
         /**

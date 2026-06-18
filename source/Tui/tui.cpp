@@ -1,4 +1,6 @@
 #include "Tui/tui.hpp"
+#include <vector>
+#include <string>
 
 namespace Tui {
 
@@ -42,5 +44,31 @@ namespace Tui {
         buffer[i] = '\0'; 
         return true;
     }
+    int exibeMenu(WINDOW* win, const std::string& titulo, const std::vector<std::string>& opcoes){
+        int emDestaque = 0;
+        int tecla;    
+        while (true) {
+            werase(win);
+            box(win, 0, 0);
+            mvwprintw(win, 0, 2, " %s ", titulo.c_str());
 
+            for (size_t i = 0; i < opcoes.size(); i++) {
+                if (i == emDestaque) {
+                    wattron(win, A_REVERSE);
+                    mvwprintw(win, i + 2, 2, "> %s", opcoes[i].c_str());
+                    wattroff(win, A_REVERSE);
+                } else {
+                    mvwprintw(win, i + 2, 2, "  %s", opcoes[i].c_str());
+                }
+            }
+            wrefresh(win);
+
+            tecla = wgetch(win);
+            switch (tecla) {
+                case KEY_UP: if (emDestaque > 0) emDestaque--; break;
+                case KEY_DOWN: if (emDestaque < (int)opcoes.size() - 1) emDestaque++; break;
+                case 10: return emDestaque; // Retorna a opção escolhida
+             }
+        }
+    }
 } 

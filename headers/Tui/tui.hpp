@@ -1,6 +1,7 @@
 #ifndef TUI_H_INCLUDED
 #define TUI_H_INCLUDED
-
+#include <vector>
+#include <string>
 // Verificação multiplataforma do ncurses
 #ifdef _WIN32
     #include <curses.h> 
@@ -20,6 +21,8 @@ namespace Tui {
      * @return Retorna true se a leitura foi confirmada (Enter), e false se foi cancelada (ESC).
      */
     bool lerEntradaTerminal(WINDOW* win, char* buffer, int tamanhoMaximo, bool modoSenha);
+
+     int exibeMenu(WINDOW* win, const std::string& titulo, const std::vector<std::string>& opcoes);
 }
 
 #endif // TUI_H_INCLUDED
