@@ -27,7 +27,7 @@ class CrtlApresentacaoAcesso {
         IApresentacaoPlanejamento* crtlPlanejamento;
         IApresentacaoBacklog* crtlBacklog;
 
-        Email emailSessao; 
+        //Email emailSessao; 
         bool logado{false};
         WINDOW* win;
 

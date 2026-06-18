@@ -57,7 +57,8 @@ void CrtlApresentacaoAcesso::executar() {
         int escolha = Tui::exibeMenu(win, logado ? "MENU LOGADO" : "MENU PRINCIPAL", opcoes);
         rotearEscolha(escolha);
     }
-
+    clear();     // Limpa o buffer da tela inteira
+    refresh();   // Força o redesenho da stdscr
 }
 
 

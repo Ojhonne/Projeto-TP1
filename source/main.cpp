@@ -22,8 +22,24 @@
 
 using namespace std;
 
-int main()
-{
+int main(void){
+
+    // Instanciar controladoras da camada de apresentação.
+    CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
+    IApresentacaoLogin *crtlApresentacaoLogin; //istanciar usando a interface
+
+    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // criando o objeto dinamicamente
+    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); // criando o objeto e associando a controladora
+
+    // Instanciar stubs de serviço.
+    IServicoAutenticacao *stubServicoAutenticacao; // ponteiro para o stub
+    stubServicoAutenticacao = new StubServicoAutenticacao(); // criando o objeto dinamicamente
+
+    // Interligar controladoras e stubs.
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); //
+
+    crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
+
 
     initscr();
     cbreak();
@@ -32,11 +48,17 @@ int main()
     start_color();
     keypad(stdscr, TRUE);
 
-    CrtlApresentacaoAcesso ctrlAcesso; 
-    ctrlAcesso.executar();
+    try{
+        crtlApresentacaoAcesso->executar();
+    }
+    catch(const runtime_error &exp){
+        cout << "Erro de sistema." << endl;
+    }
 
-    // 3. Finalização Global
     endwin();
+    
+    delete crtlApresentacaoAcesso;
+    delete crtlApresentacaoLogin;
     return 0;
 }
 
