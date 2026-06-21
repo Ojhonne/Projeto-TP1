@@ -85,27 +85,11 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
 }
 
 void CrtlApresentacaoAcesso::inicializarInterface() {
-    configurarTerminal();
-    configurarCores();
-    criarJanelaMenu();
+    Tui::inicializarTerminal(); // inicia com a janela
+
+    criarJanelaMenu(); // cria janela
 }
 
-void CrtlApresentacaoAcesso::configurarTerminal() {
-    initscr(); // inicio a tela
-    cbreak();
-    noecho(); // nao aparece o que eu escrevo
-    curs_set(0); // colocando o curso para longe
-    keypad(stdscr, TRUE); // habilitando teclas especiais
-}
-
-void CrtlApresentacaoAcesso::configurarCores() {
-    start_color(); // define as cores
-    init_pair(1, COLOR_WHITE, COLOR_BLUE);  // Título
-    init_pair(2, COLOR_RED, COLOR_BLACK);   // Erro
-    init_pair(3, COLOR_GREEN, COLOR_BLACK); // Sucesso
-    init_pair(4, COLOR_WHITE, COLOR_CYAN);  // Fundo
-    init_pair(5, COLOR_BLUE, COLOR_WHITE);  // Usuário logado
-}
 
 void CrtlApresentacaoAcesso::criarJanelaMenu() {
     int altura{10}, largura{50};
@@ -133,5 +117,5 @@ void CrtlApresentacaoAcesso::desenharCabecalho() {
 
 void CrtlApresentacaoAcesso::finalizaInterface() {
     delwin(win); 
-    endwin(); 
+    Tui::finalizarTerminal();
 }

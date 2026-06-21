@@ -4,6 +4,30 @@
 
 namespace Tui {
 
+    void inicializarTerminal() {
+        // configuração do terminal
+        initscr(); // inicio a tela
+        cbreak();
+        noecho(); // nao aparece o que eu escrevo
+        curs_set(0); // colocando o curso para longe
+        keypad(stdscr, TRUE); // habilitando teclas especiais
+
+        // Configuração de cores
+        start_color();
+        init_pair(1, COLOR_WHITE, COLOR_BLUE);  // Título
+        init_pair(2, COLOR_RED, COLOR_BLACK);   // Erro
+        init_pair(3, COLOR_GREEN, COLOR_BLACK); // Sucesso
+        init_pair(4, COLOR_WHITE, COLOR_CYAN);  // Fundo
+        init_pair(5, COLOR_BLUE, COLOR_BLACK);  // Usuário logado
+        
+       // bkgd(COLOR_PAIR(4)); // pinta todo terminal 
+       // refresh(); // Atualiza a tela 
+    }
+
+    void finalizarTerminal() {
+        endwin(); // Devolve o controle normal ao terminal do SO
+    }
+
     bool lerEntradaTerminal(WINDOW* win, char* buffer, int tamanhoMaximo, bool modoSenha) {
         int ch;
         int i = 0;

@@ -12,7 +12,7 @@
 #include <cstring>
 
 bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
-    inicializarCores();
+
     WINDOW* win = criarJanelaLogin();
     
     bool autenticado{false};
@@ -52,11 +52,6 @@ bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
     return autenticado;
 }
 
-void CrtlApresentacaoLogin::inicializarCores() {
-    init_pair(1, COLOR_WHITE, COLOR_BLUE);  // Título
-    init_pair(2, COLOR_RED, COLOR_BLACK);   // Erro
-    init_pair(3, COLOR_GREEN, COLOR_BLACK); // Sucesso
-}
 
 WINDOW* CrtlApresentacaoLogin::criarJanelaLogin() {
     int altura = 10, largura = 50;
@@ -65,6 +60,8 @@ WINDOW* CrtlApresentacaoLogin::criarJanelaLogin() {
 
     WINDOW* win = newwin(altura, largura, startY, startX);
     keypad(win, TRUE);
+
+    //wbkgd(win, COLOR_PAIR(4)); desenha dentro da caxinha
     return win;
 }
 
@@ -87,8 +84,8 @@ bool CrtlApresentacaoLogin::capturarCredenciais(WINDOW* win, char* emailStr, cha
     wrefresh(win);
     if (!Tui::lerEntradaTerminal(win, emailStr, 79, false)) return false;
 
-    wmove(win, 5, 13);
-    wrefresh(win);
+    wmove(win, 5, 13); // move o campo para digitar
+    wrefresh(win); // atualiza
     if (!Tui::lerEntradaTerminal(win, senhaStr, 29, true)) return false;
 
     return true;

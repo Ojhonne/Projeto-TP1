@@ -12,6 +12,10 @@
 #endif
 
 namespace Tui {
+
+    void inicializarTerminal();
+    void finalizarTerminal();
+    
     /**
      * @brief Lê a entrada do usuário no ncurses com suporte a backspace e cancelamento.
      * @param win Ponteiro para a janela atual do ncurses.
