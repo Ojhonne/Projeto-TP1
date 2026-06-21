@@ -23,6 +23,13 @@
 class CrtlApresentacaoLogin : public IApresentacaoLogin{
     private:
         IServicoAutenticacao *servicoAutenticacao;  // Referência para servidor.
+        void inicializarCores();
+        
+        WINDOW* criarJanelaLogin();
+        void desenharLayout(WINDOW* win);
+        bool capturarCredenciais(WINDOW* win, char* emailStr, char* senhaStr);
+        void exibirErro(WINDOW* win, const char* mensagem);
+        void exibirSucesso(WINDOW* win);
 
     public:
         /**

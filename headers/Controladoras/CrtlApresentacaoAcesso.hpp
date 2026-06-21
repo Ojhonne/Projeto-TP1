@@ -37,6 +37,16 @@ class CrtlApresentacaoAcesso {
         void inicializarInterface();
         void finalizaInterface();
         bool rotearEscolha(int escolha, bool logado);
+
+        void configurarTerminal();
+        void configurarCores();
+        void criarJanelaMenu();
+        
+        void limparTela();
+        void desenharCabecalho();
+        
+        bool processarMenuDeslogado(int escolha);
+        bool processarMenuLogado(int escolha);
     public:
       
         /**

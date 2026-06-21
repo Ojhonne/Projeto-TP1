@@ -40,8 +40,6 @@ int main(void){
 
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
 
-
-
     try{
         crtlApresentacaoAcesso->executar();
     }
