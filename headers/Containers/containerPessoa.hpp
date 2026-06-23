@@ -15,6 +15,8 @@
 class Email;
 class Pessoa;
 
+#include <string>    
+
 
 /**
  * @class ContainerPessoa
@@ -31,6 +33,10 @@ class Pessoa;
 class ContainerPessoa{
     private:
         static ContainerPessoa *instancia;             // Ponteiro para instância da classe.
+        
+        const std::string nomeBanco = "scrum.db"; // nome do arquivo do banco de dados SQLite.
+        // Construtor privado (Singleton). 
+        // Ele será responsável por criar a tabela Pessoa no SQLite caso ela não exista.
         ContainerPessoa(){};                           // Construtor.
     public:
        // Método para instanciar classe.
