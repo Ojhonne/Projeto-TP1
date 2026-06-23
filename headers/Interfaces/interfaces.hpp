@@ -1,5 +1,6 @@
 /**
  * @file interfaces.hpp
+ * @author Eduardo Sankievicz Lima
  * @brief Definição das interfaces do sistema.
  */
 

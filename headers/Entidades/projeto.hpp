@@ -1,4 +1,9 @@
 
+/**
+ * @file projeto.hpp
+ * @author Igor Melo
+ * @brief DefiniÃ§Ã£o da classe entidade Pessoa.
+ */
 
 #ifndef PROJETO_H_INCLUDED
 #define PROJETO_H_INCLUDED
@@ -8,8 +13,8 @@
  * @class Projeto
  * @brief Classe que representa a entidade Projeto no sistema.
  *
- * @details A classe Projeto agrega os domínios de Código, Nome e as Datas de início e término,
- * centralizando as informações estruturais de um projeto da aplicação.
+ * @details A classe Projeto agrega os dominios de CÃ³digo, Nome e as Datas de inÃ­cio e tÃ©rmino,
+ * centralizando as informaÃ§Ãµes estruturais de um projeto da aplicaÃ§Ã£o.
  *
  *
  *  Os dominios utilizados sao:
@@ -36,9 +41,9 @@ class Projeto{
        Data termino;
    public:
        /**
-         * @brief Construtor padrão.
+         * @brief Construtor padrÃ£o.
          *
-         * Cria um objeto Projeto com seus atributos de domínio inicializados por seus respectivos construtores.
+         * Cria um objeto Projeto com seus atributos de domÃ­nio inicializados por seus respectivos construtores.
          */
        Projeto() = default;
 
@@ -50,7 +55,7 @@ class Projeto{
 
        /**
         * @brief Recupera o objeto codigo do projeto.
-        * @return const Codigo& Referencia constante para o objeto (codigo) armazenado do domínio Codigo.
+        * @return const Codigo& Referencia constante para o objeto (codigo) armazenado do domÃ­nios Codigo.
        */
        const Codigo& getCodigo() const;
 
@@ -62,7 +67,7 @@ class Projeto{
 
         /**
         * @brief Recupera o objeto nome do projeto.
-        * @return const Nome& Referencia constante para o objeto (nome) armazenado do domínio Nome.
+        * @return const Nome& Referencia constante para o objeto (nome) armazenado do domÃ­nios Nome.
         */
        const Nome& getNome() const;
 
@@ -74,7 +79,7 @@ class Projeto{
 
         /**
         * @brief Recupera o objeto que indica inicio do projeto.
-        * @return const Data& Referencia constante para o objeto (inicio) armazenado do domínio Data.
+        * @return const Data& Referencia constante para o objeto (inicio) armazenado do domÃ­nios Data.
        */
        const Data& getInicio()const;
 
@@ -86,7 +91,7 @@ class Projeto{
 
         /**
         * @brief Recupera o objeto que indica termino do projeto.
-        * @return const Data& Referencia constante para o objeto (termino) armazenado do domínio Data.
+        * @return const Data& Referencia constante para o objeto (termino) armazenado do domÃ­nios Data.
        */
        const Data& getTermino()const;
 };

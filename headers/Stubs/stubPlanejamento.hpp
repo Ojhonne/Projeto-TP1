@@ -1,3 +1,9 @@
+/**
+ * @file  stubPlanejamento.hpp
+ * @author  Eduardo Sankievicz Lima
+ * @brief Definição da stub de planejamento.
+ */
+
 #ifndef STUBS_PLANEJAMENTO_HPP_INCLUDED
 #define STUBS_PLANEJAMENTO_HPP_INCLUDED
 

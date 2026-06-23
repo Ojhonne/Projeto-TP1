@@ -1,6 +1,7 @@
 
 /**
  * @file dominios.hpp
+ * @author João Francisco de Sousa Torres
  * @brief Definição da classe base abstrata para os domínios do sistema.
  */
 #ifndef DOMINIOS_HPP_INCLUDED
