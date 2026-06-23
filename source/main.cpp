@@ -17,6 +17,7 @@
 #include "Interfaces/interfaces.hpp"
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
+#include "Controladoras/CrtlApresentacaoBacklog.hpp"
 #include "Stubs/stubs.hpp"
 
 
@@ -27,9 +28,11 @@ int main(void){
     // Instanciar controladoras da camada de apresentação.
     CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
     IApresentacaoLogin *crtlApresentacaoLogin; //istanciar usando a interface
+    CrtlApresentacaoBacklog *crtlApresentacaoBacklog;
 
     crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // criando o objeto dinamicamente
     crtlApresentacaoLogin = new CrtlApresentacaoLogin(); // criando o objeto e associando a controladora
+    crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
 
     // Instanciar stubs de serviço.
     IServicoAutenticacao *stubServicoAutenticacao; // ponteiro para o stub
@@ -39,6 +42,8 @@ int main(void){
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); //
 
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
+
+    crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
 
     try{
         crtlApresentacaoAcesso->executar();
