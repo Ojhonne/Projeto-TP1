@@ -72,7 +72,7 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
             // 
             return true;
         case MenuLogado::Backlog:
-            // 
+            
             return true;
         case MenuLogado::Logout:
             this->logado = false;
