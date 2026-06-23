@@ -1,6 +1,6 @@
 /**
  * @file historiaDeUsuario.hpp
- * @author João Francisco
+ * @author João Francisco de Sousa Torres
  * @brief Definição da classe entidade HistoriaDeUsuario.
  */
 

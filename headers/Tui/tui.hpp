@@ -4,7 +4,6 @@
  * @brief Definição do namespace Tui para auxiliar no desenvolvimento gráfico.
  */
 
-
 #ifndef TUI_H_INCLUDED
 #define TUI_H_INCLUDED
 #include <vector>

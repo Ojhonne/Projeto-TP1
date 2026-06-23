@@ -1,5 +1,5 @@
 /**
- * @file  stubPlanejamento.hpp
+ * @file stubPlanejamento.hpp
  * @author  Eduardo Sankievicz Lima
  * @brief Definição da stub de planejamento.
  */

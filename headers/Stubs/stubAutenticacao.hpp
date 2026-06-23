@@ -1,5 +1,5 @@
 /**
- * @file interfaces.hpp
+ * @file stubAutenticacao.hpp
  * @author João Francisco de Sousa Torres
  * @brief Definição da stub de autenticação.
  */
