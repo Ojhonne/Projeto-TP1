@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentacao-TP1: Referência da Classe CrtlApresentacaoAcesso</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentacao-TP1
+   </div>
+   <div id="projectbrief">Documentação do trabalho de TP1</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_crtl_apresentacao_acesso.html','','class_crtl_apresentacao_acesso-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe CrtlApresentacaoAcesso</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Funciona como uma interface principal do sistema, ou seja, as telas e menus com os quais o usuário interage diretamente. <br  />
+ Ele é responsável por exibir os formulários de login, os cadastros e os painéis de controle e gerenciar a navegação entre eles.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_crtl_apresentacao_acesso_8hpp_source.html">CrtlApresentacaoAcesso.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para CrtlApresentacaoAcesso:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_crtl_apresentacao_acesso__coll__graph.png" border="0" usemap="#a_crtl_apresentacao_acesso_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_crtl_apresentacao_acesso_coll__map" id="a_crtl_apresentacao_acesso_coll__map">
+<area shape="rect" title="Funciona como uma interface principal do sistema, ou seja, as telas e menus com os quais o usuário in..." alt="" coords="5,5,190,181"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:acd67f88d95a132e6f802d96dd4eed3d0" id="r_acd67f88d95a132e6f802d96dd4eed3d0"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#acd67f88d95a132e6f802d96dd4eed3d0">~CrtlApresentacaoAcesso</a> ()=default</td></tr>
+<tr class="memdesc:acd67f88d95a132e6f802d96dd4eed3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual .  <br /></td></tr>
+<tr class="memitem:a867e4df09145d6a8dee1ab1fff4519d6" id="r_a867e4df09145d6a8dee1ab1fff4519d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a867e4df09145d6a8dee1ab1fff4519d6">executar</a> ()</td></tr>
+<tr class="memdesc:a867e4df09145d6a8dee1ab1fff4519d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa método que exibe o menu principal do sistema.<br  />
+.  <br /></td></tr>
+<tr class="memitem:ad3677a446802573217670bd7767acbfb" id="r_ad3677a446802573217670bd7767acbfb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad3677a446802573217670bd7767acbfb">setCtrlLogin</a> (<a class="el" href="class_i_apresentacao_login.html">IApresentacaoLogin</a> *)</td></tr>
+<tr class="memdesc:ad3677a446802573217670bd7767acbfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define qual controladora gerencia o Login.  <br /></td></tr>
+<tr class="memitem:aa7fc7d16e411c53aee9165932e57a1d9" id="r_aa7fc7d16e411c53aee9165932e57a1d9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa7fc7d16e411c53aee9165932e57a1d9">setCtrlCadastro</a> (<a class="el" href="class_i_apresentacao_cadastro.html">IApresentacaoCadastro</a> *)</td></tr>
+<tr class="memdesc:aa7fc7d16e411c53aee9165932e57a1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define qual controladora gerencia o Cadastro.  <br /></td></tr>
+<tr class="memitem:ab3a7f3eb39976f30554fe0751a3ee017" id="r_ab3a7f3eb39976f30554fe0751a3ee017"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab3a7f3eb39976f30554fe0751a3ee017">setCtrlPlanejamento</a> (<a class="el" href="class_i_apresentacao_planejamento.html">IApresentacaoPlanejamento</a> *)</td></tr>
+<tr class="memdesc:ab3a7f3eb39976f30554fe0751a3ee017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define qual controladora gerencia o Planejamento do projeto.  <br /></td></tr>
+<tr class="memitem:a8c2d00e73bc43fed97eb5431bda01572" id="r_a8c2d00e73bc43fed97eb5431bda01572"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8c2d00e73bc43fed97eb5431bda01572">setCtrlBacklog</a> (<a class="el" href="class_i_apresentacao_backlog.html">IApresentacaoBacklog</a> *)</td></tr>
+<tr class="memdesc:a8c2d00e73bc43fed97eb5431bda01572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define qual controladora gerencia o Backlog.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Funciona como uma interface principal do sistema, ou seja, as telas e menus com os quais o usuário interage diretamente. <br  />
+ Ele é responsável por exibir os formulários de login, os cadastros e os painéis de controle e gerenciar a navegação entre eles. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="acd67f88d95a132e6f802d96dd4eed3d0" name="acd67f88d95a132e6f802d96dd4eed3d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd67f88d95a132e6f802d96dd4eed3d0">&#9670;&#160;</a></span>~CrtlApresentacaoAcesso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CrtlApresentacaoAcesso::~CrtlApresentacaoAcesso </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual . </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a867e4df09145d6a8dee1ab1fff4519d6" name="a867e4df09145d6a8dee1ab1fff4519d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867e4df09145d6a8dee1ab1fff4519d6">&#9670;&#160;</a></span>executar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrtlApresentacaoAcesso::executar </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa método que exibe o menu principal do sistema.<br  />
+. </p>
+<p>Enquanto nenhuma pessoa estiver logado, apenas autenticação fica disponível. Ao logar, todas as áreas do sistema são liberadas ao usuário. </p>
+<div class="dynheader">
+Este é o diagrama das funções utilizadas por essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_cgraph.png" border="0" usemap="#aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_cgraph" loading="lazy" alt=""/></div>
+<map name="aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_cgraph" id="aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_cgraph">
+<area shape="rect" title="Executa método que exibe o menu principal do sistema. ." alt="" coords="5,5,172,48"/>
+<area shape="rect" href="namespace_tui.html#a16adc0decc9a1e8adb006d3b75f2d3d0" title="Exibe um menu de opções no terminal usando ncurses." alt="" coords="220,13,330,40"/>
+<area shape="poly" title=" " alt="" coords="172,24,207,26,202,27,172,29"/>
+</map>
+</div>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_icgraph.png" border="0" usemap="#aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_icgraph" id="aclass_crtl_apresentacao_acesso_a867e4df09145d6a8dee1ab1fff4519d6_icgraph">
+<area shape="rect" title="Executa método que exibe o menu principal do sistema. ." alt="" coords="103,5,269,48"/>
+<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="84,28,55,29,55,24,89,26"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8c2d00e73bc43fed97eb5431bda01572" name="a8c2d00e73bc43fed97eb5431bda01572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2d00e73bc43fed97eb5431bda01572">&#9670;&#160;</a></span>setCtrlBacklog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrtlApresentacaoAcesso::setCtrlBacklog </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_apresentacao_backlog.html">IApresentacaoBacklog</a> *</td>          <td class="paramname"><span class="paramname"><em>crtlBacklog</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Define qual controladora gerencia o Backlog. </p>
+
+</div>
+</div>
+<a id="aa7fc7d16e411c53aee9165932e57a1d9" name="aa7fc7d16e411c53aee9165932e57a1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7fc7d16e411c53aee9165932e57a1d9">&#9670;&#160;</a></span>setCtrlCadastro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrtlApresentacaoAcesso::setCtrlCadastro </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_apresentacao_cadastro.html">IApresentacaoCadastro</a> *</td>          <td class="paramname"><span class="paramname"><em>crtlCadastro</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Define qual controladora gerencia o Cadastro. </p>
+
+</div>
+</div>
+<a id="ad3677a446802573217670bd7767acbfb" name="ad3677a446802573217670bd7767acbfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3677a446802573217670bd7767acbfb">&#9670;&#160;</a></span>setCtrlLogin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrtlApresentacaoAcesso::setCtrlLogin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_apresentacao_login.html">IApresentacaoLogin</a> *</td>          <td class="paramname"><span class="paramname"><em>crtlLogin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Define qual controladora gerencia o Login. </p>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_crtl_apresentacao_acesso_ad3677a446802573217670bd7767acbfb_icgraph.png" border="0" usemap="#aclass_crtl_apresentacao_acesso_ad3677a446802573217670bd7767acbfb_icgraph" loading="lazy" alt=""/></div>
+<map name="aclass_crtl_apresentacao_acesso_ad3677a446802573217670bd7767acbfb_icgraph" id="aclass_crtl_apresentacao_acesso_ad3677a446802573217670bd7767acbfb_icgraph">
+<area shape="rect" title="Define qual controladora gerencia o Login." alt="" coords="103,5,269,48"/>
+<area shape="rect" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="84,28,55,29,55,24,89,26"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab3a7f3eb39976f30554fe0751a3ee017" name="ab3a7f3eb39976f30554fe0751a3ee017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3a7f3eb39976f30554fe0751a3ee017">&#9670;&#160;</a></span>setCtrlPlanejamento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CrtlApresentacaoAcesso::setCtrlPlanejamento </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_apresentacao_planejamento.html">IApresentacaoPlanejamento</a> *</td>          <td class="paramname"><span class="paramname"><em>crtlPlanejamento</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Define qual controladora gerencia o Planejamento do projeto. </p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>headers/Controladoras/<a class="el" href="_crtl_apresentacao_acesso_8hpp_source.html">CrtlApresentacaoAcesso.hpp</a></li>
+<li>source/Controladoras/<a class="el" href="_crtl_apresentacao_acesso_8cpp.html">CrtlApresentacaoAcesso.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_crtl_apresentacao_acesso.html">CrtlApresentacaoAcesso</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 var class_plano_de_sprint =
 [
+    [ "PlanoDeSprint", "class_plano_de_sprint.html#a4581d6ea33262f1c677333fa5517dcf6", null ],
     [ "getCodigo", "class_plano_de_sprint.html#aabd741d8576eb9c9aa84bf75b12471db", null ],
     [ "getTempo", "class_plano_de_sprint.html#a594568b8c02fa2fa8973a444c0bb4ea0", null ],
     [ "getTexto", "class_plano_de_sprint.html#a0a848b1574f1d406a9c75547ee9224fc", null ],

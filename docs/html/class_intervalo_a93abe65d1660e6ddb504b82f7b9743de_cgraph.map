@@ -1,0 +1,13 @@
+<map id="Intervalo::setPeriodo" name="Intervalo::setPeriodo">
+<area shape="rect" id="Node000001" title="Define e valida o período cronológico do intervalo, buscando primeiramente validar uma instancia de D..." alt="" coords="5,81,147,108"/>
+<area shape="rect" id="Node000002" href="$class_data.html#ade3509765ddfff5515d38c6abc07b5b8" title="Define individualmente os componentes inteiros de dia, mês e ano após validação." alt="" coords="200,56,306,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,82,187,78,182,80,148,87"/>
+<area shape="rect" id="Node000005" href="$class_data.html#aea63f7508573f9dc6c60ac5069653630" title="Verifica se a instância de termino tempT do domínio Data ocorre cronologicamente antes da data de ini..." alt="" coords="195,107,311,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="147,102,182,109,177,110,147,107"/>
+<area shape="rect" id="Node000003" href="$class_data.html#a13f25eafdc138d743e99eb4086d765a2" title="Formata e retorna a data em formato textual padronizado." alt="" coords="370,5,473,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="299,53,357,38,362,36,301,58"/>
+<area shape="rect" id="Node000004" href="$class_dominio.html#a220fafcb42edefedd265cedec3f84070" title="Define um novo valor para o domínio." alt="" coords="359,56,483,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="306,67,346,69,341,70,306,72"/>
+<area shape="rect" id="Node000006" href="$class_data.html#af11f741cb7f587e2e495452a8905a22a" title="Construtor padrão." alt="" coords="378,107,464,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="312,117,365,120,360,120,312,123"/>
+</map>

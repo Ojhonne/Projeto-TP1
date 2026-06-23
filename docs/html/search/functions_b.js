@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vemantes_0',['vemAntes',['../class_data.html#aea63f7508573f9dc6c60ac5069653630',1,'Data']]]
+  ['removerassociacaohistoriapessoa_0',['removerAssociacaoHistoriaPessoa',['../class_i_servico_backlog.html#a063d093b681a41f8451c71607d048899',1,'IServicoBacklog']]]
 ];

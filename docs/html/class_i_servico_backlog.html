@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentacao-TP1: Referência da Classe IServicoBacklog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentacao-TP1
+   </div>
+   <div id="projectbrief">Documentação do trabalho de TP1</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_i_servico_backlog.html','','class_i_servico_backlog-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe IServicoBacklog<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para IServicoBacklog:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_servico_backlog__coll__graph.png" border="0" usemap="#a_i_servico_backlog_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_i_servico_backlog_coll__map" id="a_i_servico_backlog_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,189,389"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a974f799eef76f92ece39faab31b559b3" id="r_a974f799eef76f92ece39faab31b559b3"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a974f799eef76f92ece39faab31b559b3">~IServicoBacklog</a> ()=default</td></tr>
+<tr class="memdesc:a974f799eef76f92ece39faab31b559b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual padrão.  <br /></td></tr>
+<tr class="memitem:aa57fa84c54fad037c321a0b4451b363b" id="r_aa57fa84c54fad037c321a0b4451b363b"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aa57fa84c54fad037c321a0b4451b363b">criarHistoriaUsuario</a> (const <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;)=0</td></tr>
+<tr class="memdesc:aa57fa84c54fad037c321a0b4451b363b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma nova história de usuário no sistema.  <br /></td></tr>
+<tr class="memitem:a0d5adce9b5a592ffd472c3315176d96b" id="r_a0d5adce9b5a592ffd472c3315176d96b"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a0d5adce9b5a592ffd472c3315176d96b">lerHistoriaUsuario</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;)=0</td></tr>
+<tr class="memdesc:a0d5adce9b5a592ffd472c3315176d96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê os dados de uma história de usuário cadastrada no sistema.  <br /></td></tr>
+<tr class="memitem:a31fb4fe1830d85657bcffa61618b407b" id="r_a31fb4fe1830d85657bcffa61618b407b"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a31fb4fe1830d85657bcffa61618b407b">atualizarHistoriaUsuario</a> (const <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;)=0</td></tr>
+<tr class="memdesc:a31fb4fe1830d85657bcffa61618b407b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de uma história de usuário cadastrada no sistema com base nos novos dados fornecidos pelo usuário.  <br /></td></tr>
+<tr class="memitem:ab489e124112f061e6060454ff27b6df3" id="r_ab489e124112f061e6060454ff27b6df3"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ab489e124112f061e6060454ff27b6df3">excluirHistoriaUsuario</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;)=0</td></tr>
+<tr class="memdesc:ab489e124112f061e6060454ff27b6df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui uma história de usuário do sistema.  <br /></td></tr>
+<tr class="memitem:aa489975b7263589737eceabec51599b1" id="r_aa489975b7263589737eceabec51599b1"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aa489975b7263589737eceabec51599b1">associarHistoriaPessoa</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, const <a class="el" href="class_email.html">Email</a> &amp;)=0</td></tr>
+<tr class="memdesc:aa489975b7263589737eceabec51599b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associa uma história de usuário a uma pessoa.  <br /></td></tr>
+<tr class="memitem:a063d093b681a41f8451c71607d048899" id="r_a063d093b681a41f8451c71607d048899"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a063d093b681a41f8451c71607d048899">removerAssociacaoHistoriaPessoa</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, const <a class="el" href="class_email.html">Email</a> &amp;)=0</td></tr>
+<tr class="memdesc:a063d093b681a41f8451c71607d048899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a associação entre uma história de usuário e uma pessoa.  <br /></td></tr>
+<tr class="memitem:ae29a9592399e3a0b52f771bc655ef18e" id="r_ae29a9592399e3a0b52f771bc655ef18e"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ae29a9592399e3a0b52f771bc655ef18e">listarHistoriasAssociadasProjeto</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;)=0</td></tr>
+<tr class="memdesc:ae29a9592399e3a0b52f771bc655ef18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista as histórias de usuário associadas a um projeto.  <br /></td></tr>
+<tr class="memitem:a55c3ea87e5b51b871921e69893f0d28d" id="r_a55c3ea87e5b51b871921e69893f0d28d"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a55c3ea87e5b51b871921e69893f0d28d">listarHistoriasAssociadasPlanoSprint</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;)=0</td></tr>
+<tr class="memdesc:a55c3ea87e5b51b871921e69893f0d28d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista as histórias de usuário associadas a um plano de sprint.  <br /></td></tr>
+<tr class="memitem:a7ccd0a54c674045c9821020d3beec283" id="r_a7ccd0a54c674045c9821020d3beec283"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a7ccd0a54c674045c9821020d3beec283">listarHistoriasAssociadasPessoa</a> (const <a class="el" href="class_email.html">Email</a> &amp;, std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;)=0</td></tr>
+<tr class="memdesc:a7ccd0a54c674045c9821020d3beec283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista as histórias de usuário associadas a uma pessoa.  <br /></td></tr>
+<tr class="memitem:a41f61ccc33e30cce9c95578e3ebc7af8" id="r_a41f61ccc33e30cce9c95578e3ebc7af8"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a41f61ccc33e30cce9c95578e3ebc7af8">moverHistoriaProjetoParaSprint</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;codigoHistoria, const <a class="el" href="class_codigo.html">Codigo</a> &amp;codigoSprint)=0</td></tr>
+<tr class="memdesc:a41f61ccc33e30cce9c95578e3ebc7af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move uma história de usuário de um projeto para um plano de sprint.  <br /></td></tr>
+<tr class="memitem:ab0d3782fd91ceff7f5137c3d01aa2c1c" id="r_ab0d3782fd91ceff7f5137c3d01aa2c1c"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ab0d3782fd91ceff7f5137c3d01aa2c1c">alterarEstadoHistoria</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, const <a class="el" href="class_estado.html">Estado</a> &amp;)=0</td></tr>
+<tr class="memdesc:ab0d3782fd91ceff7f5137c3d01aa2c1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o estado de uma história de usuário.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="a974f799eef76f92ece39faab31b559b3" name="a974f799eef76f92ece39faab31b559b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974f799eef76f92ece39faab31b559b3">&#9670;&#160;</a></span>~IServicoBacklog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IServicoBacklog::~IServicoBacklog </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual padrão. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="ab0d3782fd91ceff7f5137c3d01aa2c1c" name="ab0d3782fd91ceff7f5137c3d01aa2c1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d3782fd91ceff7f5137c3d01aa2c1c">&#9670;&#160;</a></span>alterarEstadoHistoria()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::alterarEstadoHistoria </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_estado.html">Estado</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Altera o estado de uma história de usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história. </td></tr>
+    <tr><td class="paramname">Estado</td><td>representa o novo estado da história. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da alteração. </dd></dl>
+
+</div>
+</div>
+<a id="aa489975b7263589737eceabec51599b1" name="aa489975b7263589737eceabec51599b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa489975b7263589737eceabec51599b1">&#9670;&#160;</a></span>associarHistoriaPessoa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::associarHistoriaPessoa </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Associa uma história de usuário a uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história. </td></tr>
+    <tr><td class="paramname">Email</td><td>é a chave utilizada para identificar a pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação. </dd></dl>
+
+</div>
+</div>
+<a id="a31fb4fe1830d85657bcffa61618b407b" name="a31fb4fe1830d85657bcffa61618b407b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fb4fe1830d85657bcffa61618b407b">&#9670;&#160;</a></span>atualizarHistoriaUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::atualizarHistoriaUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados de uma história de usuário cadastrada no sistema com base nos novos dados fornecidos pelo usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">HistoriaDeUsuario</td><td>contém os novos dados da história a serem persistidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização. </dd></dl>
+
+</div>
+</div>
+<a id="aa57fa84c54fad037c321a0b4451b363b" name="aa57fa84c54fad037c321a0b4451b363b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57fa84c54fad037c321a0b4451b363b">&#9670;&#160;</a></span>criarHistoriaUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::criarHistoriaUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria uma nova história de usuário no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">HistoriaDeUsuario</td><td>contém os dados da história a ser criada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação. </dd></dl>
+
+</div>
+</div>
+<a id="ab489e124112f061e6060454ff27b6df3" name="ab489e124112f061e6060454ff27b6df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab489e124112f061e6060454ff27b6df3">&#9670;&#160;</a></span>excluirHistoriaUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::excluirHistoriaUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui uma história de usuário do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história a ser removida. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão. </dd></dl>
+
+</div>
+</div>
+<a id="a0d5adce9b5a592ffd472c3315176d96b" name="a0d5adce9b5a592ffd472c3315176d96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5adce9b5a592ffd472c3315176d96b">&#9670;&#160;</a></span>lerHistoriaUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::lerHistoriaUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lê os dados de uma história de usuário cadastrada no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história. </td></tr>
+    <tr><td class="paramname">HistoriaDeUsuario</td><td>será preenchida com os dados da história encontrada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência da história. </dd></dl>
+
+</div>
+</div>
+<a id="a7ccd0a54c674045c9821020d3beec283" name="a7ccd0a54c674045c9821020d3beec283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ccd0a54c674045c9821020d3beec283">&#9670;&#160;</a></span>listarHistoriasAssociadasPessoa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::listarHistoriasAssociadasPessoa </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista as histórias de usuário associadas a uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Email</td><td>é a chave utilizada para identificar a pessoa. </td></tr>
+    <tr><td class="paramname">std::vector&lt;HistoriaDeUsuario&gt;&amp;</td><td>é o vetor que será preenchido com as histórias associadas à pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas. </dd></dl>
+
+</div>
+</div>
+<a id="a55c3ea87e5b51b871921e69893f0d28d" name="a55c3ea87e5b51b871921e69893f0d28d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c3ea87e5b51b871921e69893f0d28d">&#9670;&#160;</a></span>listarHistoriasAssociadasPlanoSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::listarHistoriasAssociadasPlanoSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista as histórias de usuário associadas a um plano de sprint. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o plano de sprint. </td></tr>
+    <tr><td class="paramname">std::vector&lt;HistoriaDeUsuario&gt;&amp;</td><td>é o vetor que será preenchido com as histórias associadas ao plano de sprint. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas. </dd></dl>
+
+</div>
+</div>
+<a id="ae29a9592399e3a0b52f771bc655ef18e" name="ae29a9592399e3a0b52f771bc655ef18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae29a9592399e3a0b52f771bc655ef18e">&#9670;&#160;</a></span>listarHistoriasAssociadasProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::listarHistoriasAssociadasProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_historia_de_usuario.html">HistoriaDeUsuario</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista as histórias de usuário associadas a um projeto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o projeto. </td></tr>
+    <tr><td class="paramname">std::vector&lt;HistoriaDeUsuario&gt;&amp;</td><td>é o vetor que será preenchido com as histórias associadas ao projeto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas. </dd></dl>
+
+</div>
+</div>
+<a id="a41f61ccc33e30cce9c95578e3ebc7af8" name="a41f61ccc33e30cce9c95578e3ebc7af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f61ccc33e30cce9c95578e3ebc7af8">&#9670;&#160;</a></span>moverHistoriaProjetoParaSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::moverHistoriaProjetoParaSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>codigoHistoria</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>codigoSprint</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move uma história de usuário de um projeto para um plano de sprint. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história. </td></tr>
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o plano de sprint de destino. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação. </dd></dl>
+
+</div>
+</div>
+<a id="a063d093b681a41f8451c71607d048899" name="a063d093b681a41f8451c71607d048899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063d093b681a41f8451c71607d048899">&#9670;&#160;</a></span>removerAssociacaoHistoriaPessoa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoBacklog::removerAssociacaoHistoriaPessoa </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove a associação entre uma história de usuário e uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar a história. </td></tr>
+    <tr><td class="paramname">Email</td><td>é a chave utilizada para identificar a pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>headers/Interfaces/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_servico_backlog.html">IServicoBacklog</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
