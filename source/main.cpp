@@ -17,8 +17,8 @@
 #include "Interfaces/interfaces.hpp"
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
+#include "Stubs/stubAutenticacao.hpp"
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
-#include "Stubs/stubs.hpp"
 #include "Stubs/stubPlanejamento.hpp"
 
 

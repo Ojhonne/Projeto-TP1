@@ -1,6 +1,7 @@
 /**
  * 
  * @file CrtlApresentacaoLogin.hpp
+ * @author João Francisco de Sousa Torres
  * @brief Definição da controladora da apresentação de login.
  */
 

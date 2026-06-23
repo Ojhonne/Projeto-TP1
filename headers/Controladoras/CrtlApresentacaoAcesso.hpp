@@ -1,6 +1,7 @@
 /**
  * 
- * @file CrtlApresentacaoAcesson.hpp
+ * @file CrtlApresentacaoAcesso.hpp
+ * @author João Francisco de Sousa Torres
  * @brief Definição da controladora da apresentação acesso(menu principal).
  */
 

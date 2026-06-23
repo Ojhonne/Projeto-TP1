@@ -1,3 +1,9 @@
+/**
+ * @file CrtlApresentacaoPlanejamento.hpp
+ * @author Eduardo Sankievicz Lima
+ * @brief Definição da controladora da apresentação Planejamento.
+ */
+
 #ifndef CRTLAPRESENTACAOPLANEJAMENTO_H_INCLUDED 
 #define CRTLAPRESENTACAOPLANEJAMENTO_H_INCLUDED
 
