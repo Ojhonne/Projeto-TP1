@@ -103,6 +103,7 @@ public:
      * @throw std::invalid_argument Caso o valor informado nao obedeca
      * ao formato LLDDD.
      */
+    Codigo(){};
     Codigo(const std::string& valor);
 
 private:
@@ -267,6 +268,7 @@ class Nome : public Dominio{
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
+        Nome(){};
         Nome(const std::string&);
 };
 inline Nome::Nome(const std::string& nome){
@@ -302,6 +304,7 @@ class Papel : public Dominio {
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de papel.
          *
          */
+        Papel(){};
         Papel(std::string& valor);
 };
 
@@ -379,6 +382,7 @@ class Senha : public Dominio {
          *
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de senha.
          */
+        Senha(){};
         Senha(const std::string& valor);
 };
 
@@ -411,6 +415,7 @@ class Tempo : public Dominio{
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
+        Tempo(){};
         Tempo(const std::string& );
 };
 inline Tempo::Tempo(const std::string& tempo){
@@ -450,6 +455,7 @@ class Texto : public Dominio{
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
+        Texto(){};
         Texto(const std::string&);
 };
 inline Texto::Texto(const std::string& texto){

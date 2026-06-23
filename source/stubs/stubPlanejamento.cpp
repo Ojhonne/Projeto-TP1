@@ -2,8 +2,8 @@
 
 const string StubServicoPlanejamento::CODIGO_PROJETO_VALIDO = "AB123";
 const string StubServicoPlanejamento::NOME_PROJETO_VALIDO = "Projeto01";
-const string StubServicoPlanejamento::DATA_INICIO_VALIDA = "01/01/25";
-const string StubServicoPlanejamento::DATA_FIM_VALIDA = "31/12/25";
+const string StubServicoPlanejamento::DATA_INICIO_VALIDA = "01/01/2025";
+const string StubServicoPlanejamento::DATA_FIM_VALIDA = "31/12/2025";
 
 const string StubServicoPlanejamento::CODIGO_PLANO_VALIDO = "CD456";
 const string StubServicoPlanejamento::TEXTO_PLANO_VALIDO = "Sprint 1";
