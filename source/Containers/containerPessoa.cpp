@@ -50,19 +50,19 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
     if (sqlite3_open(nomeBanco.c_str(), &db) == SQLITE_OK) {
         // Instrução SQL com um "bind parameter" (?) para evitar injeção de SQL
         std::string sql = "SELECT nome, senha, papel FROM Pessoa WHERE email = ?;";
-        sqlite3_stmt* stmt;
+        sqlite3_stmt* stmt; // É o "Statement". É um objeto do SQLite que representa a sua query já compilada e pronta para rodar.
 
         // Prepara a query
-        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK) { // -1 avisa para o SQLite ler a string até encontrar o caractere nulo (\0) que marca o final dela.
             
-            // Pega o email que foi passado na entidade (ajuste getEmail()/getValor() conforme seu código)
+            // Pega o email que foi passado na entidade 
             std::string emailBusca = pessoa->getEmail().getValor();
             
             // Vincula a string C++ no lugar da interrogação (?) na query SQL
             sqlite3_bind_text(stmt, 1, emailBusca.c_str(), -1, SQLITE_STATIC);
 
             // Executa a query. Se retornar SQLITE_ROW, achou uma linha no banco!
-            if (sqlite3_step(stmt) == SQLITE_ROW) {
+            if (sqlite3_step(stmt) == SQLITE_ROW) { // Ele manda a query para o banco de dados de fato.
                 // Extrai as colunas retornadas pelo SELECT
                 // Coluna 0: nome, Coluna 1: senha, Coluna 2: papel
                 std::string nomeBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
@@ -70,9 +70,12 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
                 std::string papelBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
 
                 // Recria os objetos de domínio
-                Nome nome;   nome.setValor(nomeBd);
-                Senha senha; senha.setValor(senhaBd);
-                Papel papel; papel.setValor(papelBd);
+                Nome nome;   
+                nome.setValor(nomeBd);
+                Senha senha; 
+                senha.setValor(senhaBd);
+                Papel papel; 
+                papel.setValor(papelBd);
 
                 // Preenche a entidade Pessoa original recebida por ponteiro
                 pessoa->setNome(nome);
@@ -92,6 +95,8 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
 
 bool ContainerPessoa::incluir(Pessoa pessoa) {
     // 1. Abrir banco
+    sqlite3* db; //abrindo o banco de dados SQLite
+    
     // 2. Preparar "INSERT INTO Pessoa (email, nome, senha, papel) VALUES (?, ?, ?, ?);"
     // 3. Fazer bind dos 4 atributos usando pessoa.getEmail().getValor(), etc.
     // 4. Executar com sqlite3_step(stmt) e retornar true se der SQLITE_DONE
