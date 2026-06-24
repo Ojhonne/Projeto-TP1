@@ -16,7 +16,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
         return false;
     }
  }
- bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsuario& armazenaHistoria ){
+bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsuario& armazenaHistoria ){
     try{
         // Tenta ler uma historia  no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->lerHistoriaUsuario(chaveID, armazenaHistoria)){
@@ -29,7 +29,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
     }
  }
 
-  bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada){
+bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada){
     try{
         // Tenta atualizar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(historiaAtualizada)){
@@ -42,7 +42,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
     }
  }
  
-   bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID){
+bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID){
     try{
         // Tenta atualizar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
@@ -55,10 +55,23 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
     }
  }
 
-    bool CrtlServicoBacklog::listarHistoriasAssociadasProjeto(const Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria) {
+bool CrtlServicoBacklog::listarHistoriasAssociadasProjeto(const Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria) {
     try{
         // Tenta atualizar uma historia no banco de dados através do Singleton
-        if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
+        if(ContainerBacklog::getInstancia()->listarHistoriasAssociadasProjeto(chaveID, armazenamentoHistoria)){
+            return true;
+        }
+        return false; 
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+ }
+
+bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprintconst Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria)  {
+    try{
+        // Tenta atualizar uma historia no banco de dados através do Singleton
+        if(ContainerBacklog::getInstancia()->listarHistoriasAssociadasProjeto(chaveID, armazenamentoHistoria)){
             return true;
         }
         return false; 
