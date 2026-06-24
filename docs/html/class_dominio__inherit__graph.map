@@ -1,23 +1,23 @@
 <map id="Dominio" name="Dominio">
-<area shape="rect" id="Node000001" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="397,5,476,96"/>
-<area shape="rect" id="Node000002" href="$class_codigo.html" title=" " alt="" coords="5,219,57,288"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,61,302,75,210,94,126,118,94,131,72,146,58,162,48,181,37,220,32,218,43,179,54,159,68,142,91,127,124,113,209,88,301,70,385,58"/>
-<area shape="rect" id="Node000003" href="$class_data.html" title=" " alt="" coords="82,144,173,363"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="380,62,337,74,286,90,234,114,188,146,174,160,170,156,184,142,231,110,284,85,336,69,385,59"/>
-<area shape="rect" id="Node000004" href="$class_email.html" title=" " alt="" coords="197,219,241,288"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="381,68,317,98,284,119,256,146,244,163,236,182,225,220,221,218,231,180,240,160,252,142,281,115,315,93,385,65"/>
-<area shape="rect" id="Node000005" href="$class_estado.html" title=" " alt="" coords="265,219,338,288"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="389,98,353,145,332,183,316,221,312,217,327,181,349,143,385,102"/>
-<area shape="rect" id="Node000006" href="$class_nome.html" title="Representa o formato válido para armazenar um Nome." alt="" coords="363,219,430,288"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="427,109,405,220,401,217,423,113"/>
-<area shape="rect" id="Node000007" href="$class_papel.html" title=" " alt="" coords="455,219,498,288"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="450,109,472,220,467,218,447,113"/>
-<area shape="rect" id="Node000008" href="$class_prioridade.html" title=" " alt="" coords="522,219,591,288"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="485,105,512,143,532,181,547,220,542,218,527,183,508,145,484,110"/>
-<area shape="rect" id="Node000009" href="$class_senha.html" title=" " alt="" coords="615,219,663,288"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="490,67,550,97,580,117,605,142,626,180,637,220,632,217,621,182,601,146,576,121,548,101,490,72"/>
-<area shape="rect" id="Node000010" href="$class_tempo.html" title="Representa o formato válido para armazenar um Tempo." alt="" coords="688,219,759,288"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="490,58,535,69,584,86,633,110,677,142,692,159,703,179,718,220,713,218,698,181,687,162,673,146,631,114,582,90,534,74,491,63"/>
-<area shape="rect" id="Node000011" href="$class_texto.html" title="Representa o formato válido para armazenar um Texto." alt="" coords="783,219,847,288"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="490,50,554,56,629,71,705,98,741,118,773,142,788,159,799,178,812,220,807,217,794,181,783,162,769,146,738,122,703,103,628,76,554,61,491,55"/>
+<area shape="rect" id="Node000001" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="440,5,528,139"/>
+<area shape="rect" id="Node000002" href="$class_codigo.html" title="Representa um codigo identificador valido." alt="" coords="5,251,78,341"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,77,352,86,264,105,218,119,173,137,131,161,93,189,70,218,55,252,50,250,65,215,89,185,128,156,171,133,216,114,262,100,351,81,428,74"/>
+<area shape="rect" id="Node000003" href="$class_data.html" title="Representa uma data válida no formato D/MM/AAAA ou DD/MM/AAAA." alt="" coords="103,187,194,405"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="424,86,376,102,318,123,261,151,209,189,196,203,192,199,205,185,258,147,316,118,374,97,428,84"/>
+<area shape="rect" id="Node000004" href="$class_email.html" title="Representa o formato valido para um endereco de email." alt="" coords="219,251,284,341"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="425,98,361,136,328,160,299,188,279,219,265,252,261,249,274,216,294,185,324,156,358,131,429,95"/>
+<area shape="rect" id="Node000005" href="$class_estado.html" title="Representa um estado válido de andamento de tarefa." alt="" coords="308,261,381,331"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="433,133,396,188,376,226,359,263,355,260,371,224,392,185,429,136"/>
+<area shape="rect" id="Node000006" href="$class_nome.html" title="Representa o formato válido para armazenar um Nome." alt="" coords="406,251,473,341"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="470,152,450,252,446,249,466,155"/>
+<area shape="rect" id="Node000007" href="$class_papel.html" title="Representa o formato válido para armazenar um papel do usuário." alt="" coords="497,251,562,341"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="502,151,523,252,518,250,499,155"/>
+<area shape="rect" id="Node000008" href="$class_prioridade.html" title="Representa o formato válido para armazenar uma prioridade do usuário." alt="" coords="586,261,676,331"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="539,134,576,185,618,262,613,261,572,188,537,139"/>
+<area shape="rect" id="Node000009" href="$class_senha.html" title="Representa o formato válido para armazenar uma senha." alt="" coords="701,251,770,341"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="542,91,619,128,657,154,691,185,712,216,726,252,721,250,707,219,686,188,653,158,616,133,542,96"/>
+<area shape="rect" id="Node000010" href="$class_tempo.html" title="Representa o formato válido para armazenar um Tempo." alt="" coords="794,251,865,341"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="543,79,600,92,663,113,727,143,757,162,784,185,807,216,821,252,817,250,802,218,780,189,754,167,724,148,661,118,598,97,544,85"/>
+<area shape="rect" id="Node000011" href="$class_texto.html" title="Representa o formato válido para armazenar um Texto." alt="" coords="890,251,954,341"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="543,72,618,80,707,98,753,113,798,131,841,155,880,185,903,215,916,252,911,250,898,218,876,189,838,160,796,136,751,118,706,103,617,85,543,77"/>
 </map>

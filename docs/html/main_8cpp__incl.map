@@ -1,15 +1,47 @@
 <map id="source/main.cpp" name="source/main.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="160,5,277,32"/>
-<area shape="rect" id="Node000002" href="$dominios_8hpp.html" title=" " alt="" coords="24,80,181,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,34,137,73,134,69,200,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="24,155,77,181"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="158,31,72,52,36,66,14,82,8,96,11,111,30,143,25,145,6,113,3,95,9,78,33,61,71,47,161,27"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="114,155,192,181"/>
-<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="218,30,210,67,195,108,174,144,170,140,190,106,205,66,214,34"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="256,80,327,107"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="232,30,271,69,265,69,230,35"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="351,80,408,107"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="247,30,340,73,335,74,246,35"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,106,70,144,66,140,91,109"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="112,105,138,142,133,142,110,110"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="583,5,700,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,88,70,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="580,22,487,28,363,38,226,56,89,83,81,84,78,80,88,77,225,50,363,33,487,23,585,20"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="386,336,465,363"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="580,26,455,46,381,62,308,83,206,110,187,119,169,131,151,148,134,172,126,189,124,205,126,220,132,234,157,260,193,282,237,301,284,316,374,339,369,339,283,321,235,306,191,287,153,264,128,237,121,222,118,205,121,188,130,169,147,145,165,127,184,114,205,105,306,77,379,56,454,41,585,24"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="1362,88,1433,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="700,20,1035,40,1218,56,1294,66,1351,77,1361,82,1356,82,1350,83,1293,72,1218,62,1035,45,701,25"/>
+<area shape="rect" id="Node000005" href="$dominios_8hpp.html" title="Definição da classe base abstrata para os domínios do sistema." alt="" coords="568,261,726,288"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="580,29,485,50,442,64,417,82,410,97,410,115,423,157,442,193,455,211,477,228,502,241,556,261,550,261,499,246,474,232,452,215,438,196,418,159,405,116,405,96,413,78,440,60,483,45,585,26"/>
+<area shape="rect" id="Node000007" href="$interfaces_8hpp.html" title="Definição das interfaces do sistema." alt="" coords="1015,179,1180,205"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="700,16,800,18,917,26,973,34,1023,45,1064,59,1091,78,1104,98,1109,120,1106,165,1102,162,1104,121,1099,100,1088,82,1061,64,1022,50,972,39,916,31,800,23,701,22"/>
+<area shape="rect" id="Node000009" href="$_crtl_apresentacao_login_8hpp.html" title="Definição da controladora da apresentação de login." alt="" coords="870,80,1077,123"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="694,30,876,75,871,76,694,35"/>
+<area shape="rect" id="Node000010" href="$_crtl_apresentacao_acesso_8hpp.html" title="Definição da controladora da apresentação acesso(menu principal)." alt="" coords="144,171,352,213"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="580,25,481,44,425,60,372,82,345,99,319,119,277,161,273,157,315,115,342,95,370,78,424,55,480,39,585,23"/>
+<area shape="rect" id="Node000011" href="$stub_autenticacao_8hpp.html" title="Definição da stub de autenticação." alt="" coords="1153,88,1338,115"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="701,23,894,45,1134,77,1166,85,1160,85,1133,83,893,51,701,29"/>
+<area shape="rect" id="Node000012" href="$_crtl_apresentacao_planejamento_8hpp.html" title="Definição da controladora da apresentação Planejamento." alt="" coords="427,80,634,123"/>
+<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="626,31,573,73,570,68,622,34"/>
+<area shape="rect" id="Node000015" href="$stub_planejamento_8hpp.html" title="Definição da stub de planejamento." alt="" coords="658,88,846,115"/>
+<area shape="poly" id="edge25_Node000001_Node000015" title=" " alt="" coords="659,30,725,79,720,79,658,35"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="611,288,480,333,478,328,606,289"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="951,336,1004,363"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="705,286,938,339,933,339,704,291"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1069,261,1126,288"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1099,204,1100,248,1095,244,1096,208"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="963,122,927,171,903,195,875,216,843,232,809,246,741,264,740,258,807,241,841,227,872,211,899,191,923,167,958,124"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="1003,120,1071,170,1065,169,1002,126"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="351,211,571,257,566,259,351,217"/>
+<area shape="poly" id="edge16_Node000011_Node000005" title=" " alt="" coords="1246,113,1231,165,1216,193,1194,215,1159,233,1112,246,992,264,859,273,741,276,741,271,859,268,991,259,1111,241,1157,228,1191,211,1212,190,1226,163,1241,117"/>
+<area shape="poly" id="edge15_Node000011_Node000006" title=" " alt="" coords="1248,113,1246,161,1240,188,1229,215,1210,242,1186,265,1159,285,1130,302,1071,327,1020,342,1019,337,1070,322,1128,298,1156,281,1183,261,1206,238,1224,212,1235,187,1241,160,1244,117"/>
+<area shape="poly" id="edge17_Node000011_Node000007" title=" " alt="" coords="1227,114,1133,173,1131,168,1222,116"/>
+<area shape="poly" id="edge19_Node000012_Node000005" title=" " alt="" coords="506,121,486,144,469,167,461,190,462,201,468,212,485,230,506,244,556,265,551,265,503,249,481,234,463,215,457,202,456,189,464,164,482,141,502,124"/>
+<area shape="poly" id="edge20_Node000012_Node000007" title=" " alt="" coords="634,118,646,120,1002,176,997,177,645,125,635,124"/>
+<area shape="rect" id="Node000013" href="$projeto_8hpp.html" title="Definição da classe entidade Pessoa." alt="" coords="477,179,624,205"/>
+<area shape="poly" id="edge21_Node000012_Node000013" title=" " alt="" coords="537,121,547,165,542,162,534,125"/>
+<area shape="rect" id="Node000014" href="$plano_de_sprint_8hpp.html" title="Definição da classe entidade HistoriaDeUsuario." alt="" coords="649,179,839,205"/>
+<area shape="poly" id="edge23_Node000012_Node000014" title=" " alt="" coords="581,121,702,172,697,173,581,126"/>
+<area shape="poly" id="edge22_Node000013_Node000005" title=" " alt="" coords="567,203,623,252,618,251,565,208"/>
+<area shape="poly" id="edge24_Node000014_Node000005" title=" " alt="" coords="731,205,674,254,672,249,726,207"/>
+<area shape="poly" id="edge27_Node000015_Node000005" title=" " alt="" coords="785,113,823,135,840,151,853,169,861,192,859,203,853,215,835,229,808,241,738,260,737,255,806,236,832,225,849,212,854,202,856,193,848,172,836,154,820,139,784,118"/>
+<area shape="poly" id="edge26_Node000015_Node000006" title=" " alt="" coords="785,113,831,135,875,169,907,206,934,248,970,323,965,321,929,250,903,210,872,173,828,140,784,118"/>
+<area shape="poly" id="edge28_Node000015_Node000007" title=" " alt="" coords="802,113,1036,174,1031,175,801,118"/>
+<area shape="poly" id="edge29_Node000015_Node000013" title=" " alt="" coords="726,114,595,174,593,169,721,116"/>
+<area shape="poly" id="edge30_Node000015_Node000014" title=" " alt="" coords="753,113,749,165,745,161,749,117"/>
 </map>

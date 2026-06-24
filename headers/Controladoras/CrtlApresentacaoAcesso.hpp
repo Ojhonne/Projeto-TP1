@@ -53,9 +53,8 @@ class CrtlApresentacaoAcesso {
         */
         virtual ~CrtlApresentacaoAcesso() = default;
         /**
-         * @brief Executa método que exibe o menu principal do sistema.\n
-         *
-         * Enquanto nenhuma pessoa estiver logado, apenas autenticação fica disponível.
+         * @brief Executa método que exibe o menu principal do sistema. \n
+         *Enquanto nenhuma pessoa estiver logado, apenas autenticação fica disponível.
          * Ao logar, todas as áreas do sistema são liberadas ao usuário.
          */
         void executar(); 

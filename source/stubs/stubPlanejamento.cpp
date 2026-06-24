@@ -68,3 +68,47 @@ bool StubServicoPlanejamento::excluirPlanoSprint(const Codigo& codigo){
 
     return true;
 }
+
+bool StubServicoPlanejamento::listarProjetos(
+    const Email& email,
+    std::vector<Projeto>& projetos
+) {
+    projetos.clear();
+
+    Projeto projeto;
+
+    Data dataInicio;
+    dataInicio.setValor(DATA_INICIO_VALIDA);
+
+    Data dataFim;
+    dataFim.setValor(DATA_FIM_VALIDA);
+
+    projeto.setCodigo(Codigo(CODIGO_PROJETO_VALIDO));
+    projeto.setNome(Nome(NOME_PROJETO_VALIDO));
+    projeto.setInicio(dataInicio);
+    projeto.setTermino(dataFim);
+
+    projetos.push_back(projeto);
+
+    return true;
+}
+
+bool StubServicoPlanejamento::listarPlanosSprint(
+    const Codigo& codigoProjeto,
+    std::vector<PlanoDeSprint>& planos
+) {
+    planos.clear();
+
+    if (codigoProjeto.getValor().compare(CODIGO_PROJETO_VALIDO) != 0)
+        return false;
+
+    PlanoDeSprint plano;
+
+    plano.setCodigo(Codigo(CODIGO_PLANO_VALIDO));
+    plano.setTexto(Texto(TEXTO_PLANO_VALIDO));
+    plano.setTempo(Tempo(TEMPO_PLANO_VALIDO));
+
+    planos.push_back(plano);
+
+    return true;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentacao-TP1: Referência do Arquivo headers/Tui/tui.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentacao-TP1
+   </div>
+   <div id="projectbrief">Documentação do trabalho de TP1</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('tui_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência do Arquivo tui.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para tui.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="tui_8hpp__incl.png" border="0" usemap="#aheaders_2_tui_2tui_8hpp" loading="lazy" alt=""/></div>
+<map name="aheaders_2_tui_2tui_8hpp" id="aheaders_2_tui_2tui_8hpp">
+<area shape="rect" title=" " alt="" coords="8,5,140,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,63,107"/>
+<area shape="poly" title=" " alt="" coords="69,31,51,68,46,65,65,34"/>
+<area shape="rect" title=" " alt="" coords="87,80,141,107"/>
+<area shape="poly" title=" " alt="" coords="82,30,102,66,97,66,80,35"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="tui_8hpp__dep__incl.png" border="0" usemap="#aheaders_2_tui_2tui_8hppdep" loading="lazy" alt=""/></div>
+<map name="aheaders_2_tui_2tui_8hppdep" id="aheaders_2_tui_2tui_8hppdep">
+<area shape="rect" title=" " alt="" coords="365,5,497,32"/>
+<area shape="rect" href="_crtl_apresentacao_acesso_8cpp.html" title=" " alt="" coords="5,80,201,123"/>
+<area shape="poly" title=" " alt="" coords="368,36,188,82,187,77,362,36"/>
+<area shape="rect" href="_crtl_apresentacao_login_8cpp.html" title=" " alt="" coords="225,80,408,123"/>
+<area shape="poly" title=" " alt="" coords="403,40,347,82,345,77,398,42"/>
+<area shape="rect" href="_crtl_apresentacao_planejamento_8cpp.html" title=" " alt="" coords="432,80,662,123"/>
+<area shape="poly" title=" " alt="" coords="462,38,520,80,515,79,461,43"/>
+<area shape="rect" href="tui_8cpp.html" title=" " alt="" coords="686,88,811,115"/>
+<area shape="poly" title=" " alt="" coords="498,33,674,77,704,88,699,87,673,83,497,39"/>
+</map>
+</div>
+</div>
+<p><a href="tui_8hpp_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Tui" id="r_Tui"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespace_tui.html">Tui</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a9f1872a2ac54e385ca8b606c4164b3d4" id="r_a9f1872a2ac54e385ca8b606c4164b3d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_tui.html#a9f1872a2ac54e385ca8b606c4164b3d4">Tui::inicializarTerminal</a> ()</td></tr>
+<tr class="memdesc:a9f1872a2ac54e385ca8b606c4164b3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o terminal para uso com ncurses. <br  />
+Configura o terminal para capturar entradas do usuário, desabilita a exibição de caracteres digitados, e habilita o uso de cores e teclas especiais. <br  />
+.  <br /></td></tr>
+<tr class="memitem:a009243e2995d0d83b54f0510b8308015" id="r_a009243e2995d0d83b54f0510b8308015"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_tui.html#a009243e2995d0d83b54f0510b8308015">Tui::finalizarTerminal</a> ()</td></tr>
+<tr class="memdesc:a009243e2995d0d83b54f0510b8308015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finaliza o uso do ncurses e restaura o estado original do terminal.  <br /></td></tr>
+<tr class="memitem:a18485d33cfe6dfc4b55f0507bd833420" id="r_a18485d33cfe6dfc4b55f0507bd833420"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="namespace_tui.html#a18485d33cfe6dfc4b55f0507bd833420">Tui::lerEntradaTerminal</a> (WINDOW *win, char *buffer, int tamanhoMaximo, bool modoSenha)</td></tr>
+<tr class="memdesc:a18485d33cfe6dfc4b55f0507bd833420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê a entrada do usuário no ncurses com suporte a backspace e cancelamento.  <br /></td></tr>
+<tr class="memitem:a16adc0decc9a1e8adb006d3b75f2d3d0" id="r_a16adc0decc9a1e8adb006d3b75f2d3d0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="namespace_tui.html#a16adc0decc9a1e8adb006d3b75f2d3d0">Tui::exibeMenu</a> (WINDOW *win, const std::string &amp;titulo, const std::vector&lt; std::string &gt; &amp;opcoes)</td></tr>
+<tr class="memdesc:a16adc0decc9a1e8adb006d3b75f2d3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe um menu de opções no terminal usando ncurses.  <br /></td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_7f57b1e41c5acd0e859ae5f3a2b075a9.html">headers</a></li><li class="navelem"><a href="dir_1a0dda7d6ee878fe1577a4138eac2d5a.html">Tui</a></li><li class="navelem"><a href="tui_8hpp.html">tui.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

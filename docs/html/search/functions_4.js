@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['imprimir_0',['imprimir',['../class_intervalo.html#a59bc1656113867fbc34d3bbd22f53355',1,'Intervalo']]],
-  ['intervalo_1',['Intervalo',['../class_intervalo.html#a9b5b23dda7ee26b444898457959cb03d',1,'Intervalo']]]
+  ['finalizarterminal_0',['finalizarTerminal',['../namespace_tui.html#a009243e2995d0d83b54f0510b8308015',1,'Tui']]]
 ];
