@@ -10,7 +10,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
         if(ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia)){
             return true;
         }
-        return false; // Não foi possivel criar a historia
+        return false;
     } catch (const std::runtime_error& e){
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
         return false;
@@ -22,7 +22,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
         if(ContainerBacklog::getInstancia()->lerHistoriaUsuario(chaveID, armazenaHistoria)){
             return true;
         }
-        return false; // Não foi possivel criar a historia
+        return false; 
     } catch (const std::runtime_error& e){
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
         return false;
@@ -31,14 +31,26 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
 
   bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada){
     try{
-        // Tenta ler uma historia  no banco de dados através do Singleton
+        // Tenta atualizar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(historiaAtualizada)){
             return true;
         }
-        return false; // Não foi possivel criar a historia
+        return false; 
     } catch (const std::runtime_error& e){
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
         return false;
     }
  }
  
+   bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID){
+    try{
+        // Tenta atualizar uma historia no banco de dados através do Singleton
+        if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
+            return true;
+        }
+        return false; 
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+ }
