@@ -31,7 +31,7 @@
 class HistoriaDeUsuario {
     private:
         Codigo codigo;
-        Codigo codigoProjeto;
+        Codigo codigoProjeto, codigoSprint, codigoPessoa;
         Texto titulo, papel, acao, valor;
         Tempo estimativa;
         Prioridade prioridade;
@@ -57,6 +57,26 @@ class HistoriaDeUsuario {
          * @return const Codigo& Referência constante para o código armazenado.
          */  
         const Codigo& getCodigoProjeto() const;
+          /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setCodigoSprint(const Codigo& codigo);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Codigo& Referência constante para o código armazenado.
+         */  
+        const Codigo& getCodigoSprint() const;
+                  /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setCodigoPessoa(const Codigo& codigo);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Codigo& Referência constante para o código armazenado.
+         */  
+        const Codigo& getCodigoPessoa() const;
         /**
          * @brief Atribui um novo título.
          * @param titulo Referência constante para o objeto de domínio Texto.
@@ -155,6 +175,20 @@ inline void HistoriaDeUsuario::setCodigoProjeto (const Codigo& codigoProjeto ){
 }
 inline const Codigo& HistoriaDeUsuario::getCodigoProjeto() const{
     return codigoProjeto;
+}
+
+inline void HistoriaDeUsuario::setCodigoSprint (const Codigo& codigoSprint ){
+    this->codigoSprint  = codigoSprint ;
+}
+inline const Codigo& HistoriaDeUsuario::getCodigoSprint() const{
+    return codigoSprint ;
+}
+
+inline void HistoriaDeUsuario::setCodigoPessoa (const Codigo& codigoPessoa ){
+    this->codigoPessoa  = codigoPessoa ;
+}
+inline const Codigo& HistoriaDeUsuario::getCodigoPessoa() const{
+    return codigoPessoa ;
 }
 
 inline void HistoriaDeUsuario::setTitulo(const Texto& titulo){

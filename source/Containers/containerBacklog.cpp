@@ -159,7 +159,7 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
 
     conectarBanco(db); // abrindo o banco
 
-    std::string sql = "UPDATE HistoriaDeUsuario SET titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade  = ?, estado= ?, projeto_codigo= ? WHERE codigo = ?;";
+    std::string sql = "UPDATE HistoriaDeUsuario SET titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade  = ?, estado= ?, projeto_codigo= ?, sprint_codigo = ?, pessoa_codigo = ? WHERE codigo = ?;";
 
     abreQuerry(db, sql, stmt);   // Prepara a query
 
@@ -171,7 +171,9 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
     int estimativaAtualizada = std::stoi(estimativa);
     std::string priodadeAtualizado = historia.getPrioridade().getValor();
     std::string estadoAtualizado = historia.getEstado().getValor();
-    std::string projeto_codigo = historia.getCodigoProjeto().getValor(); 
+    std::string projeto_codigo = historia.getCodigoProjeto().getValor();
+    std::string sprint_codigo = historia.getCodigoSprint().getValor();  
+    std::string pessoa_codigo = historia.getCodigoPessoa().getValor();  
     std::string codigo = historia.getCodigo().getValor(); 
 
     sqlite3_bind_text(stmt, 1, tituloAtualizado.c_str(), -1, SQLITE_STATIC);
