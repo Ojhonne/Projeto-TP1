@@ -129,10 +129,27 @@ bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, co
 
 bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailPessoa){
     HistoriaDeUsuario armazenaHistoria;
-    std::string vazio = "";
+    try{
+            if (lerHistoriaUsuario(codigoHistoria, armazenaHistoria)) {
+                if (armazenaHistoria.getEmailPessoa().getValor() == emailPessoa.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
+                    Email emailVazio;
+                    armazenaHistoria.setEmailPessoa(emailVazio);
+                    return atualizarHistoriaUsuario(armazenaHistoria); 
+                }
+            }
+            return false;
+        } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+}
+
+bool CrtlServicoBacklog::alterarEstadoHistoria(const Codigo& codigoHistoria, const Estado& novoEstado){
+    HistoriaDeUsuario armazenaHistoria;
+
     try{
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
-            armazenaHistoria.setEmailPessoa(vazio);
+            armazenaHistoria.setEstado(novoEstado);
             if(atualizarHistoriaUsuario(armazenaHistoria)){
                 return true; 
             }
@@ -142,5 +159,4 @@ bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHis
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
         return false;
     }
-
 }
