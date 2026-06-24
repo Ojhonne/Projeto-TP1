@@ -55,9 +55,9 @@ bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID){
     }
  }
 
-bool CrtlServicoBacklog::listarHistoriasAssociadasProjeto(const Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria) {
+bool CrtlServicoBacklog::listarHistoriasAssociadasProjeto(const Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria){
     try{
-        // Tenta atualizar uma historia no banco de dados através do Singleton
+        // Tenta listar historias no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->listarHistoriasAssociadasProjeto(chaveID, armazenamentoHistoria)){
             return true;
         }
@@ -68,10 +68,23 @@ bool CrtlServicoBacklog::listarHistoriasAssociadasProjeto(const Codigo& chaveID,
     }
  }
 
-bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprintconst Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria)  {
+bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& chaveID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria) {
     try{
-        // Tenta atualizar uma historia no banco de dados através do Singleton
+        // Tenta listar historias do banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->listarHistoriasAssociadasProjeto(chaveID, armazenamentoHistoria)){
+            return true;
+        }
+        return false; 
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+ }
+
+ bool CrtlServicoBacklog::listarHistoriasAssociadasPessoa(const Email& emailID, std::vector<HistoriaDeUsuario>& armazenamentoHistoria){
+    try{
+        // Tenta listar historias do banco de dados através do Singleton
+        if(ContainerBacklog::getInstancia()->listarHistoriasAssociadasPessoa(emailID, armazenamentoHistoria)){
             return true;
         }
         return false; 
