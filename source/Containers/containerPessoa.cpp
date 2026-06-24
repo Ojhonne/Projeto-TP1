@@ -95,11 +95,12 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
 }
 
 bool ContainerPessoa::incluir(Pessoa pessoa) {
-    sqlite3* db; //abrindo o banco de dados SQLite
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
+
     conectarBanco(db);
 
     std::string sql =  "INSERT INTO Pessoa (email, nome, senha, papel) Values (?, ?, ?, ?);";
-    sqlite3_stmt* stmt; // É o "Statement". É um objeto do SQLite que representa a sua query já compilada e pronta para rodar.
 
     abreQuerry(db, sql, stmt);
 
@@ -113,7 +114,7 @@ bool ContainerPessoa::incluir(Pessoa pessoa) {
     sqlite3_bind_text(stmt, 3, senhaNova.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 4, papelNovo.c_str(), -1, SQLITE_STATIC);
 
-    associaBind(db, stmt);
+    executaStep(db, stmt);
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
@@ -122,59 +123,57 @@ bool ContainerPessoa::incluir(Pessoa pessoa) {
 }
 
 bool ContainerPessoa::remover(Email email) {
-    sqlite3* db;
-    if(sqlite3_open(nomeBanco.c_str(), &db) == SQLITE_OK){
-        std::string sql = "DELETE FROM Pessoa WHERE email = ?;";
-        sqlite3_stmt* stmt;
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
 
-        if(sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK){
-            std::string emailDeletar = email.getValor();
+    conectarBanco(db);
 
-            sqlite3_bind_text(stmt, 1, emailDeletar.c_str(), -1, SQLITE_STATIC);
+    std::string sql = "DELETE FROM Pessoa WHERE email = ?;";
 
-            if(sqlite3_step(stmt) == SQLITE_DONE){
-                if (sqlite3_changes(db) > 0) {
-                    foiRemovido = true;
-                } else {
-                     throw std::runtime_error("Erro ao remover a pessoa com email:"+ emailDeletar);
-                }
-            }
-        }
-        sqlite3_finalize(stmt);
-    }
+    abreQuerry(db, sql, stmt);
+
+    std::string emailDeletar = email.getValor();
+
+    sqlite3_bind_text(stmt, 1, emailDeletar.c_str(), -1, SQLITE_STATIC);
+
+    executaStep(db, stmt);
+        
+    sqlite3_finalize(stmt);
     sqlite3_close(db);
+
     return true;
 }
 
 bool ContainerPessoa::atualizar(Pessoa pessoa) {
-    sqlite3* db;
-    bool foiAtualizado{false};
-    if(sqlite3_open(nomeBanco.c_str(), &db) == SQLITE_OK){
-        std::string sql = "UPDATE Pessoa SET nome = ?, senha = ?, papel = ? WHERE email = ?;";
-        sqlite3_stmt* stmt;
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
 
-        if(sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK){
-            std::string nomeAtualizado = pessoa.getNome().getValor();
-            std::string senhaAtualizada = pessoa.getSenha().getValor();
-            std::string papelAtualizado = pessoa.getPapel().getValor();
-            std::string emailOriginal = pessoa.getEmail().getValor();
+    conectarBanco(db);
 
-            sqlite3_bind_text(stmt, 1, nomeAtualizado.c_str(), -1, SQLITE_STATIC);
-            sqlite3_bind_text(stmt, 2, senhaAtualizada.c_str(), -1, SQLITE_STATIC);
-            sqlite3_bind_text(stmt, 3, papelAtualizado.c_str(), -1, SQLITE_STATIC);
-            sqlite3_bind_text(stmt, 4, emailOriginal.c_str(), -1, SQLITE_STATIC);
+    std::string sql = "UPDATE Pessoa SET nome = ?, senha = ?, papel = ? WHERE email = ?;";
 
-                if (sqlite3_changes(db) > 0) {
-                    foiAtualizado = true;
-                }
-        }
-        sqlite3_finalize(stmt);
-    }
+    abreQuerry(db, sql, stmt);
+
+    std::string nomeAtualizado = pessoa.getNome().getValor();
+    std::string senhaAtualizada = pessoa.getSenha().getValor();
+    std::string papelAtualizado = pessoa.getPapel().getValor();
+    std::string emailOriginal = pessoa.getEmail().getValor();
+
+    sqlite3_bind_text(stmt, 1, nomeAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, senhaAtualizada.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, papelAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, emailOriginal.c_str(), -1, SQLITE_STATIC);
+
+    executaStep(db, stmt);
+
+    sqlite3_finalize(stmt);
     sqlite3_close(db);
-    return foiAtualizado;
+    return true;
 }
 
-void ContainerPessoa::conectarBanco(sqlite3* db){
+// Funçoes auxiliares
+
+void ContainerPessoa::conectarBanco(sqlite3*& db){
     if(sqlite3_open(nomeBanco.c_str(), &db) != SQLITE_OK){ // Erro ao abrir o arquivo
         std::string erro = sqlite3_errmsg(db);
         sqlite3_close(db);
@@ -182,7 +181,7 @@ void ContainerPessoa::conectarBanco(sqlite3* db){
     }
 }
 
-void ContainerPessoa::abreQuerry(sqlite3* db, std::string sql, sqlite3_stmt* stmt){
+void ContainerPessoa::abreQuerry(sqlite3* db, std::string& sql, sqlite3_stmt*& stmt){
     if(sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK){  // Erro de sintaxe no SQL ou tabela não existe
         std::string erro = sqlite3_errmsg(db);
         sqlite3_close(db);
@@ -190,7 +189,7 @@ void ContainerPessoa::abreQuerry(sqlite3* db, std::string sql, sqlite3_stmt* stm
     }
 }
 
-void ContainerPessoa:executaStep(sqlite3* db, sqlite3_stmt* stmt){
+void ContainerPessoa::executaStep(sqlite3* db, sqlite3_stmt* stmt){
     if(sqlite3_step(stmt) != SQLITE_DONE){ // Erro na execução 
         std::string erro = sqlite3_errmsg(db);
         sqlite3_finalize(stmt);
