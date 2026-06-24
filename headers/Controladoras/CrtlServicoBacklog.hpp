@@ -34,7 +34,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      *  @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      *  @throws Pode capturar exceções vindas do repositório.
      */
-     bool criarHistoriaUsuario(const HistoriaDeUsuario&) override;
+     bool criarHistoriaUsuario(const HistoriaDeUsuario&, const Email&) override;
     /**
      * @brief Lê os dados de uma história de usuário cadastrada no sistema.
      * @param Codigo é a chave utilizada para identificar a história.
@@ -48,14 +48,14 @@ class CrtlServicoBacklog : public IServicoBacklog{
      *  @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      *  @throws Pode capturar exceções vindas do repositório.
      */
-     bool atualizarHistoriaUsuario(const HistoriaDeUsuario&) override;
+     bool atualizarHistoriaUsuario(const HistoriaDeUsuario&, const Email&) override;
     /**
      * @brief Exclui uma história de usuário cadastrada no sistema.
      * @param Codigo é a chave utilizada para identificar a história.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      * @throws Pode capturar exceções vindas do repositório.
      */
-     bool excluirHistoriaUsuario(const Codigo&) override;
+     bool excluirHistoriaUsuario(const Codigo&, const Email&) override;
     /**
      * @brief Associa uma história de usuário a uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
@@ -103,7 +103,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      * @throws Pode capturar exceções vindas do repositório.
      */
-     bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint) override;
+     bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email&) override;
     /**
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
@@ -111,7 +111,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      * @throws Pode capturar exceções vindas do repositório.
      */
-     bool alterarEstadoHistoria(const Codigo&, const Estado&) override;
+     bool alterarEstadoHistoria(const Codigo&, const Estado&, const Email&) override;
 
 };
 
