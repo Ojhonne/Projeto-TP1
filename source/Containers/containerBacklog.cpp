@@ -153,7 +153,44 @@ bool ContainerBacklog::lerHistoriaUsuario(const Codigo& codigo, HistoriaDeUsuari
     return true;
 }
 
+bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historia){
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
 
+    conectarBanco(db); // abrindo o banco
+
+    std::string sql = "UPDATE HistoriaDeUsuario SET titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade  = ?, estado= ?, projeto_codigo= ? WHERE codigo = ?;";
+
+    abreQuerry(db, sql, stmt);   // Prepara a query
+
+    std::string tituloAtualizado = historia.getTitulo().getValor(); 
+    std::string papelAtualizado = historia.getPapel().getValor();
+    std::string acaoAtualizada = historia.getAcao().getValor();
+    std::string valorAtualizado = historia.getValor().getValor(); 
+    std::string estimativa = historia.getEstimativa().getValor();
+    int estimativaAtualizada = std::stoi(estimativa);
+    std::string priodadeAtualizado = historia.getPrioridade().getValor();
+    std::string estadoAtualizado = historia.getEstado().getValor();
+    std::string projeto_codigo = historia.getCodigoProjeto().getValor(); 
+    std::string codigo = historia.getCodigo().getValor(); 
+
+    sqlite3_bind_text(stmt, 1, tituloAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, papelAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, acaoAtualizada.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, valorAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 5, estimativaAtualizada);
+    sqlite3_bind_text(stmt, 6, priodadeAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 7, estadoAtualizado.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 8, projeto_codigo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 9, codigo.c_str(), -1, SQLITE_STATIC);
+
+    executaStep(db, stmt);   // Executa a query. 
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return true;
+}
 
 
 // Funçoes auxiliares
