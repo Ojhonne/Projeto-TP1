@@ -66,6 +66,7 @@ int main(void){
     
     // instanciando os stubs
     IServicoPlanejamento *stubServicoPlanejamento;
+    stubServicoPlanejamento = new StubServicoPlanejamento();
 
     
     // interligando controladoras e servico.
