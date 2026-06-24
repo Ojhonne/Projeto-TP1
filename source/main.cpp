@@ -14,40 +14,63 @@
 #endif
 
 #include "Dominios/dominios.hpp"
+#include "Entidades/pessoa.hpp"
 #include "Interfaces/interfaces.hpp"
+
+// Apresentação
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
-#include "Stubs/stubAutenticacao.hpp"
-#include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
-#include "Stubs/stubPlanejamento.hpp"
 
+// Serviços Reais (Substituindo o Stub)
+#include "Controladoras/CrtlServicoAutenticacao.hpp"
+#include "Containers/containerPessoa.hpp"
+
+#include "Stubs/stubPlanejamento.hpp"
 
 using namespace std;
 
 int main(void){
 
-    // Instanciar controladoras da camada de apresentação.
+    // Populando o banco de dados para o login
+    try {
+        Email emailTeste;  emailTeste.setValor("joao@teste.com");
+        Nome nomeTeste;    nomeTeste.setValor("Joao");
+        Senha senhaTeste;  senhaTeste.setValor("A1b2C3"); 
+        Papel papelTeste;  papelTeste.setValor("DESENVOLVEDOR");
+
+        Pessoa novaPessoa;
+        novaPessoa.setEmail(emailTeste);
+        novaPessoa.setNome(nomeTeste);
+        novaPessoa.setSenha(senhaTeste);
+        novaPessoa.setPapel(papelTeste);
+
+        // Insere no SQLite. Se já existir (rodou 2x), o banco só lança exceção e ignora.
+        ContainerPessoa::getInstancia()->incluir(novaPessoa);
+    } catch (...) {
+        // Ignora erros de inserção aqui, pois o usuário já deve estar no banco
+    }
+
+    // intanciando controladoras da camada de apresentação
     CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
-    IApresentacaoLogin *crtlApresentacaoLogin; //istanciar usando a interface
-    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento; 
+    IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
 
-    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // criando o objeto dinamicamente
-    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); // criando o objeto e associando a controladora
-    crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento();
+    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
+    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
 
-    // Instanciar stubs de serviço.
-    IServicoAutenticacao *stubServicoAutenticacao; // ponteiro para o stub
-    stubServicoAutenticacao = new StubServicoAutenticacao(); // criando o objeto dinamicamente
+    // Instanciando controladoras da camada de serviço
+    IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
+    servicoAutenticacao = new CrtlServicoAutenticacao(); // Instanciando a SUA controladora SQLite
+    
+    // instanciando os stubs
     IServicoPlanejamento *stubServicoPlanejamento;
-    stubServicoPlanejamento = new StubServicoPlanejamento();
 
-    // Interligar controladoras e stubs.
-    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); //
+    
+    // interligando controladoras e servico.
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
+    
+    crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
 
-    crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
-
-    crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
-
+    // Executar o sistema
     try{
         crtlApresentacaoAcesso->executar();
     }
@@ -55,10 +78,10 @@ int main(void){
         cout << "Erro de sistema." << endl;
     }
 
-
+    // Limpeza de mémoria
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;
-    delete crtlApresentacaoPlanejamento;
+    delete servicoAutenticacao; // Limpa o serviço real criado
+    // delete crtlApresentacaoPlanejamento; 
     return 0;
 }
-

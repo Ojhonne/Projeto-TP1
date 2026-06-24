@@ -2,19 +2,16 @@
 ifeq ($(OS),Windows_NT)
     # Comandos para Windows
     RM = rmdir /s /q
-    # Define a função com $1 (precisa usar o comando 'call' na regra)
     SAFE_MKDIR = if not exist $(subst /,\,$1) mkdir $(subst /,\,$1)
     EXEC_EXT = .exe
     
     # Biblioteca de interface para Windows (MinGW)
     LDLIBS = -lpdcurses
     
-    # Regra de compilação para criar a pasta do objeto no Windows
     define CREATE_DIR_WIN
         if not exist $(subst /,\,$(dir $@)) mkdir $(subst /,\,$(dir $@))
     endef
     
-    # Adapta a string de execução para o Windows (ex: bin\scrum.exe)
     RUN_CMD = $(subst /,\,$(TARGET))
 else
     # Comandos para Linux/Mac
@@ -22,47 +19,62 @@ else
     SAFE_MKDIR = mkdir -p $1
     EXEC_EXT =
     
-    # Biblioteca de interface nativa para Linux
-    LDLIBS = -lncurses -ltinfo 
+    # ADIÇÃO: -lpthread e -ldl para o SQLite no Linux
+    LDLIBS = -lncurses -ltinfo -lpthread -ldl 
     
-    # Regra de compilação para criar a pasta do objeto no Linux
     define CREATE_DIR_LINUX
         mkdir -p $(dir $@)
     endef
     
-    # Mantém o padrão do bash
     RUN_CMD = ./$(TARGET)
 endif
 
 # 2. Configurações de Compilação
 CXX      := g++
+CC       := gcc # ADIÇÃO: Compilador para arquivos C (SQLite)
 CXXFLAGS := -Wall -std=c++17 -Iheaders
+CFLAGS   := -Wall -Iheaders # ADIÇÃO: Flags para o compilador C
 SRC_DIR  := source
 OBJ_DIR  := obj
 BIN_DIR  := bin
 TARGET   := $(BIN_DIR)/scrum$(EXEC_EXT)
 
 # 3. Arquivos
-SOURCES  := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/**/*.cpp)
-OBJECTS  := $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+SOURCES_CPP := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/**/*.cpp)
+SOURCES_C := $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/**/*.c)
+
+# ADIÇÃO: Concatena os objetos gerados a partir do .cpp e do .c
+OBJECTS     := $(SOURCES_CPP:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o) \
+               $(SOURCES_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # 4. Regras
 all: $(TARGET)
 
-# O $(LDLIBS) DEVE vir no final do comando, após os objetos
 $(TARGET): $(OBJECTS)
 	$(call SAFE_MKDIR,$(BIN_DIR))
 	$(CXX) $(OBJECTS) -o $(TARGET) $(LDLIBS)
 
-# Regra condicional para criar diretórios durante a compilação dos .o
+# --- REGRAS DE COMPILAÇÃO ---
 ifeq ($(OS),Windows_NT)
+# Regra para C++
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CREATE_DIR_WIN)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# ADIÇÃO: Regra para C (SQLite) no Windows
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CREATE_DIR_WIN)
+	$(CC) $(CFLAGS) -c $< -o $@
 else
+# Regra para C++
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CREATE_DIR_LINUX)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# ADIÇÃO: Regra para C (SQLite) no Linux
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CREATE_DIR_LINUX)
+	$(CC) $(CFLAGS) -c $< -o $@
 endif
 
 # O traço (-) no início faz o Make ignorar erros caso a pasta já não exista

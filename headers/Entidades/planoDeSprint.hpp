@@ -100,9 +100,6 @@ inline void PlanoDeSprint::setCodigo(const Codigo& codigo) {
     this->codigo = codigo;
 }
 
-inline void PlanoDeSprint::setCodigo(const Codigo& codigo) {
-    this->codigo = codigo;
-}
 
 inline const Codigo& PlanoDeSprint::getCodigo() const {
     return codigo;
