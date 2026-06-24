@@ -16,7 +16,7 @@ class Email;
 class Pessoa;
 
 #include <string>    
-
+#include "Sql/sqlite3.h"
 
 /**
  * @class ContainerPessoa
@@ -24,20 +24,22 @@ class Pessoa;
  * 
  */
 
-//----------------------------------------------------------------------------------------
-// Declaração de classe container.
-//
 // Declaração adota padrão de projeto Singleton.
 
 
 class ContainerPessoa{
     private:
         static ContainerPessoa *instancia;             // Ponteiro para instância da classe.
+
+        void conectarBanco(sqlite3*&);
+        void abreQuerry(sqlite3* db, std::string& sql, sqlite3_stmt*& stmt);
+        void executaStep(sqlite3* db, sqlite3_stmt* stmt);
         
         const std::string nomeBanco = "scrum.db"; // nome do arquivo do banco de dados SQLite.
         // Construtor privado (Singleton). 
         // Ele será responsável por criar a tabela Pessoa no SQLite caso ela não exista.
         ContainerPessoa(){};                           // Construtor.
+
     public:
        // Método para instanciar classe.
         /**
