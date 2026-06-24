@@ -279,11 +279,12 @@ bool ContainerBacklog::listarHistoriasAssociadasProjeto(const Codigo& codigo, st
 }
 
 bool ContainerBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& codigo, std::vector<HistoriaDeUsuario>& historias){
-    std::string sql = "SELECT titulo, papel, acao, valor, estimativa, prioridade, estado FROM HistoriaDeUsuario WHERE sprint_codigo = ?;";
+    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE sprint_codigo = ?;";
     return listarHistoriasAssociadas(sql, codigo.getValor(), historias);
 }
+
 bool ContainerBacklog::listarHistoriasAssociadasPessoa(const Email& email, std::vector<HistoriaDeUsuario>& historias){
-    std::string sql = "SELECT titulo, papel, acao, valor, estimativa, prioridade, estado FROM HistoriaDeUsuario WHERE pessoa_email = ?;";
+    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE pessoa_email = ?;";
     return listarHistoriasAssociadas(sql, email.getValor(), historias);
 }
 // Funçoes auxiliares

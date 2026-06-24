@@ -31,6 +31,7 @@
 class HistoriaDeUsuario {
     private:
         Codigo codigo;
+        Codigo codigoProjeto;
         Texto titulo, papel, acao, valor;
         Tempo estimativa;
         Prioridade prioridade;
@@ -46,6 +47,16 @@ class HistoriaDeUsuario {
          * @return const Codigo& Referência constante para o código armazenado.
          */  
         const Codigo& getCodigo() const;
+        /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setCodigoProjeto(const Codigo& codigo);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Codigo& Referência constante para o código armazenado.
+         */  
+        const Codigo& getCodigoProjeto() const;
         /**
          * @brief Atribui um novo título.
          * @param titulo Referência constante para o objeto de domínio Texto.
@@ -137,6 +148,13 @@ inline void HistoriaDeUsuario::setCodigo (const Codigo& codigo ){
 }
 inline const Codigo& HistoriaDeUsuario::getCodigo() const{
     return codigo;
+}
+
+inline void HistoriaDeUsuario::setCodigoProjeto (const Codigo& codigoProjeto ){
+    this->codigoProjeto = codigoProjeto;
+}
+inline const Codigo& HistoriaDeUsuario::getCodigoProjeto() const{
+    return codigoProjeto;
 }
 
 inline void HistoriaDeUsuario::setTitulo(const Texto& titulo){
