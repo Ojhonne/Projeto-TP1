@@ -15,6 +15,7 @@
     #error "Sistema operacional nao suportado para esta biblioteca."
 #endif
 
+#include <vector>
 #include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
 #include "Entidades/projeto.hpp"
@@ -42,11 +43,13 @@ private:
     void lerProjeto();
     void atualizarProjeto();
     void excluirProjeto();
+    void listarProjetos();
 
     void criarPlanoSprint();
     void lerPlanoSprint();
     void atualizarPlanoSprint();
     void excluirPlanoSprint();
+    void listarPlanosSprint();
 
 public:
     /**

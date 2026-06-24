@@ -311,7 +311,7 @@ public:
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados.
      */
 
-    virtual bool listarProjetosAssociadosPessoa(const Email&, std::vector<Projeto>&) = 0;
+    virtual bool listarProjetos(const Email&, std::vector<Projeto>&) = 0;
 
     /**
      * @brief Lista os planos de sprint associados a um projeto.
@@ -321,7 +321,7 @@ public:
      */
 
 
-    virtual bool listarPlanosSprintAssociadosProjeto(const Codigo&, std::vector<PlanoDeSprint>&) = 0;
+    virtual bool listarPlanosSprint(const Codigo&, std::vector<PlanoDeSprint>&) = 0;
 };
 
 /**

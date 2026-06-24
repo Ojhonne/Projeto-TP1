@@ -8,6 +8,7 @@
 #define STUBS_PLANEJAMENTO_HPP_INCLUDED
 
 #include <string>
+#include <vector>
 #include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
 #include "Entidades/projeto.hpp"
@@ -36,6 +37,9 @@ public:
     bool lerPlanoSprint(const Codigo&, PlanoDeSprint&) override;
     bool atualizarPlanoSprint(const PlanoDeSprint&) override;
     bool excluirPlanoSprint(const Codigo&) override;
+
+    bool listarProjetos(const Email&, std::vector<Projeto>&) override;
+    bool listarPlanosSprint(const Codigo&, std::vector<PlanoDeSprint>&) override;
 };
 
 #endif

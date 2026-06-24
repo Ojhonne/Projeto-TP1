@@ -84,6 +84,7 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
         "Ler Projeto",
         "Atualizar Projeto",
         "Excluir Projeto",
+        "Listar projetos associados à pessoa"
         "Voltar"
     };
 
@@ -110,6 +111,10 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
                 break;
 
             case 4:
+                listarProjetos();
+                break;
+
+            case 5:
                 sair = true;
                 break;
 
@@ -128,6 +133,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
         "Ler Plano de Sprint",
         "Atualizar Plano de Sprint",
         "Excluir Plano de Sprint",
+        "Listar Planos de Sprint Associados à Projeto"
         "Voltar"
     };
     //exibe as possíveis ações a serem feitas com os planos de sprint até que o usuário escolha sair.
@@ -153,6 +159,10 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
                 break;
 
             case 4:
+                listarPlanos();
+                break;
+
+            case 5:
                 sair = true;
                 break;
 
@@ -488,6 +498,107 @@ void CrtlApresentacaoPlanejamento::excluirProjeto() {
     }
 }
 
+void CrtlApresentacaoPlanejamento::listarProjetos() {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PESSOA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Email: ");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strEmail[320];
+
+        wmove(win, 2, 12);
+        if (!Tui::lerEntradaTerminal(win, strEmail, 319, false)) {
+            return;
+        }
+
+        try {
+            Email emailLocal(strEmail);
+            std::vector<Projeto> projetos;
+
+            bool encontrado = servicoPlanejamento->
+                listarProjetos(emailLocal, projetos);
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado && !projetos.empty()) {
+                mvwprintw(win, 2, 5, "Email: %s", emailLocal.getValor().c_str());
+                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+
+                int linha = 5;
+
+                for (size_t i = 0; i < projetos.size(); i++) {
+                    mvwprintw(
+                        win,
+                        linha,
+                        7,
+                        "%zu - %s",
+                        i + 1,
+                        projetos[i].getCodigo().getValor().c_str()
+                    );
+
+                    linha++;
+                    //chegou no limite, cria uma nova janela
+                    if (linha >= 8) {
+                        mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
+                        wrefresh(win);
+                        wgetch(win);
+
+                        werase(win);
+                        box(win, 0, 0);
+
+                        wattron(win, COLOR_PAIR(1));
+                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        wattroff(win, COLOR_PAIR(1));
+
+                        linha = 2;
+                    }
+                }
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                sair = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                wattroff(win, COLOR_PAIR(2));
+
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+
 // Fluxo:
 // 1. Captura os dados informados pelo usuário.
 // 2. Instancia os domínios e a entidade PlanoDeSprint.
@@ -805,3 +916,105 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint() {
     }
 }
 
+void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 7, " LISTAR PLANOS POR PROJETO ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo do projeto: ");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[6];
+
+        wmove(win, 2, 24);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoProjeto(strCodigo);
+            std::vector<PlanoDeSprint> planos;
+
+            bool encontrado = servicoPlanejamento->
+                listarPlanosSprint(codigoProjeto, planos);
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 7, " PLANOS DE SPRINT ASSOCIADOS ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado && !planos.empty()) {
+                mvwprintw(win, 2, 5, "Projeto: %s",
+                    codigoProjeto.getValor().c_str());
+
+                mvwprintw(win, 4, 5, "Codigos dos planos:");
+
+                int linha = 5;
+                const int linhaLimite = 8;
+
+                for (size_t i = 0; i < planos.size(); i++) {
+                    mvwprintw(
+                        win,
+                        linha,
+                        7,
+                        "%zu - %s",
+                        i + 1,
+                        planos[i].getCodigo().getValor().c_str()
+                    );
+
+                    linha++;
+
+                    if (linha >= linhaLimite && i + 1 < planos.size()) {
+                        mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
+                        wrefresh(win);
+                        wgetch(win);
+
+                        werase(win);
+                        box(win, 0, 0);
+
+                        wattron(win, COLOR_PAIR(1));
+                        mvwprintw(win, 0, 7, " PLANOS DE SPRINT ASSOCIADOS ");
+                        wattroff(win, COLOR_PAIR(1));
+
+                        linha = 2;
+                    }
+                }
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                sair = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Nenhum plano encontrado. Pressione tecla.");
+                wattroff(win, COLOR_PAIR(2));
+
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
