@@ -45,10 +45,9 @@ int main(void){
         novaPessoa.setSenha(senhaTeste);
         novaPessoa.setPapel(papelTeste);
 
-        // Insere no SQLite. Se já existir (rodou 2x), o banco só lança exceção e ignora.
         ContainerPessoa::getInstancia()->incluir(novaPessoa);
     } catch (...) {
-        // Ignora erros de inserção aqui, pois o usuário já deve estar no banco
+        // Ignora erros de inserção
     }
 
     // intanciando controladoras da camada de apresentação
