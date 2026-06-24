@@ -1,4 +1,4 @@
-#include "Stubs/stubs.hpp"
+#include "Stubs/stubAutenticacao.hpp"
 
 const string StubServicoAutenticacao::EMAIL_VALIDO = "joaof@gmail.com";
 const string StubServicoAutenticacao::SENHA_VALIDA = "J1fa2b";
