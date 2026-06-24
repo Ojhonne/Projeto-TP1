@@ -214,6 +214,66 @@ bool ContainerBacklog:: excluirHistoriaUsuario(const Codigo& codigo) {
     return true;
 }
 
+
+bool ContainerBacklog::listarHistoriasAssociadas(const std::string& sql, const std::string& parametro, std::vector<HistoriaDeUsuario>& historias){
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
+
+    conectarBanco(db); // abrindo o banco
+    std::string meuSql = sql;
+    abreQuerry(db, meuSql, stmt);   // Prepara a query
+
+    sqlite3_bind_text(stmt, 1, parametro.c_str(), -1, SQLITE_STATIC);
+
+    while( (sqlite3_step(stmt) == SQLITE_ROW)){
+        std::string codigoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+        std::string tituloBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
+        std::string papelBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
+        std::string acaoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
+        std::string valorBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
+        int estimativaIntBd = (sqlite3_column_int(stmt, 5));
+        std::string estimativaStringBd = std::to_string(estimativaIntBd);
+        std::string prioridadeBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
+        std::string estadoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 7));
+        std::string projeto_codigoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 8));
+
+        // Recria os objetos de domínio
+        Texto titulo, papel, acao, valor;
+        titulo.setValor(tituloBd);
+        papel.setValor(papelBd);
+        acao.setValor(acaoBd);
+        valor.setValor(valorBd);
+        Tempo estimativa;
+        estimativa.setValor(estimativaStringBd);
+        Prioridade prioridade;
+        prioridade.setValor(prioridadeBd);
+        Estado estado;
+        estado.setValor(estadoBd);
+        Codigo projeto_codigo, codigoOriginal;
+        projeto_codigo.setValor(projeto_codigoBd);
+        codigoOriginal.setValor(codigoBd);
+
+        HistoriaDeUsuario historia;
+        historia.setTitulo(titulo);
+        historia.setPapel(papel);
+        historia.setAcao(acao);
+        historia.setValor(valor);
+        historia.setEstimativa(estimativa);
+        historia.setPrioridade(prioridade);
+        historia.setEstado(estado);
+        historia.setCodigoProjeto(projeto_codigo);
+        historia.setCodigo(codigoOriginal);
+
+        historias.push_back(historia);
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return true;
+
+}
+
 // Funçoes auxiliares
 
 void ContainerBacklog::conectarBanco(sqlite3*& db){
