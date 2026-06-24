@@ -49,3 +49,35 @@ ContainerBacklog::ContainerBacklog(){
     sqlite3_close(db); // Fecha o banco de dados SQLite.
     
 }
+
+
+
+
+
+
+// Funçoes auxiliares
+
+void ContainerBacklog::conectarBanco(sqlite3*& db){
+    if(sqlite3_open(nomeBanco.c_str(), &db) != SQLITE_OK){ // Erro ao abrir o arquivo
+        std::string erro = sqlite3_errmsg(db);
+        sqlite3_close(db);
+        throw std::runtime_error("Erro ao abrir o banco de dados: " + erro);
+    }
+}
+
+void ContainerBacklog::abreQuerry(sqlite3* db, std::string& sql, sqlite3_stmt*& stmt){
+    if(sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK){  // Erro de sintaxe no SQL ou tabela não existe
+        std::string erro = sqlite3_errmsg(db);
+        sqlite3_close(db);
+        throw std::runtime_error("Erro ao preparar a query: " + erro);
+    }
+}
+
+void ContainerBacklog::executaStep(sqlite3* db, sqlite3_stmt* stmt){
+    if(sqlite3_step(stmt) != SQLITE_DONE){ // Erro na execução 
+        std::string erro = sqlite3_errmsg(db);
+        sqlite3_finalize(stmt);
+        sqlite3_close(db);
+        throw std::runtime_error("Erro ao inserir dados: " + erro);
+    }
+}
