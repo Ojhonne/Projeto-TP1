@@ -38,7 +38,7 @@ class ContainerPessoa{
         const std::string nomeBanco = "scrum.db"; // nome do arquivo do banco de dados SQLite.
         // Construtor privado (Singleton). 
         // Ele será responsável por criar a tabela Pessoa no SQLite caso ela não exista.
-        ContainerPessoa(){};                           // Construtor.
+        ContainerPessoa();                           // Construtor.
 
     public:
        // Método para instanciar classe.

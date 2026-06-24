@@ -41,7 +41,7 @@ TARGET   := $(BIN_DIR)/scrum$(EXEC_EXT)
 
 # 3. Arquivos
 SOURCES_CPP := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/**/*.cpp)
-SOURCES_C   := $(wildcard $(SRC_DIR)/*.c) # ADIÇÃO: Busca pelo sqlite3.c
+SOURCES_C := $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/**/*.c)
 
 # ADIÇÃO: Concatena os objetos gerados a partir do .cpp e do .c
 OBJECTS     := $(SOURCES_CPP:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o) \
