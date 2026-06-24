@@ -22,10 +22,11 @@
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
 
-
+//serviço
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
 #include "Containers/containerPessoa.hpp"
 
+//stubs
 #include "Stubs/stubPlanejamento.hpp"
 
 using namespace std;

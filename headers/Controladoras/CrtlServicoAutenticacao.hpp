@@ -26,8 +26,6 @@
  * e persistência.
  */
 class CrtlServicoAutenticacao : public IServicoAutenticacao{
-    private:
-        ContainerPessoa* container;
     public:
     /**
      * @brief Autentica um Pessoa pelo par email/senha.
