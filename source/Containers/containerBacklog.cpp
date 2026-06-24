@@ -91,6 +91,67 @@ bool ContainerBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia){
 
     return true;
 }
+bool ContainerBacklog::lerHistoriaUsuario(const Codigo& codigo, HistoriaDeUsuario& historia){
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
+
+    conectarBanco(db); // abrindo o banco
+
+    std::string sql = "SELECT titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE codigo = ?;";
+
+    abreQuerry(db, sql, stmt);   // Prepara a query
+    std::string CodigoBuscado = codigo.getValor();
+
+    sqlite3_bind_text(stmt, 1, CodigoBuscado.c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) != SQLITE_ROW) {
+        std::string erro = sqlite3_errmsg(db);
+        sqlite3_finalize(stmt);
+        sqlite3_close(db);
+        return false;
+    }
+
+    // Extrai as colunas retornadas pelo SELECTel
+    std::string tituloBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+    std::string papelBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
+    std::string acaoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
+    std::string valorBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
+    int estimativaIntBd = (sqlite3_column_int(stmt, 4));
+    std::string estimativaStringBd = std::to_string(estimativaIntBd);
+    std::string prioridadeBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 5));
+    std::string estadoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
+    std::string projeto_codigoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 7));
+
+    // Recria os objetos de domínio
+    Texto titulo, papel, acao, valor;
+    titulo.setValor(tituloBd);
+    papel.setValor(papelBd);
+    acao.setValor(acaoBd);
+    valor.setValor(valorBd);
+    Tempo estimativa;
+    estimativa.setValor(estimativaStringBd);
+    Prioridade prioridade;
+    prioridade.setValor(prioridadeBd);
+    Estado estado;
+    estado.setValor(estadoBd);
+    Codigo projeto_codigo;
+    projeto_codigo.setValor(projeto_codigoBd);
+
+    // Preenche a entidade Historia de usuario original recebida por ponteiro
+    historia.setTitulo(titulo);
+    historia.setPapel(papel);
+    historia.setAcao(acao);
+    historia.setValor(valor);
+    historia.setEstimativa(estimativa);
+    historia.setPrioridade(prioridade);
+    historia.setEstado(estado);
+    historia.setCodigoProjeto(projeto_codigo);
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return true;
+}
 
 
 
