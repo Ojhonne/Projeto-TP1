@@ -192,6 +192,27 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
     return true;
 }
 
+bool ContainerBacklog:: excluirHistoriaUsuario(const Codigo& codigo) {
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
+
+    conectarBanco(db);
+
+    std::string sql = "DELETE FROM HistoriaDeUsuario WHERE codigo = ?;";
+
+    abreQuerry(db, sql, stmt);
+
+    std::string codigoRemover = codigo.getValor();
+
+    sqlite3_bind_text(stmt, 1, codigoRemover.c_str(), -1, SQLITE_STATIC);
+
+    executaStep(db, stmt);
+        
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return true;
+}
 
 // Funçoes auxiliares
 
