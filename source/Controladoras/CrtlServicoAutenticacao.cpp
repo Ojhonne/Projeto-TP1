@@ -26,5 +26,4 @@ bool CrtlServicoAutenticacao::autenticarPessoa(const Email& email, const Senha& 
         std::cerr << "[Falha no MS-AUTENTICAÇÃO] Erro de persistência: " << e.what() << std::endl;
         return false;
     }
-    return true;
 }
