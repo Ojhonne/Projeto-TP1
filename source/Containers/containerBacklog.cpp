@@ -2,6 +2,8 @@
 #include "Sql/sqlite3.h"
 #include <stdexcept> 
 #include <iostream>
+#include <string>
+#include "Entidades/historiaDeUsuario.hpp"
 
 ContainerBacklog* ContainerBacklog::instancia = nullptr; //inicializa com nullptr o ponteiro para a instância da classe ContainerPessoa (Singleton).
 
@@ -50,7 +52,45 @@ ContainerBacklog::ContainerBacklog(){
     
 }
 
+bool ContainerBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia){
+    sqlite3* db = nullptr; 
+    sqlite3_stmt* stmt = nullptr;
 
+    conectarBanco(db); // abrindo o banco
+
+    std::string sql = "INSERT INTO HistoriaDeUsuario (codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo) "
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+    abreQuerry(db, sql, stmt);   // Prepara a query
+
+    std::string CodigoNovo = historia.getCodigo().getValor();
+    std::string tituloNovo = historia.getTitulo().getValor(); 
+    std::string papelNovo = historia.getPapel().getValor();
+    std::string acaoNova = historia.getAcao().getValor();
+    std::string valorNovo = historia.getValor().getValor(); 
+    std::string estimativa = historia.getEstimativa().getValor();
+    int estimativaNova = std::stoi(estimativa);
+    std::string priodadeNovo = historia.getPrioridade().getValor();
+    std::string estadoNovo = historia.getEstado().getValor();
+    std::string projeto_codigo = historia.getCodigoProjeto().getValor(); 
+
+    sqlite3_bind_text(stmt, 1, CodigoNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, tituloNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, papelNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, acaoNova.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 5, valorNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 6, estimativaNova);
+    sqlite3_bind_text(stmt, 7, priodadeNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 8, estadoNovo.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 9, projeto_codigo.c_str(), -1, SQLITE_STATIC);
+
+    executaStep(db, stmt);   // Executa a query. 
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return true;
+}
 
 
 
