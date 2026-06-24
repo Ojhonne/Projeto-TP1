@@ -70,6 +70,7 @@ int main(void){
     
     // interligando controladoras e servico.
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
+    crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
 
