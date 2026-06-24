@@ -84,7 +84,7 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
         "Ler Projeto",
         "Atualizar Projeto",
         "Excluir Projeto",
-        "Listar projetos associados à pessoa"
+        "Listar projetos associados à pessoa",
         "Voltar"
     };
 
@@ -133,7 +133,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
         "Ler Plano de Sprint",
         "Atualizar Plano de Sprint",
         "Excluir Plano de Sprint",
-        "Listar Planos de Sprint Associados à Projeto"
+        "Listar Planos de Sprint Associados à Projeto",
         "Voltar"
     };
     //exibe as possíveis ações a serem feitas com os planos de sprint até que o usuário escolha sair.
@@ -159,7 +159,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
                 break;
 
             case 4:
-                listarPlanos();
+                listarPlanosSprint();
                 break;
 
             case 5:

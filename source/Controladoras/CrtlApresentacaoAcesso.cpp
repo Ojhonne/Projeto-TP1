@@ -69,7 +69,7 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
             // this->crtlCadastro->executar(emailSessao);
             return true;
         case MenuLogado::Projetos:
-            // this->crtlPlanejamento->executar(emailSessao);
+            this->crtlPlanejamento->executar(emailSessao);
             return true;
         case MenuLogado::Backlog:
             // this->crtlBacklog->executar(emailSessao);

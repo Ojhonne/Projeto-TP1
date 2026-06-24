@@ -42,7 +42,8 @@ int main(void){
     stubServicoPlanejamento = new StubServicoPlanejamento();
 
     // Interligar controladoras e stubs.
-    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); //
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin);
+    crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
 
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
 
