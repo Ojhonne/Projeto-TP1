@@ -377,19 +377,21 @@ public:
      * @brief Associa uma história de usuário a uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
      */
 
-    virtual bool associarHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool associarHistoriaPessoa(const Codigo&, const Email&, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Remove a associação entre uma história de usuário e uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção.
      */
 
-    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&, const Email& emailAlvo, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a um projeto.
@@ -423,15 +425,17 @@ public:
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Codigo é a chave utilizada para identificar o plano de sprint de destino.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      */
 
-    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email&) = 0;
+    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& emailAlvo, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Estado representa o novo estado da história.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da alteração.
      */
 

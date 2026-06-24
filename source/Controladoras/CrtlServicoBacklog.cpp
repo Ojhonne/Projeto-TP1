@@ -4,7 +4,7 @@
 #include <stdexcept> 
 #include <iostream>
 
-bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia){
+bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia, const Email& usuarioLogado){
     try{
         // Tenta criar uma historia  no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia)){
@@ -29,7 +29,7 @@ bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsu
     }
  }
 
-bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada){
+bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada, const Email& usuarioLogado){
     try{
         // Tenta atualizar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(historiaAtualizada)){
@@ -42,7 +42,7 @@ bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histo
     }
  }
  
-bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID){
+bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID, const Email& usuarioLogado){
     try{
         // Tenta excluir uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
@@ -94,7 +94,7 @@ bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& chav
     }
  }
 
-bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint){
+bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
     try{
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
@@ -110,11 +110,11 @@ bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
     }
 }
 
-bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailPessoa){
+bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailAlvo, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
     try{
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
-            armazenaHistoria.setEmailPessoa(emailPessoa);
+            armazenaHistoria.setEmailPessoa(emailAlvo);
             if(atualizarHistoriaUsuario(armazenaHistoria)){
                 return true; 
             }
@@ -127,11 +127,11 @@ bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, co
 
 }
 
-bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailPessoa){
+bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailAlvo, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
     try{
             if (lerHistoriaUsuario(codigoHistoria, armazenaHistoria)) {
-                if (armazenaHistoria.getEmailPessoa().getValor() == emailPessoa.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
+                if (armazenaHistoria.getEmailPessoa().getValor() == emailAlvo.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
                     Email emailVazio;
                     armazenaHistoria.setEmailPessoa(emailVazio);
                     return atualizarHistoriaUsuario(armazenaHistoria); 
@@ -144,7 +144,7 @@ bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHis
     }
 }
 
-bool CrtlServicoBacklog::alterarEstadoHistoria(const Codigo& codigoHistoria, const Estado& novoEstado){
+bool CrtlServicoBacklog::alterarEstadoHistoria(const Codigo& codigoHistoria, const Estado& novoEstado, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
 
     try{
