@@ -16,3 +16,15 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia)
         return false;
     }
  }
+ bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsuario& armazenaHistoria ){
+    try{
+        // Tenta ler uma historia  no banco de dados através do Singleton
+        if(ContainerBacklog::getInstancia()->lerHistoriaUsuario(chaveID, armazenaHistoria)){
+            return true;
+        }
+        return false; // Não foi possivel criar a historia
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+ }
