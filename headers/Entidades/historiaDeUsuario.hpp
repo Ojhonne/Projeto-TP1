@@ -31,11 +31,12 @@
 class HistoriaDeUsuario {
     private:
         Codigo codigo;
-        Codigo codigoProjeto, codigoSprint, codigoPessoa;
+        Codigo codigoProjeto, codigoSprint;
         Texto titulo, papel, acao, valor;
         Tempo estimativa;
         Prioridade prioridade;
         Estado estado;
+        Email emailPessoa;
     public:
         /**
          * @brief Atribui um novo código à história de usuário.
@@ -71,12 +72,12 @@ class HistoriaDeUsuario {
          * @brief Atribui um novo código à história de usuário.
          * @param codigo Referência constante para o objeto de domínio Codigo.
          */
-        void setCodigoPessoa(const Codigo& codigo);
+        void setEmailPessoa(const Email& email);
          /**
          * @brief Recupera o código atual da história de usuário.
-         * @return const Codigo& Referência constante para o código armazenado.
+         * @return const Email& Referência constante para o código armazenado.
          */  
-        const Codigo& getCodigoPessoa() const;
+        const Email& getEmailPessoa() const;
         /**
          * @brief Atribui um novo título.
          * @param titulo Referência constante para o objeto de domínio Texto.
@@ -184,11 +185,11 @@ inline const Codigo& HistoriaDeUsuario::getCodigoSprint() const{
     return codigoSprint ;
 }
 
-inline void HistoriaDeUsuario::setCodigoPessoa (const Codigo& codigoPessoa ){
-    this->codigoPessoa  = codigoPessoa ;
+inline void HistoriaDeUsuario::setEmailPessoa (const Email& emailPessoa ){
+    this->emailPessoa  = emailPessoa ;
 }
-inline const Codigo& HistoriaDeUsuario::getCodigoPessoa() const{
-    return codigoPessoa ;
+inline const Email& HistoriaDeUsuario::getEmailPessoa() const{
+    return emailPessoa ;
 }
 
 inline void HistoriaDeUsuario::setTitulo(const Texto& titulo){

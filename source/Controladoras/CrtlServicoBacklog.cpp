@@ -96,7 +96,6 @@ bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& chav
 
 bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint){
     HistoriaDeUsuario armazenaHistoria;
-
     try{
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setCodigoSprint(codigoSprint);
@@ -104,13 +103,26 @@ bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
                 return true; 
             }
         }
-        
-
-
+        return false;
     } catch (const std::runtime_error& e){
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
         return false;
     }
+}
 
+bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailPessoa){
+    HistoriaDeUsuario armazenaHistoria;
+    try{
+        if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
+            armazenaHistoria.setEmailPessoa(emailPessoa);
+            if(atualizarHistoriaUsuario(armazenaHistoria)){
+                return true; 
+            }
+        }
+        return false;
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
 
 }

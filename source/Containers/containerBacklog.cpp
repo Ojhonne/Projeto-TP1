@@ -159,7 +159,7 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
 
     conectarBanco(db); // abrindo o banco
 
-    std::string sql = "UPDATE HistoriaDeUsuario SET titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade  = ?, estado= ?, projeto_codigo= ?, sprint_codigo = ?, pessoa_codigo = ? WHERE codigo = ?;";
+    std::string sql = "UPDATE HistoriaDeUsuario SET titulo = ?, papel = ?, acao = ?, valor = ?, estimativa = ?, prioridade  = ?, estado= ?, projeto_codigo= ?, sprint_codigo = ?, pessoa_email = ? WHERE codigo = ?;";
 
     abreQuerry(db, sql, stmt);   // Prepara a query
 
@@ -173,7 +173,7 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
     std::string estadoAtualizado = historia.getEstado().getValor();
     std::string projeto_codigo = historia.getCodigoProjeto().getValor();
     std::string sprint_codigo = historia.getCodigoSprint().getValor();  
-    std::string pessoa_codigo = historia.getCodigoPessoa().getValor();  
+    std::string pessoa_email = historia.getEmailPessoa().getValor();  
     std::string codigo = historia.getCodigo().getValor(); 
 
     sqlite3_bind_text(stmt, 1, tituloAtualizado.c_str(), -1, SQLITE_STATIC);
@@ -184,7 +184,17 @@ bool ContainerBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histori
     sqlite3_bind_text(stmt, 6, priodadeAtualizado.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 7, estadoAtualizado.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 8, projeto_codigo.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 9, codigo.c_str(), -1, SQLITE_STATIC);
+    if (sprint_codigo.empty()) {
+    sqlite3_bind_null(stmt, 9);
+    } else {
+        sqlite3_bind_text(stmt, 9, sprint_codigo.c_str(), -1, SQLITE_STATIC);
+    }
+    if (pessoa_email.empty()) {
+    sqlite3_bind_null(stmt, 10);
+    } else {
+        sqlite3_bind_text(stmt, 10, pessoa_email.c_str(), -1, SQLITE_STATIC);
+    }
+    sqlite3_bind_text(stmt, 11, codigo.c_str(), -1, SQLITE_STATIC);
 
     executaStep(db, stmt);   // Executa a query. 
 
