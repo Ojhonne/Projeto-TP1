@@ -20,8 +20,9 @@
 // Apresentação
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
+#include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
 
-// Serviços Reais (Substituindo o Stub)
+
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
 #include "Containers/containerPessoa.hpp"
 
@@ -53,13 +54,15 @@ int main(void){
     // intanciando controladoras da camada de apresentação
     CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
     IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
+    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento;
 
     crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
     crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
+    crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento;
 
     // Instanciando controladoras da camada de serviço
     IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
-    servicoAutenticacao = new CrtlServicoAutenticacao(); // Instanciando a SUA controladora SQLite
+    servicoAutenticacao = new CrtlServicoAutenticacao(); // controladora para sql
     
     // instanciando os stubs
     IServicoPlanejamento *stubServicoPlanejamento;
@@ -69,6 +72,8 @@ int main(void){
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
     
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
+
+    crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
 
     // Executar o sistema
     try{

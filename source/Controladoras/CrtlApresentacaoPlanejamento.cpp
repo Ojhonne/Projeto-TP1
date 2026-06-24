@@ -159,7 +159,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
                 break;
 
             case 4:
-                listarPlanos();
+                 listarPlanosSprint();
                 break;
 
             case 5:
