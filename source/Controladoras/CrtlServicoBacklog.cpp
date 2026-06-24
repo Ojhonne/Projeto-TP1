@@ -126,3 +126,21 @@ bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, co
     }
 
 }
+
+bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailPessoa){
+    HistoriaDeUsuario armazenaHistoria;
+    std::string vazio = "";
+    try{
+        if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
+            armazenaHistoria.setEmailPessoa(vazio);
+            if(atualizarHistoriaUsuario(armazenaHistoria)){
+                return true; 
+            }
+        }
+        return false;
+    } catch (const std::runtime_error& e){
+        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
+        return false;
+    }
+
+}
