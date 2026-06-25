@@ -46,7 +46,7 @@ int main(void){
         novaPessoa.setSenha(senhaTeste);
         novaPessoa.setPapel(papelTeste);
 
-        ContainerPessoa::getInstancia()->incluir(novaPessoa);
+        ContainerPessoa::getInstancia()->criarPessoa(novaPessoa);
     } catch (...) {
         // Ignora erros de inserção
     }

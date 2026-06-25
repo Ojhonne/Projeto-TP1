@@ -57,7 +57,7 @@ Definem os contratos de comunicação entre as camadas  (`interfaces.hpp`), perm
 ---
 
 ### **4. Repositórios**
-Implementam armazenamento em memória com `std::map`.
+Implementam comandos que realizam o armazenamento em memória não volático com banco de dados relacionais `sqlite`.
 
 ---
 
@@ -74,6 +74,8 @@ Responsável por gerenciar a navegação, interagir com o usuário via terminal 
 - CrtlApresentacaoLogin
 
 - CrtlApresentacaoPlanejamento
+
+- CrtlApresentacaoBacklog
 ---
 
 ## 📄 Documentação

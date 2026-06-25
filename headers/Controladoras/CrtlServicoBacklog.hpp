@@ -9,6 +9,7 @@
 
 #include "Interfaces/interfaces.hpp"
 #include <vector>
+#include <string>
 
 class HistoriaDeUsuario;
 class Codigo;

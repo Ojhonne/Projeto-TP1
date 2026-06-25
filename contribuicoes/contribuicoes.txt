@@ -73,7 +73,7 @@ do projeto.
     + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoPlanejamento.h/.cpp) - EDUARDO SANKIEVICZ LIMA
     + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoBacklog.h/.cpp) - FÁBIO WILLIAN ALVES SILVA
     
-   - As declarações está localizada na pasta 'hedears/Controladoras/controladoras.hpp'.
+   - As declarações está localizada na pasta 'hedears/Controladoras/...'.
    - As implementações está localizada na pasta 'source/Controladoras/...'
 
 ---
@@ -84,9 +84,9 @@ do projeto.
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoAutenticacao.h/.cpp) - JOÃO FRANCISCO DE SOUSA TORRES
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoPessoa.h/.cpp) - IGOR MELO
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoPlanejamento.h/.cpp) - EDUARDO SANKIEVICZ LIMA
-    + Definição e implementação das classes de Controladora de Serviço (CrtlServicoBacklog.h/.cpp) - FÁBIO WILLIAN ALVES SILVA
+    + Definição e implementação das classes de Controladora de Serviço (CrtlServicoBacklog.h/.cpp) - JOÃO FRANCISCO DE SOUSA TORRES
     
-   - As declarações está localizada na pasta 'hedears/Controladoras/controladoras.hpp'.
+   - As declarações está localizada na pasta 'hedears/Controladoras/...'.
    - As implementações está localizada na pasta 'source/Controladoras/...'
 
 
