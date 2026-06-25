@@ -36,6 +36,8 @@ class HistoriaDeUsuario {
         Prioridade prioridade;
         Estado estado;
     public:
+
+        HistoriaDeUsuario() = default;
         /**
          * @brief Atribui um novo código à história de usuário.
          * @param codigo Referência constante para o objeto de domínio Codigo.

@@ -7,13 +7,15 @@
 #endif
 
 #include "Controladoras/CrtlApresentacaoBacklog.hpp"
+#include "Entidades/historiaDeUsuario.hpp"
 #include "Tui/tui.hpp"
 #include <stdexcept>
 #include <cstring>
 
 void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
 
-    WINDOW* win = criarJanelaBacklog();
+    WINDOW* win = criarJanelaBacklog(10, 50);
+    WINDOW* guardaPtr;
 
     bool sair = false;
 
@@ -21,7 +23,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
         "Criar Historia de Usuário",
         "Ler",
         "Atualizar",
-        "Excluir",
+        "Excluir",  
         "Voltar"
     };
 
@@ -29,13 +31,17 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
 
         int opcao = Tui::exibeMenu(win, "OPCOES DE BACKLOG", opcoes);
 
+        guardaPtr = win;
+
+        win = criarJanelaBacklog(20, 50);
+
         switch (opcao) {
             case 0:
                 criarBacklog(win);
                 break;
 
             case 1:
-               // lerBacklog();
+                lerBacklog(win);
                 break;
 
             case 2:
@@ -48,6 +54,8 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
 
             case 4:
                 sair = true;
+                wclear(win);
+                win = guardaPtr;
                 break;
 
             default:
@@ -75,62 +83,61 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
         mvwprintw(win, 4, 5, "Papel: ");
         mvwprintw(win, 5, 5, "Acao: ");
         mvwprintw(win, 6, 5, "Valor: ");
-        mvwprintw(win, 7, 5, "Estimativa: ");
-        mvwprintw(win, 8, 5, "Prioridade: ");
-        mvwprintw(win, 9, 5, "Estado: ");
-        mvwprintw(win, 12, 2, "Pressione ESC para cancelar e sair");
+        mvwprintw(win, 12, 5, "Estimativa: ");
+        mvwprintw(win, 13, 5, "Prioridade: ");
+        mvwprintw(win, 14, 5, "Estado: ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
 
         wrefresh(win);
 
         //inicializa as variáveis que serão capturadas do usuário
-        char strCodigo[6];
-        char strTitulo[11];
-        char strPapel[11];
-        char strAcao[11];
+        char strCodigo[10];
+        char strTitulo[15];
+        char strPapel[15];
+        char strAcao[15];
         char strValor[101];
-        char strEstimativa[11];
+        char strEstimativa[15];
         char strPrioridade[11];
-        char strEstado[11];
+        char strEstado[21];
 
        // Captura os dados necessários para instanciar os domínios
         // e montar a entidade Projeto.
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 9, false)) {
             return;
         }
 
         wmove(win, 3, 14);
-        if (!Tui::lerEntradaTerminal(win, strTitulo, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strTitulo, 14, false)) {
             return;
         }
 
-        wmove(win, 4, 18);
-        if (!Tui::lerEntradaTerminal(win, strPapel, 10, false)) {
+        wmove(win, 4, 12);
+        if (!Tui::lerEntradaTerminal(win, strPapel, 14, false)) {
             return;
         }
 
-        wmove(win, 5, 15);
-        if (!Tui::lerEntradaTerminal(win, strAcao, 10, false)) {
+        wmove(win, 5, 10);
+        if (!Tui::lerEntradaTerminal(win, strAcao, 14, false)) {
             return;
         }
 
-        wmove(win, 5, 15);
+        wmove(win, 6, 12);
         if (!Tui::lerEntradaTerminal(win, strValor, 100, false)) {
             return;
         }
 
-        wmove(win, 5, 15);
-        if (!Tui::lerEntradaTerminal(win, strEstimativa, 10, false)) {
+        wmove(win, 12, 20);
+        if (!Tui::lerEntradaTerminal(win, strEstimativa, 14, false)) {
             return;
         }
-
-        wmove(win, 5, 15);
+        wmove(win, 13, 20);
         if (!Tui::lerEntradaTerminal(win, strPrioridade, 10, false)) {
             return;
         }
 
-        wmove(win, 5, 15);
-        if (!Tui::lerEntradaTerminal(win, strEstado, 10, false)) {
+        wmove(win, 14, 14);
+        if (!Tui::lerEntradaTerminal(win, strEstado, 20, false)) {
             return;
         }
 
@@ -141,33 +148,44 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
         try {
             Codigo codigoLocal(strCodigo);
             Texto tituloLocal(strTitulo);
+            Texto papelLocal(strPapel);
             Texto acaoLocal(strAcao);
             Texto valorLocal(strValor);
             Tempo estimativaLocal(strEstimativa);
-            Prioridade PrioridadeLocal(strPrioridade);
-            Estado estadoLocal(strEstado);
 
-            /*Projeto projetoLocal;
-            projetoLocal.setCodigo(codigoLocal);
-            projetoLocal.setNome(nomeLocal);
-            projetoLocal.setInicio(dataInicioLocal);
-            projetoLocal.setTermino(dataFimLocal);*/
+            Prioridade prioridadeLocal;
+            prioridadeLocal.setValor(strPrioridade);
 
-            //valido = servicoPlanejamento->criarProjeto(projetoLocal);
+            Estado estadoLocal;
+            estadoLocal.setValor(strEstado);
+
+            HistoriaDeUsuario historiaLocal;
+
+            historiaLocal.setCodigo(codigoLocal);
+            historiaLocal.setTitulo(tituloLocal);
+            historiaLocal.setPapel(papelLocal);
+            historiaLocal.setAcao(acaoLocal);
+            historiaLocal.setValor(valorLocal);
+            historiaLocal.setEstimativa(estimativaLocal);
+            historiaLocal.setPrioridade(prioridadeLocal);
+            historiaLocal.setEstado(estadoLocal);
+
+            valido = servicoBacklog->criarHistoriaUsuario(historiaLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Projeto criado com sucesso!");
+                mvwprintw(win, 8, 2, "Historia criada com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
-            } else {
-                wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Erro: projeto nao foi criado.");
-                wattroff(win, COLOR_PAIR(2));
-                wrefresh(win);
-                wgetch(win);
+                return;
             }
+
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: historia nao foi criada.");
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
@@ -179,9 +197,114 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
     }
 }
 
+void CrtlApresentacaoBacklog::lerBacklog(WINDOW* win) {
+    while (true) {
+        werase(win);
+        box(win, 0, 0);
 
-WINDOW* CrtlApresentacaoBacklog::criarJanelaBacklog() {
-    int altura = 14, largura = 50;
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 17, " LER HISTORIA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo:");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[6];
+
+        wmove(win, 2, 14);
+
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoLocal(strCodigo);
+
+            HistoriaDeUsuario historiaLocal;
+
+            bool encontrado =
+                servicoBacklog->lerHistoriaUsuario(
+                    codigoLocal,
+                    historiaLocal
+                );
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 14, " DADOS DA HISTORIA ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado) {
+
+                mvwprintw(win, 2, 5,
+                    "Codigo: %s",
+                    historiaLocal.getCodigo().getValor().c_str());
+
+                mvwprintw(win, 3, 5,
+                    "Titulo: %s",
+                    historiaLocal.getTitulo().getValor().c_str());
+
+                mvwprintw(win, 4, 5,
+                    "Papel: %s",
+                    historiaLocal.getPapel().getValor().c_str());
+
+                mvwprintw(win, 5, 5,
+                    "Acao: %s",
+                    historiaLocal.getAcao().getValor().c_str());
+
+                mvwprintw(win, 6, 5,
+                    "Valor: %s",
+                    historiaLocal.getValor().getValor().c_str());
+
+                mvwprintw(win, 7, 5,
+                    "Estimativa: %s",
+                    historiaLocal.getEstimativa().getValor().c_str());
+
+                mvwprintw(win, 8, 5,
+                    "Prioridade: %s",
+                    historiaLocal.getPrioridade().getValor().c_str());
+
+                mvwprintw(win, 9, 5,
+                    "Estado: %s",
+                    historiaLocal.getEstado().getValor().c_str());
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 16, 2,
+                    "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                return;
+            }
+
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 16, 2,
+                "Historia nao encontrada. Pressione qualquer tecla.");
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 16, 2,
+                "Erro: %s",
+                e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+
+WINDOW* CrtlApresentacaoBacklog::criarJanelaBacklog(int altura, int largura) {
     int startY = (LINES - altura) / 2;
     int startX = (COLS - largura) / 2;
 

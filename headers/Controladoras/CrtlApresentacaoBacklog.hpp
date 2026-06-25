@@ -24,12 +24,13 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
     private:
         IServicoBacklog *servicoBacklog;  // Referência para servidor.
         WINDOW* win;
-        WINDOW* criarJanelaBacklog();
+        WINDOW* criarJanelaBacklog(int altura, int largura);
         void desenharLayout(WINDOW* win);
         bool capturarCredenciais(WINDOW* win, char* emailStr, char* senhaStr);
         void exibirErro(WINDOW* win, const char* mensagem);
         void exibirSucesso(WINDOW* win);
         void criarBacklog(WINDOW* win);
+        void lerBacklog(WINDOW* win);
 
     public:
         /**

@@ -94,6 +94,7 @@ inline void Dominio::setValor(const std::string &valor){
  */
 class Codigo : public Dominio {
 public:
+    Codigo(){};
     /**
      * @brief Constroi um objeto Codigo a partir de uma string.
      *
@@ -295,6 +296,7 @@ class Papel : public Dominio {
          */
         void validar(const std::string&);
     public:
+        Papel(){};
         /**
          * @brief Construtor padrão.
          *
@@ -404,6 +406,7 @@ class Tempo : public Dominio{
         static const int TAM_MINIMO{1};
         void validar(const std::string&);
     public:
+        Tempo(){};
         /**
          * @brief Construtor padrão.
          *
@@ -443,6 +446,7 @@ class Texto : public Dominio{
         bool temFormatacaoValida(const std::string& );
         bool temEspacoValido(const std::string& );
     public:
+        Texto(){};
             /**
          * @brief Construtor padrão.
          *

@@ -34,6 +34,9 @@ int main(void){
     crtlApresentacaoLogin = new CrtlApresentacaoLogin(); // criando o objeto e associando a controladora
     crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
 
+    IServicoBacklog *stubServicoBacklog;
+    stubServicoBacklog = new StubServicoBacklog();
+
     // Instanciar stubs de serviço.
     IServicoAutenticacao *stubServicoAutenticacao; // ponteiro para o stub
     stubServicoAutenticacao = new StubServicoAutenticacao(); // criando o objeto dinamicamente
@@ -44,6 +47,8 @@ int main(void){
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
 
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
+
+    crtlApresentacaoBacklog->setCtrlServicoBacklog(stubServicoBacklog);
 
     try{
         crtlApresentacaoAcesso->executar();
