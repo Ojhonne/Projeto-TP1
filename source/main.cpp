@@ -1,10 +1,8 @@
-// Exemplo de controladora de interação com PDCurses.
-
-#include <string.h>
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
-// Incluir cabeçalho da biblioteca PDCurses.
+// Incluir cabeçalho da biblioteca PDCurses/ncurses.
 #ifdef _WIN32
     #include <curses.h> 
 #elif __linux__
@@ -16,31 +14,33 @@
 #include "Dominios/dominios.hpp"
 #include "Entidades/pessoa.hpp"
 #include "Interfaces/interfaces.hpp"
+#include "Entidades/historiaDeUsuario.hpp"
 
 // Apresentação
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
+#include "Controladoras/CrtlApresentacaoBacklog.hpp" 
 
-//serviço
+// Serviço
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
+#include "Controladoras/CrtlServicoBacklog.hpp"
 #include "Containers/containerPessoa.hpp"
+#include "Containers/containerBacklog.hpp"
 
-//stubs
-#include "Controladoras/CrtlApresentacaoBacklog.hpp"
+// Stubs
 #include "Stubs/stubPlanejamento.hpp"
-#include "Stubs/stubBacklog.hpp"
 
 using namespace std;
 
 int main(void){
 
-    // Populando o banco de dados para o login
+    // Populando o banco de dados para os testes
     try {
-        Email emailTeste;  emailTeste.setValor("joao@teste.com");
+        Email emailTeste;  emailTeste.setValor("joaof1@teste.com");
         Nome nomeTeste;    nomeTeste.setValor("Joao");
         Senha senhaTeste;  senhaTeste.setValor("A1b2C3"); 
-        Papel papelTeste;  papelTeste.setValor("DESENVOLVEDOR");
+        Papel papelTeste;  papelTeste.setValor("MESTRE SCRUM"); // Coloquei DONO para você ter permissões
 
         Pessoa novaPessoa;
         novaPessoa.setEmail(emailTeste);
@@ -49,43 +49,59 @@ int main(void){
         novaPessoa.setPapel(papelTeste);
 
         ContainerPessoa::getInstancia()->criarPessoa(novaPessoa);
-    } catch (...) {
-        // Ignora erros de inserção
+
+        // Ajuste os valores abaixo se a sua classe de Domínio exigir um formato específico
+        Codigo codigo; codigo.setValor("AB123"); 
+        Codigo codigoProjeto; codigoProjeto.setValor("AE333");
+        
+        Texto titulo; titulo.setValor("Minha Historia"); 
+        Texto papel; papel.setValor("Como usuario"); 
+        Texto acao; acao.setValor("Eu quero ver telas"); 
+        Texto valor; valor.setValor("Para usar o sistema");
+        Tempo estimativa; estimativa.setValor("7");
+        Prioridade prioridade; prioridade.setValor("ALTA");
+        Estado estado; estado.setValor("A FAZER");
+        Email emailPessoa; emailPessoa.setValor("joao@teste.com");
+
+        HistoriaDeUsuario historia;
+        historia.setCodigo(codigo);
+        historia.setCodigoProjeto(codigoProjeto);
+        // historia.setCodigoSprint(codigoSprint); // REMOVIDO PARA RESPEITAR O {OU} DO UML
+        historia.setTitulo(titulo);
+        historia.setPapel(papel);
+        historia.setAcao(acao);
+        historia.setValor(valor);
+        historia.setEstimativa(estimativa);
+        historia.setPrioridade(prioridade);
+        historia.setEstado(estado);
+        historia.setEmailPessoa(emailPessoa);
+
+        ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia);
+
+    } catch (const invalid_argument& e) {
+        cout << "[ALERTA] Falha de validacao no mock (Dominio): " << e.what() << endl;
+    } catch (const exception& e) {
+        cout << "[ALERTA] Erro fatal no banco ao popular dados: " << e.what() << endl;
     }
 
-    // intanciando controladoras da camada de apresentação
-    CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
-    IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
-    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento;
-    CrtlApresentacaoBacklog *crtlApresentacaoBacklog;
-
-    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
-    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
-    crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento;
-    crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
-
-    IServicoBacklog *stubServicoBacklog;
-    stubServicoBacklog = new StubServicoBacklog();
+    // Instanciando controladoras da camada de apresentação
+   CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
+    IApresentacaoLogin *crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
+    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento();
+    IApresentacaoBacklog *crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
 
     // Instanciando controladoras da camada de serviço
-    IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
-    servicoAutenticacao = new CrtlServicoAutenticacao(); // controladora para sql
+    IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao(); 
+    IServicoBacklog *servicoBacklog = new CrtlServicoBacklog();
+    IServicoPlanejamento *stubServicoPlanejamento = new StubServicoPlanejamento();
     
-    // instanciando os stubs
-    IServicoPlanejamento *stubServicoPlanejamento;
-    stubServicoPlanejamento = new StubServicoPlanejamento();
-
-    
-    // interligando controladoras e servico.
+    // Interligando controladoras e servico
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
+    crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
     
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
-
-    crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
-
-    crtlApresentacaoBacklog->setCtrlServicoBacklog(stubServicoBacklog);
-
+    crtlApresentacaoBacklog->setCtrlServicoBacklog(servicoBacklog);
     crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
 
     // Executar o sistema
@@ -93,13 +109,18 @@ int main(void){
         crtlApresentacaoAcesso->executar();
     }
     catch(const runtime_error &exp){
-        cout << "Erro de sistema." << endl;
+        cout << "Erro critico no loop de apresentacao: " << exp.what() << endl;
     }
 
-    // Limpeza de mémoria
+    // Limpeza de mémoria 
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;
-    delete servicoAutenticacao; // Limpa o serviço real criado
-    // delete crtlApresentacaoPlanejamento; 
+    delete crtlApresentacaoPlanejamento; 
+    delete crtlApresentacaoBacklog;
+    
+    delete servicoAutenticacao; 
+    delete servicoBacklog;
+    delete stubServicoPlanejamento;
+    
     return 0;
 }

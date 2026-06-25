@@ -37,7 +37,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
 
         switch (opcao) {
             case 0:
-                criarBacklog(win);
+                criarBacklog(win, emailLogado);
                 break;
 
             case 1:
@@ -67,7 +67,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
     return ;
 }
 
-void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
+void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado) {
    bool valido = false;
 
     while (!valido) {
@@ -170,7 +170,7 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
             historiaLocal.setPrioridade(prioridadeLocal);
             historiaLocal.setEstado(estadoLocal);
 
-            valido = servicoBacklog->criarHistoriaUsuario(historiaLocal);
+            valido = servicoBacklog->criarHistoriaUsuario(historiaLocal, emailLogado);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));

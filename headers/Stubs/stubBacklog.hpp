@@ -1,4 +1,4 @@
-#ifndef STUBBACKLOG_HPP_INCLUDED
+/*#ifndef STUBBACKLOG_HPP_INCLUDED
 #define STUBBACKLOG_HPP_INCLUDED
 
 #include <string>
@@ -23,17 +23,18 @@ class StubServicoBacklog: public IServicoBacklog {
         static string save_prioridade;
         static string save_estado;
     public:
-        bool criarHistoriaUsuario(const HistoriaDeUsuario& historia) override;
+        bool criarHistoriaUsuario(const HistoriaDeUsuario& historia, const Email&) override;
         bool lerHistoriaUsuario(const Codigo& codigo, HistoriaDeUsuario& historia) override;
-        bool atualizarHistoriaUsuario(const HistoriaDeUsuario& historia) override;
-        bool excluirHistoriaUsuario(const Codigo& codigo) override;
-        bool associarHistoriaPessoa(const Codigo& codigo, const Email& email) override;
-        bool removerAssociacaoHistoriaPessoa(const Codigo& codigo, const Email& email) override;
+        bool atualizarHistoriaUsuario(const HistoriaDeUsuario& historia, const Email&) override;
+        bool excluirHistoriaUsuario(const Codigo& codigo, const Email&) override;
+        bool associarHistoriaPessoa(const Codigo& codigo, const Embool criarHisail& email) override;
+        bool removerAssociacaoHistoriaPessoa(const Codigo& codigo, const Email& email, const Email&) override;
         bool listarHistoriasAssociadasProjeto(const Codigo& codigo, std::vector<HistoriaDeUsuario>& vetor) override;
         bool listarHistoriasAssociadasPlanoSprint(const Codigo& codigo, std::vector<HistoriaDeUsuario>& vetor) override;
         bool listarHistoriasAssociadasPessoa(const Email& email, std::vector<HistoriaDeUsuario>& vetor) override;
-        bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint) override;
-        bool alterarEstadoHistoria(const Codigo& codigo, const Estado& estado) override;
-};
+        bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprin, const Email&) override;
+        bool alterarEstadoHistoria(const Codigo& codigo, const Estado& estado, const Email&) override;
+}
 
 #endif // STUBS_HPP_INCLUDED
+*/

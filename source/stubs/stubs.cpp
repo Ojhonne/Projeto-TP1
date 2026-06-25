@@ -1,4 +1,4 @@
-#include "Stubs/stubBacklog.hpp"
+/*#include "Stubs/stubBacklog.hpp"
 
 const string StubServicoBacklog::CODIGO_VALIDO = "AB123";
 
@@ -11,7 +11,7 @@ string StubServicoBacklog::save_prioridade;
 string StubServicoBacklog::save_estado;
 
 // CORRIGIDO: Nome igual ao do .hpp (criarHistoriaUsuario)
-bool StubServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia){
+bool StubServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia , const Email& emailLogado){
     save_titulo      = historia.getTitulo().getValor();
     save_papel       = historia.getPapel().getValor();
     save_acao        = historia.getAcao().getValor();
@@ -87,4 +87,4 @@ bool StubServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
 
 bool StubServicoBacklog::alterarEstadoHistoria(const Codigo& codigo, const Estado& estado) {
     return true;
-}
+}*/

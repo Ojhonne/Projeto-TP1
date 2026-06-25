@@ -29,7 +29,7 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
         bool capturarCredenciais(WINDOW* win, char* emailStr, char* senhaStr);
         void exibirErro(WINDOW* win, const char* mensagem);
         void exibirSucesso(WINDOW* win);
-        void criarBacklog(WINDOW* win);
+        void criarBacklog(WINDOW* win, const Email& emailLogado);
         void lerBacklog(WINDOW* win);
 
     public:
