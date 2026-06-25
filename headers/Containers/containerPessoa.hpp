@@ -61,25 +61,25 @@ class ContainerPessoa{
          * @param Pessoa é o objeto de domínio que representa a pessoa a ser incluída.
          * @return Retorna verdadeiro se a inclusão for bem-sucedida, falso caso contrário
          */
-        bool criarPessoa(Pessoa);                          
+        bool criarPessoa(const Pessoa&);                          
         /**
          * @brief Remove uma pessoa do container com base no email fornecido.
          * @param Email é a chave utilizada para identificar a pessoa a ser removida.
          * @return Retorna verdadeiro se a remoção for bem-sucedida, falso caso contrário.
          */
-        bool excluirPessoa(Email);
+        bool excluirPessoa(const Email&);
         /**
          * @brief Pesquisa uma pessoa no container com base no email fornecido.
          * @param Pessoa é um ponteiro para o objeto de domínio que será preenchido com os dados da pessoa encontrada.
          * @return Retorna verdadeiro se a pesquisa for bem-sucedida e a pessoa for encontrada, falso caso contrário.
          */
-        bool lerPessoa(Email, Pessoa*);
+        bool lerPessoa(Pessoa&);
         /**
          * @brief Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido.
          * @param Pessoa é o objeto de domínio que contém os novos dados da pessoa a serem atualizados.
          * @return Retorna verdadeiro se a atualização for bem-sucedida, falso
          */
-        bool atualizarPessoa(Pessoa);
+        bool atualizarPessoa(const Pessoa&);
 };
 
 #endif // CONTAINERPESSOA_H_INCLUDED

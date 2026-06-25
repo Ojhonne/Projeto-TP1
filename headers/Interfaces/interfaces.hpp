@@ -391,7 +391,7 @@ public:
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção.
      */
 
-    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&, const Email& emailAlvo, const Email& usuarioLogado) = 0;
+    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email& emailAlvo, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a um projeto.

@@ -2,11 +2,21 @@
 #include "Containers/containerBacklog.hpp"
 #include "Containers/ContainerPessoa.hpp"
 #include "Entidades/HistoriaDeUsuario.hpp"
+#include "Entidades/Pessoa.hpp"
 #include <stdexcept> 
 #include <iostream>
 
 bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia, const Email& usuarioLogado){
     try{
+        Pessoa pessoaVericacao;
+        pessoaVericacao.setEmail(usuarioLogado);
+        // Vai no banco de dados de Usuários e busca quem está logado
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != DONO) {
+            return false;  
+        }
         // Tenta criar uma historia  no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia)){
             return true;
@@ -32,6 +42,15 @@ bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsu
 
 bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& historiaAtualizada, const Email& usuarioLogado){
     try{
+        Pessoa pessoaVericacao;
+        pessoaVericacao.setEmail(usuarioLogado);
+        // Vai no banco de dados de Usuários e busca quem está logado
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != DONO) {
+            return false;  
+        }
         // Tenta atualizar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(historiaAtualizada)){
             return true;
@@ -46,12 +65,13 @@ bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histo
 bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID, const Email& usuarioLogado){
     try{
         // Tenta excluir uma historia no banco de dados através do Singleton
-        Pessoa* pessoaVericacao;
+        Pessoa pessoaVericacao;
+        pessoaVericacao.setEmail(usuarioLogado);
         // Vai no banco de dados de Usuários e busca quem está logado
-        if (!ContainerPessoa::getInstancia()->lerPessoa(usuarioLogado, pessoaVericacao)) {
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
             return false;         // Se o usuário não existe no banco
         }
-        if (pessoaVericacao->getPapel().getvalor() != DONO) {
+        if (pessoaVericacao.getPapel().getValor() != DONO) {
             return false;  // Acesso negado! 
         }
         if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
@@ -105,10 +125,19 @@ bool CrtlServicoBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& chav
 
 bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
+    Pessoa pessoaVericacao;
+    pessoaVericacao.setEmail(usuarioLogado);
     try{
+        // Vai no banco de dados de Usuários e busca quem está logado
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != MESTRE) {
+            return false;  
+        }
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setCodigoSprint(codigoSprint);
-            if(atualizarHistoriaUsuario(armazenaHistoria)){
+            if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
                 return true; 
             }
         }
@@ -121,10 +150,18 @@ bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
 
 bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailAlvo, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
+    Pessoa pessoaVericacao;
+    pessoaVericacao.setEmail(usuarioLogado);
     try{
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != MESTRE) {
+            return false;  
+        }
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setEmailPessoa(emailAlvo);
-            if(atualizarHistoriaUsuario(armazenaHistoria)){
+            if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
                 return true; 
             }
         }
@@ -138,14 +175,22 @@ bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, co
 
 bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHistoria, const Email& emailAlvo, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
+    Pessoa pessoaVericacao;
+    pessoaVericacao.setEmail(usuarioLogado);
     try{
-            if (lerHistoriaUsuario(codigoHistoria, armazenaHistoria)) {
-                if (armazenaHistoria.getEmailPessoa().getValor() == emailAlvo.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != MESTRE) {
+            return false;  
+        }
+        if (lerHistoriaUsuario(codigoHistoria, armazenaHistoria)) {
+            if (armazenaHistoria.getEmailPessoa().getValor() == emailAlvo.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
                     Email emailVazio;
                     armazenaHistoria.setEmailPessoa(emailVazio);
-                    return atualizarHistoriaUsuario(armazenaHistoria); 
-                }
+                    return atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado); 
             }
+        }
             return false;
         } catch (const std::runtime_error& e){
         std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: " << e.what() << std::endl;
@@ -155,11 +200,18 @@ bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHis
 
 bool CrtlServicoBacklog::alterarEstadoHistoria(const Codigo& codigoHistoria, const Estado& novoEstado, const Email& usuarioLogado){
     HistoriaDeUsuario armazenaHistoria;
-
+    Pessoa pessoaVericacao;
+    pessoaVericacao.setEmail(usuarioLogado);
     try{
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
+            return false;        
+        }
+        if (pessoaVericacao.getPapel().getValor() != MESTRE && pessoaVericacao.getPapel().getValor() != DONO) {
+            return false;  
+        }
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setEstado(novoEstado);
-            if(atualizarHistoriaUsuario(armazenaHistoria)){
+            if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
                 return true; 
             }
         }
