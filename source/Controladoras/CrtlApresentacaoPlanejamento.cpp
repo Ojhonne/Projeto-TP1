@@ -198,30 +198,30 @@ void CrtlApresentacaoPlanejamento::criarProjeto() {
         wrefresh(win);
 
         //inicializa as variáveis queserão capturadas do usuário
-        char strCodigo[6];
-        char strNome[11];
-        char strDataInicio[11];
-        char strDataFim[11];
+        char strCodigo[16];
+        char strNome[21];
+        char strDataInicio[21];
+        char strDataFim[21];
 
        // Captura os dados necessários para instanciar os domínios
         // e montar a entidade Projeto.
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
         wmove(win, 3, 14);
-        if (!Tui::lerEntradaTerminal(win, strNome, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strNome, 20, false)) {
             return;
         }
 
         wmove(win, 4, 18);
-        if (!Tui::lerEntradaTerminal(win, strDataInicio, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strDataInicio, 20, false)) {
             return;
         }
 
         wmove(win, 5, 15);
-        if (!Tui::lerEntradaTerminal(win, strDataFim, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strDataFim, 20, false)) {
             return;
         }
 
@@ -292,10 +292,10 @@ void CrtlApresentacaoPlanejamento::lerProjeto() {
 
         wrefresh(win);
 
-        char strCodigo[6];
+        char strCodigo[16];
 
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
@@ -368,28 +368,28 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto() {
 
         wrefresh(win);
 
-        char strCodigo[6];
-        char strNome[11];
-        char strDataInicio[11];
-        char strDataFim[11];
+        char strCodigo[16];
+        char strNome[21];
+        char strDataInicio[21];
+        char strDataFim[21];
 
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
         wmove(win, 3, 16);
-        if (!Tui::lerEntradaTerminal(win, strNome, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strNome, 20, false)) {
             return;
         }
 
         wmove(win, 4, 23);
-        if (!Tui::lerEntradaTerminal(win, strDataInicio, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strDataInicio, 20, false)) {
             return;
         }
 
         wmove(win, 5, 20);
-        if (!Tui::lerEntradaTerminal(win, strDataFim, 10, false)) {
+        if (!Tui::lerEntradaTerminal(win, strDataFim, 20, false)) {
             return;
         }
 
@@ -455,11 +455,11 @@ void CrtlApresentacaoPlanejamento::excluirProjeto() {
 
         wrefresh(win);
 
-        char strCodigo[6];
+        char strCodigo[16];
 
         wmove(win, 2, 14);
 
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
@@ -514,10 +514,10 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
 
         wrefresh(win);
 
-        char strEmail[320];
+        char strEmail[330];
 
         wmove(win, 2, 12);
-        if (!Tui::lerEntradaTerminal(win, strEmail, 319, false)) {
+        if (!Tui::lerEntradaTerminal(win, strEmail, 329, false)) {
             return;
         }
 
@@ -625,25 +625,25 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint() {
 
         wrefresh(win);
 
-        char strCodigo[6];
-        char strTexto[41];
-        char strTempo[4];
+        char strCodigo[16];
+        char strTexto[51];
+        char strTempo[14];
 
         // Codigo
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
         // Texto
         wmove(win, 3, 14);
-        if (!Tui::lerEntradaTerminal(win, strTexto, 40, false)) {
+        if (!Tui::lerEntradaTerminal(win, strTexto, 50, false)) {
             return;
         }
 
         // Tempo
         wmove(win, 4, 14);
-        if (!Tui::lerEntradaTerminal(win, strTempo, 3, false)) {
+        if (!Tui::lerEntradaTerminal(win, strTempo, 13, false)) {
             return;
         }
 
@@ -711,10 +711,10 @@ void CrtlApresentacaoPlanejamento::lerPlanoSprint() {
 
         wrefresh(win);
 
-        char strCodigo[6];
+        char strCodigo[16];
 
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
@@ -797,22 +797,22 @@ void CrtlApresentacaoPlanejamento::atualizarPlanoSprint() {
 
         wrefresh(win);
 
-        char strCodigo[6];
-        char strTexto[41];
-        char strTempo[4];
+        char strCodigo[16];
+        char strTexto[51];
+        char strTempo[14];
 
         wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
         wmove(win, 3, 20);
-        if (!Tui::lerEntradaTerminal(win, strTexto, 40, false)) {
+        if (!Tui::lerEntradaTerminal(win, strTexto, 50, false)) {
             return;
         }
 
         wmove(win, 4, 17);
-        if (!Tui::lerEntradaTerminal(win, strTempo, 3, false)) {
+        if (!Tui::lerEntradaTerminal(win, strTempo, 13, false)) {
             return;
         }
 
@@ -872,11 +872,11 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint() {
 
         wrefresh(win);
 
-        char strCodigo[6];
+        char strCodigo[16];
 
         wmove(win, 2, 14);
 
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
@@ -932,10 +932,10 @@ void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
 
         wrefresh(win);
 
-        char strCodigo[6];
+        char strCodigo[16];
 
         wmove(win, 2, 24);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 5, false)) {
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
             return;
         }
 
