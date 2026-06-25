@@ -27,7 +27,9 @@
 #include "Containers/containerPessoa.hpp"
 
 //stubs
+#include "Controladoras/CrtlApresentacaoBacklog.hpp"
 #include "Stubs/stubPlanejamento.hpp"
+#include "Stubs/stubBacklog.hpp"
 
 using namespace std;
 
@@ -55,10 +57,15 @@ int main(void){
     CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
     IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
     IApresentacaoPlanejamento *crtlApresentacaoPlanejamento;
+    CrtlApresentacaoBacklog *crtlApresentacaoBacklog;
 
     crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
     crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
     crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento;
+    crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
+
+    IServicoBacklog *stubServicoBacklog;
+    stubServicoBacklog = new StubServicoBacklog();
 
     // Instanciando controladoras da camada de serviço
     IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
@@ -74,6 +81,10 @@ int main(void){
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
+
+    crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
+
+    crtlApresentacaoBacklog->setCtrlServicoBacklog(stubServicoBacklog);
 
     crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
 

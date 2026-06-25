@@ -95,6 +95,7 @@ inline void Dominio::setValor(const std::string &valor){
  */
 class Codigo : public Dominio {
 public:
+    Codigo(){};
     /**
      * @brief Constroi um objeto Codigo a partir de uma string.
      *
@@ -103,7 +104,6 @@ public:
      * @throw std::invalid_argument Caso o valor informado nao obedeca
      * ao formato LLDDD.
      */
-    Codigo(){};
     Codigo(const std::string& valor);
 
 private:
