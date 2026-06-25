@@ -1,4 +1,5 @@
 #include "Containers/containerBacklog.hpp"
+#include "Containers/ContainerPessoa.hpp"
 #include "Sql/sqlite3.h"
 #include <stdexcept> 
 #include <iostream>

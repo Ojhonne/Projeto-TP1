@@ -424,12 +424,11 @@ public:
      * @brief Move uma história de usuário de um projeto para um plano de sprint.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Codigo é a chave utilizada para identificar o plano de sprint de destino.
-     * @param Email é a chave utilizada para identificar a pessoa.
      * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      */
 
-    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& emailAlvo, const Email& usuarioLogado) = 0;
+    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Altera o estado de uma história de usuário.

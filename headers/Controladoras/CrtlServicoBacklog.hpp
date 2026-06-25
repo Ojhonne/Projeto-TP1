@@ -63,7 +63,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
      * @throws Pode capturar exceções vindas do repositório.
      */
-     bool associarHistoriaPessoa(const Codigo&, const Email&) override;
+     bool associarHistoriaPessoa(const Codigo&, const Email&, const Email& usuarioLogado) override;
     /**
      * @brief Remove a associação entre uma história de usuário e uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
@@ -103,7 +103,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      * @throws Pode capturar exceções vindas do repositório.
      */
-     bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& emailAlvo, const Email& usuarioLogado) override;
+     bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado) override;
     /**
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
