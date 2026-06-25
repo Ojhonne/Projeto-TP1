@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_7edominio_0',['~Dominio',['../class_dominio.html#a7dcc0fbb141f6bd1c65dd742bc6f2c11',1,'Dominio']]]
+  ['historiadeusuario_0',['HistoriaDeUsuario',['../class_historia_de_usuario.html',1,'']]],
+  ['historiadeusuario_2ecpp_1',['historiaDeUsuario.cpp',['../historia_de_usuario_8cpp.html',1,'']]],
+  ['historiadeusuario_2ehpp_2',['historiaDeUsuario.hpp',['../historia_de_usuario_8hpp.html',1,'']]]
 ];

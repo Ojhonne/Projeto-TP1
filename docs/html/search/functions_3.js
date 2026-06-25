@@ -1,22 +1,11 @@
 var searchData=
 [
-  ['getacao_0',['getAcao',['../class_historia_de_usuario.html#adbd0cd871c37e75f466c83994fcbf6e8',1,'HistoriaDeUsuario']]],
-  ['getano_1',['getAno',['../class_data.html#a986bec10cbca338f08c9096d8e51efb5',1,'Data']]],
-  ['getcodigo_2',['getCodigo',['../class_historia_de_usuario.html#a9fd6c96a529835a6d439f19524bd458b',1,'HistoriaDeUsuario::getCodigo()'],['../class_plano_de_sprint.html#aabd741d8576eb9c9aa84bf75b12471db',1,'PlanoDeSprint::getCodigo()'],['../class_projeto.html#a65ffd393d41b7c28acd987efa295fcd0',1,'Projeto::getCodigo()']]],
-  ['getdata_3',['getData',['../class_data.html#a13f25eafdc138d743e99eb4086d765a2',1,'Data']]],
-  ['getdia_4',['getDia',['../class_data.html#aa9b7bdc683d9c493d903184e85f1e6b3',1,'Data']]],
-  ['getemail_5',['getEmail',['../class_pessoa.html#a904654f6a79a0936d0df1cd6c36a7e8d',1,'Pessoa']]],
-  ['getestado_6',['getEstado',['../class_historia_de_usuario.html#ad188c71dd7fe94ec6aec8bb6d127cdfa',1,'HistoriaDeUsuario']]],
-  ['getestimativa_7',['getEstimativa',['../class_historia_de_usuario.html#a761945883a676d207e7f63735df30d0c',1,'HistoriaDeUsuario']]],
-  ['getinicio_8',['getInicio',['../class_projeto.html#a9ca5841d6fd682b22905e2a40dd479af',1,'Projeto']]],
-  ['getmes_9',['getMes',['../class_data.html#a1df6f5e1695c7cae56b9ee752a6895e8',1,'Data']]],
-  ['getnome_10',['getNome',['../class_pessoa.html#a6332603563e192e1f692fde126a55105',1,'Pessoa::getNome()'],['../class_projeto.html#a906fb612fca916d274c478c400913abb',1,'Projeto::getNome()']]],
-  ['getpapel_11',['getPapel',['../class_historia_de_usuario.html#a07027b7ba4596cd7843ff7ae4ac5c000',1,'HistoriaDeUsuario::getPapel()'],['../class_pessoa.html#a54f7ae519388a447626671167f43c8b1',1,'Pessoa::getPapel()']]],
-  ['getprioridade_12',['getPrioridade',['../class_historia_de_usuario.html#ada483a77ca6dcfb29c131d78d1fb565c',1,'HistoriaDeUsuario']]],
-  ['getsenha_13',['getSenha',['../class_pessoa.html#a622b211563983aa0e520c5c02b18098a',1,'Pessoa']]],
-  ['gettempo_14',['getTempo',['../class_plano_de_sprint.html#a594568b8c02fa2fa8973a444c0bb4ea0',1,'PlanoDeSprint']]],
-  ['gettermino_15',['getTermino',['../class_projeto.html#a5de0f35ce9c298bb0b21950c9073e9af',1,'Projeto']]],
-  ['gettexto_16',['getTexto',['../class_plano_de_sprint.html#a0a848b1574f1d406a9c75547ee9224fc',1,'PlanoDeSprint']]],
-  ['gettitulo_17',['getTitulo',['../class_historia_de_usuario.html#a0b0732a8307164b63f9d82a13d273b8a',1,'HistoriaDeUsuario']]],
-  ['getvalor_18',['getValor',['../class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3',1,'Dominio::getValor()'],['../class_historia_de_usuario.html#a949104cc7185f2037f53276f351e7180',1,'HistoriaDeUsuario::getValor()']]]
+  ['email_0',['Email',['../class_email.html#a2cfcfea1e55511208e7858c33f48ad9d',1,'Email::Email()'],['../class_email.html#a61920b1f7602e5eb80edf1e4bd96e6c7',1,'Email::Email(const std::string &amp;)']]],
+  ['estado_1',['Estado',['../class_estado.html#aa956f333e0d0b9c54bc8c94055966ea2',1,'Estado']]],
+  ['excluirhistoriausuario_2',['excluirHistoriaUsuario',['../class_i_servico_backlog.html#ab489e124112f061e6060454ff27b6df3',1,'IServicoBacklog']]],
+  ['excluirpessoa_3',['excluirPessoa',['../class_i_servico_pessoa.html#a548c1da6481e8935b4090ec0cfe4f838',1,'IServicoPessoa']]],
+  ['excluirplanosprint_4',['excluirPlanoSprint',['../class_i_servico_planejamento.html#a890425b90db60228899496f635718589',1,'IServicoPlanejamento::excluirPlanoSprint()'],['../class_stub_servico_planejamento.html#a805a835154dbeb82fa2beee028f39c72',1,'StubServicoPlanejamento::excluirPlanoSprint()']]],
+  ['excluirprojeto_5',['excluirProjeto',['../class_i_servico_planejamento.html#a307aca15bdae3ae08eb8d0a4b60a398b',1,'IServicoPlanejamento::excluirProjeto()'],['../class_stub_servico_planejamento.html#a64714a022e20a258558f19742933f3f3',1,'StubServicoPlanejamento::excluirProjeto()']]],
+  ['executar_6',['executar',['../class_crtl_apresentacao_acesso.html#a867e4df09145d6a8dee1ab1fff4519d6',1,'CrtlApresentacaoAcesso::executar()'],['../class_crtl_apresentacao_login.html#ad0301123227503bccbeb8941ccc6efe6',1,'CrtlApresentacaoLogin::executar()'],['../class_crtl_apresentacao_planejamento.html#a5205f438cddf321db16d4e0e0c7b8847',1,'CrtlApresentacaoPlanejamento::executar()'],['../class_i_apresentacao_login.html#abc8f656f992d37e6b4b0d7132aeb48cc',1,'IApresentacaoLogin::executar()'],['../class_i_apresentacao_cadastro.html#a53ca1dc06ae1964838b72ef5aed8161f',1,'IApresentacaoCadastro::executar()'],['../class_i_apresentacao_planejamento.html#a838949fa7111f20557ce9a6da60fc929',1,'IApresentacaoPlanejamento::executar()'],['../class_i_apresentacao_backlog.html#a1071220657a9b39d978e7b74b2723823',1,'IApresentacaoBacklog::executar()']]],
+  ['exibemenu_7',['exibeMenu',['../namespace_tui.html#a16adc0decc9a1e8adb006d3b75f2d3d0',1,'Tui']]]
 ];

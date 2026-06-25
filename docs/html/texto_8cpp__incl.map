@@ -1,6 +1,6 @@
 <map id="source/Dominios/texto.cpp" name="source/Dominios/texto.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="70,5,248,32"/>
-<area shape="rect" id="Node000002" href="$dominios_8hpp.html" title=" " alt="" coords="23,80,180,107"/>
+<area shape="rect" id="Node000002" href="$dominios_8hpp.html" title="Definição da classe base abstrata para os domínios do sistema." alt="" coords="23,80,180,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,31,123,70,119,66,147,34"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="23,155,76,181"/>
 <area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="82,35,44,53,27,65,13,81,8,96,11,111,29,142,24,144,6,113,3,95,9,79,23,62,41,48,84,30"/>

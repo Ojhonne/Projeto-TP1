@@ -1,6 +1,7 @@
 /**
  * 
- * @file CrtlApresentacaoAcesson.hpp
+ * @file CrtlApresentacaoAcesso.hpp
+ * @author João Francisco de Sousa Torres
  * @brief Definição da controladora da apresentação acesso(menu principal).
  */
 
@@ -52,9 +53,8 @@ class CrtlApresentacaoAcesso {
         */
         virtual ~CrtlApresentacaoAcesso() = default;
         /**
-         * @brief Executa método que exibe o menu principal do sistema.\n
-         *
-         * Enquanto nenhuma pessoa estiver logado, apenas autenticação fica disponível.
+         * @brief Executa método que exibe o menu principal do sistema. \n
+         *Enquanto nenhuma pessoa estiver logado, apenas autenticação fica disponível.
          * Ao logar, todas as áreas do sistema são liberadas ao usuário.
          */
         void executar(); 

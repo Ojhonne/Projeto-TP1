@@ -1,0 +1,5 @@
+<map id="Data::vemAntes" name="Data::vemAntes">
+<area shape="rect" id="Node000001" title="Verifica se a instância de termino tempT do domínio Data ocorre cronologicamente antes da data de ini..." alt="" coords="195,5,311,32"/>
+<area shape="rect" id="Node000002" href="$class_intervalo.html#a93abe65d1660e6ddb504b82f7b9743de" title="Define e valida o período cronológico do intervalo, buscando primeiramente validar uma instancia de D..." alt="" coords="5,5,147,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,19,147,21,147,16,182,19"/>
+</map>

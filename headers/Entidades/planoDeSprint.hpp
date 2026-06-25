@@ -41,6 +41,14 @@ class PlanoDeSprint {
         Tempo capacidade;
     public:
         /**
+        * @brief Construtor padrão.
+         *
+        * Permite criar um Plano de Sprint vazio para posterior
+        * preenchimento por operações de leitura da camada de serviço.
+        */
+        PlanoDeSprint() = default;
+
+        /**
          * @brief Atribui um novo objetivo ao Plano de Sprint.
          * @param objetivo Referência constante para o objeto de domínio Texto.
          */
@@ -90,6 +98,11 @@ inline const Tempo& PlanoDeSprint::getTempo() const {
 
 inline void PlanoDeSprint::setCodigo(const Codigo& codigo) {
     this->codigo = codigo;
+}
+
+
+inline const Codigo& PlanoDeSprint::getCodigo() const {
+    return codigo;
 }
 
 //

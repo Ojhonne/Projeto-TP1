@@ -91,4 +91,36 @@ public:
     const Papel& getPapel() const;
 };
 
+inline void Pessoa::setEmail(const Email& email) {
+    this->email = email;
+}
+
+inline const Email& Pessoa::getEmail() const {
+    return email;
+}
+
+inline void Pessoa::setNome(const Nome& nome) {
+    this->nome = nome;
+}
+
+inline const Nome& Pessoa::getNome() const {
+    return nome;
+}
+
+inline void Pessoa::setSenha(const Senha& senha) {
+    this->senha = senha;
+}
+
+inline const Senha& Pessoa::getSenha() const {
+    return senha;
+}
+
+inline void Pessoa::setPapel(const Papel& papel) {
+    this->papel = papel;
+}
+
+inline const Papel& Pessoa::getPapel() const {
+    return papel;
+}
+
 #endif

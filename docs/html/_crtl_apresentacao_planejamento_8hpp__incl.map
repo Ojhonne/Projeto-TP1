@@ -1,0 +1,19 @@
+<map id="headers/Controladoras/CrtlApresentacaoPlanejamento.hpp" name="headers/Controladoras/CrtlApresentacaoPlanejamento.hpp">
+<area shape="rect" id="Node000001" title="Definição da controladora da apresentação Planejamento." alt="" coords="77,5,307,48"/>
+<area shape="rect" id="Node000002" href="$dominios_8hpp.html" title="Definição da classe base abstrata para os domínios do sistema." alt="" coords="17,171,175,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,50,41,70,13,98,9,106,8,115,17,131,34,147,56,162,52,164,31,151,12,135,3,116,4,105,9,94,38,65,78,46"/>
+<area shape="rect" id="Node000005" href="$interfaces_8hpp.html" title="Definição das interfaces do sistema." alt="" coords="408,96,573,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="269,46,431,90,427,93,269,51"/>
+<area shape="rect" id="Node000007" href="$projeto_8hpp.html" title="Definição da classe entidade Pessoa." alt="" coords="22,96,170,123"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="166,51,125,88,121,84,169,47"/>
+<area shape="rect" id="Node000008" href="$plano_de_sprint_8hpp.html" title="Definição da classe entidade HistoriaDeUsuario." alt="" coords="194,96,385,123"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="217,46,265,86,260,86,217,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="25,245,79,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,196,70,234,65,230,86,199"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,245,181,272"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="105,196,128,232,123,232,103,200"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="462,171,519,197"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="492,121,493,157,489,154,489,125"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="97,121,99,156,93,154,95,126"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="254,125,145,167,143,162,258,121"/>
+</map>

@@ -14,42 +14,80 @@
 #endif
 
 #include "Dominios/dominios.hpp"
+#include "Entidades/pessoa.hpp"
 #include "Interfaces/interfaces.hpp"
+
+// Apresentação
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
-#include "Controladoras/CrtlApresentacaoBacklog.hpp"
-#include "Stubs/stubs.hpp"
+#include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
 
+//serviço
+#include "Controladoras/CrtlServicoAutenticacao.hpp"
+#include "Containers/containerPessoa.hpp"
+
+//stubs
+#include "Controladoras/CrtlApresentacaoBacklog.hpp"
+#include "Stubs/stubPlanejamento.hpp"
 
 using namespace std;
 
 int main(void){
 
-    // Instanciar controladoras da camada de apresentação.
+    // Populando o banco de dados para o login
+    try {
+        Email emailTeste;  emailTeste.setValor("joao@teste.com");
+        Nome nomeTeste;    nomeTeste.setValor("Joao");
+        Senha senhaTeste;  senhaTeste.setValor("A1b2C3"); 
+        Papel papelTeste;  papelTeste.setValor("DESENVOLVEDOR");
+
+        Pessoa novaPessoa;
+        novaPessoa.setEmail(emailTeste);
+        novaPessoa.setNome(nomeTeste);
+        novaPessoa.setSenha(senhaTeste);
+        novaPessoa.setPapel(papelTeste);
+
+        ContainerPessoa::getInstancia()->incluir(novaPessoa);
+    } catch (...) {
+        // Ignora erros de inserção
+    }
+
+    // intanciando controladoras da camada de apresentação
     CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
-    IApresentacaoLogin *crtlApresentacaoLogin; //istanciar usando a interface
+    IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
+    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento;
     CrtlApresentacaoBacklog *crtlApresentacaoBacklog;
 
-    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // criando o objeto dinamicamente
-    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); // criando o objeto e associando a controladora
+    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
+    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
+    crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento;
     crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
 
     IServicoBacklog *stubServicoBacklog;
     stubServicoBacklog = new StubServicoBacklog();
 
-    // Instanciar stubs de serviço.
-    IServicoAutenticacao *stubServicoAutenticacao; // ponteiro para o stub
-    stubServicoAutenticacao = new StubServicoAutenticacao(); // criando o objeto dinamicamente
+    // Instanciando controladoras da camada de serviço
+    IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
+    servicoAutenticacao = new CrtlServicoAutenticacao(); // controladora para sql
+    
+    // instanciando os stubs
+    IServicoPlanejamento *stubServicoPlanejamento;
+    stubServicoPlanejamento = new StubServicoPlanejamento();
 
-    // Interligar controladoras e stubs.
-    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); //
-
-    crtlApresentacaoLogin->setCtrlServicoAutenticacao(stubServicoAutenticacao);
+    
+    // interligando controladoras e servico.
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
+    crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
+    
+    crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
 
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
 
     crtlApresentacaoBacklog->setCtrlServicoBacklog(stubServicoBacklog);
 
+    crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
+
+    // Executar o sistema
     try{
         crtlApresentacaoAcesso->executar();
     }
@@ -57,9 +95,10 @@ int main(void){
         cout << "Erro de sistema." << endl;
     }
 
-
+    // Limpeza de mémoria
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;
+    delete servicoAutenticacao; // Limpa o serviço real criado
+    // delete crtlApresentacaoPlanejamento; 
     return 0;
 }
-

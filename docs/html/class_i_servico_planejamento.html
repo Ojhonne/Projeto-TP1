@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentacao-TP1: Referência da Classe IServicoPlanejamento</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentacao-TP1
+   </div>
+   <div id="projectbrief">Documentação do trabalho de TP1</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_i_servico_planejamento.html','','class_i_servico_planejamento-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe IServicoPlanejamento<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe IServicoPlanejamento:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_servico_planejamento__inherit__graph.png" border="0" usemap="#a_i_servico_planejamento_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
+<map name="a_i_servico_planejamento_inherit__map" id="a_i_servico_planejamento_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,5,199,320"/>
+<area shape="rect" href="class_stub_servico_planejamento.html" title=" " alt="" coords="22,368,183,587"/>
+<area shape="poly" title=" " alt="" coords="103,333,105,369,100,368,102,338"/>
+</map>
+</div>
+<div class="dynheader">
+Diagrama de colaboração para IServicoPlanejamento:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_servico_planejamento__coll__graph.png" border="0" usemap="#a_i_servico_planejamento_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_i_servico_planejamento_coll__map" id="a_i_servico_planejamento_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,199,320"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ab896ec2e23d5b9d6f4b8dc5a9db0aa61" id="r_ab896ec2e23d5b9d6f4b8dc5a9db0aa61"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#ab896ec2e23d5b9d6f4b8dc5a9db0aa61">~IServicoPlanejamento</a> ()=default</td></tr>
+<tr class="memdesc:ab896ec2e23d5b9d6f4b8dc5a9db0aa61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual padrão.  <br /></td></tr>
+<tr class="memitem:acbdbdfc522c593bf36bc34cb98816a45" id="r_acbdbdfc522c593bf36bc34cb98816a45"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#acbdbdfc522c593bf36bc34cb98816a45">criarProjeto</a> (const <a class="el" href="class_projeto.html">Projeto</a> &amp;)=0</td></tr>
+<tr class="memdesc:acbdbdfc522c593bf36bc34cb98816a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo projeto no sistema.  <br /></td></tr>
+<tr class="memitem:aa9eae192091dfb593bcaaf4cee2f953e" id="r_aa9eae192091dfb593bcaaf4cee2f953e"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aa9eae192091dfb593bcaaf4cee2f953e">lerProjeto</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, <a class="el" href="class_projeto.html">Projeto</a> &amp;)=0</td></tr>
+<tr class="memdesc:aa9eae192091dfb593bcaaf4cee2f953e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê os dados de um projeto cadastrado no sistema.  <br /></td></tr>
+<tr class="memitem:aa8645dfa398db23ee1e59db6bd12ca15" id="r_aa8645dfa398db23ee1e59db6bd12ca15"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aa8645dfa398db23ee1e59db6bd12ca15">atualizarProjeto</a> (const <a class="el" href="class_projeto.html">Projeto</a> &amp;)=0</td></tr>
+<tr class="memdesc:aa8645dfa398db23ee1e59db6bd12ca15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um projeto cadastrado no sistema com base nos novos dados fornecidos pelo usuário.  <br /></td></tr>
+<tr class="memitem:a307aca15bdae3ae08eb8d0a4b60a398b" id="r_a307aca15bdae3ae08eb8d0a4b60a398b"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a307aca15bdae3ae08eb8d0a4b60a398b">excluirProjeto</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;)=0</td></tr>
+<tr class="memdesc:a307aca15bdae3ae08eb8d0a4b60a398b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um projeto do sistema.  <br /></td></tr>
+<tr class="memitem:ade4915196e5c9d44b29c3a1925e4d118" id="r_ade4915196e5c9d44b29c3a1925e4d118"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ade4915196e5c9d44b29c3a1925e4d118">criarPlanoSprint</a> (const <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;)=0</td></tr>
+<tr class="memdesc:ade4915196e5c9d44b29c3a1925e4d118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo plano de sprint no sistema.  <br /></td></tr>
+<tr class="memitem:aac77ee952e6d9c8110724db6ec48f9f8" id="r_aac77ee952e6d9c8110724db6ec48f9f8"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#aac77ee952e6d9c8110724db6ec48f9f8">lerPlanoSprint</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;)=0</td></tr>
+<tr class="memdesc:aac77ee952e6d9c8110724db6ec48f9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê os dados de um plano de sprint cadastrado no sistema.  <br /></td></tr>
+<tr class="memitem:a5954fb2e3cceac2cfd8296dd69fe45d8" id="r_a5954fb2e3cceac2cfd8296dd69fe45d8"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a5954fb2e3cceac2cfd8296dd69fe45d8">atualizarPlanoSprint</a> (const <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;)=0</td></tr>
+<tr class="memdesc:a5954fb2e3cceac2cfd8296dd69fe45d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um plano de sprint cadastrado no sistema com base nos novos dados fornecidos pelo usuário.  <br /></td></tr>
+<tr class="memitem:a890425b90db60228899496f635718589" id="r_a890425b90db60228899496f635718589"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a890425b90db60228899496f635718589">excluirPlanoSprint</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;)=0</td></tr>
+<tr class="memdesc:a890425b90db60228899496f635718589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um plano de sprint do sistema.  <br /></td></tr>
+<tr class="memitem:ad9f1237540e258ab19d086c0e9bc52f5" id="r_ad9f1237540e258ab19d086c0e9bc52f5"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ad9f1237540e258ab19d086c0e9bc52f5">listarProjetosAssociadosPessoa</a> (const <a class="el" href="class_email.html">Email</a> &amp;, std::vector&lt; <a class="el" href="class_projeto.html">Projeto</a> &gt; &amp;)=0</td></tr>
+<tr class="memdesc:ad9f1237540e258ab19d086c0e9bc52f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os projetos associados a uma pessoa.  <br /></td></tr>
+<tr class="memitem:ac56eeab7ee0d337c452ff77180066e82" id="r_ac56eeab7ee0d337c452ff77180066e82"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#ac56eeab7ee0d337c452ff77180066e82">listarPlanosSprintAssociadosProjeto</a> (const <a class="el" href="class_codigo.html">Codigo</a> &amp;, std::vector&lt; <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &gt; &amp;)=0</td></tr>
+<tr class="memdesc:ac56eeab7ee0d337c452ff77180066e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os planos de sprint associados a um projeto.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="ab896ec2e23d5b9d6f4b8dc5a9db0aa61" name="ab896ec2e23d5b9d6f4b8dc5a9db0aa61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab896ec2e23d5b9d6f4b8dc5a9db0aa61">&#9670;&#160;</a></span>~IServicoPlanejamento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IServicoPlanejamento::~IServicoPlanejamento </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual padrão. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a5954fb2e3cceac2cfd8296dd69fe45d8" name="a5954fb2e3cceac2cfd8296dd69fe45d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5954fb2e3cceac2cfd8296dd69fe45d8">&#9670;&#160;</a></span>atualizarPlanoSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::atualizarPlanoSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados de um plano de sprint cadastrado no sistema com base nos novos dados fornecidos pelo usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">PlanoDeSprint</td><td>contém os novos dados do plano a serem persistidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#a9553fdc7463a01e07fadf4ec3665a3bb">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="aa8645dfa398db23ee1e59db6bd12ca15" name="aa8645dfa398db23ee1e59db6bd12ca15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8645dfa398db23ee1e59db6bd12ca15">&#9670;&#160;</a></span>atualizarProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::atualizarProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_projeto.html">Projeto</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados de um projeto cadastrado no sistema com base nos novos dados fornecidos pelo usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Projeto</td><td>contém os novos dados do projeto a serem persistidos. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#a280edd17e497b0a71f1725be10b54a8e">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="ade4915196e5c9d44b29c3a1925e4d118" name="ade4915196e5c9d44b29c3a1925e4d118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4915196e5c9d44b29c3a1925e4d118">&#9670;&#160;</a></span>criarPlanoSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::criarPlanoSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um novo plano de sprint no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">PlanoDeSprint</td><td>contém os dados do plano de sprint a ser criado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#a2bbd3a242d4fa7576c03c8dc7f0529fe">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="acbdbdfc522c593bf36bc34cb98816a45" name="acbdbdfc522c593bf36bc34cb98816a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbdbdfc522c593bf36bc34cb98816a45">&#9670;&#160;</a></span>criarProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::criarProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_projeto.html">Projeto</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um novo projeto no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Projeto</td><td>contém os dados do projeto a ser criado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#aff3e960cda7a5b19169a3b0525e74452">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="a890425b90db60228899496f635718589" name="a890425b90db60228899496f635718589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890425b90db60228899496f635718589">&#9670;&#160;</a></span>excluirPlanoSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::excluirPlanoSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui um plano de sprint do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o plano a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#a805a835154dbeb82fa2beee028f39c72">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="a307aca15bdae3ae08eb8d0a4b60a398b" name="a307aca15bdae3ae08eb8d0a4b60a398b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307aca15bdae3ae08eb8d0a4b60a398b">&#9670;&#160;</a></span>excluirProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::excluirProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui um projeto do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o projeto a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#a64714a022e20a258558f19742933f3f3">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="aac77ee952e6d9c8110724db6ec48f9f8" name="aac77ee952e6d9c8110724db6ec48f9f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac77ee952e6d9c8110724db6ec48f9f8">&#9670;&#160;</a></span>lerPlanoSprint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::lerPlanoSprint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lê os dados de um plano de sprint cadastrado no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o plano de sprint. </td></tr>
+    <tr><td class="paramname">PlanoDeSprint</td><td>será preenchido com os dados do plano encontrado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência do plano. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#ad0c78cff39295a0b9e3bffc7c0dba4a9">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="aa9eae192091dfb593bcaaf4cee2f953e" name="aa9eae192091dfb593bcaaf4cee2f953e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9eae192091dfb593bcaaf4cee2f953e">&#9670;&#160;</a></span>lerProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::lerProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_projeto.html">Projeto</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lê os dados de um projeto cadastrado no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o projeto. </td></tr>
+    <tr><td class="paramname">Projeto</td><td>será preenchido com os dados do projeto encontrado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência do projeto. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_stub_servico_planejamento.html#afeaa4ad8e48a0c9729285a1bf3d8be22">StubServicoPlanejamento</a>.</p>
+
+</div>
+</div>
+<a id="ac56eeab7ee0d337c452ff77180066e82" name="ac56eeab7ee0d337c452ff77180066e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac56eeab7ee0d337c452ff77180066e82">&#9670;&#160;</a></span>listarPlanosSprintAssociadosProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::listarPlanosSprintAssociadosProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_codigo.html">Codigo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_plano_de_sprint.html">PlanoDeSprint</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os planos de sprint associados a um projeto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Codigo</td><td>é a chave utilizada para identificar o projeto. </td></tr>
+    <tr><td class="paramname">std::vector&lt;PlanoDeSprint&gt;&amp;</td><td>é o vetor que será preenchido com os planos de sprint associados ao projeto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência de planos associados. </dd></dl>
+
+</div>
+</div>
+<a id="ad9f1237540e258ab19d086c0e9bc52f5" name="ad9f1237540e258ab19d086c0e9bc52f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f1237540e258ab19d086c0e9bc52f5">&#9670;&#160;</a></span>listarProjetosAssociadosPessoa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoPlanejamento::listarProjetosAssociadosPessoa </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_projeto.html">Projeto</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os projetos associados a uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Email</td><td>é a chave utilizada para identificar a pessoa. </td></tr>
+    <tr><td class="paramname">std::vector&lt;Projeto&gt;&amp;</td><td>é o vetor que será preenchido com os projetos associados à pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>headers/Interfaces/<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_servico_planejamento.html">IServicoPlanejamento</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

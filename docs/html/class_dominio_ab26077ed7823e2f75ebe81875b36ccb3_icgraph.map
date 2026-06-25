@@ -1,0 +1,13 @@
+<map id="Dominio::getValor" name="Dominio::getValor">
+<area shape="rect" id="Node000001" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="225,147,349,173"/>
+<area shape="rect" id="Node000002" href="$class_stub_servico_autenticacao.html#a0a091ab7718732268e02a31bbdc0825e" title="Autentica uma pessoa com base no email e senha fornecidos." alt="" coords="7,5,175,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,135,223,99,175,62,156,51,155,46,178,58,227,95,266,135"/>
+<area shape="rect" id="Node000003" href="$class_stub_servico_planejamento.html#a805a835154dbeb82fa2beee028f39c72" title="Exclui um plano de sprint do sistema." alt="" coords="5,72,177,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,142,156,118,156,113,233,140"/>
+<area shape="rect" id="Node000004" href="$class_stub_servico_planejamento.html#a64714a022e20a258558f19742933f3f3" title="Exclui um projeto do sistema." alt="" coords="5,139,177,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,161,178,163,176,157,212,159"/>
+<area shape="rect" id="Node000005" href="$class_stub_servico_planejamento.html#ad0c78cff39295a0b9e3bffc7c0dba4a9" title="Lê os dados de um plano de sprint cadastrado no sistema." alt="" coords="5,205,177,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="229,180,157,207,155,202,233,177"/>
+<area shape="rect" id="Node000006" href="$class_stub_servico_planejamento.html#afeaa4ad8e48a0c9729285a1bf3d8be22" title="Lê os dados de um projeto cadastrado no sistema." alt="" coords="5,272,177,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="266,183,227,225,178,262,156,274,154,269,175,258,223,221,261,186"/>
+</map>

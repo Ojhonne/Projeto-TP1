@@ -8,7 +8,7 @@ var dominios_8hpp =
     [ "Papel", "class_papel.html", "class_papel" ],
     [ "Prioridade", "class_prioridade.html", "class_prioridade" ],
     [ "Senha", "class_senha.html", "class_senha" ],
-    [ "Tempo", "class_tempo.html", null ],
+    [ "Tempo", "class_tempo.html", "class_tempo" ],
     [ "Texto", "class_texto.html", "class_texto" ],
     [ "Data", "class_data.html", "class_data" ],
     [ "Intervalo", "class_intervalo.html", "class_intervalo" ]

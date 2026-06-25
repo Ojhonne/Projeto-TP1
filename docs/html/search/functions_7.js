@@ -1,21 +1,13 @@
 var searchData=
 [
-  ['senha_0',['Senha',['../class_senha.html#ad2309c319ed8908415b261b86e037110',1,'Senha']]],
-  ['setacao_1',['setAcao',['../class_historia_de_usuario.html#aab7aeabd6ed310fcd7c065daac70151f',1,'HistoriaDeUsuario']]],
-  ['setcodigo_2',['setCodigo',['../class_historia_de_usuario.html#a7b7a8b6070f7405a149b5207a8de720b',1,'HistoriaDeUsuario::setCodigo()'],['../class_plano_de_sprint.html#a5e43c9da3b821e029055f6e4d824f52c',1,'PlanoDeSprint::setCodigo()'],['../class_projeto.html#adb1e1098e1f9d1eb23d3cb407c827988',1,'Projeto::setCodigo()']]],
-  ['setdma_3',['setDMA',['../class_data.html#ade3509765ddfff5515d38c6abc07b5b8',1,'Data']]],
-  ['setemail_4',['setEmail',['../class_pessoa.html#a07c9dc9687e897de901a0361cdae0401',1,'Pessoa']]],
-  ['setestado_5',['setEstado',['../class_historia_de_usuario.html#ab474655beab5b02759111dcee1faaa2e',1,'HistoriaDeUsuario']]],
-  ['setestimativa_6',['setEstimativa',['../class_historia_de_usuario.html#af450df77612e06df49401636b21601b9',1,'HistoriaDeUsuario']]],
-  ['setinicio_7',['setInicio',['../class_projeto.html#a3bdcc2628e1e9923fc4365f0cc87d3dd',1,'Projeto']]],
-  ['setnome_8',['setNome',['../class_pessoa.html#afddbfe1fabc8e39b53f9b59b24702591',1,'Pessoa::setNome()'],['../class_projeto.html#a653d8397857e75322e84fb346f150e37',1,'Projeto::setNome()']]],
-  ['setpapel_9',['setPapel',['../class_historia_de_usuario.html#ab8cba0ed537f0332800aca0498d8b67d',1,'HistoriaDeUsuario::setPapel()'],['../class_pessoa.html#af9fd246c333ffb8c8deef7a4c00fed68',1,'Pessoa::setPapel()']]],
-  ['setperiodo_10',['setPeriodo',['../class_intervalo.html#a93abe65d1660e6ddb504b82f7b9743de',1,'Intervalo']]],
-  ['setprioridade_11',['setPrioridade',['../class_historia_de_usuario.html#ae469900db4b1677a31eb966ff0f0b955',1,'HistoriaDeUsuario']]],
-  ['setsenha_12',['setSenha',['../class_pessoa.html#a57ed4246933f9585fc92a4adf9e1f69f',1,'Pessoa']]],
-  ['settempo_13',['setTempo',['../class_plano_de_sprint.html#a20c601600428de21269ce888fe8e29dc',1,'PlanoDeSprint']]],
-  ['settermino_14',['setTermino',['../class_projeto.html#a65941701bfe67bdb761ae3f826f62cec',1,'Projeto']]],
-  ['settexto_15',['setTexto',['../class_plano_de_sprint.html#a8c973380f6db2549f1be8f52f95d7e95',1,'PlanoDeSprint']]],
-  ['settitulo_16',['setTitulo',['../class_historia_de_usuario.html#afa61720731c9bf2f9eebdfee14fef78a',1,'HistoriaDeUsuario']]],
-  ['setvalor_17',['setValor',['../class_dominio.html#a220fafcb42edefedd265cedec3f84070',1,'Dominio::setValor()'],['../class_data.html#ac2b49b528b07481cfddfb8600b2ef5f3',1,'Data::setValor()'],['../class_historia_de_usuario.html#a798877ec1aa80ca2975d8203e2981fff',1,'HistoriaDeUsuario::setValor()']]]
+  ['lerentradaterminal_0',['lerEntradaTerminal',['../namespace_tui.html#a18485d33cfe6dfc4b55f0507bd833420',1,'Tui']]],
+  ['lerhistoriausuario_1',['lerHistoriaUsuario',['../class_i_servico_backlog.html#a0d5adce9b5a592ffd472c3315176d96b',1,'IServicoBacklog']]],
+  ['lerpessoa_2',['lerPessoa',['../class_i_servico_pessoa.html#aa70c0390ca821553de9099781832d2f8',1,'IServicoPessoa']]],
+  ['lerplanosprint_3',['lerPlanoSprint',['../class_i_servico_planejamento.html#aac77ee952e6d9c8110724db6ec48f9f8',1,'IServicoPlanejamento::lerPlanoSprint()'],['../class_stub_servico_planejamento.html#ad0c78cff39295a0b9e3bffc7c0dba4a9',1,'StubServicoPlanejamento::lerPlanoSprint()']]],
+  ['lerprojeto_4',['lerProjeto',['../class_i_servico_planejamento.html#aa9eae192091dfb593bcaaf4cee2f953e',1,'IServicoPlanejamento::lerProjeto()'],['../class_stub_servico_planejamento.html#afeaa4ad8e48a0c9729285a1bf3d8be22',1,'StubServicoPlanejamento::lerProjeto()']]],
+  ['listarhistoriasassociadaspessoa_5',['listarHistoriasAssociadasPessoa',['../class_i_servico_backlog.html#a7ccd0a54c674045c9821020d3beec283',1,'IServicoBacklog']]],
+  ['listarhistoriasassociadasplanosprint_6',['listarHistoriasAssociadasPlanoSprint',['../class_i_servico_backlog.html#a55c3ea87e5b51b871921e69893f0d28d',1,'IServicoBacklog']]],
+  ['listarhistoriasassociadasprojeto_7',['listarHistoriasAssociadasProjeto',['../class_i_servico_backlog.html#ae29a9592399e3a0b52f771bc655ef18e',1,'IServicoBacklog']]],
+  ['listarplanossprintassociadosprojeto_8',['listarPlanosSprintAssociadosProjeto',['../class_i_servico_planejamento.html#ac56eeab7ee0d337c452ff77180066e82',1,'IServicoPlanejamento']]],
+  ['listarprojetosassociadospessoa_9',['listarProjetosAssociadosPessoa',['../class_i_servico_planejamento.html#ad9f1237540e258ab19d086c0e9bc52f5',1,'IServicoPlanejamento']]]
 ];
