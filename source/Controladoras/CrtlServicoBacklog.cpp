@@ -17,6 +17,15 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia,
         if (pessoaVericacao.getPapel().getValor() != DONO) {
             return false;  
         }
+
+        std::string codigoProjeto = historia.getCodigoProjeto().getValor();
+        std::string codigoSprint = historia.getCodigoSprint().getValor();
+
+        // Checa se os dois estão preenchidos ou se os dois estão vazios
+        if ((!codigoProjeto.empty() && !codigoSprint.empty()) || (codigoProjeto.empty() && codigoSprint.empty())) {
+            // Fere a restrição {OU}. Tem que ter apenas UM dos dois!
+            return false; 
+        }
         // Tenta criar uma historia  no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia)){
             return true;
@@ -27,6 +36,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia,
         return false;
     }
  }
+
 bool CrtlServicoBacklog::lerHistoriaUsuario(const Codigo& chaveID, HistoriaDeUsuario& armazenaHistoria ){
     try{
         // Tenta ler uma historia  no banco de dados através do Singleton
@@ -137,6 +147,11 @@ bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
         }
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setCodigoSprint(codigoSprint);
+
+            // apagando o código do Projeto para manter a regra {OU} do UML
+            Codigo codigoVazio; // Código limpo
+            armazenaHistoria.setCodigoProjeto(codigoVazio);
+
             if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
                 return true; 
             }
