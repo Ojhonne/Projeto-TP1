@@ -29,6 +29,7 @@
 //stubs
 #include "Controladoras/CrtlApresentacaoBacklog.hpp"
 #include "Stubs/stubPlanejamento.hpp"
+#include "Stubs/stubBacklog.hpp"
 
 using namespace std;
 
