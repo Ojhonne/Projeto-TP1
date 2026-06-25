@@ -46,6 +46,14 @@ bool CrtlServicoBacklog::atualizarHistoriaUsuario(const HistoriaDeUsuario& histo
 bool CrtlServicoBacklog::excluirHistoriaUsuario(const Codigo& chaveID, const Email& usuarioLogado){
     try{
         // Tenta excluir uma historia no banco de dados através do Singleton
+        Pessoa* pessoaVericacao;
+        // Vai no banco de dados de Usuários e busca quem está logado
+        if (!ContainerPessoa::getInstancia()->lerPessoa(usuarioLogado, pessoaVericacao)) {
+            return false;         // Se o usuário não existe no banco
+        }
+        if (pessoaVericacao->getPapel().getvalor() != DONO) {
+            return false;  // Acesso negado! 
+        }
         if(ContainerBacklog::getInstancia()->excluirHistoriaUsuario(chaveID)){
             return true;
         }

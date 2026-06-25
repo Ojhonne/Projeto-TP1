@@ -27,6 +27,11 @@ class Estado;
  * ela herda da interface IServicoBacklog, garantindo que todas as operações estejam de acordo com as regras de negócio definidas.
  */
 class CrtlServicoBacklog : public IServicoBacklog{
+    private:
+        const std::string DONO = "PROPRIETARIO DE PRODUTO";
+        const std::string MESTRE = "MESTRE SCRUM";
+        const std::string DESENVOLVEDOR = "DESENVOLVEDOR";
+
     public:
     /**
      * @brief Cria uma nova história de usuário no sistema.
