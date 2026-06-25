@@ -339,10 +339,11 @@ public:
     /**
      * @brief Cria uma nova história de usuário no sistema.
      * @param HistoriaDeUsuario contém os dados da história a ser criada.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
 
-    virtual bool criarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+    virtual bool criarHistoriaUsuario(const HistoriaDeUsuario&,  const Email&) = 0;
 
     /**
      * @brief Lê os dados de uma história de usuário cadastrada no sistema.
@@ -357,36 +358,40 @@ public:
      * @brief Atualiza os dados de uma história de usuário cadastrada no sistema com base nos novos dados
      * fornecidos pelo usuário.
      * @param HistoriaDeUsuario contém os novos dados da história a serem persistidos.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
 
-    virtual bool atualizarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+    virtual bool atualizarHistoriaUsuario(const HistoriaDeUsuario&, const Email&) = 0;
 
     /**
      * @brief Exclui uma história de usuário do sistema.
      * @param Codigo é a chave utilizada para identificar a história a ser removida.
+     * * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
 
-    virtual bool excluirHistoriaUsuario(const Codigo&) = 0;
+    virtual bool excluirHistoriaUsuario(const Codigo&, const Email&) = 0;
 
     /**
      * @brief Associa uma história de usuário a uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
      */
 
-    virtual bool associarHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool associarHistoriaPessoa(const Codigo&, const Email&, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Remove a associação entre uma história de usuário e uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção.
      */
 
-    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email& emailAlvo, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a um projeto.
@@ -419,19 +424,21 @@ public:
      * @brief Move uma história de usuário de um projeto para um plano de sprint.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Codigo é a chave utilizada para identificar o plano de sprint de destino.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      */
 
-    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint) = 0;
+    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Estado representa o novo estado da história.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da alteração.
      */
 
-    virtual bool alterarEstadoHistoria(const Codigo&, const Estado&) = 0;
+    virtual bool alterarEstadoHistoria(const Codigo&, const Estado&, const Email&) = 0;
 };
 
 #endif

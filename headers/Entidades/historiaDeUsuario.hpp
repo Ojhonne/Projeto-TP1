@@ -31,10 +31,12 @@
 class HistoriaDeUsuario {
     private:
         Codigo codigo;
+        Codigo codigoProjeto, codigoSprint;
         Texto titulo, papel, acao, valor;
         Tempo estimativa;
         Prioridade prioridade;
         Estado estado;
+        Email emailPessoa;
     public:
         /**
          * @brief Atribui um novo código à história de usuário.
@@ -46,6 +48,36 @@ class HistoriaDeUsuario {
          * @return const Codigo& Referência constante para o código armazenado.
          */  
         const Codigo& getCodigo() const;
+        /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setCodigoProjeto(const Codigo& codigo);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Codigo& Referência constante para o código armazenado.
+         */  
+        const Codigo& getCodigoProjeto() const;
+          /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setCodigoSprint(const Codigo& codigo);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Codigo& Referência constante para o código armazenado.
+         */  
+        const Codigo& getCodigoSprint() const;
+                  /**
+         * @brief Atribui um novo código à história de usuário.
+         * @param codigo Referência constante para o objeto de domínio Codigo.
+         */
+        void setEmailPessoa(const Email& email);
+         /**
+         * @brief Recupera o código atual da história de usuário.
+         * @return const Email& Referência constante para o código armazenado.
+         */  
+        const Email& getEmailPessoa() const;
         /**
          * @brief Atribui um novo título.
          * @param titulo Referência constante para o objeto de domínio Texto.
@@ -137,6 +169,27 @@ inline void HistoriaDeUsuario::setCodigo (const Codigo& codigo ){
 }
 inline const Codigo& HistoriaDeUsuario::getCodigo() const{
     return codigo;
+}
+
+inline void HistoriaDeUsuario::setCodigoProjeto (const Codigo& codigoProjeto ){
+    this->codigoProjeto = codigoProjeto;
+}
+inline const Codigo& HistoriaDeUsuario::getCodigoProjeto() const{
+    return codigoProjeto;
+}
+
+inline void HistoriaDeUsuario::setCodigoSprint (const Codigo& codigoSprint ){
+    this->codigoSprint  = codigoSprint ;
+}
+inline const Codigo& HistoriaDeUsuario::getCodigoSprint() const{
+    return codigoSprint ;
+}
+
+inline void HistoriaDeUsuario::setEmailPessoa (const Email& emailPessoa ){
+    this->emailPessoa  = emailPessoa ;
+}
+inline const Email& HistoriaDeUsuario::getEmailPessoa() const{
+    return emailPessoa ;
 }
 
 inline void HistoriaDeUsuario::setTitulo(const Texto& titulo){

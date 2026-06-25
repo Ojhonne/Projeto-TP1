@@ -41,7 +41,7 @@ private:
     Papel papel;
 
 public:
-
+    Pessoa() = default;
     /**
      * @brief Atribui um novo email a pessoa.
      * @param email Referencia constante para o objeto de dominio Email.

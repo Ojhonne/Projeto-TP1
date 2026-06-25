@@ -10,7 +10,7 @@ bool CrtlServicoAutenticacao::autenticarPessoa(const Email& email, const Senha& 
 
     try{
         // Tenta pesquisar a pessoa no banco de dados através do Singleton
-        bool pessoaExiste = ContainerPessoa::getInstancia()->pesquisar(&pessoa);
+        bool pessoaExiste = ContainerPessoa::getInstancia()->lerPessoa(pessoa);
 
         if(pessoaExiste) {
             std::string senhaDigitada = senha.getValor(); // senha que o usuario digitou

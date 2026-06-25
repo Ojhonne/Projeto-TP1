@@ -51,8 +51,8 @@ bool CrtlApresentacaoAcesso::rotearEscolha(int escolha, bool logado) {
 bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
-            //this->logado = crtlLogin->executar(emailSessao);
-            this->logado = true;
+            this->logado = crtlLogin->executar(emailSessao);
+           // this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
             // crtlCadastro->executar();
