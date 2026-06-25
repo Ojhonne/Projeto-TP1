@@ -43,7 +43,7 @@ ContainerPessoa::ContainerPessoa() {
     sqlite3_close(db); // Fecha o banco de dados SQLite.
 }
 
-bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
+bool ContainerPessoa::lerPessoa(Email email, Pessoa* pessoa) {
     sqlite3* db; // ponteiro para o banco de dados SQLite.
     bool pessoaEncontrada{false}; // flag para indicar se a pessoa foi encontrada no banco de dados.
     
@@ -94,7 +94,7 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
     return pessoaEncontrada;
 }
 
-bool ContainerPessoa::incluir(Pessoa pessoa) {
+bool ContainerPessoa::criarPessoa(Pessoa pessoa) {
     sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
@@ -122,7 +122,7 @@ bool ContainerPessoa::incluir(Pessoa pessoa) {
     return true;
 }
 
-bool ContainerPessoa::remover(Email email) {
+bool ContainerPessoa::excluirPessoa(Email email) {
     sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
@@ -144,7 +144,7 @@ bool ContainerPessoa::remover(Email email) {
     return true;
 }
 
-bool ContainerPessoa::atualizar(Pessoa pessoa) {
+bool ContainerPessoa::atualizarPessoa(Pessoa pessoa) {
     sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
