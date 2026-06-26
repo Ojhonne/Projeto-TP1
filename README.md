@@ -7,15 +7,17 @@
 **Fernando Antonio de Araujo Chacon de Albuquerque**
 
 ### Discentes  
-- **João Francisco de Sousa Torres**
-- **Eduardo Sankievicz Lima** 
-- **Fábio Willian Alves Silva**
-- **Igor Melo Nascimento Silva**
+- **[João Francisco de Sousa Torres](https://github.com/Ojhonne)**
+- **[Eduardo Sankievicz Lima](https://github.com/edsanki20)** 
+- **[Fábio Willian Alves Silva](https://github.com/Fabio-AS06)**
+- **[Igor Melo Nascimento Silva](https://github.com/igmelo1895)**
 
 ---
 
 ## 📌 Sobre o Projeto
-📌 Sobre o Projeto
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 Este projeto implementa um Sistema de Software baseado em elementos do Framework Scrum em C++, seguindo os princípios de orientação a objetos, modularização e separação em camadas definidos na disciplina.
 
 O sistema tem o propósito de prover suporte a projetos onde os requisitos funcionais são especificados por histórias de usuário (user stories) e a gestão ocorre por um processo embasado no Scrum. O sistema permite:
@@ -35,10 +37,14 @@ O sistema tem o propósito de prover suporte a projetos onde os requisitos funci
 - Todas as entidades e domínios foram implementados com validações, seguindo os requisitos especificados.
 
 ---
+## 📸 Demonstração
+
+---
 
 ## 🧱 Arquitetura do Sistema
 
 O projeto foi estruturado seguindo o modelo de arquitetura em camadas, garantindo baixo acoplamento e alta coesão:
+![Diagrama de Arquitetura](./diagrama/Arquitetura.png)
 
 ### 1. Domínios (Unidades Básicas)
 Responsáveis por encapsular e validar as regras de formatação das unidades de informação do sistema: `Codigo`, `Data`, `Email`,  `Estado`, `Nome`, `Papel`, `Prioridade`, `Senha`,  `Tempo`, `Texto`.
@@ -57,25 +63,18 @@ Definem os contratos de comunicação entre as camadas  (`interfaces.hpp`), perm
 ---
 
 ### **4. Repositórios**
-Implementam comandos que realizam o armazenamento em memória não volático com banco de dados relacionais `sqlite`.
+Implementam comandos que realizam o armazenamento em memória não volátil com banco de dados relacionais `sqlite`.
 
 ---
 
-### **5. Serviços (Regras de Negócio)**
+### **5. Camada de Apresentação (Menus)**
+Responsável por gerenciar a navegação, interagir com o usuário via terminal (tui.cpp) e validar as entradas brutas antes de repassá-las às camadas inferiores. 
+
+---
+
+### **6. Camada de Serviços (Regras de Negócio)**
 Tratam validações mais complexas relacionadas a entidades e operações do sistema.
 
----
-
-### **6. Camada de Apresentação (Menus)**
-Responsável por gerenciar a navegação, interagir com o usuário via terminal (tui.cpp) e validar as entradas brutas antes de repassá-las às camadas inferiores. Inclui controladoras como:
-
-- CrtlApresentacaoAcesso
-
-- CrtlApresentacaoLogin
-
-- CrtlApresentacaoPlanejamento
-
-- CrtlApresentacaoBacklog
 ---
 
 ## 📄 Documentação
@@ -159,9 +158,15 @@ make run
 - ✔️ Controladoras de Apresentação em funcionamento
 - ✔️ Interface de Terminal (TUI) integrada
 - ✔️ Documentação Doxygen gerada (Doxyfile configurado)
--  Integração completa das camadas finalizada
+-  ✔️Integração completa das camadas finalizada
 
 ---
+
+## 📄 Licença
+Este projeto está sob a licença **MIT License**. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+## 👥 Contribuições
+Para visualizar a divisão de tarefas e contribuições de cada membro da equipe, consulte o arquivo de [Contribuições](./contribuicoes/contribuicoes.txt).
 
 ## 📚 Observações Finais
 Este trabalho foi desenvolvido com foco estrito na aplicação prática dos conceitos de Engenharia de Software e Programação Orientada a Objetos, incluindo:
