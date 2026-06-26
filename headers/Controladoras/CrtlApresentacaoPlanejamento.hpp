@@ -22,6 +22,7 @@
 #include "Entidades/planoDeSprint.hpp"
 
 /**
+ * @class CrtlApresentacaoPlanejamento
  * @brief Controladora de apresentação responsável pelo módulo de planejamento.
  *
  * Esta classe implementa a interface IApresentacaoPlanejamento e gerencia

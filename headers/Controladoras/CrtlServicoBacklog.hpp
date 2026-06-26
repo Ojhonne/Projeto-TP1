@@ -37,13 +37,15 @@ class CrtlServicoBacklog : public IServicoBacklog{
     /**
      * @brief Cria uma nova história de usuário no sistema.
      * @param HistoriaDeUsuario contém os dados da história a ser criada.
-     *  @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
+     * @param Email é o email do usuário que está realizando a operação. 
+     * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      *  @throws Pode capturar exceções vindas do repositório.
      */
      bool criarHistoriaUsuario(const HistoriaDeUsuario&, const Email&) override;
     /**
      * @brief Lê os dados de uma história de usuário cadastrada no sistema.
      * @param Codigo é a chave utilizada para identificar a história.
+     * @param HistoriaDeUsuario é o objeto que receberá os dados da história lida.
      *  @return O retorno será padrão verdadeiro ou falso, dependendo da existência da história.
      *  @throws Pode capturar exceções vindas do repositório.
      */
@@ -51,6 +53,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
     /**
      * @brief Atualiza os dados de uma história de usuário cadastrada no sistema.
      * @param HistoriaDeUsuario contém os dados atualizados da história.
+     * @param Email é o email do usuário que está realizando a operação. 
      *  @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      *  @throws Pode capturar exceções vindas do repositório.
      */
@@ -58,6 +61,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
     /**
      * @brief Exclui uma história de usuário cadastrada no sistema.
      * @param Codigo é a chave utilizada para identificar a história.
+     * @param Email é o email do usuário que está realizando a operação.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      * @throws Pode capturar exceções vindas do repositório.
      */
@@ -66,6 +70,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @brief Associa uma história de usuário a uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param usuarioLogado é o email do usuário que está realizando a operação.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
      * @throws Pode capturar exceções vindas do repositório.
      */
@@ -74,6 +79,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @brief Remove a associação entre uma história de usuário e uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param usuarioLogado é o email do usuário que está realizando a operação.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção da associação.
      * @throws Pode capturar exceções vindas do repositório.
      */
@@ -106,6 +112,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @brief Move uma história de usuário de um projeto para um plano de sprint.
      * @param codigoHistoria é a chave utilizada para identificar a história.
      * @param codigoSprint é a chave utilizada para identificar o plano de sprint.
+     * @param usuarioLogado é o email do usuário que está realizando a operação.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      * @throws Pode capturar exceções vindas do repositório.
      */
@@ -114,6 +121,7 @@ class CrtlServicoBacklog : public IServicoBacklog{
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Estado é o novo estado da história.
+     * @param usuarioLogado é o email do usuário que está realizando a operação.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      * @throws Pode capturar exceções vindas do repositório.
      */

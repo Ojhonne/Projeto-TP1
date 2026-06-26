@@ -1,7 +1,8 @@
 /**
  * 
- * @file CrtlApresentacaoLogin.hpp
- * @brief Definição da controladora da apresentação de login.
+ * @file CrtlApresentacaoBacklog.hpp
+ * @author Fabio Willian Alves Silva 
+ * @brief Definição da controladora da apresentação de backlog.
  */
 
 #ifndef CRTLAPRESENTACAOBACKLOG_H_INCLUDED
@@ -13,10 +14,10 @@
 
 
 /**
- * @class CtrlApresentacaoLogin
- * @brief Controladora da apresentação de login, responsável por interagir com o usuário e autenticá-lo.
- * * Esta classe implementa a interface IApresentacaoLogin e utiliza um serviço de autenticação para verificar 
- * as credenciais do usuário. A classe interage com o usuário via terminal (ncurses), captura o email e a senha, 
+ * @class CrtlApresentacaoBacklog
+ * @brief Controladora da apresentação de backlog, responsável por interagir com o usuário e gerenciar o backlog.
+ * * Esta classe implementa a interface IApresentacaoBacklog e utiliza um serviço de backlog para verificar 
+ * as informações do usuário. A classe interage com o usuário via terminal (ncurses), captura o email e a senha, 
  * e os valida através da camada de serviço.
  */
 
@@ -39,18 +40,14 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
          */
         virtual ~CrtlApresentacaoBacklog() = default;
         /**
-         * @brief Define o metodo para autenticar o usuário.
-         * * Solicita o email e a senha via interface de terminal. Se as credenciais forem válidas,
-         * o objeto passado por referência será populado.
-         * * @param email Objeto que receberá o email validado do usuário autenticado.
-         * @return Retorna true se a autenticação for bem-sucedida, false caso contrário.
+         * @brief Executa a controladora da apresentação de backlog.
+         * @param Email é o email do usuário logado.
+         * 
          */
         void executar(const Email&) override;
-
         /**
-         * @brief Define a referência para o serviço de autenticação a ser utilizado pela controladora de apresentação de login.
-         * @param IServicoAutenticacao é a referência para o serviço de autenticação que a controladora de apresentação de login utilizará para autenticar os usuários.
-         * @return O método é do tipo void, portanto não retorna nenhum valor.
+         * @brief Define o serviço de backlog a ser utilizado pela controladora.
+         * @param servicoBacklog é um ponteiro para o serviço de backlog.
          */
         void setCtrlServicoBacklog(IServicoBacklog*) override;
 };
@@ -59,4 +56,4 @@ inline void CrtlApresentacaoBacklog::setCtrlServicoBacklog(IServicoBacklog* serv
     this->servicoBacklog = servicoBacklog;
 }
 
-#endif // CRTLAPRESENTACAOLOGIN_H_INCLUDED
+#endif // CRTLAPRESENTACAOBACKLOG_H_INCLUDED
