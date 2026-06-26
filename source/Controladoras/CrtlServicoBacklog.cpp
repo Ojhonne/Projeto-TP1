@@ -14,6 +14,7 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia,
         if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVericacao)) {
             return false;        
         }
+        // Verifique se a pessoa é o dono do produto
         if (pessoaVericacao.getPapel().getValor() != DONO) {
             return false;  
         }
@@ -23,10 +24,10 @@ bool CrtlServicoBacklog::criarHistoriaUsuario(const HistoriaDeUsuario& historia,
 
         // Checa se os dois estão preenchidos ou se os dois estão vazios
         if ((!codigoProjeto.empty() && !codigoSprint.empty()) || (codigoProjeto.empty() && codigoSprint.empty())) {
-            // Fere a restrição {OU}. Tem que ter apenas UM dos dois!
+            // Fere a restrição {OU} do UML.
             return false; 
         }
-        // Tenta criar uma historia  no banco de dados através do Singleton
+        // Tenta criar uma historia no banco de dados através do Singleton
         if(ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia)){
             return true;
         }

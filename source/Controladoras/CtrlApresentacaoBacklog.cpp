@@ -159,6 +159,9 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             Estado estadoLocal;
             estadoLocal.setValor(strEstado);
 
+            Email enviar;
+            enviar.setValor("joao@teste.com"); // simulando um teste
+
             HistoriaDeUsuario historiaLocal;
 
             historiaLocal.setCodigo(codigoLocal);
@@ -169,6 +172,8 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             historiaLocal.setEstimativa(estimativaLocal);
             historiaLocal.setPrioridade(prioridadeLocal);
             historiaLocal.setEstado(estadoLocal);
+            historiaLocal.setCodigoProjeto(codigoLocal); // trocar por um input devido
+            //historiaLocal.setEmailPessoa(enviar);
 
             valido = servicoBacklog->criarHistoriaUsuario(historiaLocal, emailLogado);
 

@@ -12,6 +12,8 @@
 #endif
 
 #include "Dominios/dominios.hpp"
+
+// Entidades
 #include "Entidades/pessoa.hpp"
 #include "Interfaces/interfaces.hpp"
 #include "Entidades/historiaDeUsuario.hpp"
@@ -25,6 +27,8 @@
 // Serviço
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
 #include "Controladoras/CrtlServicoBacklog.hpp"
+
+//Container
 #include "Containers/containerPessoa.hpp"
 #include "Containers/containerBacklog.hpp"
 
@@ -35,12 +39,12 @@ using namespace std;
 
 int main(void){
 
-    // Populando o banco de dados para os testes
+    // Populando o banco de dados 
     try {
         Email emailTeste;  emailTeste.setValor("joaof1@teste.com");
         Nome nomeTeste;    nomeTeste.setValor("Joao");
         Senha senhaTeste;  senhaTeste.setValor("A1b2C3"); 
-        Papel papelTeste;  papelTeste.setValor("MESTRE SCRUM"); // Coloquei DONO para você ter permissões
+        Papel papelTeste;  papelTeste.setValor("PROPRIETARIO DE PRODUTO"); 
 
         Pessoa novaPessoa;
         novaPessoa.setEmail(emailTeste);
@@ -50,7 +54,6 @@ int main(void){
 
         ContainerPessoa::getInstancia()->criarPessoa(novaPessoa);
 
-        // Ajuste os valores abaixo se a sua classe de Domínio exigir um formato específico
         Codigo codigo; codigo.setValor("AB123"); 
         Codigo codigoProjeto; codigoProjeto.setValor("AE333");
         
@@ -66,7 +69,7 @@ int main(void){
         HistoriaDeUsuario historia;
         historia.setCodigo(codigo);
         historia.setCodigoProjeto(codigoProjeto);
-        // historia.setCodigoSprint(codigoSprint); // REMOVIDO PARA RESPEITAR O {OU} DO UML
+        // historia.setCodigoSprint(codigoSprint); //  {OU} DO UML
         historia.setTitulo(titulo);
         historia.setPapel(papel);
         historia.setAcao(acao);
@@ -77,15 +80,15 @@ int main(void){
         historia.setEmailPessoa(emailPessoa);
 
         ContainerBacklog::getInstancia()->criarHistoriaUsuario(historia);
-
+        
     } catch (const invalid_argument& e) {
-        cout << "[ALERTA] Falha de validacao no mock (Dominio): " << e.what() << endl;
+        cout << "[MAIN] Falha de validacao no Dominio: " << e.what() << endl;
     } catch (const exception& e) {
-        cout << "[ALERTA] Erro fatal no banco ao popular dados: " << e.what() << endl;
+        cout << "[MAIN] Erro no banco ao popular dados: " << e.what() << endl;
     }
 
     // Instanciando controladoras da camada de apresentação
-   CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
+    CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
     IApresentacaoLogin *crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
     IApresentacaoPlanejamento *crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento();
     IApresentacaoBacklog *crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
@@ -95,21 +98,22 @@ int main(void){
     IServicoBacklog *servicoBacklog = new CrtlServicoBacklog();
     IServicoPlanejamento *stubServicoPlanejamento = new StubServicoPlanejamento();
     
-    // Interligando controladoras e servico
-    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
+    // Interligando controladora acesso nas outras
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin);
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
     
+    // Interligando controladoras de apresentação e de servico
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
     crtlApresentacaoBacklog->setCtrlServicoBacklog(servicoBacklog);
     crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
 
-    // Executar o sistema
+    // Executando o sistema
     try{
         crtlApresentacaoAcesso->executar();
     }
     catch(const runtime_error &exp){
-        cout << "Erro critico no loop de apresentacao: " << exp.what() << endl;
+        cout << "[MAIN] Erro no loop de apresentacao: " << exp.what() << endl;
     }
 
     // Limpeza de mémoria 
