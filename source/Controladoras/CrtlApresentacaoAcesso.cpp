@@ -55,8 +55,8 @@ bool CrtlApresentacaoAcesso::rotearEscolha(int escolha, bool logado) {
 bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
-            this->logado = crtlLogin->executar(emailSessao);
-           // this->logado = true;
+           // this->logado = crtlLogin->executar(emailSessao);
+            this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
             // crtlCadastro->executar();
@@ -117,12 +117,12 @@ void CrtlApresentacaoAcesso::desenharCabecalho() {
     Pessoa pessoaLogada;
     pessoaLogada.setEmail(emailSessao);
     ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada);
+
     attron(COLOR_PAIR(5)); 
     mvprintw(0, 0, " Usuario logado: %s ", emailSessao.getValor().c_str());
     mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
     attroff(COLOR_PAIR(5));
     refresh();
-    std::cout << pessoaLogada.getPapel().getValor();
 }   
 
 void CrtlApresentacaoAcesso::finalizaInterface() {

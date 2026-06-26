@@ -36,6 +36,8 @@ private:
     IServicoPlanejamento *servicoPlanejamento;
     WINDOW *win;
 
+    void desenharCabecalho(const Email&);
+
     void menuProjetos();
     void menuSprints();
 

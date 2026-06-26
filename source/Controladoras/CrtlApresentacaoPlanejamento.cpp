@@ -7,6 +7,8 @@
 #endif
 
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
+#include "Containers/containerPessoa.hpp"
+#include "Entidades/pessoa.hpp"
 #include "Tui/tui.hpp"
 #include <stdexcept>
 #include <cstring>
@@ -50,9 +52,9 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
 
     //enquanto o usuário não escolher sair o programa continuará mostrando as opçoes(menu projeto ou menu sprint)
     while (!sair) {
+        desenharCabecalho(emailLogado);
         //captura a opção desejada pelo usuário
         int opcao = Tui::exibeMenu(win, "PLANEJAMENTO", opcoes);
-
         switch (opcao) {
             case 0:
                 menuProjetos();
@@ -1018,3 +1020,16 @@ void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
         }
     }
 }
+
+void CrtlApresentacaoPlanejamento::desenharCabecalho(const Email& emailLogado) {
+        //Variaveis para o cabeçalho
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailLogado);
+    ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada); // tenta se comunicar com banco
+
+    attron(COLOR_PAIR(5)); 
+    mvprintw(0, 0, " Usuario logado: %s ", emailLogado.getValor().c_str());
+    mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
+    attroff(COLOR_PAIR(5));
+    refresh();
+}   
