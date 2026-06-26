@@ -1,4 +1,3 @@
-
 /**
  * @file dominios.hpp
  * @author João Francisco de Sousa Torres
@@ -13,8 +12,9 @@
 /**
  * @class Dominio
  * @brief Classe base abstrata que padroniza o comportamento de classes de domínio.
- *
- * A classe Dominio gerencia o armazenamento de uma string e garante que
+ *@details A classe Dominio serve como base para todas as classes de domínio do sistema, fornecendo uma interface comum para validação e armazenamento de valores.
+    As classes derivadas devem implementar o método virtual puro validar() para definir regras específicas de validação.
+ * Ela gerencia o armazenamento de uma string e garante que
  * apenas valores válidos sejam atribuídos, delegando a regra de validação
  * para as classes derivadas (filhas) através de um método virtual puro.
  */
@@ -95,6 +95,9 @@ inline void Dominio::setValor(const std::string &valor){
  */
 class Codigo : public Dominio {
 public:
+    /**
+     * @brief Construtor padrão.
+     */
     Codigo(){};
     /**
      * @brief Constroi um objeto Codigo a partir de uma string.
@@ -148,7 +151,9 @@ inline Codigo::Codigo(const std::string& codigo){
  */
 class Email : public Dominio {
 public:
-    /**
+    /** @brief Construtor padrão. */
+    Email(){};
+     /**
      * @brief Constroi um objeto Email a partir de uma string.
      *
      * @param valor String contendo o email a ser validado.
@@ -156,7 +161,6 @@ public:
      * @throw std::invalid_argument Caso o email nao obedeça
      * as regras de formato especificadas.
      */
-    Email(){};
     Email(const std::string&);
 
 private:
@@ -262,13 +266,14 @@ class Nome : public Dominio{
          */
         bool temEspacoValido(const std::string&);
     public:
+        /** @brief Construtor padrão. */
+        Nome(){};
         /**
-         * @brief Construtor padrão.
+         * @brief Construtor 
          *
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
-        Nome(){};
         Nome(const std::string&);
 };
 inline Nome::Nome(const std::string& nome){
@@ -298,13 +303,14 @@ class Papel : public Dominio {
          */
         void validar(const std::string&);
     public:
+        /** @brief Construtor padrão. */
+        Papel(){};
         /**
          * @brief Construtor padrão.
          *
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de papel.
          *
          */
-        Papel(){};
         Papel(std::string& valor);
 };
 
@@ -377,12 +383,13 @@ class Senha : public Dominio {
          */
         void validar(const std::string&);
     public:
-    /**
+        /** @brief Construtor padrão. */
+        Senha(){};
+         /**
          * @brief Construtor padrão.
          *
          * Ao ser instaciada, um parametro deve ser passado para garantir a integridade do programa e evitar incompatibilidade de senha.
          */
-        Senha(){};
         Senha(const std::string& valor);
 };
 
@@ -411,11 +418,14 @@ class Tempo : public Dominio{
     public:
         /**
          * @brief Construtor padrão.
+         */
+        Tempo(){};
+        /**
+         * @brief Construtor padrão.
          *
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
-        Tempo(){};
         Tempo(const std::string& );
 };
 inline Tempo::Tempo(const std::string& tempo){
@@ -449,13 +459,14 @@ class Texto : public Dominio{
         bool temFormatacaoValida(const std::string& );
         bool temEspacoValido(const std::string& );
     public:
-            /**
+        /** @brief Construtor padrão. */
+        Texto(){};
+                    /**
          * @brief Construtor padrão.
          *
          * Inicializa o nome com string recebida pelo usuario. \n
          * O valor só será validado quando setValor() for chamado.
          */
-        Texto(){};
         Texto(const std::string&);
 };
 inline Texto::Texto(const std::string& texto){

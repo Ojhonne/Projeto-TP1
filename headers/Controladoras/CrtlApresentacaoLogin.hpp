@@ -14,7 +14,7 @@
 
 
 /**
- * @class CtrlApresentacaoLogin
+ * @class CrtlApresentacaoLogin
  * @brief Controladora da apresentação de login, responsável por interagir com o usuário e autenticá-lo.
  * * Esta classe implementa a interface IApresentacaoLogin e utiliza um serviço de autenticação para verificar 
  * as credenciais do usuário. A classe interage com o usuário via terminal (ncurses), captura o email e a senha, 

@@ -2,6 +2,8 @@
  * @file CrtlApresentacaoPlanejamento.hpp
  * @author Eduardo Sankievicz Lima
  * @brief Definição da controladora da apresentação Planejamento.
+ * @details Esta controladora é responsável por gerenciar a interação com o usuário no módulo de planejamento do sistema.
+ * Ela implementa a interface IApresentacaoPlanejamento e utiliza um serviço de planejamento para realizar operações relacionadas às entidades Projeto e PlanoDeSprint. A controladora captura os dados informados pelo usuário, instancia os domínios e entidades correspondentes, e encaminha as operações para a camada de serviço.
  */
 
 #ifndef CRTLAPRESENTACAOPLANEJAMENTO_H_INCLUDED 
@@ -22,6 +24,7 @@
 #include "Entidades/planoDeSprint.hpp"
 
 /**
+ * @class CrtlApresentacaoPlanejamento
  * @brief Controladora de apresentação responsável pelo módulo de planejamento.
  *
  * Esta classe implementa a interface IApresentacaoPlanejamento e gerencia

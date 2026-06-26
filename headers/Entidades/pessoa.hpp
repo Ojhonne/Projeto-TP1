@@ -41,6 +41,11 @@ private:
     Papel papel;
 
 public:
+    /**
+     * @brief Construtor padrão.
+     *
+     * Inicializa todos os atributos da pessoa com valores padrão.
+     */
     Pessoa() = default;
     /**
      * @brief Atribui um novo email a pessoa.

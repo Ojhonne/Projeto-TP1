@@ -12,8 +12,8 @@ Matrícula: 251037072
 Nome: FÁBIO WILLIAN ALVES SILVA
 Matrícula: 251020487
 
-Nome: IGOR MELO
-Matrícula: 242027451
+Nome: IGOR MELO NASCIMENTO SILVA
+Matrícula: 251004438
 
 Nome: EDUARDO SANKIEVICZ LIMA
 Matrícula: 251035102
@@ -23,72 +23,69 @@ Matrícula: 251035102
 ## 2. IDENTIFICACAO DOS ARTEFATOS CONSTRUIDOS
 ======================================================================
 
-A divisão de trabalho seguiu as Atividades especificadas no documento
+A divisão de trabalho seguiu as atividades especificadas no documento
 do projeto.
 
 ---
 ### ATIVIDADE 1: Classes de Domínio
 ---
-* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO.
+* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO NASCIMENTO SILVA.
 * Artefatos: Definição e implementação de todas as classes de Domínio
     + dominios.hpp, nome.cpp, tempo.cpp, texto.cpp  - JOÃO FRANCISCO DE SOUSA TORRES
-    + crioridade.cpp, papel.cpp, senha.cpp -  FÁBIO WILLIAN ALVES SILVA
+    + prioridade.cpp, papel.cpp, senha.cpp -  FÁBIO WILLIAN ALVES SILVA
     + codigo.cpp, email.cpp - EDUARDO SANKIEVICZ LIMA
-    + data.cpp, estado.cpp - IGOR MELO
+    + data.cpp, estado.cpp - IGOR MELO NASCIMENTO SILVA
     
-   - As declarações está localizada em 'hedears/Dominios/dominios.hpp'.
+   - As definição está localizada em 'hedears/Dominios/dominios.hpp'.
    - As implementações está localizada na pasta 'source/Dominios/...'
 ---
 ### ATIVIDADE 2: Classes de Entidade
 ---
-* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO.
+* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO NASCIMENTO SILVA.
 * Artefatos: Definição e implementação das classes de Entidade
-    (ex: Hoteis.h/.cpp, Quartos.h/.cpp, Reserva.h/.cpp, Pessoa.h/.cpp, 
     + historiaDeUsuario.hpp - JOÃO FRANCISCO DE SOUSA TORRES
     + pessoa.hpp -  EDUARDO SANKIEVICZ LIMA
     + planoDeSprint.hpp -  FÁBIO WILLIAN ALVES SILVA
-    + projeto.hpp - IGOR MELO
+    + projeto.hpp - IGOR MELO NASCIMENTO SILVA
 
-
-   - As declarações está localizada na pasta 'hedears/Entidades/Entidades/...'
+   - As definição está localizada na pasta 'hedears/Entidades/Entidades/...'
 ---
 ### ATIVIDADE 3: Arquitetura e Interfaces
 ---
-* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO.
+* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA,  IGOR MELO NASCIMENTO SILVA.
 * Artefatos:
-    + (EDUARDO SANKIEVICZ LIMA): Definição das Interfaces da Camada de Apresentação e Serviço.
-    + (FÁBIO WILLIAN ALVES SILVA): Documentação das interfaces.
-    + (JOÃO FRANCISCO DE SOUSA TORRES) e (IGOR MELO): Criação dos artefatos de arquitetura
-        (Diagrama de Componentes UML em PDF e Descrição Textual dos Módulos em PDF).
+    + Definição das Interfaces da Camada de Apresentação e Serviço - EDUARDO SANKIEVICZ LIMA
+    + Documentação das interfaces - FÁBIO WILLIAN ALVES SILVA
+    +  Criação dos artefatos de arquitetura - JOÃO FRANCISCO DE SOUSA TORRES e  IGOR MELO NASCIMENTO SILVA
+    (Diagrama de Componentes UML em PDF e Descrição Textual dos Módulos em PDF).
 
     - A declaração está localizada em 'hedears/Interaces/interfaces.hpp
 
 ---
 ### ATIVIDADE 4: Camada de Apresentação
 ---
-* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO.
+* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA,  IGOR MELO NASCIMENTO SILVA.
 * Artefatos: 
     + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoAcesso.h/.cpp) e (CrtlApresentacaoLogin.h/.cpp) - JOÃO FRANCISCO DE SOUSA TORRES
-    + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoCadastro.h/.cpp) - IGOR MELO
+    + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoCadastro.h/.cpp) -  IGOR MELO NASCIMENTO SILVA
     + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoPlanejamento.h/.cpp) - EDUARDO SANKIEVICZ LIMA
     + Definição e implementação das classes de Controladora de Apresentação (CrtlApresentacaoBacklog.h/.cpp) - FÁBIO WILLIAN ALVES SILVA
     
-   - As declarações está localizada na pasta 'hedears/Controladoras/...'.
+   - As definição está localizada na pasta 'hedears/Controladoras/...'.
    - As implementações está localizada na pasta 'source/Controladoras/...'
 
 ---
 ### ATIVIDADE 5: Camada de Serviço
 ---
-* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA, IGOR MELO.
+* Membros Responsáveis: JOÃO FRANCISCO DE SOUSA TORRES, FÁBIO WILLIAN ALVES SILVA, EDUARDO SANKIEVICZ LIMA,  IGOR MELO NASCIMENTO SILVA.
 * Artefatos:
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoAutenticacao.h/.cpp) - JOÃO FRANCISCO DE SOUSA TORRES
-    + Definição e implementação das classes de Controladora de Serviço (CrtlServicoPessoa.h/.cpp) - IGOR MELO
+    + Definição e implementação das classes de Controladora de Serviço (CrtlServicoPessoa.h/.cpp) -  IGOR MELO NASCIMENTO SILVA
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoPlanejamento.h/.cpp) - EDUARDO SANKIEVICZ LIMA
     + Definição e implementação das classes de Controladora de Serviço (CrtlServicoBacklog.h/.cpp) - JOÃO FRANCISCO DE SOUSA TORRES
     
-   - As declarações está localizada na pasta 'hedears/Controladoras/...'.
+   - As definição está localizada na pasta 'hedears/Controladoras/...'.
    - As implementações está localizada na pasta 'source/Controladoras/...'
-
 
 ---
 ### ATIVIDADE 6: Teste de Fumaça (Vídeo)

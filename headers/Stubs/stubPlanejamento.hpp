@@ -2,6 +2,7 @@
  * @file stubPlanejamento.hpp
  * @author  Eduardo Sankievicz Lima
  * @brief Definição da stub de planejamento.
+ * @details Esta stub é responsável por simular o comportamento do serviço de planejamento, permitindo testar a interação com a camada de apresentação sem depender de uma implementação real do serviço.  
  */
 
 #ifndef STUBS_PLANEJAMENTO_HPP_INCLUDED

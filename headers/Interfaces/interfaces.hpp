@@ -9,7 +9,7 @@
 
 #include <vector>
 
-// Forward declarations.
+// Forward declarations das entidades e domínios.
 class Email;
 class Senha;
 class Codigo;
@@ -18,7 +18,13 @@ class Pessoa;
 class Projeto;
 class PlanoDeSprint;
 class HistoriaDeUsuario;
-// Interfaces da camada de apresentacao
+
+// Forward declarations das interfaces de serviço.
+class IServicoAutenticacao;
+class IServicoPessoa;
+class IServicoPlanejamento;
+class IServicoBacklog;
+
 /*
 Montei as interfaces no mesmo padrão, um método construtor default para cada interface. Além disso, cada uma delas possui
 um método de execução de telas, menus e leitura, as quais possuem como assinatura o endereço da conta em que os serviços serão providos
@@ -26,11 +32,9 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
 
-class IServicoAutenticacao;
-class IServicoPessoa;
-class IServicoPlanejamento;
-class IServicoBacklog;
 
+
+// Interfaces da camada de apresentacao
 /**
  * @interface Esta interface é responsável por permitir que o usuario faça login usando
  *  o email como forma de autenticação.
