@@ -3,6 +3,9 @@
  * @file CrtlApresentacaoBacklog.hpp
  * @author Fabio Willian Alves Silva 
  * @brief Definição da controladora da apresentação de backlog.
+ * @details Esta controladora é responsável por gerenciar a interação com o usuário no módulo de backlog do sistema.
+ * Ela implementa a interface IApresentacaoBacklog e utiliza um serviço de backlog para realizar operações relacionadas às entidades HistoriaDeUsuario e Backlog. 
+ * A controladora captura os dados informados pelo usuário, instancia os domínios e entidades correspondentes, e encaminha as operações para a camada de serviço.
  */
 
 #ifndef CRTLAPRESENTACAOBACKLOG_H_INCLUDED

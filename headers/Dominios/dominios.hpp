@@ -459,7 +459,7 @@ class Texto : public Dominio{
         bool temFormatacaoValida(const std::string& );
         bool temEspacoValido(const std::string& );
     public:
-        /**/
+        /** @brief Construtor padrão. */
         Texto(){};
                     /**
          * @brief Construtor padrão.
