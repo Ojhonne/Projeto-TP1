@@ -115,7 +115,6 @@ int main(void){
     catch(const runtime_error &exp){
         cout << "[MAIN] Erro no loop de apresentacao: " << exp.what() << endl;
     }
-
     // Limpeza de mémoria 
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;

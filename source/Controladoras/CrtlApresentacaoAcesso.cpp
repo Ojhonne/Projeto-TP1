@@ -11,7 +11,11 @@
 #include "Tui/tui.hpp"
 #include <stdexcept>
 #include "Interfaces/interfaces.hpp"
+#include "Entidades/pessoa.hpp"
 #include <cstring>
+#include "iostream"
+
+#include "containers/containerPessoa.hpp"
 
 
 
@@ -110,11 +114,16 @@ void CrtlApresentacaoAcesso::limparTela() {
 }
 
 void CrtlApresentacaoAcesso::desenharCabecalho() {
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailSessao);
+    ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada);
     attron(COLOR_PAIR(5)); 
     mvprintw(0, 0, " Usuario logado: %s ", emailSessao.getValor().c_str());
+    mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
     attroff(COLOR_PAIR(5));
     refresh();
-}
+    std::cout << pessoaLogada.getPapel().getValor();
+}   
 
 void CrtlApresentacaoAcesso::finalizaInterface() {
     delwin(win); 
