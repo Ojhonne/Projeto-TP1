@@ -8,6 +8,8 @@
 
 #include "Controladoras/CrtlApresentacaoBacklog.hpp"
 #include "Entidades/historiaDeUsuario.hpp"
+#include "Entidades/pessoa.hpp"
+#include "Containers/containerPessoa.hpp"
 #include "Tui/tui.hpp"
 #include <stdexcept>
 #include <cstring>
@@ -28,7 +30,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
     };
 
     while (!sair) {
-
+        desenharCabecalho(emailLogado);
         int opcao = Tui::exibeMenu(win, "OPCOES DE BACKLOG", opcoes);
 
         guardaPtr = win;
@@ -362,3 +364,16 @@ void CrtlApresentacaoBacklog::exibirSucesso(WINDOW* win) {
     //wgetch(win);
     napms(1500); // Pausa automática
 }
+
+void CrtlApresentacaoBacklog::desenharCabecalho(const Email& emailLogado) {
+    //Variaveis para o cabeçalho
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailLogado);
+    ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada); // tenta se comunicar com banco
+
+    attron(COLOR_PAIR(5)); 
+    mvprintw(0, 0, " Usuario logado: %s ", emailLogado.getValor().c_str());
+    mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
+    attroff(COLOR_PAIR(5));
+    refresh();
+}   

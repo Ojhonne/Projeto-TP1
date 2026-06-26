@@ -25,6 +25,7 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
         IServicoBacklog *servicoBacklog;  // Referência para servidor.
         WINDOW* win;
         WINDOW* criarJanelaBacklog(int altura, int largura);
+        void desenharCabecalho(const Email&);
         void desenharLayout(WINDOW* win);
         bool capturarCredenciais(WINDOW* win, char* emailStr, char* senhaStr);
         void exibirErro(WINDOW* win, const char* mensagem);
