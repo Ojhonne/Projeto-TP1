@@ -47,11 +47,11 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
                 break;
 
             case 2:
-                // atualizarBacklog();
+                atualizarBacklog(win, emailLogado);
                 break;
 
             case 3:
-                // excluirBacklog();
+                excluirBacklog(win, emailLogado);
                 break;
 
             case 4:
@@ -309,6 +309,192 @@ void CrtlApresentacaoBacklog::lerBacklog(WINDOW* win) {
         }
     }
 }
+
+void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLogado) {
+    bool valido = false;
+
+    while (!valido) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 15, " ATUALIZAR PROJETO ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo: ");
+        mvwprintw(win, 3, 5, "Novo Titulo: ");
+        mvwprintw(win, 4, 5, "Novo Papel: ");
+        mvwprintw(win, 5, 5, "Nova Acao: ");
+        mvwprintw(win, 6, 5, "Novo Valor: ");
+        mvwprintw(win, 12, 5, "Nova Estimativa: ");
+        mvwprintw(win, 13, 5, "Nova Prioridade: ");
+        mvwprintw(win, 14, 5, "Novo Estado: ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[10];
+        char strTitulo[15];
+        char strPapel[15];
+        char strAcao[15];
+        char strValor[101];
+        char strEstimativa[15];
+        char strPrioridade[11];
+        char strEstado[21];
+
+       wmove(win, 2, 14);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 9, false)) {
+            return;
+        }
+
+        wmove(win, 3, 18);
+        if (!Tui::lerEntradaTerminal(win, strTitulo, 14, false)) {
+            return;
+        }
+
+        wmove(win, 4, 18);
+        if (!Tui::lerEntradaTerminal(win, strPapel, 14, false)) {
+            return;
+        }
+
+        wmove(win, 5, 16);
+        if (!Tui::lerEntradaTerminal(win, strAcao, 14, false)) {
+            return;
+        }
+
+        wmove(win, 6, 17);
+        if (!Tui::lerEntradaTerminal(win, strValor, 100, false)) {
+            return;
+        }
+
+        wmove(win, 12, 22);
+        if (!Tui::lerEntradaTerminal(win, strEstimativa, 14, false)) {
+            return;
+        }
+        wmove(win, 13, 22);
+        if (!Tui::lerEntradaTerminal(win, strPrioridade, 10, false)) {
+            return;
+        }
+
+        wmove(win, 14, 18);
+        if (!Tui::lerEntradaTerminal(win, strEstado, 20, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            Texto tituloLocal(strTitulo);
+            Texto papelLocal(strPapel);
+            Texto acaoLocal(strAcao);
+            Texto valorLocal(strValor);
+            Tempo estimativaLocal(strEstimativa);
+
+            Prioridade prioridadeLocal;
+            prioridadeLocal.setValor(strPrioridade);
+
+            Estado estadoLocal;
+            estadoLocal.setValor(strEstado);
+
+            Email enviar;
+            enviar.setValor("joao@teste.com"); // simulando um teste
+
+            HistoriaDeUsuario historiaLocal;
+
+            historiaLocal.setCodigo(codigoLocal);
+            historiaLocal.setTitulo(tituloLocal);
+            historiaLocal.setPapel(papelLocal);
+            historiaLocal.setAcao(acaoLocal);
+            historiaLocal.setValor(valorLocal);
+            historiaLocal.setEstimativa(estimativaLocal);
+            historiaLocal.setPrioridade(prioridadeLocal);
+            historiaLocal.setEstado(estadoLocal);
+            historiaLocal.setCodigoProjeto(codigoLocal); // trocar por um input devido
+            //historiaLocal.setEmailPessoa(enviar);
+
+            valido = servicoBacklog->atualizarHistoriaUsuario(historiaLocal, emailLogado);
+
+            if (valido) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Projeto atualizado com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+                wrefresh(win);
+                wgetch(win);
+            } else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Erro: projeto nao foi atualizado.");
+                wattroff(win, COLOR_PAIR(2));
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::excluirBacklog(WINDOW* win, const Email& emailLogado) {
+    bool concluido = false;
+
+    while (!concluido) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 16, " EXCLUIR PROJETO ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo: ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[16];
+
+        wmove(win, 2, 14);
+
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoLocal(strCodigo);
+
+            bool sucesso = servicoBacklog->excluirHistoriaUsuario(codigoLocal, emailLogado);
+
+            if (sucesso) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2,
+                    "Projeto excluido com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+
+                concluido = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2,
+                    "Projeto nao encontrado.");
+                wattroff(win, COLOR_PAIR(2));
+            }
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
 
 
 WINDOW* CrtlApresentacaoBacklog::criarJanelaBacklog(int altura, int largura) {
