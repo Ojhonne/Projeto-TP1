@@ -1,4 +1,12 @@
-/*#ifndef STUBBACKLOG_HPP_INCLUDED
+
+/**
+ * @file stubBacklog.hpp
+ * @author Fábio Willian Alves Silva
+ * @brief Definição da stub de backlog.
+ * @details Esta stub é responsável por simular o comportamento do serviço de backlog, permitindo testar a interação com a camada de apresentação sem depender de uma implementação real do serviço.
+ */
+/*
+#ifndef STUBBACKLOG_HPP_INCLUDED
 #define STUBBACKLOG_HPP_INCLUDED
 
 #include <string>

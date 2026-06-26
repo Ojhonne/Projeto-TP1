@@ -38,7 +38,11 @@ class HistoriaDeUsuario {
         Estado estado;
         Email emailPessoa;
     public:
-
+        /**
+         * @brief Construtor padrão.
+         *
+         * Inicializa todos os atributos da história de usuário com valores padrão.
+         */
         HistoriaDeUsuario() = default;
         /**
          * @brief Atribui um novo código à história de usuário.
@@ -51,33 +55,33 @@ class HistoriaDeUsuario {
          */  
         const Codigo& getCodigo() const;
         /**
-         * @brief Atribui um novo código à história de usuário.
+         * @brief Atribui um novo código ao projeto associado à história de usuário.
          * @param codigo Referência constante para o objeto de domínio Codigo.
          */
         void setCodigoProjeto(const Codigo& codigo);
          /**
-         * @brief Recupera o código atual da história de usuário.
+         * @brief Recupera o código de projeto associado à história de usuário.
          * @return const Codigo& Referência constante para o código armazenado.
          */  
         const Codigo& getCodigoProjeto() const;
-          /**
-         * @brief Atribui um novo código à história de usuário.
+        /**
+         * @brief Atribui um novo código à sprint associada à história de usuário.
          * @param codigo Referência constante para o objeto de domínio Codigo.
          */
         void setCodigoSprint(const Codigo& codigo);
          /**
-         * @brief Recupera o código atual da história de usuário.
+         * @brief Recupera o código de sprint associado à história de usuário.
          * @return const Codigo& Referência constante para o código armazenado.
          */  
         const Codigo& getCodigoSprint() const;
-                  /**
-         * @brief Atribui um novo código à história de usuário.
-         * @param codigo Referência constante para o objeto de domínio Codigo.
+        /**
+         * @brief Atribui um novo email à história de usuário.
+         * @param email Referência constante para o objeto de domínio Email.
          */
         void setEmailPessoa(const Email& email);
          /**
-         * @brief Recupera o código atual da história de usuário.
-         * @return const Email& Referência constante para o código armazenado.
+         * @brief Recupera o email associado à história de usuário.
+         * @return const Email& Referência constante para o email armazenado.
          */  
         const Email& getEmailPessoa() const;
         /**
