@@ -13,12 +13,10 @@
 
 /**
  * @class Email
- * @brief Representa o endereço de e-mail de uma pessoa.
  */
 class Email;
-/*
+/** 
  * @class Pessoa
- * @brief Representa uma pessoa no sistema.
  */
 class Pessoa;
 
@@ -32,7 +30,6 @@ class Pessoa;
  */
 
 // Declaração adota padrão de projeto Singleton.
-
 
 class ContainerPessoa{
     private:

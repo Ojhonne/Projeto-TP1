@@ -1022,7 +1022,7 @@ void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
 }
 
 void CrtlApresentacaoPlanejamento::desenharCabecalho(const Email& emailLogado) {
-        //Variaveis para o cabeçalho
+    //Variaveis para o cabeçalho
     Pessoa pessoaLogada;
     pessoaLogada.setEmail(emailLogado);
     ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada); // tenta se comunicar com banco
