@@ -37,7 +37,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
 
         switch (opcao) {
             case 0:
-                criarBacklog(win);
+                criarBacklog(win, emailLogado);
                 break;
 
             case 1:
@@ -67,7 +67,7 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
     return ;
 }
 
-void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
+void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado) {
    bool valido = false;
 
     while (!valido) {
@@ -159,6 +159,9 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
             Estado estadoLocal;
             estadoLocal.setValor(strEstado);
 
+            Email enviar;
+            enviar.setValor("joao@teste.com"); // simulando um teste
+
             HistoriaDeUsuario historiaLocal;
 
             historiaLocal.setCodigo(codigoLocal);
@@ -169,8 +172,10 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win) {
             historiaLocal.setEstimativa(estimativaLocal);
             historiaLocal.setPrioridade(prioridadeLocal);
             historiaLocal.setEstado(estadoLocal);
+            historiaLocal.setCodigoProjeto(codigoLocal); // trocar por um input devido
+            //historiaLocal.setEmailPessoa(enviar);
 
-            valido = servicoBacklog->criarHistoriaUsuario(historiaLocal);
+            valido = servicoBacklog->criarHistoriaUsuario(historiaLocal, emailLogado);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
