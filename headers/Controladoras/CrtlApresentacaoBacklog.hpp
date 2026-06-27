@@ -36,6 +36,8 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
         void exibirSucesso(WINDOW* win);
         void criarBacklog(WINDOW* win, const Email& emailLogado);
         void lerBacklog(WINDOW* win);
+        void atualizarBacklog(WINDOW* win, const Email& emailLogado);
+        void excluirBacklog(WINDOW* win, const Email& emailLogado);
 
     public:
         /**
