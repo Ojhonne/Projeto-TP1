@@ -1,7 +1,7 @@
 #include "Containers/containerPessoa.hpp"
-#include "Dominios/dominios.hpp"  
-#include <stdexcept> 
-#include "Entidades/pessoa.hpp" 
+#include "Dominios/dominios.hpp"
+#include <stdexcept>
+#include "Entidades/pessoa.hpp"
 #include "Sql/sqlite3.h"
 #include <iostream>
 
@@ -18,26 +18,26 @@ ContainerPessoa* ContainerPessoa::getInstancia(){
 ContainerPessoa::ContainerPessoa() {
     sqlite3* db; // Ponteiro para o banco de dados SQLite.
     int resultCode = sqlite3_open(nomeBanco.c_str(), &db); // Abre o banco de dados. Se não existir, ele será criado.
-    
-    if (resultCode == SQLITE_OK) { 
+
+    if (resultCode == SQLITE_OK) {
         // Cria a tabela usando os domínios mapeados, com o EMAIL como chave primária
         std::string sql = "CREATE TABLE IF NOT EXISTS Pessoa (" // Cria a tabela Pessoa se ela não existir
                           "email TEXT PRIMARY KEY, "
                           "nome TEXT NOT NULL, "
                           "senha TEXT NOT NULL, "
                           "papel TEXT NOT NULL);";
-                          
+
         char* mensagemErro = nullptr;
         resultCode = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &mensagemErro); // Executa o comando SQL para criar a tabela. Se houver erro, a mensagem será armazenada em mensagemErro.
-        
-        if (resultCode != SQLITE_OK) { 
+
+        if (resultCode != SQLITE_OK) {
             std::string erro = mensagemErro;
             std::cerr << "Erro ao criar tabela Pessoa: " << mensagemErro << std::endl;
             sqlite3_free(mensagemErro);
             sqlite3_close(db); // Fecha o banco de dados SQLite.
 
             throw std::runtime_error("Erro ao criar tabela Pessoa: " + erro);
-        
+
         }
     }
     sqlite3_close(db); // Fecha o banco de dados SQLite.
@@ -46,7 +46,7 @@ ContainerPessoa::ContainerPessoa() {
 bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
     sqlite3* db; // ponteiro para o banco de dados SQLite.
     bool pessoaEncontrada{false}; // flag para indicar se a pessoa foi encontrada no banco de dados.
-    
+
     // Abre o banco
     if (sqlite3_open(nomeBanco.c_str(), &db) == SQLITE_OK) {
         // Instrução SQL com um "bind parameter" (?) para evitar injeção de SQL
@@ -55,10 +55,10 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
 
         // Prepara a query
         if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK) { // -1 avisa para o SQLite ler a string até encontrar o caractere nulo (\0) que marca o final dela.
-            
-            // Pega o email que foi passado na entidade 
+
+            // Pega o email que foi passado na entidade
             std::string emailBusca = pessoa->getEmail().getValor();
-            
+
             // Vincula a string C++ no lugar da interrogação (?) na query SQL
             sqlite3_bind_text(stmt, 1, emailBusca.c_str(), -1, SQLITE_STATIC);
 
@@ -71,11 +71,11 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
                 std::string papelBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
 
                 // Recria os objetos de domínio
-                Nome nome;   
+                Nome nome;
                 nome.setValor(nomeBd);
-                Senha senha; 
+                Senha senha;
                 senha.setValor(senhaBd);
-                Papel papel; 
+                Papel papel;
                 papel.setValor(papelBd);
 
                 // Preenche a entidade Pessoa original recebida por ponteiro
@@ -95,7 +95,7 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
 }
 
 bool ContainerPessoa::incluir(Pessoa pessoa) {
-    sqlite3* db = nullptr; 
+    sqlite3* db = nullptr;
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
@@ -123,7 +123,7 @@ bool ContainerPessoa::incluir(Pessoa pessoa) {
 }
 
 bool ContainerPessoa::remover(Email email) {
-    sqlite3* db = nullptr; 
+    sqlite3* db = nullptr;
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
@@ -137,7 +137,7 @@ bool ContainerPessoa::remover(Email email) {
     sqlite3_bind_text(stmt, 1, emailDeletar.c_str(), -1, SQLITE_STATIC);
 
     executaStep(db, stmt);
-        
+
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
@@ -145,7 +145,7 @@ bool ContainerPessoa::remover(Email email) {
 }
 
 bool ContainerPessoa::atualizar(Pessoa pessoa) {
-    sqlite3* db = nullptr; 
+    sqlite3* db = nullptr;
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
@@ -190,7 +190,7 @@ void ContainerPessoa::abreQuerry(sqlite3* db, std::string& sql, sqlite3_stmt*& s
 }
 
 void ContainerPessoa::executaStep(sqlite3* db, sqlite3_stmt* stmt){
-    if(sqlite3_step(stmt) != SQLITE_DONE){ // Erro na execução 
+    if(sqlite3_step(stmt) != SQLITE_DONE){ // Erro na execução
         std::string erro = sqlite3_errmsg(db);
         sqlite3_finalize(stmt);
         sqlite3_close(db);

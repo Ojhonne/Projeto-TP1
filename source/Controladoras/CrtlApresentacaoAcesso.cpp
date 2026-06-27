@@ -1,6 +1,6 @@
 
 #ifdef _WIN32
-    #include <curses.h> 
+    #include <curses.h>
 #elif __linux__
     #include <ncurses.h>
 #else
@@ -20,7 +20,7 @@ void CrtlApresentacaoAcesso::executar() {
     //declarando os topicos do menu
     const std::vector<std::string> opcoesDeslogadas = {"Realizar login", "Realizar cadastro", "Encerrar Sistema"};
     const std::vector<std::string> opcoesLogadas = {"Modulo de Cadastro (Pessoas)", "Modulo de Planejamento (Projetos e Sprints)", "Modulo de Backlog (Historias de Usuario)", "Fazer Logout", "Encerrar Sistema"};
-    
+
     while (true) {
         limparTela();
 
@@ -28,11 +28,11 @@ void CrtlApresentacaoAcesso::executar() {
             desenharCabecalho();
         }
 
-        refresh(); 
+        refresh();
         const auto& opcoes = logado ? opcoesLogadas : opcoesDeslogadas;
-        const char* titulo = logado ? "MENU LOGADO" : "MENU PRINCIPAL"; 
+        const char* titulo = logado ? "MENU LOGADO" : "MENU PRINCIPAL";
 
-        int escolha = Tui::exibeMenu(win, titulo, opcoes);// funcao que exibe os topicos 
+        int escolha = Tui::exibeMenu(win, titulo, opcoes);// funcao que exibe os topicos
         if(!rotearEscolha(escolha, logado)) break;
     }
 
@@ -52,10 +52,11 @@ bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
             //this->logado = crtlLogin->executar(emailSessao);
+            this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
             this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
-            // crtlCadastro->executar();
+            crtlCadastro->executar(emailSessao);
             return true;
         case MenuDeslogado::Sair:
             return false;
@@ -67,7 +68,7 @@ bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
 bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
     switch (static_cast<MenuLogado>(escolha)) {
         case MenuLogado::CadastroPessoas:
-            // this->crtlCadastro->executar(emailSessao);
+            this->crtlCadastro->executar(emailSessao);
             return true;
         case MenuLogado::Projetos:
             this-> crtlPlanejamento->executar(emailSessao);
@@ -103,20 +104,20 @@ void CrtlApresentacaoAcesso::criarJanelaMenu() {
 }
 
 void CrtlApresentacaoAcesso::limparTela() {
-    wclear(win); 
-    wrefresh(win); 
-    clear(); 
+    wclear(win);
+    wrefresh(win);
+    clear();
     refresh();
 }
 
 void CrtlApresentacaoAcesso::desenharCabecalho() {
-    attron(COLOR_PAIR(5)); 
+    attron(COLOR_PAIR(5));
     mvprintw(0, 0, " Usuario logado: %s ", emailSessao.getValor().c_str());
     attroff(COLOR_PAIR(5));
     refresh();
 }
 
 void CrtlApresentacaoAcesso::finalizaInterface() {
-    delwin(win); 
+    delwin(win);
     Tui::finalizarTerminal();
 }

@@ -6,7 +6,7 @@
 
 // Incluir cabeçalho da biblioteca PDCurses.
 #ifdef _WIN32
-    #include <curses.h> 
+    #include <curses.h>
 #elif __linux__
     #include <ncurses.h>
 #else
@@ -21,6 +21,7 @@
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
+#include "Controladoras/CrtlApresentacaoCadastro.hpp"
 
 //serviço
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
@@ -28,6 +29,7 @@
 
 //stubs
 #include "Stubs/stubPlanejamento.hpp"
+#include "Stubs/stubCadastro.hpp"
 
 using namespace std;
 
@@ -37,7 +39,7 @@ int main(void){
     try {
         Email emailTeste;  emailTeste.setValor("joao@teste.com");
         Nome nomeTeste;    nomeTeste.setValor("Joao");
-        Senha senhaTeste;  senhaTeste.setValor("A1b2C3"); 
+        Senha senhaTeste;  senhaTeste.setValor("A1b2C3");
         Papel papelTeste;  papelTeste.setValor("DESENVOLVEDOR");
 
         Pessoa novaPessoa;
@@ -51,42 +53,47 @@ int main(void){
         // Ignora erros de inserção
     }
 
-    // intanciando controladoras da camada de apresentação
-    CrtlApresentacaoAcesso *crtlApresentacaoAcesso; // menu principal
-    IApresentacaoLogin *crtlApresentacaoLogin;  // tela login
-    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento;
-
-    crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
-    crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
-    crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento;
+    // Instanciando controladoras da camada de apresentação
+    CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // menu principal
+    IApresentacaoLogin *crtlApresentacaoLogin = new CrtlApresentacaoLogin();     // tela login
+    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento();
+    IApresentacaoCadastro *crtlApresentacaoCadastro = new CrtlApresentacaoCadastro();
 
     // Instanciando controladoras da camada de serviço
-    IServicoAutenticacao *servicoAutenticacao; // ponteiro para o serviço real
-    servicoAutenticacao = new CrtlServicoAutenticacao(); // controladora para sql
-    
-    // instanciando os stubs
-    IServicoPlanejamento *stubServicoPlanejamento;
+    IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao();
 
-    
-    // interligando controladoras e servico.
-    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin); 
-    
+    // Instanciando os STUBS com seus respectivos nomes reais (CORRIGIDO)
+    IServicoPlanejamento *stubServicoPlanejamento = new StubServicoPlanejamento(); // Usando a classe existente!
+    IServicoPessoa *stubCadastro = new StubCadastro();                             // Usando a classe existente!
+
+    // Interligando apresentações e seus respectivos serviços/stubs
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
-
     crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
+    crtlApresentacaoCadastro->setCtrlServicoPessoa(stubCadastro);
+
+    // Interligando os sub-módulos de apresentação ao Menu Principal (CORRIGIDO)
+    crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin);
+    crtlApresentacaoAcesso->setCtrlCadastro(crtlApresentacaoCadastro);
+    crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
 
     // Executar o sistema
     try{
         crtlApresentacaoAcesso->executar();
     }
     catch(const runtime_error &exp){
-        cout << "Erro de sistema." << endl;
+        endwin(); // Garante o fechamento do ncurses antes de mostrar o erro no terminal comum
+        cout << "Erro de sistema: " << exp.what() << endl;
     }
 
-    // Limpeza de mémoria
+    // Limpeza de mémoria (CORRIGIDO: Descomentados e adicionados os stubs alocados)
     delete crtlApresentacaoAcesso;
     delete crtlApresentacaoLogin;
-    delete servicoAutenticacao; // Limpa o serviço real criado
-    // delete crtlApresentacaoPlanejamento; 
+    delete crtlApresentacaoPlanejamento;
+    delete crtlApresentacaoCadastro;
+
+    delete servicoAutenticacao;
+    delete stubServicoPlanejamento;
+    delete stubCadastro;
+
     return 0;
 }

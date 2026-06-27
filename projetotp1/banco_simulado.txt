@@ -1,0 +1,47 @@
+
+
+--- NOVO CADASTRO VALIDADO ---
+Email: igor@gmail.com
+Nome:  Igor Melo
+Senha: A1w3R2
+Papel: DESENVOLVEDOR
+-------------------------------
+
+--- NOVO CADASTRO VALIDADO ---
+Email: maria@gmail.com
+Nome:  Maria
+Senha: A1d4W2
+Papel: DESENVOLVEDOR
+-------------------------------
+
+--- NOVO CADASTRO VALIDADO ---
+Email: zaza@gmail.com
+Nome:  Mama
+Senha: A8r4T7
+Papel: DESENVOLVEDOR
+-------------------------------
+
+[REGISTRO] Conta simulada excluida: joao@teste.com
+--- NOVO CADASTRO VALIDADO ---
+Email: nnbb@gmail.com
+Nome:  mmm
+-------------------------------
+
+[REGISTRO] Conta simulada excluida: joao@teste.com
+[REGISTRO] Conta simulada excluida: joao@teste.com
+--- NOVO CADASTRO VALIDADO ---
+Email: igor@gmail.com
+Nome:  Bbb
+-------------------------------
+
+[REGISTRO] Dados atualizados para o Email: joao@teste.com
+Novo Nome:  Ihor me
+Nova Senha: Q1a2R4
+-----------------------------------------
+
+[REGISTRO] Conta simulada excluida: joao@teste.com
+--- NOVO CADASTRO VALIDADO ---
+Email: fere@gmail.com
+Nome:  Gugu fa
+-------------------------------
+
