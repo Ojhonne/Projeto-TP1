@@ -27,7 +27,9 @@
 class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
     private:
         IServicoBacklog *servicoBacklog;  // Referência para servidor.
+
         IServicoPessoa* servicoPessoa; 
+        
         WINDOW* win;
         WINDOW* criarJanelaBacklog(int altura, int largura);
         void desenharCabecalho(const Email&);

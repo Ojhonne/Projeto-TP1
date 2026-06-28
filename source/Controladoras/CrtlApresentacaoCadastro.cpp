@@ -91,12 +91,13 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
 }
 
 void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
+    WINDOW* winCabecalho = newwin(10,55, 5, 22);
+    box(winCabecalho, 0, 0);
     WINDOW* win = criarJanelaCadastro();
     char emailStr[85], senhaStr[30], nomeStr[20], papelStr[20];
-
     while (true) {
+        desenharCabecalho(winCabecalho, emailSessao);
         desenharLayout(win, " ALTERAR CADASTRO ");
-
         if (!capturarCampos(win, emailStr, senhaStr, nomeStr, papelStr)) {
             break;
         }
@@ -132,7 +133,7 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
             exibirErro(win, e.what());
         }
     }
-
+    delwin(winCabecalho);
     delwin(win);
 }
 
@@ -225,3 +226,15 @@ void CrtlApresentacaoCadastro::exibirSucesso(WINDOW* win, const char* mensaje) {
     wrefresh(win);
     napms(1500);
 }
+void CrtlApresentacaoCadastro::desenharCabecalho(WINDOW* win, const Email& emailSessao) {
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailSessao);
+    if (this->servicoPessoa != nullptr) {
+        this->servicoPessoa->lerPessoa(emailSessao, pessoaLogada); 
+    }
+    wattron(win, COLOR_PAIR(6)); 
+    mvwprintw(win, 1, 2, " Usuario logado: %s ", emailSessao.getValor().c_str());
+    mvwprintw(win, 2, 2, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
+    wattroff(win, COLOR_PAIR(6));
+    wrefresh(win);
+}   

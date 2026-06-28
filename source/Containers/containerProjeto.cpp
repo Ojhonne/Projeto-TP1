@@ -27,8 +27,10 @@ ContainerProjeto::ContainerProjeto() {
         "nome TEXT NOT NULL,"
         "inicio TEXT NOT NULL,"
         "termino TEXT NOT NULL,"
-        "pessoa_email TEXT NOT NULL,"
-        "FOREIGN KEY (pessoa_email) REFERENCES Pessoa(email)"
+        "scrum_master_email TEXT NOT NULL,"
+        "product_owner_email TEXT NOT NULL,"
+        "FOREIGN KEY (scrum_master_email) REFERENCES Pessoa(email),"
+        "FOREIGN KEY (product_owner_email) REFERENCES Pessoa(email)"
         ");";
 
     if (sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &mensagemErro) != SQLITE_OK) {
@@ -41,15 +43,15 @@ ContainerProjeto::ContainerProjeto() {
     sqlite3_close(db);
 }
 
-bool ContainerProjeto::criarProjeto(const Email& email, const Projeto& projeto) {
+bool ContainerProjeto::criarProjeto(const Email& emailSM, const Email& emailPO, const Projeto& projeto) {
     sqlite3* db = nullptr;
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
 
     std::string sql =
-        "INSERT INTO Projeto (codigo, nome, inicio, termino, pessoa_email) "
-        "VALUES (?, ?, ?, ?, ?);";
+        "INSERT INTO Projeto (codigo, nome, inicio, termino, scrum_master_email, product_owner_email) "
+        "VALUES (?, ?, ?, ?, ?, ?);";
 
     abreQuerry(db, sql, stmt);
 
@@ -57,13 +59,15 @@ bool ContainerProjeto::criarProjeto(const Email& email, const Projeto& projeto) 
     std::string nome = projeto.getNome().getValor();
     std::string inicio = projeto.getInicio().getData();
     std::string termino = projeto.getTermino().getData();
-    std::string pessoaEmail = email.getValor();
+    std::string emailSM_str = emailSM.getValor();
+    std::string emailPO_str = emailPO.getValor();
 
     sqlite3_bind_text(stmt, 1, codigo.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 2, nome.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 3, inicio.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 4, termino.c_str(), -1, SQLITE_TRANSIENT);
-    sqlite3_bind_text(stmt, 5, pessoaEmail.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 5, emailSM_str.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 6, emailPO_str.c_str(), -1, SQLITE_TRANSIENT);
 
     executaStep(db, stmt);
 
@@ -191,15 +195,17 @@ bool ContainerProjeto::listarProjetos(const Email& email, std::vector<Projeto>& 
 
     conectarBanco(db);
 
-    std::string sql =
+std::string sql =
         "SELECT codigo, nome, inicio, termino "
         "FROM Projeto "
-        "WHERE pessoa_email = ?;";
+        "WHERE scrum_master_email = ? OR product_owner_email = ?;";
 
     abreQuerry(db, sql, stmt);
 
     std::string emailBusca = email.getValor();
+    
     sqlite3_bind_text(stmt, 1, emailBusca.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 2, emailBusca.c_str(), -1, SQLITE_TRANSIENT);
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         std::string codigoBd =

@@ -153,7 +153,7 @@ bool CrtlServicoBacklog::moverHistoriaProjetoParaSprint(const Codigo& codigoHist
             Codigo codigoVazio; // Código limpo
             armazenaHistoria.setCodigoProjeto(codigoVazio);
 
-            if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
+            if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(armazenaHistoria)){
                 return true; 
             }
         }
@@ -177,7 +177,7 @@ bool CrtlServicoBacklog::associarHistoriaPessoa(const Codigo& codigoHistoria, co
         }
         if(lerHistoriaUsuario(codigoHistoria, armazenaHistoria)){
             armazenaHistoria.setEmailPessoa(emailAlvo);
-            if(atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado)){
+            if(ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(armazenaHistoria)){
                 return true; 
             }
         }
@@ -204,7 +204,7 @@ bool CrtlServicoBacklog::removerAssociacaoHistoriaPessoa(const Codigo& codigoHis
             if (armazenaHistoria.getEmailPessoa().getValor() == emailAlvo.getValor()) { // // Só remove se o e-mail cadastrado for igual ao e-mail passado no parâmetro
                     Email emailVazio;
                     armazenaHistoria.setEmailPessoa(emailVazio);
-                    return atualizarHistoriaUsuario(armazenaHistoria, usuarioLogado); 
+                    return ContainerBacklog::getInstancia()->atualizarHistoriaUsuario(armazenaHistoria);
             }
         }
             return false;

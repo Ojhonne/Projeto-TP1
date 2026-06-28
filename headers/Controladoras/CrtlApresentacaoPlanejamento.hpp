@@ -37,7 +37,9 @@
 class CrtlApresentacaoPlanejamento : public IApresentacaoPlanejamento {
 private:
     IServicoPlanejamento *servicoPlanejamento;
+
     IServicoPessoa* servicoPessoa;
+    
     WINDOW *win;
 
     void desenharCabecalho(const Email&);

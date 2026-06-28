@@ -76,7 +76,7 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
 
     //faz a deleção da janela da forma correta
     delwin(win);
-    //win = nullptr;
+    win = nullptr;
 }
 
 void CrtlApresentacaoPlanejamento::menuProjetos(const Email& emailLogado) {
@@ -247,7 +247,7 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
             projetoLocal.setInicio(dataInicioLocal);
             projetoLocal.setTermino(dataFimLocal);
 
-            valido = servicoPlanejamento->criarProjeto(emailLogado, projetoLocal);
+            valido = servicoPlanejamento->criarProjeto(emailLogado, emailLogado, projetoLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
@@ -1032,9 +1032,9 @@ void CrtlApresentacaoPlanejamento::desenharCabecalho(const Email& emailLogado) {
     if (this->servicoPessoa != nullptr) {
         this->servicoPessoa->lerPessoa(emailLogado, pessoaLogada); 
     }
-    attron(COLOR_PAIR(6)); 
+    attron(COLOR_PAIR(5)); 
     mvprintw(0, 0, " Usuario logado: %s ", emailLogado.getValor().c_str());
     mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
-    attroff(COLOR_PAIR(6));
+    attroff(COLOR_PAIR(5));
     refresh();
 }   

@@ -1,10 +1,10 @@
-#include "Stubs/stubCadastro.hpp"
+/*#include "Stubs/stubCadastro.hpp"
 #include "Dominios/dominios.hpp"
 #include "Entidades/pessoa.hpp"
 #include <fstream>
 #include <iostream>
 
-// Inicializa o vetor estático limpo
+// Inicializa o vetor estï¿½tico limpo
 std::vector<Pessoa> StubCadastro::pessoasCadastradas = {};
 
 
@@ -36,7 +36,7 @@ bool StubCadastro::criarPessoa(const Pessoa& pessoa) {
 bool StubCadastro::atualizarPessoa(const Pessoa& pessoa) {
     std::string emailBusca = pessoa.getEmail().getValor();
 
-    // grava o registro de Log no arquivo físico TXT
+    // grava o registro de Log no arquivo fï¿½sico TXT
     std::ofstream arquivo("banco_simulado.txt", std::ios::app);
     if (arquivo.is_open()) {
         arquivo << "[REGISTRO] Dados atualizados para o Email: " << emailBusca << "\n"
@@ -46,7 +46,7 @@ bool StubCadastro::atualizarPessoa(const Pessoa& pessoa) {
         arquivo.close();
     }
 
-    // atualiza os dados no vetor em memória RAM
+    // atualiza os dados no vetor em memï¿½ria RAM
     for (size_t i = 0; i < pessoasCadastradas.size(); i++) {
         if (pessoasCadastradas[i].getEmail().getValor() == emailBusca) {
             pessoasCadastradas[i] = pessoa;
@@ -54,7 +54,7 @@ bool StubCadastro::atualizarPessoa(const Pessoa& pessoa) {
         }
     }
 
-    // se o vetor estava vazio (teste do joao), insere ele para as próximas consultas
+    // se o vetor estava vazio (teste do joao), insere ele para as prï¿½ximas consultas
     pessoasCadastradas.push_back(pessoa);
     return true;
 }
@@ -99,5 +99,6 @@ bool StubCadastro::excluirPessoa(const Email& email) {
             return true;
         }
     }
-    return true; // Retorna true para o login fictício funcionar mesmo com o vetor vazio
+    return true; // Retorna true para o login fictï¿½cio funcionar mesmo com o vetor vazio
 }
+*/
