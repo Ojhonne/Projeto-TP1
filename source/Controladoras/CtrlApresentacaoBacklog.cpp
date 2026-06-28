@@ -389,9 +389,6 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
             Estado estadoLocal;
             estadoLocal.setValor(strEstado);
 
-           // Email enviar;
-            //enviar.setValor("joao@teste.com"); // simulando um teste
-
             HistoriaDeUsuario historiaLocal;
 
             historiaLocal.setCodigo(codigoLocal);

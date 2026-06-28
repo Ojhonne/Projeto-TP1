@@ -94,33 +94,52 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
     WINDOW* winCabecalho = newwin(10,55, 5, 22);
     box(winCabecalho, 0, 0);
     WINDOW* win = criarJanelaCadastro();
-    char emailStr[85], senhaStr[30], nomeStr[20], papelStr[20];
+    char senhaStr[30], nomeStr[20];
+    Pessoa pessoaExistente;
+    pessoaExistente.setEmail(emailSessao);
+    if (this->servicoPessoa != nullptr) {
+        this->servicoPessoa->lerPessoa(emailSessao, pessoaExistente);
+    }
     while (true) {
         desenharCabecalho(winCabecalho, emailSessao);
-        desenharLayout(win, " ALTERAR CADASTRO ");
-        if (!capturarCampos(win, emailStr, senhaStr, nomeStr, papelStr)) {
-            break;
-        }
+         // renderiza o layout estatico sem dar foco de digitacao para email e papel
+        werase(win);
+        box(win, 0, 0);
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, (50 - 18) / 2, " ALTERAR CADASTRO ");
+        wattroff(win, COLOR_PAIR(1));
+        
+        // desenha email e papel como dados somente leitura
+        mvwprintw(win, 2, 5, "Email: %s", emailSessao.getValor().c_str());
+        mvwprintw(win, 4, 5, "Senha: ");
+        mvwprintw(win, 6, 5, "Nome: ");
+        mvwprintw(win, 8, 5, "Papel: %s", pessoaExistente.getPapel().getValor().c_str());
+        mvwprintw(win, 11, 2, "(Pressione ESC para cancelar)");
+        wrefresh(win);
+
+        // captura apenas a senha na linha 4
+        wmove(win, 4, 13); wrefresh(win);
+        if (!Tui::lerEntradaTerminal(win, senhaStr, 29, true)) break;
+
+        // captura apenas o nome na linha 6
+        wmove(win, 6, 13); wrefresh(win);
+        if (!Tui::lerEntradaTerminal(win, nomeStr, 29, false)) break;
 
         mvwprintw(win, 11, 2, "                                              ");
         wrefresh(win);
 
         try {
-            std::string strEmail(emailStr);
             std::string strSenha(senhaStr);
             std::string strNome(nomeStr);
-            std::string strPapel(papelStr);
 
-            Email emailLocal(strEmail);
             Senha senhaLocal(strSenha);
             Nome nomeLocal(strNome);
-            Papel papelLocal(strPapel);
 
             Pessoa pessoaAtualizada;
-            pessoaAtualizada.setEmail(emailLocal);
+            pessoaAtualizada.setEmail(emailSessao);
             pessoaAtualizada.setSenha(senhaLocal);
             pessoaAtualizada.setNome(nomeLocal);
-            pessoaAtualizada.setPapel(papelLocal);
+            pessoaAtualizada.setPapel(pessoaExistente.getPapel());
 
             if (servicoPessoa->atualizarPessoa(pessoaAtualizada)) {
                 exibirSucesso(win, "Sucesso! Cadastro atualizado.");

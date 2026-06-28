@@ -9,7 +9,7 @@
 
 #ifdef _WIN32
     #include <curses.h>
-#elif __linux__
+#elif _linux_
     #include <ncurses.h>
 #endif
 
