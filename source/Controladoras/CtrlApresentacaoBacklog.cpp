@@ -25,7 +25,8 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
         "Criar Historia de Usuário",
         "Ler",
         "Atualizar",
-        "Excluir",  
+        "Excluir",
+        "Listar",  
         "Voltar"
     };
 
@@ -55,6 +56,10 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
                 break;
 
             case 4:
+                menuListar(win);
+                break;
+
+            case 5:
                 sair = true;
                 wclear(win);
                 win = guardaPtr;
@@ -437,6 +442,341 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
     }
 }
 
+void CrtlApresentacaoBacklog::menuListar(WINDOW* win) {
+    bool sair = false;
+
+    std::vector<std::string> opcoes = {
+        "Associadas a Projeto",
+        "Associadas a Plano Sprint",
+        "Associadas a Pessoa",
+        "Voltar"
+    };
+
+    //exibe as possíveis ações a serem feitas com os projetos até que o usuário escolha sair.
+    while (!sair) {
+        //captura a opção desejada pelo usuário
+        int opcao = Tui::exibeMenu(win, "LISTAR HISTORIAS", opcoes);
+
+        switch (opcao) {
+            case 0:
+                listarAssociadasProjeto(win);
+                break;
+
+            case 1:
+                listarAssociadasPlanoSprint(win);
+                break;
+
+            case 2:
+                listarAssociadasPessoa(win);
+                break;
+
+            case 3:
+                sair = true;
+                break;
+
+            default:
+                break;
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::listarAssociadasPessoa(WINDOW* win) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PESSOA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Email: ");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strEmail[330];
+
+        wmove(win, 2, 12);
+        if (!Tui::lerEntradaTerminal(win, strEmail, 329, false)) {
+            return;
+        }
+
+        try {
+            Email emailLocal(strEmail);
+            std::vector<HistoriaDeUsuario> historiaDeUsuario;
+
+            bool encontrado = servicoBacklog->listarHistoriasAssociadasPessoa(emailLocal, historiaDeUsuario);
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado && !historiaDeUsuario.empty()) {
+                mvwprintw(win, 2, 5, "Email: %s", emailLocal.getValor().c_str());
+                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+
+                int linha = 5;
+
+                for (size_t i = 0; i < historiaDeUsuario.size(); i++) {
+                    mvwprintw(
+                        win,
+                        linha,
+                        7,
+                        "%zu - %s",
+                        i + 1,
+                        historiaDeUsuario[i].getCodigo().getValor().c_str()
+                    );
+
+                    linha++;
+                    //chegou no limite, cria uma nova janela
+                    if (linha >= 8) {
+                        mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
+                        wrefresh(win);
+                        wgetch(win);
+
+                        werase(win);
+                        box(win, 0, 0);
+
+                        wattron(win, COLOR_PAIR(1));
+                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        wattroff(win, COLOR_PAIR(1));
+
+                        linha = 2;
+                    }
+                }
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                sair = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                wattroff(win, COLOR_PAIR(2));
+
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::listarAssociadasPlanoSprint(WINDOW* win) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PLANO DE SPRINT ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo: ");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[330];
+
+        wmove(win, 2, 12);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 329, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            std::vector<HistoriaDeUsuario> historiaDeUsuario;
+
+            bool encontrado = servicoBacklog->listarHistoriasAssociadasPlanoSprint(codigoLocal, historiaDeUsuario);
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado && !historiaDeUsuario.empty()) {
+                mvwprintw(win, 2, 5, "Codigo: %s", codigoLocal.getValor().c_str());
+                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+
+                int linha = 5;
+
+                for (size_t i = 0; i < historiaDeUsuario.size(); i++) {
+                    mvwprintw(
+                        win,
+                        linha,
+                        7,
+                        "%zu - %s",
+                        i + 1,
+                        historiaDeUsuario[i].getCodigo().getValor().c_str()
+                    );
+
+                    linha++;
+                    //chegou no limite, cria uma nova janela
+                    if (linha >= 8) {
+                        mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
+                        wrefresh(win);
+                        wgetch(win);
+
+                        werase(win);
+                        box(win, 0, 0);
+
+                        wattron(win, COLOR_PAIR(1));
+                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        wattroff(win, COLOR_PAIR(1));
+
+                        linha = 2;
+                    }
+                }
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                sair = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                wattroff(win, COLOR_PAIR(2));
+
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PLANO DE SPRINT ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo: ");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[330];
+
+        wmove(win, 2, 12);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 329, false)) {
+            return;
+        }
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            std::vector<HistoriaDeUsuario> historiaDeUsuario;
+
+            bool encontrado = servicoBacklog->listarHistoriasAssociadasPlanoSprint(codigoLocal, historiaDeUsuario);
+
+            werase(win);
+            box(win, 0, 0);
+
+            wattron(win, COLOR_PAIR(1));
+            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            wattroff(win, COLOR_PAIR(1));
+
+            if (encontrado && !historiaDeUsuario.empty()) {
+                mvwprintw(win, 2, 5, "Codigo: %s", codigoLocal.getValor().c_str());
+                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+
+                int linha = 5;
+
+                for (size_t i = 0; i < historiaDeUsuario.size(); i++) {
+                    mvwprintw(
+                        win,
+                        linha,
+                        7,
+                        "%zu - %s",
+                        i + 1,
+                        historiaDeUsuario[i].getCodigo().getValor().c_str()
+                    );
+
+                    linha++;
+                    //chegou no limite, cria uma nova janela
+                    if (linha >= 8) {
+                        mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
+                        wrefresh(win);
+                        wgetch(win);
+
+                        werase(win);
+                        box(win, 0, 0);
+
+                        wattron(win, COLOR_PAIR(1));
+                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        wattroff(win, COLOR_PAIR(1));
+
+                        linha = 2;
+                    }
+                }
+
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Pressione qualquer tecla para voltar.");
+                wattroff(win, COLOR_PAIR(3));
+
+                wrefresh(win);
+                wgetch(win);
+
+                sair = true;
+            }
+            else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                wattroff(win, COLOR_PAIR(2));
+
+                wrefresh(win);
+                wgetch(win);
+            }
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
 void CrtlApresentacaoBacklog::excluirBacklog(WINDOW* win, const Email& emailLogado) {
     bool concluido = false;
 
@@ -494,8 +834,6 @@ void CrtlApresentacaoBacklog::excluirBacklog(WINDOW* win, const Email& emailLoga
         }
     }
 }
-
-
 
 WINDOW* CrtlApresentacaoBacklog::criarJanelaBacklog(int altura, int largura) {
     int startY = (LINES - altura) / 2;
