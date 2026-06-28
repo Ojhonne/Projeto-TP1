@@ -10,9 +10,13 @@
 #include "Tui/tui.hpp"
 #include <stdexcept>
 #include "Interfaces/interfaces.hpp"
+#include "Entidades/pessoa.hpp"
 #include <cstring>
+#include "iostream"
 
-// Incluído para podermos fazer o dynamic_cast para a classe concreta de cadastro
+#include "Containers/containerPessoa.hpp"
+
+// Incluï¿½do para podermos fazer o dynamic_cast para a classe concreta de cadastro
 #include "Controladoras/CrtlApresentacaoCadastro.hpp"
 
 void CrtlApresentacaoAcesso::executar() {
@@ -52,8 +56,8 @@ bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
             //this->logado = crtlLogin->executar(emailSessao);
-            this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
-            this->logado = true;
+        //  this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
+          //this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
             crtlCadastro->executar(emailSessao);
@@ -70,10 +74,10 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
         case MenuLogado::CadastroPessoas: {
             this->crtlCadastro->executar(emailSessao);
 
-            // Descobre com segurança se a conta foi excluída de fato lá dentro do módulo
+            // Descobre com seguranï¿½a se a conta foi excluï¿½da de fato lï¿½ dentro do mï¿½dulo
             auto cadastroEspecifico = dynamic_cast<CrtlApresentacaoCadastro*>(this->crtlCadastro);
             if (cadastroEspecifico && cadastroEspecifico->getContaFoiExcluida()) {
-                this->logado = false; // Só altera para deslogado se confirmou a exclusão
+                this->logado = false; // Sï¿½ altera para deslogado se confirmou a exclusï¿½o
             }
             return true;
         }
@@ -81,11 +85,11 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
             this-> crtlPlanejamento->executar(emailSessao);
             return true;
         case MenuLogado::Backlog:
-            // this->crtlBacklog->executar(emailSessao);
+            this->crtlBacklog->executar(emailSessao);
             return true;
         case MenuLogado::Logout:
             this->logado = false;
-            this->emailSessao = Email();//reseta o objeto Email para o estado padrão vazio
+            this->emailSessao = Email();//reseta o objeto Email para o estado padrï¿½o vazio
             return true;
         case MenuLogado::Sair:
             return false;
@@ -117,11 +121,16 @@ void CrtlApresentacaoAcesso::limparTela() {
 }
 
 void CrtlApresentacaoAcesso::desenharCabecalho() {
-    attron(COLOR_PAIR(5));
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailSessao);
+    ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada);
+
+    attron(COLOR_PAIR(5)); 
     mvprintw(0, 0, " Usuario logado: %s ", emailSessao.getValor().c_str());
+    mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
     attroff(COLOR_PAIR(5));
     refresh();
-}
+}   
 
 void CrtlApresentacaoAcesso::finalizaInterface() {
     delwin(win);

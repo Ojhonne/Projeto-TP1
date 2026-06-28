@@ -43,7 +43,7 @@ ContainerPessoa::ContainerPessoa() {
     sqlite3_close(db); // Fecha o banco de dados SQLite.
 }
 
-bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
+bool ContainerPessoa::lerPessoa(Pessoa& pessoa) {
     sqlite3* db; // ponteiro para o banco de dados SQLite.
     bool pessoaEncontrada{false}; // flag para indicar se a pessoa foi encontrada no banco de dados.
 
@@ -55,10 +55,10 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
 
         // Prepara a query
         if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) == SQLITE_OK) { // -1 avisa para o SQLite ler a string até encontrar o caractere nulo (\0) que marca o final dela.
-
-            // Pega o email que foi passado na entidade
-            std::string emailBusca = pessoa->getEmail().getValor();
-
+            
+            // Pega o email que foi passado na entidade 
+            std::string emailBusca = pessoa.getEmail().getValor();
+            
             // Vincula a string C++ no lugar da interrogação (?) na query SQL
             sqlite3_bind_text(stmt, 1, emailBusca.c_str(), -1, SQLITE_STATIC);
 
@@ -79,9 +79,9 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
                 papel.setValor(papelBd);
 
                 // Preenche a entidade Pessoa original recebida por ponteiro
-                pessoa->setNome(nome);
-                pessoa->setSenha(senha);
-                pessoa->setPapel(papel);
+                pessoa.setNome(nome);
+                pessoa.setSenha(senha);
+                pessoa.setPapel(papel);
 
                 pessoaEncontrada = true;
             }
@@ -94,8 +94,8 @@ bool ContainerPessoa::pesquisar(Pessoa* pessoa) {
     return pessoaEncontrada;
 }
 
-bool ContainerPessoa::incluir(Pessoa pessoa) {
-    sqlite3* db = nullptr;
+bool ContainerPessoa::criarPessoa( const Pessoa& pessoa) {
+    sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
@@ -122,8 +122,8 @@ bool ContainerPessoa::incluir(Pessoa pessoa) {
     return true;
 }
 
-bool ContainerPessoa::remover(Email email) {
-    sqlite3* db = nullptr;
+bool ContainerPessoa::excluirPessoa(const Email& email) {
+    sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);
@@ -144,8 +144,8 @@ bool ContainerPessoa::remover(Email email) {
     return true;
 }
 
-bool ContainerPessoa::atualizar(Pessoa pessoa) {
-    sqlite3* db = nullptr;
+bool ContainerPessoa::atualizarPessoa(const Pessoa& pessoa) {
+    sqlite3* db = nullptr; 
     sqlite3_stmt* stmt = nullptr;
 
     conectarBanco(db);

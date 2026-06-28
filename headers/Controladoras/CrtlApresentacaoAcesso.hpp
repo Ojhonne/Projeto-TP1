@@ -1,20 +1,32 @@
 /**
  * 
  * @file CrtlApresentacaoAcesso.hpp
- * @author João Francisco de Sousa Torres
+ * @author João Francisco de Sousa Torres 
  * @brief Definição da controladora da apresentação acesso(menu principal).
+ * @details Esta controladora é responsável por gerenciar a interação com o usuário no menu principal do sistema.
+ * Ela implementa a interface IApresentacaoAcesso e utiliza serviços de autenticação, 
+ * cadastro, planejamento e backlog para realizar operações relacionadas às entidades Pessoa, Projeto, PlanoDeSprint e HistoriaDeUsuario. A controladora captura os dados informados pelo usuário, instancia os domínios e entidades correspondentes, e encaminha as operações para a camada de serviço.
  */
 
 #ifndef CRTLAPRESENTACAOACESSO_HPP_INCLUDED
 #define CRTLAPRESENTACAOACESSO_HPP_INCLUDED
 
+#include "Dominios/dominios.hpp"
+
 class IApresentacaoLogin;
 class IApresentacaoCadastro;
 class IApresentacaoPlanejamento;
 class IApresentacaoBacklog;
-#include "Dominios/dominios.hpp"
 
+/**
+ * @enum MenuDeslogado
+ * @brief Representa as opções disponíveis no menu principal quando o usuário não está logado.
+ */
 enum class MenuDeslogado { Login = 0, Cadastro, Sair };
+/**
+ * @enum MenuLogado
+ * @brief Representa as opções disponíveis no menu principal quando o usuário está logado.
+ */
 enum class MenuLogado { CadastroPessoas = 0, Projetos, Backlog, Logout, Sair };
 
 /**

@@ -10,6 +10,7 @@
 #include <string>
 #include "Dominios/dominios.hpp"
 #include "Interfaces/interfaces.hpp"
+#include "Entidades/historiaDeUsuario.hpp"
 
 using namespace std;
 

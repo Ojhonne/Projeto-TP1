@@ -10,5 +10,3 @@ bool StubServicoAutenticacao::autenticarPessoa(const Email& email, const Senha& 
         return false;
     return true;
 }
-
-

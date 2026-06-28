@@ -9,7 +9,7 @@
 
 #include <vector>
 
-// Forward declarations.
+// Forward declarations das entidades e domínios.
 class Email;
 class Senha;
 class Codigo;
@@ -18,7 +18,13 @@ class Pessoa;
 class Projeto;
 class PlanoDeSprint;
 class HistoriaDeUsuario;
-// Interfaces da camada de apresentacao
+
+// Forward declarations das interfaces de serviço.
+class IServicoAutenticacao;
+class IServicoPessoa;
+class IServicoPlanejamento;
+class IServicoBacklog;
+
 /*
 Montei as interfaces no mesmo padrão, um método construtor default para cada interface. Além disso, cada uma delas possui
 um método de execução de telas, menus e leitura, as quais possuem como assinatura o endereço da conta em que os serviços serão providos
@@ -26,11 +32,9 @@ um método de execução de telas, menus e leitura, as quais possuem como assina
 irão devolver um boolean, indicando se a operação foi feita com sucesso.
 */
 
-class IServicoAutenticacao;
-class IServicoPessoa;
-class IServicoPlanejamento;
-class IServicoBacklog;
 
+
+// Interfaces da camada de apresentacao
 /**
  * @interface Esta interface é responsável por permitir que o usuario faça login usando
  *  o email como forma de autenticação.
@@ -228,7 +232,6 @@ public:
  * @interface Esta interface é responsável por fazer o link entre a interface
  * de apresentação de planejamento e o sistema.
  */
-
 class IServicoPlanejamento {
 public:
     /**
@@ -238,11 +241,11 @@ public:
 
     /**
      * @brief Cria um novo projeto no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Projeto contém os dados do projeto a ser criado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
-
-    virtual bool criarProjeto(const Projeto&) = 0;
+    virtual bool criarProjeto(const Email&, const Projeto&) = 0;
 
     /**
      * @brief Lê os dados de um projeto cadastrado no sistema.
@@ -250,33 +253,32 @@ public:
      * @param Projeto será preenchido com os dados do projeto encontrado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do projeto.
      */
-
     virtual bool lerProjeto(const Codigo&, Projeto&) = 0;
 
     /**
-     * @brief Atualiza os dados de um projeto cadastrado no sistema com base nos novos dados
-     * fornecidos pelo usuário.
+     * @brief Atualiza os dados de um projeto cadastrado no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Projeto contém os novos dados do projeto a serem persistidos.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
-
-    virtual bool atualizarProjeto(const Projeto&) = 0;
+    virtual bool atualizarProjeto(const Email&, const Projeto&) = 0;
 
     /**
      * @brief Exclui um projeto do sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Codigo é a chave utilizada para identificar o projeto a ser removido.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
-
-    virtual bool excluirProjeto(const Codigo&) = 0;
+    virtual bool excluirProjeto(const Email&, const Codigo&) = 0;
 
     /**
      * @brief Cria um novo plano de sprint no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
+     * @param Codigo é o código do projeto ao qual o plano de sprint será associado.
      * @param PlanoDeSprint contém os dados do plano de sprint a ser criado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
-
-    virtual bool criarPlanoSprint(const PlanoDeSprint&) = 0;
+    virtual bool criarPlanoSprint(const Email&, const Codigo&, const PlanoDeSprint&) = 0;
 
     /**
      * @brief Lê os dados de um plano de sprint cadastrado no sistema.
@@ -284,25 +286,23 @@ public:
      * @param PlanoDeSprint será preenchido com os dados do plano encontrado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do plano.
      */
-
     virtual bool lerPlanoSprint(const Codigo&, PlanoDeSprint&) = 0;
 
     /**
-     * @brief Atualiza os dados de um plano de sprint cadastrado no sistema com base nos novos dados
-     * fornecidos pelo usuário.
+     * @brief Atualiza os dados de um plano de sprint cadastrado no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param PlanoDeSprint contém os novos dados do plano a serem persistidos.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
-
-    virtual bool atualizarPlanoSprint(const PlanoDeSprint&) = 0;
+    virtual bool atualizarPlanoSprint(const Email&, const PlanoDeSprint&) = 0;
 
     /**
      * @brief Exclui um plano de sprint do sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Codigo é a chave utilizada para identificar o plano a ser removido.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
-
-    virtual bool excluirPlanoSprint(const Codigo&) = 0;
+    virtual bool excluirPlanoSprint(const Email&, const Codigo&) = 0;
 
     /**
      * @brief Lista os projetos associados a uma pessoa.
@@ -310,7 +310,6 @@ public:
      * @param std::vector<Projeto>& é o vetor que será preenchido com os projetos associados à pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados.
      */
-
     virtual bool listarProjetos(const Email&, std::vector<Projeto>&) = 0;
 
     /**
@@ -319,11 +318,8 @@ public:
      * @param std::vector<PlanoDeSprint>& é o vetor que será preenchido com os planos de sprint associados ao projeto.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de planos associados.
      */
-
-
     virtual bool listarPlanosSprint(const Codigo&, std::vector<PlanoDeSprint>&) = 0;
 };
-
 /**
  * @interface Esta interface é responsável por fazer o link entre a interface
  * de apresentação de backlog e o sistema.
@@ -339,10 +335,11 @@ public:
     /**
      * @brief Cria uma nova história de usuário no sistema.
      * @param HistoriaDeUsuario contém os dados da história a ser criada.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
 
-    virtual bool criarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+    virtual bool criarHistoriaUsuario(const HistoriaDeUsuario&,  const Email&) = 0;
 
     /**
      * @brief Lê os dados de uma história de usuário cadastrada no sistema.
@@ -357,36 +354,40 @@ public:
      * @brief Atualiza os dados de uma história de usuário cadastrada no sistema com base nos novos dados
      * fornecidos pelo usuário.
      * @param HistoriaDeUsuario contém os novos dados da história a serem persistidos.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
 
-    virtual bool atualizarHistoriaUsuario(const HistoriaDeUsuario&) = 0;
+    virtual bool atualizarHistoriaUsuario(const HistoriaDeUsuario&, const Email&) = 0;
 
     /**
      * @brief Exclui uma história de usuário do sistema.
      * @param Codigo é a chave utilizada para identificar a história a ser removida.
+     * * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
 
-    virtual bool excluirHistoriaUsuario(const Codigo&) = 0;
+    virtual bool excluirHistoriaUsuario(const Codigo&, const Email&) = 0;
 
     /**
      * @brief Associa uma história de usuário a uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da associação.
      */
 
-    virtual bool associarHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool associarHistoriaPessoa(const Codigo&, const Email&, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Remove a associação entre uma história de usuário e uma pessoa.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Email é a chave utilizada para identificar a pessoa.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da remoção.
      */
 
-    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email&) = 0;
+    virtual bool removerAssociacaoHistoriaPessoa(const Codigo&, const Email& emailAlvo, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Lista as histórias de usuário associadas a um projeto.
@@ -419,19 +420,21 @@ public:
      * @brief Move uma história de usuário de um projeto para um plano de sprint.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Codigo é a chave utilizada para identificar o plano de sprint de destino.
+     * @param Email é a chave utilizada para identificar o usuário logado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da operação.
      */
 
-    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint) = 0;
+    virtual bool moverHistoriaProjetoParaSprint(const Codigo& codigoHistoria, const Codigo& codigoSprint, const Email& usuarioLogado) = 0;
 
     /**
      * @brief Altera o estado de uma história de usuário.
      * @param Codigo é a chave utilizada para identificar a história.
      * @param Estado representa o novo estado da história.
+     * @param Email é a chave utilizada para identificar a pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da alteração.
      */
 
-    virtual bool alterarEstadoHistoria(const Codigo&, const Estado&) = 0;
+    virtual bool alterarEstadoHistoria(const Codigo&, const Estado&, const Email&) = 0;
 };
 
 #endif

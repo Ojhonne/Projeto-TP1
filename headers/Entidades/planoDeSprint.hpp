@@ -47,7 +47,7 @@ class PlanoDeSprint {
         * preenchimento por operações de leitura da camada de serviço.
         */
         PlanoDeSprint() = default;
-        
+
         /**
          * @brief Atribui um novo objetivo ao Plano de Sprint.
          * @param objetivo Referência constante para o objeto de domínio Texto.
