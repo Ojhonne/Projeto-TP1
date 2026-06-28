@@ -61,7 +61,7 @@
 1782326726 c:\users\usuario\documents\projetotp\projeto-tp1\headers\entidades\pessoa.hpp
 	"Dominios/dominios.hpp"
 
-1782547878 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\controladoras\crtlapresentacaoacesso.cpp
+1782624706 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\controladoras\crtlapresentacaoacesso.cpp
 	<curses.h>
 	<ncurses.h>
 	"Controladoras/CrtlApresentacaoAcesso.hpp"
@@ -69,6 +69,7 @@
 	<stdexcept>
 	"Interfaces/interfaces.hpp"
 	<cstring>
+	"Controladoras/CrtlApresentacaoCadastro.hpp"
 
 1782326726 c:\users\usuario\documents\projetotp\projeto-tp1\headers\controladoras\crtlapresentacaoacesso.hpp
 	"Dominios/dominios.hpp"
@@ -443,11 +444,11 @@
 	"Stubs/stubPlanejamento.hpp"
 	"Stubs/stubCadastro.hpp"
 
-1782535106 c:\users\usuario\documents\projetotp\projeto-tp1\headers\controladoras\crtlapresentacaocadastro.hpp
-	"Dominios/dominios.hpp"
-	"Interfaces/interfaces.hpp"
+1782623772 c:\users\usuario\documents\projetotp\projeto-tp1\headers\controladoras\crtlapresentacaocadastro.hpp
 	<curses.h>
 	<ncurses.h>
+	"Interfaces/interfaces.hpp"
+	"Dominios/dominios.hpp"
 
 1782546439 c:\users\usuario\documents\projetotp\projeto-tp1\headers\stubs\stubcadastro.hpp
 	"Interfaces/interfaces.hpp"
@@ -455,7 +456,7 @@
 	"Entidades/pessoa.hpp"
 	<vector>
 
-1782550093 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\controladoras\crtlapresentacaocadastro.cpp
+1782623935 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\controladoras\crtlapresentacaocadastro.cpp
 	"Controladoras/CrtlApresentacaoCadastro.hpp"
 	"Tui/tui.hpp"
 	"Entidades/pessoa.hpp"
@@ -474,7 +475,7 @@
 
 1782530037 c:\users\usuario\documents\projetotp\projeto-tp1\headers\acs437.h
 
-1782552840 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\stubs\stubcadastro.cpp
+1782619533 source:c:\users\usuario\documents\projetotp\projeto-tp1\source\stubs\stubcadastro.cpp
 	"Stubs/stubCadastro.hpp"
 	"Dominios/dominios.hpp"
 	"Entidades/pessoa.hpp"

@@ -1,42 +1,41 @@
-#ifndef CRTLAPRESENTACOACADASTRO_H_INCLUDED
-#define CRTLAPRESENTACOACADASTRO_H_INCLUDED
-
-#include "Dominios/dominios.hpp"
-#include "Interfaces/interfaces.hpp"
+#ifndef CRTL_APRESENTACAO_CADASTRO_HPP
+#define CRTL_APRESENTACAO_CADASTRO_HPP
 
 #ifdef _WIN32
     #include <curses.h>
-#else
+#elif __linux__
     #include <ncurses.h>
 #endif
 
+#include "Interfaces/interfaces.hpp"
+#include "Dominios/dominios.hpp"
+
 class CrtlApresentacaoCadastro : public IApresentacaoCadastro {
 private:
-    IServicoPessoa *servicoPessoa; // Ponteiro para a camada de serviço/stub [cite: 459]
+    IServicoPessoa* servicoPessoa;
+    bool contaFoiExcluida; // <-- ADICIONADO: Flag de controle interno
 
-    // Métodos auxiliares gráficos baseados no padrão visual do grupo
     WINDOW* criarJanelaCadastro();
     void desenharLayout(WINDOW* win, const char* titulo);
     bool capturarCampos(WINDOW* win, char* emailStr, char* senhaStr, char* nomeStr, char* papelStr);
-    void exibirErro(WINDOW* win, const char* mensagem);
-    void exibirSucesso(WINDOW* win, const char* mensagem);
+    void exibirErro(WINDOW* win, const char* mensaje);
+    void exibirSucesso(WINDOW* win, const char* mensaje);
 
     void cadastrarInexistente();
     void atualizarExistente(const Email& emailSessao);
-    void excluirExistente(const Email& emailSessao);
+    bool excluirExistente(const Email& emailSessao); // <-- Retorna bool localmente
 
 public:
-    virtual ~CrtlApresentacaoCadastro() = default;
+    CrtlApresentacaoCadastro() : servicoPessoa(nullptr), contaFoiExcluida(false) {}
 
+    void executar(const Email& emailSessao) override;
 
+    // <-- ADICIONADO: Método para a Controladora de Acesso checar o que aconteceu
+    bool getContaFoiExcluida() const { return contaFoiExcluida; }
 
-    void executar(const Email&) override;
-
-    void setCtrlServicoPessoa(IServicoPessoa*) override;
+    void setCtrlServicoPessoa(IServicoPessoa* servico) override {
+        this->servicoPessoa = servico;
+    }
 };
 
-inline void CrtlApresentacaoCadastro::setCtrlServicoPessoa(IServicoPessoa* servicoPessoa) {
-    this->servicoPessoa = servicoPessoa;
-}
-
-#endif // CRTLAPRESENTACOACADASTRO_H_INCLUDED
+#endif

@@ -6,9 +6,10 @@
 #include <vector>
 
 void CrtlApresentacaoCadastro::executar(const Email& emailSessao) {
-
+    this->contaFoiExcluida = false; // Reseta a flag ao entrar no módulo
     clear();
     refresh();
+
     // Se o email estiver vazio, executa fluxo de cadastro (Não Logado)
     if (emailSessao.getValor().empty()) {
         cadastrarInexistente();
@@ -28,8 +29,12 @@ void CrtlApresentacaoCadastro::executar(const Email& emailSessao) {
         if (escolha == 0) {
             atualizarExistente(emailSessao);
         } else if (escolha == 1) {
-            excluirExistente(emailSessao);
-            break;
+            // Se o usuário confirmou a exclusão lá dentro:
+            if (excluirExistente(emailSessao)) {
+                this->contaFoiExcluida = true; // Ativa o gatilho para a classe de Acesso
+                break; // Sai do menu de gerenciamento e encerra o método
+            }
+            // Se retornou false (cancelou), o 'break' não roda e o loop continua na tela "GERENCIAR CONTA"
         } else {
             break;
         }
@@ -44,7 +49,7 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
 
     while (true) {
         desenharLayout(win, " CADASTRO SISTEMA ");
-        touchwin(win); // <--- Diz ao Windows: "Essa janela agora manda na tela, atualize-a!"
+        touchwin(win);
         wrefresh(win);
 
         if (!capturarCampos(win, emailStr, senhaStr, nomeStr, papelStr)) {
@@ -55,26 +60,22 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
         wrefresh(win);
 
         try {
-            // 1. Validação de Formatos via Domínios
             std::string strEmail(emailStr);
             std::string strSenha(senhaStr);
             std::string strNome(nomeStr);
             std::string strPapel(papelStr);
 
-            // 1. Validação de Formatos via Domínios (passando as variáveis estáveis)
             Email emailLocal(strEmail);
             Senha senhaLocal(strSenha);
             Nome nomeLocal(strNome);
             Papel papelLocal(strPapel);
 
-            // 2. Criação da Entidade Pessoa
             Pessoa pessoaNova;
             pessoaNova.setEmail(emailLocal);
             pessoaNova.setSenha(senhaLocal);
             pessoaNova.setNome(nomeLocal);
             pessoaNova.setPapel(papelLocal);
 
-            // 3. Comunicação com a Camada de Serviço (Stub)
             if (servicoPessoa->criarPessoa(pessoaNova)) {
                 exibirSucesso(win, "Sucesso! Cadastro efetuado.");
                 break;
@@ -105,13 +106,11 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
         wrefresh(win);
 
         try {
-           // 1. Criamos objetos estáveis (lvalues) na memória para cada campo
             std::string strEmail(emailStr);
             std::string strSenha(senhaStr);
             std::string strNome(nomeStr);
             std::string strPapel(papelStr);
 
-            // 2. Passamos as strings estáveis para os construtores de Domínio
             Email emailLocal(strEmail);
             Senha senhaLocal(strSenha);
             Nome nomeLocal(strNome);
@@ -138,7 +137,7 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
     delwin(win);
 }
 
-void CrtlApresentacaoCadastro::excluirExistente(const Email& emailSessao) {
+bool CrtlApresentacaoCadastro::excluirExistente(const Email& emailSessao) {
     WINDOW* win = criarJanelaCadastro();
     werase(win);
     box(win, 0, 0);
@@ -148,19 +147,33 @@ void CrtlApresentacaoCadastro::excluirExistente(const Email& emailSessao) {
     wattroff(win, COLOR_PAIR(2));
 
     mvwprintw(win, 5, 4, "Conta alvo: %s", emailSessao.getValor().c_str());
-    mvwprintw(win, 8, 2, "Pressione qualquer tecla para CONFIRMAR...");
+    mvwprintw(win, 7, 4, "Deseja realmente excluir a conta?");
+    mvwprintw(win, 9, 4, "[S] - Confirmar Exclusao");
+    mvwprintw(win, 10, 4, "[Qualquer outra tecla] - Cancelar e Voltar");
     wrefresh(win);
 
-    wgetch(win);
+    int ch = wgetch(win);
 
-    // Envia o comando de exclusão para o stub validar
-    if (servicoPessoa->excluirPessoa(emailSessao)) {
-        exibirSucesso(win, "Conta deletada do sistema!");
+    if (ch == 'S' || ch == 's') {
+        if (servicoPessoa->excluirPessoa(emailSessao)) {
+            exibirSucesso(win, "Conta deletada do sistema!");
+            delwin(win);
+            return true; // Confirmou e deletou com sucesso
+        } else {
+            exibirErro(win, "Erro: Falha ao deletar conta.");
+            delwin(win);
+            return false;
+        }
     } else {
-        exibirErro(win, "Erro: Falha ao deletar conta.");
-    }
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 11, 2, "Exclusao cancelada pelo usuario.");
+        wattroff(win, COLOR_PAIR(1));
+        wrefresh(win);
+        napms(1200);
 
-    delwin(win);
+        delwin(win);
+        return false; // Cancelou a operação, retorna falso para manter o menu
+    }
 }
 
 WINDOW* CrtlApresentacaoCadastro::criarJanelaCadastro() {

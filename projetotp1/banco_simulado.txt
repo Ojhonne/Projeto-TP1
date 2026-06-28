@@ -45,3 +45,33 @@ Email: fere@gmail.com
 Nome:  Gugu fa
 -------------------------------
 
+[REGISTRO] Conta simulada excluida: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Dados atualizados para o Email: fere@gmail.com
+Novo Nome:  Pe Ge
+Nova Senha: V8s9W3
+-----------------------------------------
+
+--- NOVO CADASTRO VALIDADO ---
+Email: zazaz@gmail.com
+Nome:  Mama mia
+-------------------------------
+
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+[REGISTRO] Dados atualizados para o Email: ababs@gmail.com
+Novo Nome:  Mams di
+Nova Senha: P2q1R2
+-----------------------------------------
+
+[REGISTRO] Conta excluida para o Email: joao@teste.com
+--- NOVO CADASTRO VALIDADO ---
+Email: jiji@gmail.com
+Nome:  Mamu La
+Papel: DESENVOLVEDOR
+-------------------------------
+

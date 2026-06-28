@@ -1,4 +1,3 @@
-
 #ifdef _WIN32
     #include <curses.h>
 #elif __linux__
@@ -13,7 +12,8 @@
 #include "Interfaces/interfaces.hpp"
 #include <cstring>
 
-
+// Incluído para podermos fazer o dynamic_cast para a classe concreta de cadastro
+#include "Controladoras/CrtlApresentacaoCadastro.hpp"
 
 void CrtlApresentacaoAcesso::executar() {
     inicializarInterface();
@@ -67,9 +67,16 @@ bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
 
 bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
     switch (static_cast<MenuLogado>(escolha)) {
-        case MenuLogado::CadastroPessoas:
+        case MenuLogado::CadastroPessoas: {
             this->crtlCadastro->executar(emailSessao);
+
+            // Descobre com segurança se a conta foi excluída de fato lá dentro do módulo
+            auto cadastroEspecifico = dynamic_cast<CrtlApresentacaoCadastro*>(this->crtlCadastro);
+            if (cadastroEspecifico && cadastroEspecifico->getContaFoiExcluida()) {
+                this->logado = false; // Só altera para deslogado se confirmou a exclusão
+            }
             return true;
+        }
         case MenuLogado::Projetos:
             this-> crtlPlanejamento->executar(emailSessao);
             return true;
@@ -78,6 +85,7 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
             return true;
         case MenuLogado::Logout:
             this->logado = false;
+            this->emailSessao = Email();//reseta o objeto Email para o estado padrão vazio
             return true;
         case MenuLogado::Sair:
             return false;
@@ -88,10 +96,8 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
 
 void CrtlApresentacaoAcesso::inicializarInterface() {
     Tui::inicializarTerminal(); // inicia com a janela
-
     criarJanelaMenu(); // cria janela
 }
-
 
 void CrtlApresentacaoAcesso::criarJanelaMenu() {
     int altura{10}, largura{50};
