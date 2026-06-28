@@ -37,6 +37,7 @@
 class CrtlApresentacaoPlanejamento : public IApresentacaoPlanejamento {
 private:
     IServicoPlanejamento *servicoPlanejamento;
+    IServicoPessoa* servicoPessoa;
     WINDOW *win;
 
     void desenharCabecalho(const Email&);
@@ -82,12 +83,19 @@ public:
      * IServicoPlanejamento.
      */
     void setCtrlServicoPlanejamento(IServicoPlanejamento *servicoPlanejamento) override;
+        /**
+     * @brief Define qual serviço gerencia as operações relacionadas à entidade Pessoa.
+     */
+    void setServicoPessoa(IServicoPessoa* servico);
 };
 
 inline void CrtlApresentacaoPlanejamento::setCtrlServicoPlanejamento(
     IServicoPlanejamento *servicoPlanejamento
 ) {
     this->servicoPlanejamento = servicoPlanejamento;
+}
+inline void CrtlApresentacaoPlanejamento::setServicoPessoa(IServicoPessoa* servico){
+    this->servicoPessoa = servico;
 }
 
 #endif

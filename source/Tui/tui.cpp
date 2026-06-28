@@ -19,6 +19,7 @@ namespace Tui {
         init_pair(3, COLOR_GREEN, COLOR_BLACK); // Sucesso
         init_pair(4, COLOR_WHITE, COLOR_CYAN);  // Fundo
         init_pair(5, COLOR_BLUE, COLOR_BLACK);  // Usuário logado
+        init_pair(6, COLOR_CYAN, COLOR_BLACK);
         
        // bkgd(COLOR_PAIR(4)); // pinta todo terminal 
        // refresh(); // Atualiza a tela 

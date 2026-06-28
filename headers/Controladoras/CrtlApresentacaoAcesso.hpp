@@ -17,6 +17,7 @@ class IApresentacaoLogin;
 class IApresentacaoCadastro;
 class IApresentacaoPlanejamento;
 class IApresentacaoBacklog;
+class IServicoPessoa;
 
 /**
  * @enum MenuDeslogado
@@ -42,6 +43,8 @@ class CrtlApresentacaoAcesso {
         IApresentacaoCadastro* crtlCadastro; 
         IApresentacaoPlanejamento* crtlPlanejamento;
         IApresentacaoBacklog* crtlBacklog;
+
+        IServicoPessoa* servicoPessoa;
 
         Email emailSessao; 
         bool logado{false};
@@ -86,6 +89,10 @@ class CrtlApresentacaoAcesso {
          * @brief Define qual controladora gerencia o Backlog.
          */
         void setCtrlBacklog(IApresentacaoBacklog*) ;
+        /**
+         * @brief Define qual serviço gerencia as operações relacionadas à entidade Pessoa.
+         */
+        void setServicoPessoa(IServicoPessoa* servico);
 };
 inline void CrtlApresentacaoAcesso::setCtrlLogin(IApresentacaoLogin* crtlLogin) {
     this->crtlLogin = crtlLogin;
@@ -98,6 +105,9 @@ inline void CrtlApresentacaoAcesso::setCtrlPlanejamento(IApresentacaoPlanejament
 }
 inline void CrtlApresentacaoAcesso::setCtrlBacklog(IApresentacaoBacklog* crtlBacklog) {
     this->crtlBacklog = crtlBacklog;
+}
+inline void CrtlApresentacaoAcesso::setServicoPessoa(IServicoPessoa* servico) {
+        this->servicoPessoa = servico;
 }
 
 #endif // CRTLAPRESENTACAOACESSO_HPP_INCLUDED

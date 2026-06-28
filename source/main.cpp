@@ -117,6 +117,10 @@ int main(void){
     crtlApresentacaoAcesso->setCtrlCadastro(crtlApresentacaoCadastro);
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
+
+    crtlApresentacaoAcesso->setServicoPessoa(servicoPessoa);
+    //crtlApresentacaoPlanejamento->
+    ///crtlApresentacaoBacklog->setServicoPessoa(servicoPessoa);
   
     // Interligando apresentações e seus respectivos serviços
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);

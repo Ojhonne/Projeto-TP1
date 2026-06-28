@@ -480,7 +480,7 @@ inline Texto::Texto(const std::string& texto){
  * @brief Representa uma data válida no formato D/MM/AAAA ou DD/MM/AAAA.
  *
  * @details A classe Data herda as operações da classe abstrata Dominio e gerencia
- * valores cronológicos compreendidos entre os anos de 2000 e 2099.
+ * valores cronológicos compreendidos entre os anos de 2000 e 2999.
  * Ela encapsula regras de validação para dias, meses, anos (incluindo anos bissextos)
  * e impede formatos inconsistentes (como dias iniciados em zero '01/' e meses que nao estao no formato 'MM').
  */
@@ -490,7 +490,7 @@ class Data : public Dominio{
        static const int MIN_DIA = 1;
        static const int MAX_MES = 12;
        static const int  MIN_MES = 1;
-       static const int MAX_ANO = 2099;
+       static const int MAX_ANO = 2999;
        static const int MIN_ANO = 2000;
        void validar(const std::string& str);
        void extrair(std::string str, int&, int&, int&);
