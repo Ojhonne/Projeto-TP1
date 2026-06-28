@@ -92,12 +92,14 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         mvwprintw(win, 8, 5, "Valor: ");
         mvwprintw(win, 12, 5, "Estimativa: ");
         mvwprintw(win, 13, 5, "Prioridade: ");
+        mvwprintw(win, 14, 5, "Codigo do Projeto: ");
         mvwprintw(win, 16, 2, "Pressione ESC para cancelar e sair");
 
         wrefresh(win);
 
         //inicializa as variáveis que serão capturadas do usuário
         char strCodigo[10];
+        char strCodigoProjeto[10];
         char strTitulo[15];
         char strPapel[15];
         char strAcao[30];
@@ -140,6 +142,10 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         if (!Tui::lerEntradaTerminal(win, strPrioridade, 10, false)) {
             return;
         }
+        wmove(win, 14, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigoProjeto, 9, false)) {
+            return;
+        }
 
         Estado estadoInicial;
         estadoInicial.setValor("A FAZER"); // formato exigido para o estado inicial de uma história de usuário
@@ -150,6 +156,7 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         // a exceção é capturada e a operação é repetida.
         try {
             Codigo codigoLocal(strCodigo);
+            Codigo codigoProjeto(strCodigoProjeto);
             Texto tituloLocal(strTitulo);
             Texto papelLocal(strPapel);
             Texto acaoLocal(strAcao);
@@ -159,8 +166,6 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             Prioridade prioridadeLocal;
             prioridadeLocal.setValor(strPrioridade);
 
-            //Email enviar;
-            //enviar.setValor("joao@teste.com"); // simulando um teste
 
             HistoriaDeUsuario historiaLocal;
 
@@ -172,14 +177,13 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             historiaLocal.setEstimativa(estimativaLocal);
             historiaLocal.setPrioridade(prioridadeLocal);
             historiaLocal.setEstado(estadoInicial);
-            historiaLocal.setCodigoProjeto(codigoLocal); // trocar por um input devido
-            //historiaLocal.setEmailPessoa(enviar);
+            historiaLocal.setCodigoProjeto(codigoProjeto); // trocar por um input devido
 
             valido = servicoBacklog->criarHistoriaUsuario(historiaLocal, emailLogado);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 14, 2, "Historia criada com sucesso!");
+                mvwprintw(win, 15, 2, "Historia criada com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
@@ -187,14 +191,14 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             }
 
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 14, 2, "Erro: historia nao foi criada.");
+            mvwprintw(win, 15, 2, "Erro: historia nao foi criada.");
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 14, 2, "Erro: %s", e.what());
+            mvwprintw(win, 15, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
