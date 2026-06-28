@@ -251,13 +251,13 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Projeto criado com sucesso!");
+                mvwprintw(win, 7, 2, "Projeto criado com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
             } else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Erro: projeto nao foi criado.");
+                mvwprintw(win, 7, 2, "Erro: projeto nao foi criado.");
                 wattroff(win, COLOR_PAIR(2));
                 wrefresh(win);
                 wgetch(win);
@@ -265,7 +265,7 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
@@ -339,7 +339,7 @@ void CrtlApresentacaoPlanejamento::lerProjeto() {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
@@ -416,13 +416,13 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto(const Email& emailLogado) {
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Projeto atualizado com sucesso!");
+                mvwprintw(win, 7, 2, "Projeto atualizado com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
             } else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Erro: projeto nao foi atualizado.");
+                mvwprintw(win, 7, 2, "Erro: projeto nao foi atualizado.");
                 wattroff(win, COLOR_PAIR(2));
                 wrefresh(win);
                 wgetch(win);
@@ -430,7 +430,7 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto(const Email& emailLogado) {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
@@ -492,7 +492,7 @@ void CrtlApresentacaoPlanejamento::excluirProjeto(const Email& emailLogado) {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -592,7 +592,7 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -687,7 +687,7 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint(const Email& emailLogado) {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -769,7 +769,7 @@ void CrtlApresentacaoPlanejamento::lerPlanoSprint() {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -836,11 +836,11 @@ void CrtlApresentacaoPlanejamento::atualizarPlanoSprint(const Email& emailLogado
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Plano atualizado com sucesso!");
+                mvwprintw(win, 7, 2, "Plano atualizado com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
             } else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Erro: plano nao foi atualizado.");
+                mvwprintw(win, 7, 2, "Erro: plano nao foi atualizado.");
                 wattroff(win, COLOR_PAIR(2));
             }
 
@@ -849,7 +849,7 @@ void CrtlApresentacaoPlanejamento::atualizarPlanoSprint(const Email& emailLogado
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -894,7 +894,7 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint(const Email& emailLogado) 
 
             if (sucesso) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2,
+                mvwprintw(win, 7, 2,
                     "Plano excluido com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
 
@@ -902,7 +902,7 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint(const Email& emailLogado) 
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2,
+                mvwprintw(win, 7, 2,
                     "Plano nao encontrado.");
                 wattroff(win, COLOR_PAIR(2));
             }
@@ -912,7 +912,7 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint(const Email& emailLogado) 
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2,
+            mvwprintw(win, 7, 2,
                 "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
@@ -1007,7 +1007,7 @@ void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Nenhum plano encontrado. Pressione tecla.");
+                mvwprintw(win, 7, 2, "Nenhum plano encontrado. Pressione tecla.");
                 wattroff(win, COLOR_PAIR(2));
 
                 wrefresh(win);
@@ -1016,7 +1016,7 @@ void CrtlApresentacaoPlanejamento::listarPlanosSprint() {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 7, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);

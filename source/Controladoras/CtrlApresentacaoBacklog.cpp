@@ -183,7 +183,7 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Historia criada com sucesso!");
+                mvwprintw(win, 14, 2, "Historia criada com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
@@ -191,14 +191,14 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             }
 
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: historia nao foi criada.");
+            mvwprintw(win, 14, 2, "Erro: historia nao foi criada.");
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 14, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
@@ -413,13 +413,13 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Historia atualizada com sucesso!");
+                mvwprintw(win, 14, 2, "Historia atualizada com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
             } else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Erro: Historia nao foi atualizada.");
+                mvwprintw(win, 14, 2, "Erro: Historia nao foi atualizada.");
                 wattroff(win, COLOR_PAIR(2));
                 wrefresh(win);
                 wgetch(win);
@@ -427,7 +427,7 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            mvwprintw(win, 14, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
