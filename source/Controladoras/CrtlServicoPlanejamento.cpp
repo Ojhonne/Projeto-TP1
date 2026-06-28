@@ -13,18 +13,27 @@
 #include <stdexcept>
 #include <iostream>
 
-bool CrtlServicoPlanejamento::criarProjeto(const Email& email, const Projeto& projeto) {
+bool CrtlServicoPlanejamento::criarProjeto(const Email& emailPO, const Email& emailSM, const Projeto& projeto){
     try {
-        Pessoa pessoaVerificacao;
-        pessoaVerificacao.setEmail(email);
+        Pessoa pessoaPO;
+        pessoaPO.setEmail(emailPO);
 
-        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaVerificacao))
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaPO))
             return false;
 
-        if (pessoaVerificacao.getPapel().getValor() != DONO)
+        if (pessoaPO.getPapel().getValor() != DONO)
             return false;
 
-        return ContainerProjeto::getInstancia()->criarProjeto(email, projeto);
+        Pessoa pessoaSM;
+        pessoaSM.setEmail(emailSM);
+
+        if (!ContainerPessoa::getInstancia()->lerPessoa(pessoaSM))
+            return false; 
+
+        if (pessoaSM.getPapel().getValor() != MESTRE)
+            return false; 
+            
+        return ContainerProjeto::getInstancia()->criarProjeto(emailSM, emailPO, projeto);
     }
     catch (const std::runtime_error& e) {
         std::cerr << "[Falha no MS-PLANEJAMENTO] Erro de persistência: " << e.what() << std::endl;

@@ -27,6 +27,9 @@
 class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
     private:
         IServicoBacklog *servicoBacklog;  // Referência para servidor.
+
+        IServicoPessoa* servicoPessoa; 
+        
         WINDOW* win;
         WINDOW* criarJanelaBacklog(int altura, int largura);
         void desenharCabecalho(const Email&);
@@ -38,6 +41,10 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
         void lerBacklog(WINDOW* win);
         void atualizarBacklog(WINDOW* win, const Email& emailLogado);
         void excluirBacklog(WINDOW* win, const Email& emailLogado);
+        void listarAssociadasPessoa(WINDOW* win);
+        void listarAssociadasPlanoSprint(WINDOW* win);
+        void listarAssociadasProjeto(WINDOW* win);
+        void menuListar(WINDOW* win);
 
     public:
         /**
@@ -55,10 +62,19 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
          * @param servicoBacklog é um ponteiro para o serviço de backlog.
          */
         void setCtrlServicoBacklog(IServicoBacklog*) override;
+        /**
+         * @brief Define o serviço de pessoa a ser utilizado pela controladora.
+         * @param servicoPessoa é um ponteiro para o serviço de pessoa.
+         */
+        void setServicoPessoa(IServicoPessoa*) ;
 };
 
 inline void CrtlApresentacaoBacklog::setCtrlServicoBacklog(IServicoBacklog* servicoBacklog){
     this->servicoBacklog = servicoBacklog;
+}
+
+inline void CrtlApresentacaoBacklog::setServicoPessoa(IServicoPessoa* servicoPessoa){
+    this->servicoPessoa = servicoPessoa;
 }
 
 #endif // CRTLAPRESENTACAOBACKLOG_H_INCLUDED

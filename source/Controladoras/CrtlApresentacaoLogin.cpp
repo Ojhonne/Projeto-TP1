@@ -16,7 +16,7 @@ bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
     WINDOW* win = criarJanelaLogin();
     
     bool autenticado{false};
-    char emailStr[80], senhaStr[30]; // tamanho do buffer para capturar
+    char emailStr[255], senhaStr[10]; // tamanho do buffer para capturar
 
     while (!autenticado) {
         desenharLayout(win);
@@ -54,7 +54,7 @@ bool CrtlApresentacaoLogin::executar(Email& emailLogado) {
 
 
 WINDOW* CrtlApresentacaoLogin::criarJanelaLogin() {
-    int altura = 10, largura = 50;
+    int altura{10}, largura{55};
     int startY = (LINES - altura) / 2;
     int startX = (COLS - largura) / 2;
 
@@ -73,20 +73,20 @@ void CrtlApresentacaoLogin::desenharLayout(WINDOW* win) {
     mvwprintw(win, 0, (50 - 17) / 2, " LOGIN SISTEMA "); // 50 é a largura fixa
     wattroff(win, COLOR_PAIR(1));
 
-    mvwprintw(win, 3, 5, "Email: ");
+    mvwprintw(win, 2, 5, "Email: ");
     mvwprintw(win, 5, 5, "Senha: ");
     mvwprintw(win, 8, 2, "(Pressione ESC para cancelar e sair)");
     wrefresh(win);
 }
 
 bool CrtlApresentacaoLogin::capturarCredenciais(WINDOW* win, char* emailStr, char* senhaStr) {
-    wmove(win, 3, 13);
+    wmove(win, 2, 13);
     wrefresh(win);
-    if (!Tui::lerEntradaTerminal(win, emailStr, 79, false)) return false;
+    if (!Tui::lerEntradaTerminal(win, emailStr, 254, false)) return false;
 
     wmove(win, 5, 13); // move o campo para digitar
     wrefresh(win); // atualiza
-    if (!Tui::lerEntradaTerminal(win, senhaStr, 29, true)) return false;
+    if (!Tui::lerEntradaTerminal(win, senhaStr, 9, true)) return false;
 
     return true;
 }
