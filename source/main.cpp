@@ -49,7 +49,15 @@
 using namespace std;
 
 int main(void){
-
+    try {
+        ContainerPessoa::getInstancia();
+        ContainerProjeto::getInstancia();
+        ContainerPlanoSprint::getInstancia();
+        ContainerBacklog::getInstancia();
+    } catch (const exception& e) {
+        cout << "[MAIN] Erro critico ao estruturar o banco de dados: " << e.what() << endl;
+        return 1; // Aborta o programa se o banco não puder ser criado
+    }
     // Populando o banco de dados 
     try {
         Email emailTeste;  emailTeste.setValor("joaof1@teste.com");
@@ -117,7 +125,11 @@ int main(void){
     crtlApresentacaoAcesso->setCtrlCadastro(crtlApresentacaoCadastro);
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
-  
+
+    crtlApresentacaoAcesso->setServicoPessoa(servicoPessoa);
+    crtlApresentacaoPlanejamento->setServicoPessoa(servicoPessoa);
+    crtlApresentacaoBacklog->setServicoPessoa(servicoPessoa);
+
     // Interligando apresentações e seus respectivos serviços
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
     crtlApresentacaoCadastro->setCtrlServicoPessoa(servicoPessoa);

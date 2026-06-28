@@ -50,7 +50,7 @@ public:
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      * @throws Pode capturar exceções vindas do repositório.
      */
-    bool criarProjeto(const Email&, const Projeto&) override;
+    bool criarProjeto(const Email& emailSM, const Email& emailPO, const Projeto& projeto)  override;
 
     /**
      * @brief Lê os dados de um projeto cadastrado no sistema.

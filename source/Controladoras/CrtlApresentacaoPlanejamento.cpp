@@ -7,7 +7,6 @@
 #endif
 
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
-#include "Containers/containerPessoa.hpp"
 #include "Entidades/pessoa.hpp"
 #include "Tui/tui.hpp"
 #include <stdexcept>
@@ -26,6 +25,7 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
     init_pair(2, COLOR_RED, COLOR_BLACK);
     init_pair(3, COLOR_GREEN, COLOR_BLACK);
     init_pair(5, COLOR_CYAN, COLOR_BLACK);
+    init_pair(6, COLOR_BLUE, COLOR_BLACK);
 
     int altura = 10;
     int largura = 50;
@@ -247,7 +247,7 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
             projetoLocal.setInicio(dataInicioLocal);
             projetoLocal.setTermino(dataFimLocal);
 
-            valido = servicoPlanejamento->criarProjeto(emailLogado, projetoLocal);
+            valido = servicoPlanejamento->criarProjeto(emailLogado, emailLogado, projetoLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
@@ -1029,8 +1029,9 @@ void CrtlApresentacaoPlanejamento::desenharCabecalho(const Email& emailLogado) {
     //Variaveis para o cabeçalho
     Pessoa pessoaLogada;
     pessoaLogada.setEmail(emailLogado);
-    ContainerPessoa::getInstancia()->lerPessoa(pessoaLogada); // tenta se comunicar com banco
-
+    if (this->servicoPessoa != nullptr) {
+        this->servicoPessoa->lerPessoa(emailLogado, pessoaLogada); 
+    }
     attron(COLOR_PAIR(5)); 
     mvprintw(0, 0, " Usuario logado: %s ", emailLogado.getValor().c_str());
     mvprintw(1, 0, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());

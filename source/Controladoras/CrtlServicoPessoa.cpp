@@ -22,7 +22,7 @@ bool CrtlServicoPessoa::lerPessoa(const Email& chaveID, Pessoa& armazenaPessoa) 
         return ContainerPessoa::getInstancia()->lerPessoa(armazenaPessoa);
 
     } catch (const std::runtime_error& e) {
-        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: "
+        std::cerr << "[Falha no MS-PESSOA] Erro de persistência: "
                   << e.what() << std::endl;
         return false;
     }
@@ -33,7 +33,7 @@ bool CrtlServicoPessoa::atualizarPessoa(const Pessoa& pessoaAtualizada) {
         return ContainerPessoa::getInstancia()->atualizarPessoa(pessoaAtualizada);
     }
     catch(const std::runtime_error& e){
-        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: "
+        std::cerr << "[Falha no MS-PESSOA] Erro de persistência: "
                   << e.what() << std::endl;
         return false;
     }
@@ -44,7 +44,7 @@ bool CrtlServicoPessoa::excluirPessoa(const Email& email) {
         return ContainerPessoa::getInstancia()->excluirPessoa(email);
     }
     catch (const std::runtime_error& e) {
-        std::cerr << "[Falha no MS-BACKLOG] Erro de persistência: "
+        std::cerr << "[Falha no MS-PESSOA] Erro de persistência: "
                   << e.what() << std::endl;
         return false;
     }

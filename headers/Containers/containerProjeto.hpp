@@ -47,7 +47,7 @@ public:
      * @param Projeto Entidade contendo os dados do projeto a ser criado.
      * @return true se a criação for bem-sucedida, false caso contrário.
      */
-    bool criarProjeto(const Email&, const Projeto&);
+    bool criarProjeto(const Email& emailSM, const Email& emailPO, const Projeto& projeto);
 
     /**
      * @brief Lê os dados de um projeto a partir de seu código.

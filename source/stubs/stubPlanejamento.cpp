@@ -1,4 +1,4 @@
-#include "Stubs/stubPlanejamento.hpp"
+/*#include "Stubs/stubPlanejamento.hpp"
 
 const string StubServicoPlanejamento::CODIGO_PROJETO_VALIDO = "AB123";
 const string StubServicoPlanejamento::NOME_PROJETO_VALIDO = "Projeto01";
@@ -112,3 +112,4 @@ bool StubServicoPlanejamento::listarPlanosSprint(
 
     return true;
 }
+    */

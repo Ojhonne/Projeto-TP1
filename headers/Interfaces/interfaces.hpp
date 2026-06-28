@@ -113,6 +113,13 @@ public:
     virtual void setCtrlServicoPlanejamento(IServicoPlanejamento*) = 0;
 
     /**
+     * @brief Define a referência para o serviço de pessoa a ser utilizado pela interface de apresentação de pessoa.
+     * @param IServicoPessoa é a referência para o serviço de pessoa que a interface de apresentação de pessoa utilizará para receber as informaçoes do cabeçalho
+     */
+    virtual void setServicoPessoa(IServicoPessoa*) = 0;
+
+
+    /**
      * @brief Executa a interface de apresentação de planejamento, permitindo com que
      * o usuario possa usá-la.
      * @param Email é utilizado com o intuito de identificar o usuário que está usando
@@ -139,6 +146,11 @@ public:
      * @return O método é do tipo void, portanto não retorna nenhum valor.
      */
     virtual void setCtrlServicoBacklog(IServicoBacklog*) = 0;
+    /**
+     * @brief Define a referência para o serviço de pessoa a ser utilizado pela interface de apresentação de pessoa.
+     * @param IServicoPessoa é a referência para o serviço de pessoa que a interface de apresentação de pessoa utilizará para receber as informaçoes do cabeçalho
+     */
+    virtual void setServicoPessoa(IServicoPessoa*) = 0;
 
     /**
      * @brief Executa a interface de backlog, permitindo com que o usuário possa
@@ -245,7 +257,7 @@ public:
      * @param Projeto contém os dados do projeto a ser criado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
-    virtual bool criarProjeto(const Email&, const Projeto&) = 0;
+    virtual bool criarProjeto(const Email& emailSM, const Email& emailPO, const Projeto& projeto) = 0;
 
     /**
      * @brief Lê os dados de um projeto cadastrado no sistema.

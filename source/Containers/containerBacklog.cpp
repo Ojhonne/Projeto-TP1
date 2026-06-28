@@ -28,7 +28,7 @@ ContainerBacklog::ContainerBacklog(){
                             "estimativa INTEGER NOT NULL, "
                             "prioridade TEXT NOT NULL, "
                             "estado TEXT NOT NULL, "
-                            "projeto_codigo TEXT NOT NULL, "
+                            "projeto_codigo TEXT, "
                             "sprint_codigo  TEXT, "
                             "pessoa_email  TEXT, "
                             "FOREIGN KEY(projeto_codigo) REFERENCES Projeto(codigo), "

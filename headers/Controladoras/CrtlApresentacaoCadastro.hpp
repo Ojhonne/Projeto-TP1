@@ -13,24 +13,24 @@
 class CrtlApresentacaoCadastro : public IApresentacaoCadastro {
 private:
     IServicoPessoa* servicoPessoa;
-    bool contaFoiExcluida; // <-- ADICIONADO: Flag de controle interno
+    bool contaFoiExcluida; 
 
     WINDOW* criarJanelaCadastro();
     void desenharLayout(WINDOW* win, const char* titulo);
     bool capturarCampos(WINDOW* win, char* emailStr, char* senhaStr, char* nomeStr, char* papelStr);
     void exibirErro(WINDOW* win, const char* mensaje);
     void exibirSucesso(WINDOW* win, const char* mensaje);
+    void desenharCabecalho(WINDOW* win, const Email& emailSessao);
 
     void cadastrarInexistente();
     void atualizarExistente(const Email& emailSessao);
-    bool excluirExistente(const Email& emailSessao); // <-- Retorna bool localmente
+    bool excluirExistente(const Email& emailSessao);
 
 public:
     CrtlApresentacaoCadastro() : servicoPessoa(nullptr), contaFoiExcluida(false) {}
 
     void executar(const Email& emailSessao) override;
 
-    // <-- ADICIONADO: Método para a Controladora de Acesso checar o que aconteceu
     bool getContaFoiExcluida() const { return contaFoiExcluida; }
 
     void setCtrlServicoPessoa(IServicoPessoa* servico) override {

@@ -6,11 +6,11 @@
 #include <vector>
 
 void CrtlApresentacaoCadastro::executar(const Email& emailSessao) {
-    this->contaFoiExcluida = false; // Reseta a flag ao entrar no módulo
+    this->contaFoiExcluida = false; // Reseta a flag ao entrar no mï¿½dulo
     clear();
     refresh();
 
-    // Se o email estiver vazio, executa fluxo de cadastro (Não Logado)
+    // Se o email estiver vazio, executa fluxo de cadastro (Nï¿½o Logado)
     if (emailSessao.getValor().empty()) {
         cadastrarInexistente();
         return;
@@ -29,12 +29,12 @@ void CrtlApresentacaoCadastro::executar(const Email& emailSessao) {
         if (escolha == 0) {
             atualizarExistente(emailSessao);
         } else if (escolha == 1) {
-            // Se o usuário confirmou a exclusão lá dentro:
+            // Se o usuï¿½rio confirmou a exclusï¿½o lï¿½ dentro:
             if (excluirExistente(emailSessao)) {
                 this->contaFoiExcluida = true; // Ativa o gatilho para a classe de Acesso
-                break; // Sai do menu de gerenciamento e encerra o método
+                break; // Sai do menu de gerenciamento e encerra o mï¿½todo
             }
-            // Se retornou false (cancelou), o 'break' não roda e o loop continua na tela "GERENCIAR CONTA"
+            // Se retornou false (cancelou), o 'break' nï¿½o roda e o loop continua na tela "GERENCIAR CONTA"
         } else {
             break;
         }
@@ -45,8 +45,7 @@ void CrtlApresentacaoCadastro::executar(const Email& emailSessao) {
 
 void CrtlApresentacaoCadastro::cadastrarInexistente() {
     WINDOW* win = criarJanelaCadastro();
-    char emailStr[80], senhaStr[30], nomeStr[30], papelStr[30];
-
+    char emailStr[80], senhaStr[30], nomeStr[25], papelStr[30];
     while (true) {
         desenharLayout(win, " CADASTRO SISTEMA ");
         touchwin(win);
@@ -92,12 +91,13 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
 }
 
 void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
+    WINDOW* winCabecalho = newwin(10,55, 5, 22);
+    box(winCabecalho, 0, 0);
     WINDOW* win = criarJanelaCadastro();
-    char emailStr[80], senhaStr[30], nomeStr[30], papelStr[30];
-
+    char emailStr[85], senhaStr[30], nomeStr[20], papelStr[20];
     while (true) {
+        desenharCabecalho(winCabecalho, emailSessao);
         desenharLayout(win, " ALTERAR CADASTRO ");
-
         if (!capturarCampos(win, emailStr, senhaStr, nomeStr, papelStr)) {
             break;
         }
@@ -133,7 +133,7 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
             exibirErro(win, e.what());
         }
     }
-
+    delwin(winCabecalho);
     delwin(win);
 }
 
@@ -172,7 +172,7 @@ bool CrtlApresentacaoCadastro::excluirExistente(const Email& emailSessao) {
         napms(1200);
 
         delwin(win);
-        return false; // Cancelou a operação, retorna falso para manter o menu
+        return false; // Cancelou a operaï¿½ï¿½o, retorna falso para manter o menu
     }
 }
 
@@ -226,3 +226,15 @@ void CrtlApresentacaoCadastro::exibirSucesso(WINDOW* win, const char* mensaje) {
     wrefresh(win);
     napms(1500);
 }
+void CrtlApresentacaoCadastro::desenharCabecalho(WINDOW* win, const Email& emailSessao) {
+    Pessoa pessoaLogada;
+    pessoaLogada.setEmail(emailSessao);
+    if (this->servicoPessoa != nullptr) {
+        this->servicoPessoa->lerPessoa(emailSessao, pessoaLogada); 
+    }
+    wattron(win, COLOR_PAIR(6)); 
+    mvwprintw(win, 1, 2, " Usuario logado: %s ", emailSessao.getValor().c_str());
+    mvwprintw(win, 2, 2, " Papel Do Usuario: %s ", pessoaLogada.getPapel().getValor().c_str());
+    wattroff(win, COLOR_PAIR(6));
+    wrefresh(win);
+}   
