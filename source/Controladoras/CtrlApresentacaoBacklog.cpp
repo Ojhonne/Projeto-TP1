@@ -752,7 +752,7 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 12, 2, "Nenhuma historia encontrada. Pressione tecla.");
+                mvwprintw(win, 11, 2, "Nenhuma historia encontrada. Pressione tecla.");
                 wattroff(win, COLOR_PAIR(2));
 
                 wrefresh(win);
@@ -761,7 +761,7 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 12, 2, "Erro: %s", e.what());
+            mvwprintw(win, 11, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);

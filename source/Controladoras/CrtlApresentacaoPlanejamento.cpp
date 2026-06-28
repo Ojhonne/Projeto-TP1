@@ -202,7 +202,7 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
 
         //inicializa as variáveis queserão capturadas do usuário
         char strCodigo[16];
-        char strNome[21];
+        char strNome[11];
         char strDataInicio[21];
         char strDataFim[21];
 
@@ -219,12 +219,12 @@ void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
         }
 
         wmove(win, 4, 18);
-        if (!Tui::lerEntradaTerminal(win, strDataInicio, 20, false)) {
+        if (!Tui::ler_data(win, strDataInicio)) {
             return;
         }
 
         wmove(win, 5, 15);
-        if (!Tui::lerEntradaTerminal(win, strDataFim, 20, false)) {
+        if (!Tui::ler_data(win, strDataFim)) {
             return;
         }
 
@@ -372,7 +372,7 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto(const Email& emailLogado) {
         wrefresh(win);
 
         char strCodigo[16];
-        char strNome[21];
+        char strNome[11];
         char strDataInicio[21];
         char strDataFim[21];
 
@@ -387,12 +387,12 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto(const Email& emailLogado) {
         }
 
         wmove(win, 4, 23);
-        if (!Tui::lerEntradaTerminal(win, strDataInicio, 20, false)) {
+        if (!Tui::ler_data(win, strDataInicio)) {
             return;
         }
 
         wmove(win, 5, 20);
-        if (!Tui::lerEntradaTerminal(win, strDataFim, 20, false)) {
+        if (!Tui::ler_data(win, strDataFim)) {
             return;
         }
 
@@ -474,7 +474,7 @@ void CrtlApresentacaoPlanejamento::excluirProjeto(const Email& emailLogado) {
 
             if (sucesso) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2,
+                mvwprintw(win, 7, 2,
                     "Projeto excluido com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
 
@@ -482,7 +482,7 @@ void CrtlApresentacaoPlanejamento::excluirProjeto(const Email& emailLogado) {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2,
+                mvwprintw(win, 7, 2,
                     "Projeto nao encontrado.");
                 wattroff(win, COLOR_PAIR(2));
             }
@@ -583,7 +583,7 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                mvwprintw(win, 7, 2, "Nenhum projeto encontrado. Pressione tecla.");
                 wattroff(win, COLOR_PAIR(2));
 
                 wrefresh(win);
@@ -673,12 +673,12 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint(const Email& emailLogado) {
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2, "Plano criado com sucesso!");
+                mvwprintw(win, 7, 2, "Plano criado com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Falha ao criar plano.");
+                mvwprintw(win, 7, 2, "Falha ao criar plano.");
                 wattroff(win, COLOR_PAIR(2));
             }
 

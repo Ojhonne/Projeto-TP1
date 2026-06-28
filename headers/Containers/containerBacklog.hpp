@@ -33,6 +33,7 @@ class Estado;
  */
 class Email;
 
+
 /**
  * @class ContainerBacklog
  * @brief Implementa um container para armazenar e gerenciar objetos de domínio relacionados às histórias de usuário.
@@ -46,7 +47,7 @@ class ContainerBacklog{
         void conectarBanco(sqlite3*&);
         void abreQuerry(sqlite3* db, std::string& sql, sqlite3_stmt*& stmt);
         void executaStep(sqlite3* db, sqlite3_stmt* stmt);
-        
+         std::string lerStringSegura(sqlite3_stmt* stmt, int coluna);
         const std::string nomeBanco = "scrum.db"; 
 
         bool listarHistoriasAssociadas(const std::string& sql, const std::string& parametro, std::vector<HistoriaDeUsuario>& historias);
