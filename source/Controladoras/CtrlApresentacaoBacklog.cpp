@@ -675,7 +675,7 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 10, " LISTAR HISTORIAS POR PLANO DE SPRINT ");
+        mvwprintw(win, 0, 10, " LISTAR HISTORIAS POR PROJETO ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Codigo: ");
