@@ -232,7 +232,6 @@ public:
  * @interface Esta interface é responsável por fazer o link entre a interface
  * de apresentação de planejamento e o sistema.
  */
-
 class IServicoPlanejamento {
 public:
     /**
@@ -242,11 +241,11 @@ public:
 
     /**
      * @brief Cria um novo projeto no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Projeto contém os dados do projeto a ser criado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
-
-    virtual bool criarProjeto(const Projeto&) = 0;
+    virtual bool criarProjeto(const Email&, const Projeto&) = 0;
 
     /**
      * @brief Lê os dados de um projeto cadastrado no sistema.
@@ -254,33 +253,32 @@ public:
      * @param Projeto será preenchido com os dados do projeto encontrado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do projeto.
      */
-
     virtual bool lerProjeto(const Codigo&, Projeto&) = 0;
 
     /**
-     * @brief Atualiza os dados de um projeto cadastrado no sistema com base nos novos dados
-     * fornecidos pelo usuário.
+     * @brief Atualiza os dados de um projeto cadastrado no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Projeto contém os novos dados do projeto a serem persistidos.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
-
-    virtual bool atualizarProjeto(const Projeto&) = 0;
+    virtual bool atualizarProjeto(const Email&, const Projeto&) = 0;
 
     /**
      * @brief Exclui um projeto do sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Codigo é a chave utilizada para identificar o projeto a ser removido.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
-
-    virtual bool excluirProjeto(const Codigo&) = 0;
+    virtual bool excluirProjeto(const Email&, const Codigo&) = 0;
 
     /**
      * @brief Cria um novo plano de sprint no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
+     * @param Codigo é o código do projeto ao qual o plano de sprint será associado.
      * @param PlanoDeSprint contém os dados do plano de sprint a ser criado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da criação.
      */
-
-    virtual bool criarPlanoSprint(const PlanoDeSprint&) = 0;
+    virtual bool criarPlanoSprint(const Email&, const Codigo&, const PlanoDeSprint&) = 0;
 
     /**
      * @brief Lê os dados de um plano de sprint cadastrado no sistema.
@@ -288,25 +286,23 @@ public:
      * @param PlanoDeSprint será preenchido com os dados do plano encontrado.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência do plano.
      */
-
     virtual bool lerPlanoSprint(const Codigo&, PlanoDeSprint&) = 0;
 
     /**
-     * @brief Atualiza os dados de um plano de sprint cadastrado no sistema com base nos novos dados
-     * fornecidos pelo usuário.
+     * @brief Atualiza os dados de um plano de sprint cadastrado no sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param PlanoDeSprint contém os novos dados do plano a serem persistidos.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da atualização.
      */
-
-    virtual bool atualizarPlanoSprint(const PlanoDeSprint&) = 0;
+    virtual bool atualizarPlanoSprint(const Email&, const PlanoDeSprint&) = 0;
 
     /**
      * @brief Exclui um plano de sprint do sistema.
+     * @param Email é o email do usuário que está realizando a operação.
      * @param Codigo é a chave utilizada para identificar o plano a ser removido.
      * @return O retorno será padrão verdadeiro ou falso, dependendo do sucesso da exclusão.
      */
-
-    virtual bool excluirPlanoSprint(const Codigo&) = 0;
+    virtual bool excluirPlanoSprint(const Email&, const Codigo&) = 0;
 
     /**
      * @brief Lista os projetos associados a uma pessoa.
@@ -314,7 +310,6 @@ public:
      * @param std::vector<Projeto>& é o vetor que será preenchido com os projetos associados à pessoa.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de projetos associados.
      */
-
     virtual bool listarProjetos(const Email&, std::vector<Projeto>&) = 0;
 
     /**
@@ -323,11 +318,8 @@ public:
      * @param std::vector<PlanoDeSprint>& é o vetor que será preenchido com os planos de sprint associados ao projeto.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de planos associados.
      */
-
-
     virtual bool listarPlanosSprint(const Codigo&, std::vector<PlanoDeSprint>&) = 0;
 };
-
 /**
  * @interface Esta interface é responsável por fazer o link entre a interface
  * de apresentação de backlog e o sistema.

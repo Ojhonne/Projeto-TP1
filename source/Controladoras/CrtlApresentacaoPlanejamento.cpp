@@ -25,6 +25,7 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
     init_pair(1, COLOR_WHITE, COLOR_BLUE);
     init_pair(2, COLOR_RED, COLOR_BLACK);
     init_pair(3, COLOR_GREEN, COLOR_BLACK);
+    init_pair(5, COLOR_CYAN, COLOR_BLACK);
 
     int altura = 10;
     int largura = 50;
@@ -57,11 +58,11 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
         int opcao = Tui::exibeMenu(win, "PLANEJAMENTO", opcoes);
         switch (opcao) {
             case 0:
-                menuProjetos();
+                menuProjetos(emailLogado);
                 break;
 
             case 1:
-                menuSprints();
+                menuSprints(emailLogado);
                 break;
 
             case 2:
@@ -78,7 +79,7 @@ void CrtlApresentacaoPlanejamento::executar(const Email& emailLogado) {
     win = nullptr;
 }
 
-void CrtlApresentacaoPlanejamento::menuProjetos() {
+void CrtlApresentacaoPlanejamento::menuProjetos(const Email& emailLogado) {
     bool sair = false;
 
     std::vector<std::string> opcoes = {
@@ -97,7 +98,7 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
 
         switch (opcao) {
             case 0:
-                criarProjeto();
+                criarProjeto(emailLogado);
                 break;
 
             case 1:
@@ -105,11 +106,11 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
                 break;
 
             case 2:
-                atualizarProjeto();
+                atualizarProjeto(emailLogado);
                 break;
 
             case 3:
-                excluirProjeto();
+                excluirProjeto(emailLogado);
                 break;
 
             case 4:
@@ -127,7 +128,7 @@ void CrtlApresentacaoPlanejamento::menuProjetos() {
 }
 
 
-void CrtlApresentacaoPlanejamento::menuSprints() {
+void CrtlApresentacaoPlanejamento::menuSprints(const Email& emailLogado) {
     bool sair = false;
 
     std::vector<std::string> opcoes = {
@@ -145,7 +146,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
 
         switch (opcao) {
             case 0:
-                criarPlanoSprint();
+                criarPlanoSprint(emailLogado);
                 break;
 
             case 1:
@@ -153,11 +154,11 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
                 break;
 
             case 2:
-                atualizarPlanoSprint();
+                atualizarPlanoSprint(emailLogado);
                 break;
 
             case 3:
-                excluirPlanoSprint();
+                excluirPlanoSprint(emailLogado);
                 break;
 
             case 4:
@@ -179,7 +180,7 @@ void CrtlApresentacaoPlanejamento::menuSprints() {
 // 2. Instancia os domínios e a entidade Projeto.
 // 3. Solicita a criação do projeto à camada de serviço.
 // 4. Exibe mensagem de sucesso ou erro.
-void CrtlApresentacaoPlanejamento::criarProjeto() {
+void CrtlApresentacaoPlanejamento::criarProjeto(const Email& emailLogado) {
     bool valido = false;
 
     while (!valido) {
@@ -246,7 +247,7 @@ void CrtlApresentacaoPlanejamento::criarProjeto() {
             projetoLocal.setInicio(dataInicioLocal);
             projetoLocal.setTermino(dataFimLocal);
 
-            valido = servicoPlanejamento->criarProjeto(projetoLocal);
+            valido = servicoPlanejamento->criarProjeto(emailLogado, projetoLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
@@ -351,7 +352,7 @@ void CrtlApresentacaoPlanejamento::lerProjeto() {
 // 2. Captura os novos dados.
 // 3. Monta uma entidade Projeto contendo os valores atualizados.
 // 4. Solicita a atualização à camada de serviço.
-void CrtlApresentacaoPlanejamento::atualizarProjeto() {
+void CrtlApresentacaoPlanejamento::atualizarProjeto(const Email& emailLogado) {
     bool valido = false;
 
     while (!valido) {
@@ -411,7 +412,7 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto() {
             projetoLocal.setInicio(dataInicioLocal);
             projetoLocal.setTermino(dataFimLocal);
 
-            valido = servicoPlanejamento->atualizarProjeto(projetoLocal);
+            valido = servicoPlanejamento->atualizarProjeto(emailLogado, projetoLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
@@ -441,7 +442,7 @@ void CrtlApresentacaoPlanejamento::atualizarProjeto() {
 // 1. Obtém o código do projeto.
 // 2. Solicita a exclusão à camada de serviço.
 // 3. Informa ao usuário o resultado da operação.
-void CrtlApresentacaoPlanejamento::excluirProjeto() {
+void CrtlApresentacaoPlanejamento::excluirProjeto(const Email& emailLogado) {
     bool concluido = false;
 
     while (!concluido) {
@@ -469,7 +470,7 @@ void CrtlApresentacaoPlanejamento::excluirProjeto() {
             Codigo codigoLocal(strCodigo);
 
             bool sucesso =
-                servicoPlanejamento->excluirProjeto(codigoLocal);
+                servicoPlanejamento->excluirProjeto(emailLogado, codigoLocal);
 
             if (sucesso) {
                 wattron(win, COLOR_PAIR(3));
@@ -555,7 +556,7 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
 
                     linha++;
                     //chegou no limite, cria uma nova janela
-                    if (linha >= 8) {
+                    if (if (linha >= 8 && i + 1 < projetos.size())) {
                         mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
                         wrefresh(win);
                         wgetch(win);
@@ -606,7 +607,7 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
 // 2. Instancia os domínios e a entidade PlanoDeSprint.
 // 3. Solicita a criação do plano de sprint à camada de serviço.
 // 4. Exibe mensagem de sucesso ou erro.
-void CrtlApresentacaoPlanejamento::criarPlanoSprint() {
+void CrtlApresentacaoPlanejamento::criarPlanoSprint(const Email& emailLogado) {
     bool valido = false;
 
     while (!valido) {
@@ -618,61 +619,66 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint() {
         mvwprintw(win, 0, 14, " CRIAR PLANO DE SPRINT ");
         wattroff(win, COLOR_PAIR(1));
 
-        mvwprintw(win, 2, 5, "Codigo: ");
-        mvwprintw(win, 3, 5, "Objetivo: ");
-        mvwprintw(win, 4, 5, "Tempo: ");
+        mvwprintw(win, 2, 5, "Codigo plano: ");
+        mvwprintw(win, 3, 5, "Codigo projeto: ");
+        mvwprintw(win, 4, 5, "Objetivo: ");
+        mvwprintw(win, 5, 5, "Tempo: ");
 
-        mvwprintw(win, 8, 2,
-                  "Pressione ESC para cancelar e sair");
+        mvwprintw(win, 8, 2, "Pressione ESC para cancelar e sair");
 
         wrefresh(win);
 
-        char strCodigo[16];
+        char strCodigoPlano[16];
+        char strCodigoProjeto[16];
         char strTexto[51];
         char strTempo[14];
 
-        // Codigo
-        wmove(win, 2, 14);
-        if (!Tui::lerEntradaTerminal(win, strCodigo, 15, false)) {
+        wmove(win, 2, 19);
+        if (!Tui::lerEntradaTerminal(win, strCodigoPlano, 15, false)) {
             return;
         }
 
-        // Texto
-        wmove(win, 3, 14);
+        wmove(win, 3, 21);
+        if (!Tui::lerEntradaTerminal(win, strCodigoProjeto, 15, false)) {
+            return;
+        }
+
+        wmove(win, 4, 15);
         if (!Tui::lerEntradaTerminal(win, strTexto, 50, false)) {
             return;
         }
 
-        // Tempo
-        wmove(win, 4, 14);
+        wmove(win, 5, 12);
         if (!Tui::lerEntradaTerminal(win, strTempo, 13, false)) {
             return;
         }
 
         try {
-            Codigo codigoLocal(strCodigo);
+            Codigo codigoPlanoLocal(strCodigoPlano);
+            Codigo codigoProjetoLocal(strCodigoProjeto);
             Texto textoLocal(strTexto);
             Tempo tempoLocal(strTempo);
 
             PlanoDeSprint planoLocal;
 
-            planoLocal.setCodigo(codigoLocal);
+            planoLocal.setCodigo(codigoPlanoLocal);
             planoLocal.setTexto(textoLocal);
             planoLocal.setTempo(tempoLocal);
 
-            valido =
-                servicoPlanejamento->criarPlanoSprint(planoLocal);
+            valido = servicoPlanejamento->criarPlanoSprint(
+                emailLogado,
+                codigoProjetoLocal,
+                planoLocal
+            );
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 8, 2,
-                          "Plano criado com sucesso!");
+                mvwprintw(win, 8, 2, "Plano criado com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2,
-                          "Falha ao criar plano.");
+                mvwprintw(win, 8, 2, "Falha ao criar plano.");
                 wattroff(win, COLOR_PAIR(2));
             }
 
@@ -681,8 +687,7 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint() {
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 8, 2,
-                      "Erro: %s", e.what());
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
 
             wrefresh(win);
@@ -690,7 +695,6 @@ void CrtlApresentacaoPlanejamento::criarPlanoSprint() {
         }
     }
 }
-
 
 // Fluxo:
 // 1. Solicita o código do plano de sprint.
@@ -781,7 +785,7 @@ void CrtlApresentacaoPlanejamento::lerPlanoSprint() {
 // 3. Monta uma entidade PlanoDeSprint contendo os valores atualizados.
 // 4. Solicita a atualização à camada de serviço.
 // 5. Exibe mensagem de sucesso ou erro.
-void CrtlApresentacaoPlanejamento::atualizarPlanoSprint() {
+void CrtlApresentacaoPlanejamento::atualizarPlanoSprint(const Email& emailLogado) {
     bool valido = false;
 
     while (!valido) {
@@ -828,7 +832,7 @@ void CrtlApresentacaoPlanejamento::atualizarPlanoSprint() {
             planoLocal.setTexto(textoLocal);
             planoLocal.setTempo(tempoLocal);
 
-            valido = servicoPlanejamento->atualizarPlanoSprint(planoLocal);
+            valido = servicoPlanejamento->atualizarPlanoSprint(emailLogado, planoLocal);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
@@ -858,7 +862,7 @@ void CrtlApresentacaoPlanejamento::atualizarPlanoSprint() {
 // 1. Obtém o código do plano de sprint.
 // 2. Solicita a exclusão à camada de serviço.
 // 3. Informa ao usuário o resultado da operação.
-void CrtlApresentacaoPlanejamento::excluirPlanoSprint() {
+void CrtlApresentacaoPlanejamento::excluirPlanoSprint(const Email& emailLogado) {
     bool concluido = false;
 
     while (!concluido) {
@@ -886,7 +890,7 @@ void CrtlApresentacaoPlanejamento::excluirPlanoSprint() {
             Codigo codigoLocal(strCodigo);
 
             bool sucesso =
-                servicoPlanejamento->excluirPlanoSprint(codigoLocal);
+                servicoPlanejamento->excluirPlanoSprint(emailLogado, codigoLocal);
 
             if (sucesso) {
                 wattron(win, COLOR_PAIR(3));

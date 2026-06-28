@@ -17,6 +17,8 @@
 #include "Entidades/pessoa.hpp"
 #include "Interfaces/interfaces.hpp"
 #include "Entidades/historiaDeUsuario.hpp"
+#include "Entidades/projeto.hpp"
+#include "Entidades/planoDeSprint.hpp"
 
 // Apresentação
 #include "Controladoras/CrtlApresentacaoLogin.hpp"
@@ -27,13 +29,16 @@
 // Serviço
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
 #include "Controladoras/CrtlServicoBacklog.hpp"
+#include "Controladoras/CrtlServicoPlanejamento.hpp"
 
 //Container
 #include "Containers/containerPessoa.hpp"
 #include "Containers/containerBacklog.hpp"
+#include "Containers/containerPlanoSprint.hpp"
+#include "Containers/containerProjeto.hpp"
 
 // Stubs
-#include "Stubs/stubPlanejamento.hpp"
+
 
 using namespace std;
 
@@ -96,7 +101,7 @@ int main(void){
     // Instanciando controladoras da camada de serviço
     IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao(); 
     IServicoBacklog *servicoBacklog = new CrtlServicoBacklog();
-    IServicoPlanejamento *stubServicoPlanejamento = new StubServicoPlanejamento();
+    IServicoPlanejamento *servicoPlanejamento = new CrtlServicoPlanejamento();
     
     // Interligando controladora acesso nas outras
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin);
@@ -106,7 +111,7 @@ int main(void){
     // Interligando controladoras de apresentação e de servico
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
     crtlApresentacaoBacklog->setCtrlServicoBacklog(servicoBacklog);
-    crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(stubServicoPlanejamento);
+    crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(servicoPlanejamento);
 
     // Executando o sistema
     try{
@@ -123,7 +128,7 @@ int main(void){
     
     delete servicoAutenticacao; 
     delete servicoBacklog;
-    delete stubServicoPlanejamento;
+    delete servicoPlanejamento;
     
     return 0;
 }

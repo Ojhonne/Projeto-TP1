@@ -41,19 +41,19 @@ private:
 
     void desenharCabecalho(const Email&);
 
-    void menuProjetos();
-    void menuSprints();
+    void menuProjetos(const Email&);
+    void menuSprints(const Email&);
 
-    void criarProjeto();
+    void criarProjeto(const Email&);
     void lerProjeto();
-    void atualizarProjeto();
-    void excluirProjeto();
+    void atualizarProjeto(const Email&);
+    void excluirProjeto(const Email&);
     void listarProjetos();
 
-    void criarPlanoSprint();
+    void criarPlanoSprint(const Email&);
     void lerPlanoSprint();
-    void atualizarPlanoSprint();
-    void excluirPlanoSprint();
+    void atualizarPlanoSprint(const Email&);
+    void excluirPlanoSprint(const Email&);
     void listarPlanosSprint();
 
 public:
