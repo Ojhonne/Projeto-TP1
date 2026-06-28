@@ -337,7 +337,7 @@ void CrtlApresentacaoPlanejamento::lerProjeto() {
                 wgetch(win);
             }
         }
-        catch (const std::invalid_argument& e) {
+        catch (const std::exception& e) {
             wattron(win, COLOR_PAIR(2));
             mvwprintw(win, 8, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
@@ -346,6 +346,7 @@ void CrtlApresentacaoPlanejamento::lerProjeto() {
         }
     }
 }
+
 
 // Fluxo:
 // 1. Obtém o código do projeto a ser atualizado.
