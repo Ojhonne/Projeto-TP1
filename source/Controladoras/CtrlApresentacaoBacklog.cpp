@@ -100,11 +100,10 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         char strCodigo[10];
         char strTitulo[15];
         char strPapel[15];
-        char strAcao[15];
+        char strAcao[30];
         char strValor[101];
         char strEstimativa[15];
         char strPrioridade[11];
-        char strEstado[21];
 
        // Captura os dados necessários para instanciar os domínios
         // e montar a entidade Projeto.
@@ -124,7 +123,7 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         }
 
         wmove(win, 5, 10);
-        if (!Tui::lerEntradaTerminal(win, strAcao, 14, false)) {
+        if (!Tui::lerEntradaTerminal(win, strAcao, 29, false)) {
             return;
         }
 
@@ -159,9 +158,6 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
 
             Prioridade prioridadeLocal;
             prioridadeLocal.setValor(strPrioridade);
-
-            Estado estadoLocal;
-            estadoLocal.setValor(strEstado);
 
             //Email enviar;
             //enviar.setValor("joao@teste.com"); // simulando um teste
@@ -316,7 +312,7 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 15, " ATUALIZAR PROJETO ");
+        mvwprintw(win, 0, 15, " ATUALIZAR HISTORIA DE USUARIO ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Codigo: ");
@@ -481,7 +477,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPessoa(WINDOW* win) {
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PESSOA ");
+        mvwprintw(win, 0, 10, " LISTAR HISTORIA POR PESSOA ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Email: ");
@@ -506,12 +502,12 @@ void CrtlApresentacaoBacklog::listarAssociadasPessoa(WINDOW* win) {
             box(win, 0, 0);
 
             wattron(win, COLOR_PAIR(1));
-            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
             wattroff(win, COLOR_PAIR(1));
 
             if (encontrado && !historiaDeUsuario.empty()) {
                 mvwprintw(win, 2, 5, "Email: %s", emailLocal.getValor().c_str());
-                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+                mvwprintw(win, 4, 5, "Codigos das historias:");
 
                 int linha = 5;
 
@@ -536,7 +532,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPessoa(WINDOW* win) {
                         box(win, 0, 0);
 
                         wattron(win, COLOR_PAIR(1));
-                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
                         wattroff(win, COLOR_PAIR(1));
 
                         linha = 2;
@@ -554,7 +550,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPessoa(WINDOW* win) {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                mvwprintw(win, 8, 2, "Nenhuma historia encontrada. Pressione tecla.");
                 wattroff(win, COLOR_PAIR(2));
 
                 wrefresh(win);
@@ -580,7 +576,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPlanoSprint(WINDOW* win) {
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PLANO DE SPRINT ");
+        mvwprintw(win, 0, 10, " LISTAR HISTORIAS POR PLANO DE SPRINT ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Codigo: ");
@@ -605,12 +601,12 @@ void CrtlApresentacaoBacklog::listarAssociadasPlanoSprint(WINDOW* win) {
             box(win, 0, 0);
 
             wattron(win, COLOR_PAIR(1));
-            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
             wattroff(win, COLOR_PAIR(1));
 
             if (encontrado && !historiaDeUsuario.empty()) {
                 mvwprintw(win, 2, 5, "Codigo: %s", codigoLocal.getValor().c_str());
-                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+                mvwprintw(win, 4, 5, "Codigos das historias");
 
                 int linha = 5;
 
@@ -635,7 +631,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPlanoSprint(WINDOW* win) {
                         box(win, 0, 0);
 
                         wattron(win, COLOR_PAIR(1));
-                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
                         wattroff(win, COLOR_PAIR(1));
 
                         linha = 2;
@@ -653,7 +649,7 @@ void CrtlApresentacaoBacklog::listarAssociadasPlanoSprint(WINDOW* win) {
             }
             else {
                 wattron(win, COLOR_PAIR(2));
-                mvwprintw(win, 8, 2, "Nenhum projeto encontrado. Pressione tecla.");
+                mvwprintw(win, 8, 2, "Nenhuma historia encontrada. Pressione tecla.");
                 wattroff(win, COLOR_PAIR(2));
 
                 wrefresh(win);
@@ -679,7 +675,7 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 10, " LISTAR PROJETOS POR PLANO DE SPRINT ");
+        mvwprintw(win, 0, 10, " LISTAR HISTORIAS POR PROJETO ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Codigo: ");
@@ -704,12 +700,12 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
             box(win, 0, 0);
 
             wattron(win, COLOR_PAIR(1));
-            mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+            mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
             wattroff(win, COLOR_PAIR(1));
 
             if (encontrado && !historiaDeUsuario.empty()) {
                 mvwprintw(win, 2, 5, "Codigo: %s", codigoLocal.getValor().c_str());
-                mvwprintw(win, 4, 5, "Codigos dos projetos:");
+                mvwprintw(win, 4, 5, "Codigos das historias:");
 
                 int linha = 5;
 
@@ -734,7 +730,7 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
                         box(win, 0, 0);
 
                         wattron(win, COLOR_PAIR(1));
-                        mvwprintw(win, 0, 10, " PROJETOS ASSOCIADOS ");
+                        mvwprintw(win, 0, 10, " HISTORIAS ASSOCIADAS ");
                         wattroff(win, COLOR_PAIR(1));
 
                         linha = 2;
@@ -778,7 +774,7 @@ void CrtlApresentacaoBacklog::excluirBacklog(WINDOW* win, const Email& emailLoga
         box(win, 0, 0);
 
         wattron(win, COLOR_PAIR(1));
-        mvwprintw(win, 0, 16, " EXCLUIR PROJETO ");
+        mvwprintw(win, 0, 16, " EXCLUIR HISTORIA ");
         wattroff(win, COLOR_PAIR(1));
 
         mvwprintw(win, 2, 5, "Codigo: ");
