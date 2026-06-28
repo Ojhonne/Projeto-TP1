@@ -55,9 +55,9 @@ bool CrtlApresentacaoAcesso::rotearEscolha(int escolha, bool logado) {
 bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
-            //this->logado = crtlLogin->executar(emailSessao);
-        //  this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
-          //this->logado = true;
+            this->logado = crtlLogin->executar(emailSessao);
+            // this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
+            //this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
             crtlCadastro->executar(emailSessao);

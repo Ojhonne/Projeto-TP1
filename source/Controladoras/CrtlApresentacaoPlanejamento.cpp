@@ -556,7 +556,7 @@ void CrtlApresentacaoPlanejamento::listarProjetos() {
 
                     linha++;
                     //chegou no limite, cria uma nova janela
-                    if (if (linha >= 8 && i + 1 < projetos.size())) {
+                    if ((linha >= 8 && i + 1 < projetos.size())) {
                         mvwprintw(win, 8, 2, "Pressione tecla para continuar...");
                         wrefresh(win);
                         wgetch(win);

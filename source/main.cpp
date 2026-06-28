@@ -32,6 +32,7 @@
 #include "Controladoras/CrtlServicoAutenticacao.hpp"
 #include "Controladoras/CrtlServicoBacklog.hpp"
 #include "Controladoras/CrtlServicoPlanejamento.hpp"
+#include "Controladoras/CrtlServicoPessoa.hpp"
 
 //Container
 #include "Containers/containerPessoa.hpp"
@@ -107,6 +108,7 @@ int main(void){
   
     // Instanciando controladoras da camada de serviço
     IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao();
+    IServicoPessoa *servicoPessoa = new CrtlServicoPessoa();
     IServicoBacklog *servicoBacklog = new CrtlServicoBacklog();
     IServicoPlanejamento *servicoPlanejamento = new CrtlServicoPlanejamento();
 
