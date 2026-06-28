@@ -698,8 +698,8 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
             Codigo codigoLocal(strCodigo);
             std::vector<HistoriaDeUsuario> historiaDeUsuario;
 
-            bool encontrado = servicoBacklog->listarHistoriasAssociadasPlanoSprint(codigoLocal, historiaDeUsuario);
-
+            bool encontrado = servicoBacklog->listarHistoriasAssociadasProjeto(codigoLocal, historiaDeUsuario);
+            
             werase(win);
             box(win, 0, 0);
 
