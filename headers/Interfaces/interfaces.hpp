@@ -50,8 +50,8 @@ public:
     /**
      * @brief Define a referência para o serviço de autenticação a ser utilizado pela interface de apresentação de login.
      * @param IServicoAutenticacao é a referência para o serviço de autenticação que a interface de apresentação de login utilizará para autenticar os usuários.
-     * @return O método é do tipo void, portanto não retorna nenhum valor. 
-     * 
+     * @return O método é do tipo void, portanto não retorna nenhum valor.
+     *
      */
     virtual void setCtrlServicoAutenticacao(IServicoAutenticacao*) = 0;
 
@@ -79,7 +79,7 @@ public:
     /**
      * @brief Define a referência para o serviço de pessoa a ser utilizado pela interface de apresentação de cadastro.
      * @param IServicoPessoa é a referência para o serviço de pessoa que a interface de apresentação de cadastro utilizará para gerenciar as pessoas.
-     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     * @return O método é do tipo void, portanto não retorna nenhum valor.
      */
     virtual void setCtrlServicoPessoa(IServicoPessoa*) = 0;
 
@@ -89,7 +89,7 @@ public:
      * acesso ao sistema.
      */
 
-    virtual void executar() = 0;
+    virtual void executar(const Email&) = 0;
 };
 
     /**
@@ -108,12 +108,12 @@ public:
     /**
      * @brief Define a referência para o serviço de planejamento a ser utilizado pela interface de apresentação de planejamento.
      * @param IServicoPlanejamento é a referência para o serviço de planejamento que a interface de apresentação de planejamento utilizará para gerenciar os planos de sprint.
-     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     * @return O método é do tipo void, portanto não retorna nenhum valor.
      */
     virtual void setCtrlServicoPlanejamento(IServicoPlanejamento*) = 0;
 
     /**
-     * @brief Executa a interface de apresentação de planejamento, permitindo com que 
+     * @brief Executa a interface de apresentação de planejamento, permitindo com que
      * o usuario possa usá-la.
      * @param Email é utilizado com o intuito de identificar o usuário que está usando
      * a interface e realizando o planejamento.
@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * @interface Esta interface é a responsável por tornar possível a interação 
+ * @interface Esta interface é a responsável por tornar possível a interação
  * do usuário com as histórias de usuário.
  */
 
@@ -136,7 +136,7 @@ public:
     /**
      * @brief Define a referência para o serviço de backlog a ser utilizado pela interface de apresentação de backlog.
      * @param IServicoBacklog é a referência para o serviço de backlog que a interface de apresentação de backlog utilizará para gerenciar as histórias de usuário.
-     * @return O método é do tipo void, portanto não retorna nenhum valor. 
+     * @return O método é do tipo void, portanto não retorna nenhum valor.
      */
     virtual void setCtrlServicoBacklog(IServicoBacklog*) = 0;
 
@@ -152,9 +152,9 @@ public:
 
 // Interfaces da camada de servico
 /*
-Para as interfaces de serviço eu também criei um cosntrutor default, os métodos de cada interface são as CRUD'S citadas nas 
-especificações do trabalho. Todos os parâmetros foram passados como referência e constantes, com excessão das entidades nos métodos de leitura, 
-já que esses sim serão parâmetros modificados. Uma observação importante, os domínios passados como parâmetros são todos PK's, 
+Para as interfaces de serviço eu também criei um cosntrutor default, os métodos de cada interface são as CRUD'S citadas nas
+especificações do trabalho. Todos os parâmetros foram passados como referência e constantes, com excessão das entidades nos métodos de leitura,
+já que esses sim serão parâmetros modificados. Uma observação importante, os domínios passados como parâmetros são todos PK's,
 os quais serão utilizados para referênciar a entidade que o método se aplicará.
 */
 
@@ -404,7 +404,7 @@ public:
      * @param std::vector<HistoriaDeUsuario>& é o vetor que será preenchido com as histórias associadas ao plano de sprint.
      * @return O retorno será padrão verdadeiro ou falso, dependendo da existência de histórias associadas.
      */
-    
+
     virtual bool listarHistoriasAssociadasPlanoSprint(const Codigo&, std::vector<HistoriaDeUsuario>&) = 0;
 
     /**

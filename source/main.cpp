@@ -4,7 +4,7 @@
 
 // Incluir cabeçalho da biblioteca PDCurses/ncurses.
 #ifdef _WIN32
-    #include <curses.h> 
+    #include <curses.h>
 #elif __linux__
     #include <ncurses.h>
 #else
@@ -21,8 +21,10 @@
 #include "Entidades/planoDeSprint.hpp"
 
 // Apresentação
-#include "Controladoras/CrtlApresentacaoLogin.hpp"
+
 #include "Controladoras/CrtlApresentacaoAcesso.hpp"
+#include "Controladoras/CrtlApresentacaoLogin.hpp"
+#include "Controladoras/CrtlApresentacaoCadastro.hpp"
 #include "Controladoras/CrtlApresentacaoPlanejamento.hpp"
 #include "Controladoras/CrtlApresentacaoBacklog.hpp" 
 
@@ -39,6 +41,9 @@
 
 // Stubs
 
+//stubs
+#include "Stubs/stubPlanejamento.hpp"
+#include "Stubs/stubCadastro.hpp"
 
 using namespace std;
 
@@ -93,26 +98,32 @@ int main(void){
     }
 
     // Instanciando controladoras da camada de apresentação
-    CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); 
-    IApresentacaoLogin *crtlApresentacaoLogin = new CrtlApresentacaoLogin(); 
-    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento();
-    IApresentacaoBacklog *crtlApresentacaoBacklog = new CrtlApresentacaoBacklog();
-
+    CrtlApresentacaoAcesso *crtlApresentacaoAcesso = new CrtlApresentacaoAcesso(); // menu principal
+  
+    IApresentacaoLogin *crtlApresentacaoLogin = new CrtlApresentacaoLogin();     // tela login
+    IApresentacaoPlanejamento *crtlApresentacaoPlanejamento = new CrtlApresentacaoPlanejamento(); // tela planejamento
+    IApresentacaoCadastro *crtlApresentacaoCadastro = new CrtlApresentacaoCadastro(); // tela cadastro
+    IApresentacaoBacklog *crtlApresentacaoBacklog = new CrtlApresentacaoBacklog(); // tela backlog
+  
     // Instanciando controladoras da camada de serviço
-    IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao(); 
+    IServicoAutenticacao *servicoAutenticacao = new CrtlServicoAutenticacao();
     IServicoBacklog *servicoBacklog = new CrtlServicoBacklog();
     IServicoPlanejamento *servicoPlanejamento = new CrtlServicoPlanejamento();
-    
+
     // Interligando controladora acesso nas outras
     crtlApresentacaoAcesso->setCtrlLogin(crtlApresentacaoLogin);
+    crtlApresentacaoAcesso->setCtrlCadastro(crtlApresentacaoCadastro);
     crtlApresentacaoAcesso->setCtrlPlanejamento(crtlApresentacaoPlanejamento);
     crtlApresentacaoAcesso->setCtrlBacklog(crtlApresentacaoBacklog);
-    
-    // Interligando controladoras de apresentação e de servico
+  
+    // Interligando apresentações e seus respectivos serviços
     crtlApresentacaoLogin->setCtrlServicoAutenticacao(servicoAutenticacao);
-    crtlApresentacaoBacklog->setCtrlServicoBacklog(servicoBacklog);
+    crtlApresentacaoCadastro->setCtrlServicoPessoa(servicoPessoa);
     crtlApresentacaoPlanejamento->setCtrlServicoPlanejamento(servicoPlanejamento);
+    crtlApresentacaoBacklog->setCtrlServicoBacklog(servicoBacklog);
 
+
+   
     // Executando o sistema
     try{
         crtlApresentacaoAcesso->executar();
@@ -122,6 +133,7 @@ int main(void){
     }
     // Limpeza de mémoria 
     delete crtlApresentacaoAcesso;
+    delete crtlApresentacaoCadastro;
     delete crtlApresentacaoLogin;
     delete crtlApresentacaoPlanejamento; 
     delete crtlApresentacaoBacklog;

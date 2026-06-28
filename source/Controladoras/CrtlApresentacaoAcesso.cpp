@@ -1,6 +1,5 @@
-
 #ifdef _WIN32
-    #include <curses.h> 
+    #include <curses.h>
 #elif __linux__
     #include <ncurses.h>
 #else
@@ -17,14 +16,15 @@
 
 #include "Containers/containerPessoa.hpp"
 
-
+// Inclu�do para podermos fazer o dynamic_cast para a classe concreta de cadastro
+#include "Controladoras/CrtlApresentacaoCadastro.hpp"
 
 void CrtlApresentacaoAcesso::executar() {
     inicializarInterface();
     //declarando os topicos do menu
     const std::vector<std::string> opcoesDeslogadas = {"Realizar login", "Realizar cadastro", "Encerrar Sistema"};
     const std::vector<std::string> opcoesLogadas = {"Modulo de Cadastro (Pessoas)", "Modulo de Planejamento (Projetos e Sprints)", "Modulo de Backlog (Historias de Usuario)", "Fazer Logout", "Encerrar Sistema"};
-    
+
     while (true) {
         limparTela();
 
@@ -32,11 +32,11 @@ void CrtlApresentacaoAcesso::executar() {
             desenharCabecalho();
         }
 
-        refresh(); 
+        refresh();
         const auto& opcoes = logado ? opcoesLogadas : opcoesDeslogadas;
-        const char* titulo = logado ? "MENU LOGADO" : "MENU PRINCIPAL"; 
+        const char* titulo = logado ? "MENU LOGADO" : "MENU PRINCIPAL";
 
-        int escolha = Tui::exibeMenu(win, titulo, opcoes);// funcao que exibe os topicos 
+        int escolha = Tui::exibeMenu(win, titulo, opcoes);// funcao que exibe os topicos
         if(!rotearEscolha(escolha, logado)) break;
     }
 
@@ -55,11 +55,12 @@ bool CrtlApresentacaoAcesso::rotearEscolha(int escolha, bool logado) {
 bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
     switch (static_cast<MenuDeslogado>(escolha)) {
         case MenuDeslogado::Login:
-            this->logado = crtlLogin->executar(emailSessao);
-            //this->logado = true;
+            //this->logado = crtlLogin->executar(emailSessao);
+        //  this->emailSessao.setValor("joao@teste.com"); //essa linha eu botei para logar rapidamente e testar alterar cadastro la dentro do sistema
+          //this->logado = true;
             return true;
         case MenuDeslogado::Cadastro:
-            // crtlCadastro->executar();
+            crtlCadastro->executar(emailSessao);
             return true;
         case MenuDeslogado::Sair:
             return false;
@@ -70,9 +71,16 @@ bool CrtlApresentacaoAcesso::processarMenuDeslogado(int escolha) {
 
 bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
     switch (static_cast<MenuLogado>(escolha)) {
-        case MenuLogado::CadastroPessoas:
-            // this->crtlCadastro->executar(emailSessao);
+        case MenuLogado::CadastroPessoas: {
+            this->crtlCadastro->executar(emailSessao);
+
+            // Descobre com seguran�a se a conta foi exclu�da de fato l� dentro do m�dulo
+            auto cadastroEspecifico = dynamic_cast<CrtlApresentacaoCadastro*>(this->crtlCadastro);
+            if (cadastroEspecifico && cadastroEspecifico->getContaFoiExcluida()) {
+                this->logado = false; // S� altera para deslogado se confirmou a exclus�o
+            }
             return true;
+        }
         case MenuLogado::Projetos:
             this-> crtlPlanejamento->executar(emailSessao);
             return true;
@@ -81,6 +89,7 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
             return true;
         case MenuLogado::Logout:
             this->logado = false;
+            this->emailSessao = Email();//reseta o objeto Email para o estado padr�o vazio
             return true;
         case MenuLogado::Sair:
             return false;
@@ -91,10 +100,8 @@ bool CrtlApresentacaoAcesso::processarMenuLogado(int escolha) {
 
 void CrtlApresentacaoAcesso::inicializarInterface() {
     Tui::inicializarTerminal(); // inicia com a janela
-
     criarJanelaMenu(); // cria janela
 }
-
 
 void CrtlApresentacaoAcesso::criarJanelaMenu() {
     int altura{10}, largura{50};
@@ -107,9 +114,9 @@ void CrtlApresentacaoAcesso::criarJanelaMenu() {
 }
 
 void CrtlApresentacaoAcesso::limparTela() {
-    wclear(win); 
-    wrefresh(win); 
-    clear(); 
+    wclear(win);
+    wrefresh(win);
+    clear();
     refresh();
 }
 
@@ -126,6 +133,6 @@ void CrtlApresentacaoAcesso::desenharCabecalho() {
 }   
 
 void CrtlApresentacaoAcesso::finalizaInterface() {
-    delwin(win); 
+    delwin(win);
     Tui::finalizarTerminal();
 }
