@@ -69,6 +69,55 @@ namespace Tui {
         buffer[i] = '\0'; 
         return true;
     }
+
+bool ler_data(WINDOW *win, char *buffer) {
+    int pos = 0;
+    int ch;
+    int y_start, x_start;
+    
+    // Captura a posição inicial onde o cursor está no momento da chamada
+    getyx(win, y_start, x_start);
+
+    while (pos < 10) {
+        // Auto-insere a barra e pula para o próximo caractere
+        if (pos == 2 || pos == 5) {
+            buffer[pos] = '/';
+            mvwaddch(win, y_start, x_start + pos, '/');
+            pos++;
+            wrefresh(win);
+            continue;
+        }
+
+        ch = wgetch(win);
+
+        // Tratamento de Backspace
+        if (ch == KEY_BACKSPACE || ch == 127 || ch == '\b') {
+            if (pos > 0) {
+                pos--;
+                // Se o anterior for uma barra, volta mais um para apagar o número
+                if (pos == 2 || pos == 5) pos--;
+                
+                mvwaddch(win, y_start, x_start + pos, ' ');
+                wmove(win, y_start, x_start + pos);
+                wrefresh(win);
+            }
+        } 
+        // Aceita apenas números
+        else if (ch >= '0' && ch <= '9') {
+            buffer[pos] = ch;
+            mvwaddch(win, y_start, x_start + pos, ch);
+            pos++;
+            wrefresh(win);
+        }
+        // ESC para sair
+        else if (ch == 27) {
+            return false;
+        }
+    }
+    buffer[10] = '\0';
+    return true;
+}
+
     int exibeMenu(WINDOW* win, const std::string& titulo, const std::vector<std::string>& opcoes){
         int emDestaque = 0;
         int tecla;    

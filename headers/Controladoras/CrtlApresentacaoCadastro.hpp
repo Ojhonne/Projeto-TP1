@@ -1,5 +1,5 @@
 /**
- * @file CrtlApresentacaoCadastro.hpp
+ * * @file CrtlApresentacaoCadastro.hpp
  * @author Igor Melo
  * @brief Definição da controladora da apresentação de cadastro.
  */

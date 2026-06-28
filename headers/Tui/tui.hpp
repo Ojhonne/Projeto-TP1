@@ -26,6 +26,8 @@ namespace Tui {
     /** @brief Finaliza o uso do ncurses e restaura o estado original do terminal. 
     */
     void finalizarTerminal();
+
+    bool ler_data(WINDOW *win, char *buffer);
     
     /**
      * @brief Lê a entrada do usuário no ncurses com suporte a backspace e cancelamento.
