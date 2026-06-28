@@ -253,10 +253,6 @@ while((sqlite3_step(stmt) == SQLITE_ROW)){
         std::string pessoa_emailBd   = lerStringSegura(stmt, 10);
 
         // DEBUG — remova depois de confirmar
-        std::cerr << "[DEBUG] codigo=" << codigoBd 
-                  << " sprint=" << sprint_codigoBd 
-                  << " email=" << pessoa_emailBd << std::endl;
-
         Texto titulo, papel, acao, valor;
         titulo.setValor(tituloBd);
         papel.setValor(papelBd);
@@ -302,7 +298,7 @@ while((sqlite3_step(stmt) == SQLITE_ROW)){
         historias.push_back(historia);
 
     } catch (const std::exception& e) {
-        // Mostra qual linha do banco está causando problema
+
         std::cerr << "[DEBUG] Linha ignorada por erro: " << e.what() << std::endl;
     }
 }
