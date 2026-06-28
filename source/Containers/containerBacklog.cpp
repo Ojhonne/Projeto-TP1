@@ -238,16 +238,16 @@ bool ContainerBacklog::listarHistoriasAssociadas(const std::string& sql, const s
     sqlite3_bind_text(stmt, 1, parametro.c_str(), -1, SQLITE_STATIC);
 
     while( (sqlite3_step(stmt) == SQLITE_ROW)){
-        std::string codigoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
-        std::string tituloBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
-        std::string papelBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
-        std::string acaoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 3));
-        std::string valorBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
+        std::string codigoBd = lerStringSegura(stmt, 0);
+        std::string tituloBd = lerStringSegura(stmt, 1);
+        std::string papelBd = lerStringSegura(stmt, 2);
+        std::string acaoBd = lerStringSegura(stmt, 3);
+        std::string valorBd = lerStringSegura(stmt, 4);
         int estimativaIntBd = (sqlite3_column_int(stmt, 5));
         std::string estimativaStringBd = std::to_string(estimativaIntBd);
-        std::string prioridadeBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 6));
-        std::string estadoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 7));
-        std::string projeto_codigoBd = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 8));
+        std::string prioridadeBd = lerStringSegura(stmt, 6);
+        std::string estadoBd =lerStringSegura(stmt, 7); 
+        std::string projeto_codigoBd = lerStringSegura(stmt, 8);
 
         // Recria os objetos de domínio
         Texto titulo, papel, acao, valor;
@@ -324,4 +324,9 @@ void ContainerBacklog::executaStep(sqlite3* db, sqlite3_stmt* stmt){
         sqlite3_close(db);
         throw std::runtime_error("Erro ao inserir dados: " + erro);
     }
+}
+
+std::string ContainerBacklog::lerStringSegura(sqlite3_stmt* stmt, int coluna) {
+    const unsigned char* valor = sqlite3_column_text(stmt, coluna);
+    return valor ? reinterpret_cast<const char*>(valor) : "";
 }
