@@ -237,35 +237,40 @@ bool ContainerBacklog::listarHistoriasAssociadas(const std::string& sql, const s
 
     sqlite3_bind_text(stmt, 1, parametro.c_str(), -1, SQLITE_STATIC);
 
-    while( (sqlite3_step(stmt) == SQLITE_ROW)){
-        std::string codigoBd = lerStringSegura(stmt, 0);
-        std::string tituloBd = lerStringSegura(stmt, 1);
-        std::string papelBd = lerStringSegura(stmt, 2);
-        std::string acaoBd = lerStringSegura(stmt, 3);
-        std::string valorBd = lerStringSegura(stmt, 4);
-        int estimativaIntBd = (sqlite3_column_int(stmt, 5));
+while((sqlite3_step(stmt) == SQLITE_ROW)){
+    try {
+        std::string codigoBd         = lerStringSegura(stmt, 0);
+        std::string tituloBd         = lerStringSegura(stmt, 1);
+        std::string papelBd          = lerStringSegura(stmt, 2);
+        std::string acaoBd           = lerStringSegura(stmt, 3);
+        std::string valorBd          = lerStringSegura(stmt, 4);
+        int estimativaIntBd          = sqlite3_column_int(stmt, 5);
         std::string estimativaStringBd = std::to_string(estimativaIntBd);
-        std::string prioridadeBd = lerStringSegura(stmt, 6);
-        std::string estadoBd =lerStringSegura(stmt, 7); 
+        std::string prioridadeBd     = lerStringSegura(stmt, 6);
+        std::string estadoBd         = lerStringSegura(stmt, 7);
         std::string projeto_codigoBd = lerStringSegura(stmt, 8);
+        std::string sprint_codigoBd  = lerStringSegura(stmt, 9);
+        std::string pessoa_emailBd   = lerStringSegura(stmt, 10);
 
-        // Recria os objetos de domínio
+        // DEBUG — remova depois de confirmar
         Texto titulo, papel, acao, valor;
         titulo.setValor(tituloBd);
         papel.setValor(papelBd);
         acao.setValor(acaoBd);
         valor.setValor(valorBd);
+
         Tempo estimativa;
         estimativa.setValor(estimativaStringBd);
         Prioridade prioridade;
         prioridade.setValor(prioridadeBd);
         Estado estado;
         estado.setValor(estadoBd);
-        Codigo projeto_codigo, codigoOriginal;
-        projeto_codigo.setValor(projeto_codigoBd);
+
+        Codigo codigoOriginal;
         codigoOriginal.setValor(codigoBd);
 
         HistoriaDeUsuario historia;
+        historia.setCodigo(codigoOriginal);
         historia.setTitulo(titulo);
         historia.setPapel(papel);
         historia.setAcao(acao);
@@ -273,30 +278,49 @@ bool ContainerBacklog::listarHistoriasAssociadas(const std::string& sql, const s
         historia.setEstimativa(estimativa);
         historia.setPrioridade(prioridade);
         historia.setEstado(estado);
-        historia.setCodigoProjeto(projeto_codigo);
-        historia.setCodigo(codigoOriginal);
+
+        if (!projeto_codigoBd.empty()) {
+            Codigo projeto_codigo;
+            projeto_codigo.setValor(projeto_codigoBd);
+            historia.setCodigoProjeto(projeto_codigo);
+        }
+        if (!sprint_codigoBd.empty()) {
+            Codigo sprint_codigo;
+            sprint_codigo.setValor(sprint_codigoBd);
+            historia.setCodigoSprint(sprint_codigo);
+        }
+        if (!pessoa_emailBd.empty()) {
+            Email email;
+            email.setValor(pessoa_emailBd);
+            historia.setEmailPessoa(email);
+        }
 
         historias.push_back(historia);
+
+    } catch (const std::exception& e) {
+
+        std::cerr << "[DEBUG] Linha ignorada por erro: " << e.what() << std::endl;
     }
+}
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
-    return true;
+    return !historias.empty();
 }
 
 bool ContainerBacklog::listarHistoriasAssociadasProjeto(const Codigo& codigo, std::vector<HistoriaDeUsuario>& historias){
-    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE projeto_codigo = ?;";
+    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo, sprint_codigo, pessoa_email FROM HistoriaDeUsuario WHERE projeto_codigo = ?;";
     return listarHistoriasAssociadas(sql, codigo.getValor(), historias);
 }
 
 bool ContainerBacklog::listarHistoriasAssociadasPlanoSprint(const Codigo& codigo, std::vector<HistoriaDeUsuario>& historias){
-    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE sprint_codigo = ?;";
+    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo, sprint_codigo, pessoa_email FROM HistoriaDeUsuario WHERE sprint_codigo = ?;";
     return listarHistoriasAssociadas(sql, codigo.getValor(), historias);
 }
 
 bool ContainerBacklog::listarHistoriasAssociadasPessoa(const Email& email, std::vector<HistoriaDeUsuario>& historias){
-    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo FROM HistoriaDeUsuario WHERE pessoa_email = ?;";
+    std::string sql = "SELECT codigo, titulo, papel, acao, valor, estimativa, prioridade, estado, projeto_codigo, sprint_codigo, pessoa_email FROM HistoriaDeUsuario WHERE pessoa_email = ?;";
     return listarHistoriasAssociadas(sql, email.getValor(), historias);
 }
 // Funçoes auxiliares

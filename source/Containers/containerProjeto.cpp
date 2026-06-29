@@ -268,3 +268,4 @@ void ContainerProjeto::executaStep(sqlite3* db, sqlite3_stmt* stmt) {
         throw std::runtime_error("Erro ao executar query: " + erro);
     }
 }
+

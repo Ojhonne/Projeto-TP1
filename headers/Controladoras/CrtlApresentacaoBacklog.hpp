@@ -44,7 +44,11 @@ class CrtlApresentacaoBacklog : public IApresentacaoBacklog{
         void listarAssociadasPessoa(WINDOW* win);
         void listarAssociadasPlanoSprint(WINDOW* win);
         void listarAssociadasProjeto(WINDOW* win);
-        void menuListar(WINDOW* win);
+        void associarHistoriaPessoa(WINDOW* win, const Email& emailLogado);
+        void removerAssociacaoHistoriaPessoa(WINDOW* win, const Email& emailLogado);
+        void moverHistoriaProjetoParaSprint(WINDOW* win, const Email& emailLogado);
+        void alterarEstadoHistoria(WINDOW* win, const Email& emailLogado);
+        void menuListar(WINDOW* win, const Email& emailLogado);
 
     public:
         /**

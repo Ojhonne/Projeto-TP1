@@ -56,9 +56,9 @@ void CrtlApresentacaoBacklog::executar(const Email& emailLogado) {
                 break;
 
             case 4:
-                menuListar(win);
+                menuListar(win, emailLogado);
                 break;
-
+            
             case 5:
                 sair = true;
                 wclear(win);
@@ -92,12 +92,14 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         mvwprintw(win, 8, 5, "Valor: ");
         mvwprintw(win, 12, 5, "Estimativa: ");
         mvwprintw(win, 13, 5, "Prioridade: ");
+        mvwprintw(win, 14, 5, "Codigo do Projeto: ");
         mvwprintw(win, 16, 2, "Pressione ESC para cancelar e sair");
 
         wrefresh(win);
 
         //inicializa as variáveis que serão capturadas do usuário
         char strCodigo[10];
+        char strCodigoProjeto[10];
         char strTitulo[15];
         char strPapel[15];
         char strAcao[30];
@@ -140,6 +142,10 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         if (!Tui::lerEntradaTerminal(win, strPrioridade, 10, false)) {
             return;
         }
+        wmove(win, 14, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigoProjeto, 9, false)) {
+            return;
+        }
 
         Estado estadoInicial;
         estadoInicial.setValor("A FAZER"); // formato exigido para o estado inicial de uma história de usuário
@@ -150,6 +156,7 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
         // a exceção é capturada e a operação é repetida.
         try {
             Codigo codigoLocal(strCodigo);
+            Codigo codigoProjeto(strCodigoProjeto);
             Texto tituloLocal(strTitulo);
             Texto papelLocal(strPapel);
             Texto acaoLocal(strAcao);
@@ -159,8 +166,6 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             Prioridade prioridadeLocal;
             prioridadeLocal.setValor(strPrioridade);
 
-            //Email enviar;
-            //enviar.setValor("joao@teste.com"); // simulando um teste
 
             HistoriaDeUsuario historiaLocal;
 
@@ -172,14 +177,13 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             historiaLocal.setEstimativa(estimativaLocal);
             historiaLocal.setPrioridade(prioridadeLocal);
             historiaLocal.setEstado(estadoInicial);
-            historiaLocal.setCodigoProjeto(codigoLocal); // trocar por um input devido
-            //historiaLocal.setEmailPessoa(enviar);
+            historiaLocal.setCodigoProjeto(codigoProjeto); // trocar por um input devido
 
             valido = servicoBacklog->criarHistoriaUsuario(historiaLocal, emailLogado);
 
             if (valido) {
                 wattron(win, COLOR_PAIR(3));
-                mvwprintw(win, 14, 2, "Historia criada com sucesso!");
+                mvwprintw(win, 15, 2, "Historia criada com sucesso!");
                 wattroff(win, COLOR_PAIR(3));
                 wrefresh(win);
                 wgetch(win);
@@ -187,14 +191,14 @@ void CrtlApresentacaoBacklog::criarBacklog(WINDOW* win, const Email& emailLogado
             }
 
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 14, 2, "Erro: historia nao foi criada.");
+            mvwprintw(win, 15, 2, "Erro: historia nao foi criada.");
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
         }
         catch (const std::invalid_argument& e) {
             wattron(win, COLOR_PAIR(2));
-            mvwprintw(win, 14, 2, "Erro: %s", e.what());
+            mvwprintw(win, 15, 2, "Erro: %s", e.what());
             wattroff(win, COLOR_PAIR(2));
             wrefresh(win);
             wgetch(win);
@@ -323,11 +327,13 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
         mvwprintw(win, 12, 5, "Nova Estimativa: ");
         mvwprintw(win, 13, 5, "Nova Prioridade: ");
         mvwprintw(win, 14, 5, "Novo Estado: ");
+        mvwprintw(win, 14, 5, "Novo Codigo do Projeto: ");
         mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
 
         wrefresh(win);
 
         char strCodigo[10];
+        char strCodigoProjeto[10];
         char strTitulo[15];
         char strPapel[15];
         char strAcao[15];
@@ -374,9 +380,15 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
         if (!Tui::lerEntradaTerminal(win, strEstado, 20, false)) {
             return;
         }
+        wmove(win, 14, 32);
+        if (!Tui::lerEntradaTerminal(win, strCodigoProjeto, 9, false)) {
+            return;
+        }
+
 
         try {
             Codigo codigoLocal(strCodigo);
+            Codigo codigoProjeto(strCodigoProjeto);
             Texto tituloLocal(strTitulo);
             Texto papelLocal(strPapel);
             Texto acaoLocal(strAcao);
@@ -428,14 +440,18 @@ void CrtlApresentacaoBacklog::atualizarBacklog(WINDOW* win, const Email& emailLo
     }
 }
 
-void CrtlApresentacaoBacklog::menuListar(WINDOW* win) {
+void CrtlApresentacaoBacklog::menuListar(WINDOW* win, const Email& emailLogado) {
     bool sair = false;
 
     std::vector<std::string> opcoes = {
         "Associadas a Projeto",
         "Associadas a Plano Sprint",
         "Associadas a Pessoa",
-        "Voltar"
+        "Associar Pessoa",       // case 5
+        "Remover Associacao",    // case 6
+        "Mover para Sprint",     // case 7
+        "Alterar Estado",        // case 8
+        "Voltar"                 // case 9 (era 5)
     };
 
     //exibe as possíveis ações a serem feitas com os projetos até que o usuário escolha sair.
@@ -455,10 +471,11 @@ void CrtlApresentacaoBacklog::menuListar(WINDOW* win) {
             case 2:
                 listarAssociadasPessoa(win);
                 break;
-
-            case 3:
-                sair = true;
-                break;
+            case 3: associarHistoriaPessoa(win, emailLogado);           break;
+            case 4: removerAssociacaoHistoriaPessoa(win, emailLogado);  break;
+            case 5: moverHistoriaProjetoParaSprint(win, emailLogado);   break;
+            case 6: alterarEstadoHistoria(win, emailLogado);            break;
+            case 7: sair = true;      break;
 
             default:
                 break;
@@ -691,8 +708,8 @@ void CrtlApresentacaoBacklog::listarAssociadasProjeto(WINDOW* win) {
             Codigo codigoLocal(strCodigo);
             std::vector<HistoriaDeUsuario> historiaDeUsuario;
 
-            bool encontrado = servicoBacklog->listarHistoriasAssociadasPlanoSprint(codigoLocal, historiaDeUsuario);
-
+            bool encontrado = servicoBacklog->listarHistoriasAssociadasProjeto(codigoLocal, historiaDeUsuario);
+            
             werase(win);
             box(win, 0, 0);
 
@@ -821,6 +838,231 @@ void CrtlApresentacaoBacklog::excluirBacklog(WINDOW* win, const Email& emailLoga
     }
 }
 
+void CrtlApresentacaoBacklog::associarHistoriaPessoa(WINDOW* win, const Email& emailLogado) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " ASSOCIAR HISTORIA A PESSOA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo da Historia: ");
+        mvwprintw(win, 4, 5, "Email da Pessoa:    ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[10];
+        char strEmail[330];
+
+        wmove(win, 2, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 9, false)) return;
+
+        wmove(win, 4, 25);
+        if (!Tui::lerEntradaTerminal(win, strEmail, 329, false)) return;
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            Email emailAlvo(strEmail);
+
+            bool sucesso = servicoBacklog->associarHistoriaPessoa(codigoLocal, emailAlvo, emailLogado);
+
+            if (sucesso) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Associacao realizada com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+                sair = true;
+            } else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Erro: nao foi possivel associar. Verifique permissoes.");
+                wattroff(win, COLOR_PAIR(2));
+            }
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::removerAssociacaoHistoriaPessoa(WINDOW* win, const Email& emailLogado) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " REMOVER ASSOCIACAO HISTORIA/PESSOA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo da Historia: ");
+        mvwprintw(win, 4, 5, "Email da Pessoa:    ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[10];
+        char strEmail[330];
+
+        wmove(win, 2, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 9, false)) return;
+
+        wmove(win, 4, 25);
+        if (!Tui::lerEntradaTerminal(win, strEmail, 329, false)) return;
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            Email emailAlvo(strEmail);
+
+            bool sucesso = servicoBacklog->removerAssociacaoHistoriaPessoa(codigoLocal, emailAlvo, emailLogado);
+
+            if (sucesso) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Associacao removida com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+                sair = true;
+            } else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Erro: nao foi possivel remover. Verifique permissoes.");
+                wattroff(win, COLOR_PAIR(2));
+            }
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::moverHistoriaProjetoParaSprint(WINDOW* win, const Email& emailLogado) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " MOVER HISTORIA PARA SPRINT ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo da Historia: ");
+        mvwprintw(win, 4, 5, "Codigo do Sprint:   ");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigoHistoria[10];
+        char strCodigoSprint[10];
+
+        wmove(win, 2, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigoHistoria, 9, false)) return;
+
+        wmove(win, 4, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigoSprint, 9, false)) return;
+
+        try {
+            Codigo codigoHistoria(strCodigoHistoria);
+            Codigo codigoSprint(strCodigoSprint);
+
+            bool sucesso = servicoBacklog->moverHistoriaProjetoParaSprint(codigoHistoria, codigoSprint, emailLogado);
+
+            if (sucesso) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Historia movida para o Sprint com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+                sair = true;
+            } else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Erro: nao foi possivel mover. Verifique permissoes.");
+                wattroff(win, COLOR_PAIR(2));
+            }
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
+
+void CrtlApresentacaoBacklog::alterarEstadoHistoria(WINDOW* win, const Email& emailLogado) {
+    bool sair = false;
+
+    while (!sair) {
+        werase(win);
+        box(win, 0, 0);
+
+        wattron(win, COLOR_PAIR(1));
+        mvwprintw(win, 0, 10, " ALTERAR ESTADO DA HISTORIA ");
+        wattroff(win, COLOR_PAIR(1));
+
+        mvwprintw(win, 2, 5, "Codigo da Historia: ");
+        mvwprintw(win, 4, 5, "Novo Estado:        ");
+        mvwprintw(win, 6, 5, "(A FAZER / FAZENDO / FEITO)");
+        mvwprintw(win, 18, 2, "Pressione ESC para cancelar e sair");
+
+        wrefresh(win);
+
+        char strCodigo[10];
+        char strEstado[21];
+
+        wmove(win, 2, 25);
+        if (!Tui::lerEntradaTerminal(win, strCodigo, 9, false)) return;
+
+        wmove(win, 4, 25);
+        if (!Tui::lerEntradaTerminal(win, strEstado, 20, false)) return;
+
+        try {
+            Codigo codigoLocal(strCodigo);
+            Estado estadoLocal;
+            estadoLocal.setValor(strEstado);
+
+            bool sucesso = servicoBacklog->alterarEstadoHistoria(codigoLocal, estadoLocal, emailLogado);
+
+            if (sucesso) {
+                wattron(win, COLOR_PAIR(3));
+                mvwprintw(win, 8, 2, "Estado alterado com sucesso!");
+                wattroff(win, COLOR_PAIR(3));
+                sair = true;
+            } else {
+                wattron(win, COLOR_PAIR(2));
+                mvwprintw(win, 8, 2, "Erro: nao foi possivel alterar. Verifique permissoes.");
+                wattroff(win, COLOR_PAIR(2));
+            }
+
+            wrefresh(win);
+            wgetch(win);
+        }
+        catch (const std::invalid_argument& e) {
+            wattron(win, COLOR_PAIR(2));
+            mvwprintw(win, 8, 2, "Erro: %s", e.what());
+            wattroff(win, COLOR_PAIR(2));
+            wrefresh(win);
+            wgetch(win);
+        }
+    }
+}
 WINDOW* CrtlApresentacaoBacklog::criarJanelaBacklog(int altura, int largura) {
     int startY = (LINES - altura) / 2;
     int startX = (COLS - largura) / 2;

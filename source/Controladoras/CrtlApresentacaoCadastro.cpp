@@ -91,8 +91,6 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
 }
 
 void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
-    WINDOW* winCabecalho = newwin(10,55, 5, 22);
-    box(winCabecalho, 0, 0);
     WINDOW* win = criarJanelaCadastro();
     char senhaStr[30], nomeStr[20];
     Pessoa pessoaExistente;
@@ -101,7 +99,7 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
         this->servicoPessoa->lerPessoa(emailSessao, pessoaExistente);
     }
     while (true) {
-        desenharCabecalho(winCabecalho, emailSessao);
+     //   desenharCabecalho(winCabecalho, emailSessao);
          // renderiza o layout estatico sem dar foco de digitacao para email e papel
         werase(win);
         box(win, 0, 0);
@@ -152,7 +150,6 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
             exibirErro(win, e.what());
         }
     }
-    delwin(winCabecalho);
     delwin(win);
 }
 
