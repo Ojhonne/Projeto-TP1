@@ -91,12 +91,9 @@ void CrtlApresentacaoCadastro::cadastrarInexistente() {
 }
 
 void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
-    WINDOW* winCabecalho = newwin(10,55, 5, 22);
-    box(winCabecalho, 0, 0);
     WINDOW* win = criarJanelaCadastro();
     char emailStr[85], senhaStr[30], nomeStr[20], papelStr[20];
     while (true) {
-        desenharCabecalho(winCabecalho, emailSessao);
         desenharLayout(win, " ALTERAR CADASTRO ");
         if (!capturarCampos(win, emailStr, senhaStr, nomeStr, papelStr)) {
             break;
@@ -133,7 +130,6 @@ void CrtlApresentacaoCadastro::atualizarExistente(const Email& emailSessao) {
             exibirErro(win, e.what());
         }
     }
-    delwin(winCabecalho);
     delwin(win);
 }
 
