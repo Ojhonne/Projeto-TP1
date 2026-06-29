@@ -1,0 +1,20 @@
+<map id="headers/Controladoras/CrtlApresentacaoPlanejamento.hpp" name="headers/Controladoras/CrtlApresentacaoPlanejamento.hpp">
+<area shape="rect" id="Node000001" title="Definição da controladora da apresentação Planejamento." alt="" coords="111,5,341,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="18,171,75,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,40,83,49,57,61,33,77,14,97,8,112,10,127,27,158,22,160,5,129,3,111,9,95,30,73,54,56,82,44,112,36"/>
+<area shape="rect" id="Node000003" href="$dominios_8hpp.html" title="Definição da classe base abstrata para os domínios do sistema." alt="" coords="258,171,416,197"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,46,237,84,254,121,274,143,300,163,294,162,271,147,249,124,232,86,227,51"/>
+<area shape="rect" id="Node000006" href="$interfaces_8hpp.html" title="Definição das interfaces do sistema." alt="" coords="24,96,189,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="194,51,139,89,136,85,197,47"/>
+<area shape="rect" id="Node000007" href="$projeto_8hpp.html" title="Definição da classe entidade Pessoa." alt="" coords="263,96,411,123"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="255,46,310,86,305,87,254,51"/>
+<area shape="rect" id="Node000008" href="$plano_de_sprint_8hpp.html" title="Definição da classe entidade HistoriaDeUsuario." alt="" coords="435,96,625,123"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="305,46,470,90,465,93,305,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="265,245,318,272"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="331,197,309,234,306,230,327,199"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="342,245,420,272"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="346,196,368,233,363,231,343,200"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="94,125,68,160,64,157,97,121"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="339,121,339,156,335,154,335,125"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="499,122,386,167,384,162,494,124"/>
+</map>

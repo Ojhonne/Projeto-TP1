@@ -1,0 +1,38 @@
+<map id="ContainerBacklog::getInstancia" name="ContainerBacklog::getInstancia">
+<area shape="rect" id="Node000001" title="Implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="468,321,671,348"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#ab6ac2c059eed7107a7f1d42448d194e0" title="Associa uma história de usuário a uma pessoa." alt="" coords="16,28,184,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="562,305,548,246,522,171,504,133,480,96,452,64,419,38,388,23,356,14,322,9,288,8,222,16,165,29,162,25,221,10,288,3,323,4,357,8,390,18,421,33,456,60,484,93,508,130,527,169,553,245,567,306"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_backlog.html#ad2dd9a7a9be945986e2fe13b3fe4d6d7" title="Atualiza os dados de uma história de usuário cadastrada no sistema." alt="" coords="247,72,416,114"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="553,307,532,268,502,220,464,171,418,128,403,117,401,112,422,124,467,168,506,217,537,266,558,307"/>
+<area shape="rect" id="Node000005" href="$class_crtl_servico_backlog.html#a06026d96d140c9548ae1c73a396880b8" title="Move uma história de usuário de um projeto para um plano de sprint." alt="" coords="11,161,189,220"/>
+<area shape="poly" id="edge23_Node000001_Node000005" title=" " alt="" coords="507,317,419,290,190,220,189,214,421,285,512,315"/>
+<area shape="rect" id="Node000006" href="$class_crtl_servico_backlog.html#a2333ec47c27466111d4355a5c444037c" title="Cria uma nova história de usuário no sistema." alt="" coords="259,354,404,397"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="471,352,405,365,403,361,476,349"/>
+<area shape="rect" id="Node000007" href="$class_crtl_servico_backlog.html#a608288c86a65ef9f5c49d9c4173d5b54" title="Exclui uma história de usuário cadastrada no sistema." alt="" coords="253,445,410,488"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="528,357,373,446,370,442,532,354"/>
+<area shape="rect" id="Node000008" href="$class_crtl_servico_backlog.html#acbfd37211f291c3f2ac7af7b93a09c44" title="Lê os dados de uma história de usuário cadastrada no sistema." alt="" coords="265,162,398,205"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="538,311,485,270,419,226,386,208,385,203,421,221,488,266,543,310"/>
+<area shape="rect" id="Node000009" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="5,250,195,309"/>
+<area shape="poly" id="edge24_Node000001_Node000009" title=" " alt="" coords="451,323,196,293,195,288,454,319"/>
+<area shape="rect" id="Node000010" href="$class_crtl_servico_backlog.html#a84bba3b9c221807297a1f7c6ae86818b" title="Lista as histórias de usuário associadas a uma pessoa." alt="" coords="243,536,420,594"/>
+<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="550,358,494,427,422,502,378,537,375,533,418,498,490,424,546,362"/>
+<area shape="rect" id="Node000011" href="$class_crtl_servico_backlog.html#a32cd8c664b87b10f1cfdaafe3bfb031f" title="Lista as histórias de usuário associadas a um plano de sprint." alt="" coords="243,642,420,701"/>
+<area shape="poly" id="edge19_Node000001_Node000011" title=" " alt="" coords="560,360,540,412,509,476,469,544,422,608,382,644,379,640,418,604,465,541,504,473,535,410,556,364"/>
+<area shape="rect" id="Node000012" href="$class_crtl_servico_backlog.html#a0db2b8095c495cfa4d63f5542bacb7fb" title="Lista as histórias de usuário associadas a um projeto." alt="" coords="243,749,420,808"/>
+<area shape="poly" id="edge21_Node000001_Node000012" title=" " alt="" coords="564,360,549,430,521,521,479,621,453,669,422,715,404,734,383,751,381,746,401,730,418,711,448,667,474,619,516,519,544,429,561,365"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="230,76,185,67,183,63,234,72"/>
+<area shape="poly" id="edge5_Node000003_Node000003" title=" " alt="" coords="367,57,355,52,331,50,310,52,296,57,291,63,293,71,287,71,286,62,293,53,308,47,331,45,356,47,372,55"/>
+<area shape="rect" id="Node000004" href="$class_crtl_servico_backlog.html#a8350e5a6a1b7e2111c1e4b5d32ad95b2" title="Altera o estado de uma história de usuário." alt="" coords="24,94,176,137"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,104,178,110,175,106,234,101"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="255,122,244,129,196,151,171,162,167,159,194,146,242,124,258,119"/>
+<area shape="poly" id="edge8_Node000006_Node000006" title=" " alt="" coords="367,339,355,335,331,333,310,335,296,340,291,346,293,354,287,353,286,344,293,335,308,330,331,328,356,330,372,338"/>
+<area shape="poly" id="edge10_Node000007_Node000007" title=" " alt="" coords="367,430,355,426,331,424,310,425,296,430,291,436,293,445,287,444,286,435,293,426,308,420,331,418,356,421,372,429"/>
+<area shape="poly" id="edge13_Node000008_Node000002" title=" " alt="" coords="279,154,241,128,218,105,193,84,173,73,171,68,196,80,221,101,244,124,284,153"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="248,161,176,140,174,135,252,158"/>
+<area shape="poly" id="edge15_Node000008_Node000005" title=" " alt="" coords="247,188,191,190,188,185,251,184"/>
+<area shape="poly" id="edge14_Node000008_Node000008" title=" " alt="" coords="367,148,355,143,331,141,310,143,296,148,291,154,293,162,287,161,286,152,293,143,308,138,331,136,356,138,372,146"/>
+<area shape="poly" id="edge16_Node000008_Node000009" title=" " alt="" coords="262,213,174,252,171,248,266,209"/>
+<area shape="poly" id="edge18_Node000010_Node000010" title=" " alt="" coords="367,522,354,517,331,514,311,516,298,521,292,527,291,536,286,534,287,525,295,516,310,511,331,509,356,512,372,521"/>
+<area shape="poly" id="edge20_Node000011_Node000011" title=" " alt="" coords="367,628,354,623,331,621,311,623,298,628,292,634,291,643,286,641,287,632,295,623,310,618,331,616,356,618,372,628"/>
+<area shape="poly" id="edge22_Node000012_Node000012" title=" " alt="" coords="367,734,354,730,331,728,311,729,298,734,292,741,291,750,286,747,287,738,295,730,310,724,331,722,356,725,372,735"/>
+</map>

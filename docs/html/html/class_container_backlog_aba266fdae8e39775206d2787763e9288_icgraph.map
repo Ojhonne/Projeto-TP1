@@ -1,0 +1,5 @@
+<map id="ContainerBacklog::atualizarHistoriaUsuario" name="ContainerBacklog::atualizarHistoriaUsuario">
+<area shape="rect" id="Node000001" title="Atualiza os dados de uma história de usuário no container." alt="" coords="243,13,424,56"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="5,5,195,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,35,195,37,195,32,230,34"/>
+</map>

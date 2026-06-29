@@ -1,5 +1,0 @@
-<map id="Data" name="Data">
-<area shape="rect" id="Node000001" title="Representa uma data válida no formato D/MM/AAAA ou DD/MM/AAAA." alt="" coords="5,187,96,405"/>
-<area shape="rect" id="Node000002" href="$class_dominio.html" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="7,5,95,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,151,53,187,48,187,51,157"/>
-</map>

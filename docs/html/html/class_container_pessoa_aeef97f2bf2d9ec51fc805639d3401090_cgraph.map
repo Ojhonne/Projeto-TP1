@@ -1,0 +1,13 @@
+<map id="ContainerPessoa::atualizarPessoa" name="ContainerPessoa::atualizarPessoa">
+<area shape="rect" id="Node000001" title="Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido." alt="" coords="5,99,184,141"/>
+<area shape="rect" id="Node000002" href="$class_pessoa.html#a904654f6a79a0936d0df1cd6c36a7e8d" title="Recupera o email da pessoa." alt="" coords="234,5,358,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,96,230,42,246,37,241,40,233,46,134,100"/>
+<area shape="rect" id="Node000003" href="$class_pessoa.html#a6332603563e192e1f692fde126a55105" title="Recupera o nome da pessoa." alt="" coords="233,56,359,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,96,227,86,223,88,183,101"/>
+<area shape="rect" id="Node000004" href="$class_pessoa.html#a54f7ae519388a447626671167f43c8b1" title="Recupera o papel da pessoa." alt="" coords="234,107,358,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,117,220,119,215,121,185,123"/>
+<area shape="rect" id="Node000005" href="$class_pessoa.html#a622b211563983aa0e520c5c02b18098a" title="Recupera a senha da pessoa." alt="" coords="232,157,360,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="182,139,228,152,223,154,182,145"/>
+<area shape="rect" id="Node000006" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="234,208,358,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="133,139,233,194,246,202,241,201,230,198,131,144"/>
+</map>

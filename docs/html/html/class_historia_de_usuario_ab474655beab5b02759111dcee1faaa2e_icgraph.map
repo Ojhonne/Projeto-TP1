@@ -1,0 +1,7 @@
+<map id="HistoriaDeUsuario::setEstado" name="HistoriaDeUsuario::setEstado">
+<area shape="rect" id="Node000001" title="Define o estado atual da história (ex: A FAZER, FAZENDO, FEITO)." alt="" coords="245,39,381,81"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#a8350e5a6a1b7e2111c1e4b5d32ad95b2" title="Altera o estado de uma história de usuário." alt="" coords="25,5,177,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,48,177,41,177,36,232,46"/>
+<area shape="rect" id="Node000003" href="$class_container_backlog.html#a210dc3e72fdfe528808dd646f3b3838b" title="Lê os dados de uma história de usuário no container." alt="" coords="5,72,197,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,74,197,81,197,76,232,73"/>
+</map>

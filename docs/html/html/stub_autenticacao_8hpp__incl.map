@@ -1,0 +1,17 @@
+<map id="headers/Stubs/stubAutenticacao.hpp" name="headers/Stubs/stubAutenticacao.hpp">
+<area shape="rect" id="Node000001" title="Definição da stub de autenticação." alt="" coords="24,5,259,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,229,59,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,35,86,84,64,118,47,156,39,185,36,215,31,213,34,185,41,154,59,116,82,81,129,30"/>
+<area shape="rect" id="Node000003" href="$dominios_8hpp.html" title="Definição da classe base abstrata para os domínios do sistema." alt="" coords="56,155,213,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,34,112,55,97,81,95,96,98,112,115,142,110,143,93,114,90,97,92,79,107,52,129,30"/>
+<area shape="rect" id="Node000005" href="$interfaces_8hpp.html" title="Definição das interfaces do sistema." alt="" coords="344,80,509,107"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="191,30,364,74,360,77,191,35"/>
+<area shape="rect" id="Node000007" href="$historia_de_usuario_8hpp.html" title="Definição da classe entidade HistoriaDeUsuario." alt="" coords="107,80,320,107"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="154,30,193,68,188,69,154,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="119,182,64,222,61,218,114,182"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,229,174,256"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="136,180,137,215,132,213,133,184"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="398,155,455,181"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="428,105,429,140,424,138,425,109"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="202,106,161,146,158,142,198,109"/>
+</map>

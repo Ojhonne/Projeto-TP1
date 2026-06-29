@@ -1,0 +1,24 @@
+<map id="CrtlServicoAutenticacao::autenticarPessoa" name="CrtlServicoAutenticacao::autenticarPessoa">
+<area shape="rect" id="Node000001" title="Autentica um Pessoa pelo par email/senha." alt="" coords="5,99,168,141"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#ae632da48290920caa4ae31a88084357b" title="implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="216,5,416,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,96,162,68,215,42,237,35,233,39,217,46,165,73,120,100"/>
+<area shape="rect" id="Node000003" href="$class_pessoa.html#a622b211563983aa0e520c5c02b18098a" title="Recupera a senha da pessoa." alt="" coords="252,56,380,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,100,240,85,236,88,169,105"/>
+<area shape="rect" id="Node000004" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="466,56,590,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,115,285,107,416,92,461,86,456,88,416,97,286,112,169,120"/>
+<area shape="rect" id="Node000005" href="$class_container_pessoa.html#a66082172b358caee534cd5bc6a69fb7d" title="Pesquisa uma pessoa no container com base no email fornecido." alt="" coords="222,157,410,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="167,135,240,152,235,155,168,141"/>
+<area shape="rect" id="Node000011" href="$class_pessoa.html#a07c9dc9687e897de901a0361cdae0401" title="Atribui um novo email a pessoa." alt="" coords="254,208,378,235"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="119,139,165,167,217,194,242,204,236,205,215,198,162,172,119,144"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="373,154,415,136,429,126,438,115,448,104,463,92,471,91,475,88,465,97,452,108,442,119,432,130,417,141,375,159"/>
+<area shape="rect" id="Node000006" href="$class_pessoa.html#a904654f6a79a0936d0df1cd6c36a7e8d" title="Recupera o email da pessoa." alt="" coords="466,107,590,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="374,154,457,137,452,138,376,159"/>
+<area shape="rect" id="Node000007" href="$class_pessoa.html#afddbfe1fabc8e39b53f9b59b24702591" title="Atribui um novo nome a pessoa." alt="" coords="465,157,591,184"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="409,168,452,170,447,171,410,173"/>
+<area shape="rect" id="Node000008" href="$class_pessoa.html#af9fd246c333ffb8c8deef7a4c00fed68" title="Define o papel da pessoa no sistema." alt="" coords="466,208,590,235"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="375,182,457,203,452,204,375,187"/>
+<area shape="rect" id="Node000009" href="$class_pessoa.html#a57ed4246933f9585fc92a4adf9e1f69f" title="Atribui uma nova senha a pessoa." alt="" coords="464,259,592,285"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="391,182,417,194,433,206,443,219,451,232,466,245,474,252,469,251,462,249,447,235,438,222,429,210,415,198,391,187"/>
+<area shape="rect" id="Node000010" href="$class_dominio.html#a220fafcb42edefedd265cedec3f84070" title="Define um novo valor para o domínio." alt="" coords="466,309,590,336"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="398,182,418,194,430,206,437,219,443,245,449,271,455,283,466,295,470,301,465,300,462,299,451,286,444,272,438,246,432,221,425,210,414,198,397,187"/>
+</map>

@@ -1,5 +1,0 @@
-<map id="Senha" name="Senha">
-<area shape="rect" id="Node000001" title="Representa o formato válido para armazenar uma senha." alt="" coords="15,187,84,277"/>
-<area shape="rect" id="Node000002" href="$class_dominio.html" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="5,5,93,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,151,52,187,47,187,48,156"/>
-</map>

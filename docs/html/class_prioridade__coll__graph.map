@@ -1,5 +1,0 @@
-<map id="Prioridade" name="Prioridade">
-<area shape="rect" id="Node000001" title="Representa o formato válido para armazenar uma prioridade do usuário." alt="" coords="5,187,95,256"/>
-<area shape="rect" id="Node000002" href="$class_dominio.html" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="6,5,94,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,151,53,187,48,186,49,156"/>
-</map>

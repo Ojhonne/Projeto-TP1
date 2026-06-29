@@ -1,0 +1,13 @@
+<map id="Pessoa::getSenha" name="Pessoa::getSenha">
+<area shape="rect" id="Node000001" title="Recupera a senha da pessoa." alt="" coords="438,80,566,107"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#aeef97f2bf2d9ec51fc805639d3401090" title="Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido." alt="" coords="202,5,380,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,75,361,51,361,46,445,75"/>
+<area shape="rect" id="Node000004" href="$class_crtl_servico_autenticacao.html#a3bd145448a9d9308f495b4112908a5b0" title="Autentica um Pessoa pelo par email/senha." alt="" coords="210,72,372,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="420,94,373,96,372,91,425,93"/>
+<area shape="rect" id="Node000005" href="$class_container_pessoa.html#ad3e75e474504c79c6aa695f1745fbcc8" title="Inclui uma nova pessoa no container." alt="" coords="192,139,390,165"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="445,111,391,129,348,141,347,135,389,124,439,112"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_pessoa.html#a6282863366330d9943c3b38aea9a287a" title="Atualiza os dados de uma pessoa cadastrada no sistema." alt="" coords="5,5,144,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="184,28,145,29,143,24,188,25"/>
+<area shape="rect" id="Node000006" href="$class_crtl_servico_pessoa.html#a71f269721f7c5fac94948eb946738128" title="Cria uma nova pessoa no sistema." alt="" coords="5,131,144,173"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="174,152,144,155,144,149,179,152"/>
+</map>

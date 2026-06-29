@@ -1,5 +1,0 @@
-<map id="StubServicoPlanejamento::excluirProjeto" name="StubServicoPlanejamento::excluirProjeto">
-<area shape="rect" id="Node000001" title="Exclui um projeto do sistema." alt="" coords="5,5,177,48"/>
-<area shape="rect" id="Node000002" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="225,13,349,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,24,212,26,206,27,177,29"/>
-</map>

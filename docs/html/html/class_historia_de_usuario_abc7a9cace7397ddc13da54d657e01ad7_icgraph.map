@@ -1,0 +1,10 @@
+<map id="HistoriaDeUsuario::getCodigoSprint" name="HistoriaDeUsuario::getCodigoSprint">
+<area shape="rect" id="Node000001" title="Recupera o código de sprint associado à história de usuário." alt="" coords="472,59,608,101"/>
+<area shape="rect" id="Node000002" href="$class_container_backlog.html#aba266fdae8e39775206d2787763e9288" title="Atualiza os dados de uma história de usuário no container." alt="" coords="243,13,424,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,62,425,57,425,52,459,62"/>
+<area shape="rect" id="Node000004" href="$class_crtl_servico_backlog.html#a2333ec47c27466111d4355a5c444037c" title="Cria uma nova história de usuário no sistema." alt="" coords="261,104,406,147"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="459,98,406,112,405,107,454,99"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="5,5,195,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,35,196,37,195,32,230,34"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="365,88,354,85,333,83,314,85,302,89,297,95,299,105,294,102,292,94,299,85,313,79,333,77,356,80,370,89"/>
+</map>

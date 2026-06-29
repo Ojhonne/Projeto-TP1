@@ -1,0 +1,9 @@
+<map id="Pessoa::setPapel" name="Pessoa::setPapel">
+<area shape="rect" id="Node000001" title="Define o papel da pessoa no sistema." alt="" coords="451,47,575,73"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#a66082172b358caee534cd5bc6a69fb7d" title="Pesquisa uma pessoa no container com base no email fornecido." alt="" coords="216,47,403,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="432,60,404,63,403,57,438,60"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_autenticacao.html#a3bd145448a9d9308f495b4112908a5b0" title="Autentica um Pessoa pelo par email/senha." alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,44,168,41,168,36,203,43"/>
+<area shape="rect" id="Node000004" href="$class_crtl_servico_pessoa.html#a1a297d34123ad900d4931c31e3365198" title="Lê os dados de uma pessoa cadastrada no sistema." alt="" coords="17,72,156,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="198,77,157,86,156,80,203,76"/>
+</map>

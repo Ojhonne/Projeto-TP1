@@ -1,0 +1,5 @@
+<map id="HistoriaDeUsuario::setCodigoSprint" name="HistoriaDeUsuario::setCodigoSprint">
+<area shape="rect" id="Node000001" title="Atribui um novo código à sprint associada à história de usuário." alt="" coords="232,13,368,56"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#a06026d96d140c9548ae1c73a396880b8" title="Move uma história de usuário de um projeto para um plano de sprint." alt="" coords="5,5,184,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,35,184,37,184,32,219,34"/>
+</map>

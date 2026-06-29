@@ -1,0 +1,5 @@
+<map id="Codigo" name="Codigo">
+<area shape="rect" id="Node000001" title="Representa um codigo identificador valido." alt="" coords="9,80,71,107"/>
+<area shape="rect" id="Node000002" href="$class_dominio.html" title="Classe base abstrata que padroniza o comportamento de classes de domínio." alt="" coords="5,5,75,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,46,43,80,37,79,38,50"/>
+</map>

@@ -1,0 +1,43 @@
+<map id="Pessoa::getPapel" name="Pessoa::getPapel">
+<area shape="rect" id="Node000001" title="Recupera o papel da pessoa." alt="" coords="478,483,602,510"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#a8350e5a6a1b7e2111c1e4b5d32ad95b2" title="Altera o estado de uma história de usuário." alt="" coords="19,6,170,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="533,467,522,375,500,251,486,190,469,135,450,90,428,61,400,42,369,27,336,17,301,11,233,9,172,14,169,10,233,4,302,6,337,12,371,22,403,37,432,57,455,87,474,133,491,189,506,250,527,374,539,469"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_backlog.html#ab6ac2c059eed7107a7f1d42448d194e0" title="Associa uma história de usuário a uma pessoa." alt="" coords="11,77,178,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="533,467,520,381,499,269,484,214,468,164,449,125,428,100,398,82,366,70,331,63,295,61,225,66,165,78,161,74,225,61,295,55,332,58,367,65,401,77,432,96,454,122,473,162,490,212,504,268,526,381,538,468"/>
+<area shape="rect" id="Node000004" href="$class_crtl_servico_backlog.html#ad2dd9a7a9be945986e2fe13b3fe4d6d7" title="Atualiza os dados de uma história de usuário cadastrada no sistema." alt="" coords="247,134,415,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="534,468,525,412,506,340,475,264,454,229,428,197,406,180,405,174,432,193,458,226,480,262,511,339,530,411,539,469"/>
+<area shape="rect" id="Node000005" href="$class_crtl_servico_backlog.html#a06026d96d140c9548ae1c73a396880b8" title="Move uma história de usuário de um projeto para um plano de sprint." alt="" coords="5,151,184,210"/>
+<area shape="poly" id="edge22_Node000001_Node000005" title=" " alt="" coords="533,467,523,418,505,356,474,293,453,265,428,241,411,231,387,222,325,207,185,189,183,184,326,202,389,217,413,226,432,237,457,262,479,291,510,354,529,417,538,468"/>
+<area shape="rect" id="Node000006" href="$class_container_pessoa.html#aeef97f2bf2d9ec51fc805639d3401090" title="Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido." alt="" coords="242,251,420,294"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="527,468,513,433,492,389,464,346,428,308,413,297,412,292,432,304,468,342,497,387,518,431,533,469"/>
+<area shape="rect" id="Node000008" href="$class_crtl_servico_planejamento.html#a0dbe2c4e412516d4ad76602e5b85dbc7" title="Atualiza os dados de um plano de sprint cadastrado no sistema." alt="" coords="248,318,414,361"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="519,470,481,423,456,397,429,375,410,364,409,359,431,370,460,393,485,419,525,470"/>
+<area shape="rect" id="Node000009" href="$class_crtl_servico_planejamento.html#acab5b011a99d1984d9217289b26b94ce" title="Atualiza os dados de um projeto cadastrado no sistema." alt="" coords="248,385,414,427"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="499,476,429,442,402,431,400,425,431,437,504,475"/>
+<area shape="rect" id="Node000010" href="$class_crtl_servico_backlog.html#a2333ec47c27466111d4355a5c444037c" title="Cria uma nova história de usuário no sistema." alt="" coords="259,475,403,518"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="460,498,405,499,403,494,465,495"/>
+<area shape="rect" id="Node000011" href="$class_container_pessoa.html#ad3e75e474504c79c6aa695f1745fbcc8" title="Inclui uma nova pessoa no container." alt="" coords="232,542,430,569"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="478,516,431,533,389,544,386,539,429,527,483,514"/>
+<area shape="rect" id="Node000013" href="$class_crtl_servico_planejamento.html#aee9b3584902b115f0da3679de4e0278f" title="Cria um novo plano de sprint associado a um projeto." alt="" coords="248,593,414,635"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="511,522,477,553,431,583,407,594,404,590,429,578,474,549,515,519"/>
+<area shape="rect" id="Node000014" href="$class_crtl_servico_planejamento.html#a48c70974d242bc15e16751848f820929" title="Cria um novo projeto no sistema." alt="" coords="248,659,414,702"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="527,522,490,588,463,621,432,649,412,661,409,657,428,645,459,617,486,584,524,526"/>
+<area shape="rect" id="Node000015" href="$class_crtl_servico_backlog.html#a608288c86a65ef9f5c49d9c4173d5b54" title="Exclui uma história de usuário cadastrada no sistema." alt="" coords="252,750,410,793"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="532,523,519,566,497,616,468,668,432,716,409,736,383,752,380,747,406,731,428,712,464,665,492,614,514,564,529,527"/>
+<area shape="rect" id="Node000016" href="$class_crtl_servico_planejamento.html#a94908cbbed70b53e02ff6a2ffefc8baa" title="Exclui um plano de sprint cadastrado no sistema." alt="" coords="248,817,414,859"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="538,523,531,584,514,659,500,699,482,738,459,774,432,807,415,819,413,814,428,803,455,771,477,735,495,697,508,658,526,583,535,528"/>
+<area shape="rect" id="Node000017" href="$class_crtl_servico_planejamento.html#a23ff97d1a93fc332bcb36fa340d220df" title="Exclui um projeto cadastrado no sistema." alt="" coords="248,883,414,926"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="540,523,537,595,522,688,508,737,489,786,464,832,432,873,415,886,413,882,428,869,460,829,484,784,503,736,517,687,532,595,538,528"/>
+<area shape="rect" id="Node000018" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="236,950,426,1009"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="537,524,524,619,501,742,470,860,452,907,432,940,419,952,417,947,428,936,447,904,465,858,496,740,519,618,534,528"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="283,126,182,67,152,52,150,47,185,62,288,124"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="230,133,180,121,177,116,234,130"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="363,119,352,115,331,113,311,114,299,119,294,125,296,134,291,133,289,124,296,115,310,109,331,107,353,110,368,117"/>
+<area shape="poly" id="edge7_Node000004_Node000005" title=" " alt="" coords="230,168,186,173,182,169,233,164"/>
+<area shape="rect" id="Node000007" href="$class_crtl_servico_pessoa.html#a6282863366330d9943c3b38aea9a287a" title="Atualiza os dados de uma pessoa cadastrada no sistema." alt="" coords="25,251,164,294"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="224,274,166,275,163,270,228,271"/>
+<area shape="poly" id="edge13_Node000010_Node000010" title=" " alt="" coords="363,460,352,456,331,454,311,456,299,461,294,467,296,475,291,474,289,465,296,456,310,451,331,449,353,451,368,459"/>
+<area shape="rect" id="Node000012" href="$class_crtl_servico_pessoa.html#a71f269721f7c5fac94948eb946738128" title="Cria uma nova pessoa no sistema." alt="" coords="25,534,164,577"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="214,557,165,558,163,553,218,554"/>
+<area shape="poly" id="edge19_Node000015_Node000015" title=" " alt="" coords="363,735,352,731,331,729,311,730,299,735,294,741,296,750,291,749,289,740,296,731,310,725,331,723,353,726,368,734"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="HistoriaDeUsuario::getEstado" name="HistoriaDeUsuario::getEstado">
+<area shape="rect" id="Node000001" title="Recupera o estado atual." alt="" coords="493,47,629,89"/>
+<area shape="rect" id="Node000002" href="$class_container_backlog.html#aba266fdae8e39775206d2787763e9288" title="Atualiza os dados de uma história de usuário no container." alt="" coords="253,13,434,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="475,55,435,51,435,46,480,55"/>
+<area shape="rect" id="Node000004" href="$class_container_backlog.html#a2269cd074fcefc37c6b166993dba0f15" title="Cria uma nova história de usuário no container." alt="" coords="243,80,445,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="480,80,446,88,445,83,475,81"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="5,5,195,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,35,196,37,195,32,240,34"/>
+</map>

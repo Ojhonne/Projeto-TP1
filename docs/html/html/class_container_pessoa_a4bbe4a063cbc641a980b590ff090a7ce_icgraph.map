@@ -1,0 +1,5 @@
+<map id="ContainerPessoa::excluirPessoa" name="ContainerPessoa::excluirPessoa">
+<area shape="rect" id="Node000001" title="Remove uma pessoa do container com base no email fornecido." alt="" coords="192,5,359,48"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_pessoa.html#adca36dbcf1a4bf03778a29d4d726e786" title="Exclui uma pessoa cadastrada no sistema." alt="" coords="5,5,144,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,27,144,29,144,24,179,26"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="CrtlServicoBacklog::listarHistoriasAssociadasPessoa" name="CrtlServicoBacklog::listarHistoriasAssociadasPessoa">
+<area shape="rect" id="Node000001" title="Lista as histórias de usuário associadas a uma pessoa." alt="" coords="5,29,183,88"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="47,28,48,19,57,10,72,5,94,3,119,5,136,15,131,15,118,11,94,8,73,10,60,15,53,21,52,30"/>
+<area shape="rect" id="Node000002" href="$class_container_backlog.html#a48ae5fc071caf61f59698ac797897e2a" title="Implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="231,45,434,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,56,218,58,212,59,183,61"/>
+</map>

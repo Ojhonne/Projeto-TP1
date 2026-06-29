@@ -1,0 +1,7 @@
+<map id="IServicoPessoa" name="IServicoPessoa">
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,196,32"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_pessoa.html" title="Implementa o serviço de gerenciamento de pessoas no sistema." alt="" coords="5,80,136,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,42,84,82,81,78,115,44"/>
+<area shape="rect" id="Node000003" href="$class_stub_cadastro.html" title="Stub de serviço que simula o comportamento da camada de negócios para o cadastro de pessoas." alt="" coords="160,80,261,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,41,201,80,196,79,162,46"/>
+</map>

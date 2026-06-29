@@ -1,0 +1,5 @@
+<map id="CrtlApresentacaoPlanejamento" name="CrtlApresentacaoPlanejamento">
+<area shape="rect" id="Node000001" title="Controladora de apresentação responsável pelo módulo de planejamento." alt="" coords="5,80,207,107"/>
+<area shape="rect" id="Node000002" href="$class_i_apresentacao_planejamento.html" title=" " alt="" coords="14,5,198,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,46,108,81,104,79,104,50"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ContainerPessoa::atualizarPessoa" name="ContainerPessoa::atualizarPessoa">
+<area shape="rect" id="Node000001" title="Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido." alt="" coords="192,5,370,48"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_pessoa.html#a6282863366330d9943c3b38aea9a287a" title="Atualiza os dados de uma pessoa cadastrada no sistema." alt="" coords="5,5,144,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,27,144,29,144,24,179,26"/>
+</map>

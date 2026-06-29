@@ -1,0 +1,5 @@
+<map id="ContainerPessoa::excluirPessoa" name="ContainerPessoa::excluirPessoa">
+<area shape="rect" id="Node000001" title="Remove uma pessoa do container com base no email fornecido." alt="" coords="5,5,173,48"/>
+<area shape="rect" id="Node000002" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="221,13,345,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,24,208,26,203,27,173,29"/>
+</map>

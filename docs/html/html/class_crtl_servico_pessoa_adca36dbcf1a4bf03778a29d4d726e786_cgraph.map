@@ -1,0 +1,9 @@
+<map id="CrtlServicoPessoa::excluirPessoa" name="CrtlServicoPessoa::excluirPessoa">
+<area shape="rect" id="Node000001" title="Exclui uma pessoa cadastrada no sistema." alt="" coords="5,35,144,77"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#a4bbe4a063cbc641a980b590ff090a7ce" title="Remove uma pessoa do container com base no email fornecido." alt="" coords="208,5,376,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,44,195,39,190,41,144,49"/>
+<area shape="rect" id="Node000004" href="$class_container_pessoa.html#ae632da48290920caa4ae31a88084357b" title="implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="192,72,392,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,63,179,69,174,70,144,68"/>
+<area shape="rect" id="Node000003" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="440,13,564,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,24,427,26,422,27,376,29"/>
+</map>

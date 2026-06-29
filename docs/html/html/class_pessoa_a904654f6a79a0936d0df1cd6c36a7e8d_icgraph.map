@@ -1,0 +1,17 @@
+<map id="Pessoa::getEmail" name="Pessoa::getEmail">
+<area shape="rect" id="Node000001" title="Recupera o email da pessoa." alt="" coords="462,80,586,107"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#aeef97f2bf2d9ec51fc805639d3401090" title="Atualiza os dados de uma pessoa no container com base no objeto de domínio fornecido." alt="" coords="226,9,404,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,75,389,55,389,50,465,75"/>
+<area shape="rect" id="Node000004" href="$class_container_pessoa.html#ad3e75e474504c79c6aa695f1745fbcc8" title="Inclui uma nova pessoa no container." alt="" coords="216,80,414,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="443,94,415,96,414,91,449,93"/>
+<area shape="rect" id="Node000006" href="$class_container_pessoa.html#a66082172b358caee534cd5bc6a69fb7d" title="Pesquisa uma pessoa no container com base no email fornecido." alt="" coords="221,147,408,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="468,111,360,149,359,143,463,113"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_pessoa.html#a6282863366330d9943c3b38aea9a287a" title="Atualiza os dados de uma pessoa cadastrada no sistema." alt="" coords="17,5,156,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="208,30,157,30,155,25,213,27"/>
+<area shape="rect" id="Node000005" href="$class_crtl_servico_pessoa.html#a71f269721f7c5fac94948eb946738128" title="Cria uma nova pessoa no sistema." alt="" coords="17,72,156,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="198,95,157,96,155,91,202,92"/>
+<area shape="rect" id="Node000007" href="$class_crtl_servico_autenticacao.html#a3bd145448a9d9308f495b4112908a5b0" title="Autentica um Pessoa pelo par email/senha." alt="" coords="5,139,168,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="203,161,169,163,168,157,208,159"/>
+<area shape="rect" id="Node000008" href="$class_crtl_servico_pessoa.html#a1a297d34123ad900d4931c31e3365198" title="Lê os dados de uma pessoa cadastrada no sistema." alt="" coords="17,205,156,248"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="254,178,157,209,155,204,249,179"/>
+</map>

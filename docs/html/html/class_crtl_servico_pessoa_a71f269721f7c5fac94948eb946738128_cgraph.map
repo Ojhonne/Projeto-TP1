@@ -1,0 +1,17 @@
+<map id="CrtlServicoPessoa::criarPessoa" name="CrtlServicoPessoa::criarPessoa">
+<area shape="rect" id="Node000001" title="Cria uma nova pessoa no sistema." alt="" coords="5,124,144,167"/>
+<area shape="rect" id="Node000002" href="$class_container_pessoa.html#ad3e75e474504c79c6aa695f1745fbcc8" title="Inclui uma nova pessoa no container." alt="" coords="193,107,391,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,135,180,132,175,134,145,140"/>
+<area shape="rect" id="Node000008" href="$class_container_pessoa.html#ae632da48290920caa4ae31a88084357b" title="implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="192,157,392,184"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="143,151,179,156,174,158,144,156"/>
+<area shape="rect" id="Node000003" href="$class_pessoa.html#a904654f6a79a0936d0df1cd6c36a7e8d" title="Recupera o email da pessoa." alt="" coords="442,5,566,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,104,439,42,450,39,455,37,441,46,319,108"/>
+<area shape="rect" id="Node000004" href="$class_pessoa.html#a6332603563e192e1f692fde126a55105" title="Recupera o nome da pessoa." alt="" coords="441,56,567,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="350,103,433,86,428,88,352,109"/>
+<area shape="rect" id="Node000005" href="$class_pessoa.html#a54f7ae519388a447626671167f43c8b1" title="Recupera o papel da pessoa." alt="" coords="442,107,566,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="391,117,429,120,424,120,392,123"/>
+<area shape="rect" id="Node000006" href="$class_pessoa.html#a622b211563983aa0e520c5c02b18098a" title="Recupera a senha da pessoa." alt="" coords="440,157,568,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="351,131,433,153,428,153,351,137"/>
+<area shape="rect" id="Node000007" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="442,208,566,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="367,131,393,143,409,156,419,168,427,181,442,194,450,201,445,200,438,198,423,185,414,172,405,159,391,148,366,137"/>
+</map>

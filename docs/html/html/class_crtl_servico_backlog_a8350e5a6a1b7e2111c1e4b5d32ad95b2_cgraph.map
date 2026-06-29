@@ -1,0 +1,26 @@
+<map id="CrtlServicoBacklog::alterarEstadoHistoria" name="CrtlServicoBacklog::alterarEstadoHistoria">
+<area shape="rect" id="Node000001" title="Altera o estado de uma história de usuário." alt="" coords="5,221,157,264"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#ad2dd9a7a9be945986e2fe13b3fe4d6d7" title="Atualiza os dados de uma história de usuário cadastrada no sistema." alt="" coords="205,221,373,264"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,240,191,241,187,244,158,245"/>
+<area shape="rect" id="Node000004" href="$class_container_pessoa.html#ae632da48290920caa4ae31a88084357b" title="implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="422,125,623,152"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="106,219,150,187,204,160,254,146,307,138,409,132,405,135,307,143,255,152,206,165,152,192,109,223"/>
+<area shape="rect" id="Node000005" href="$class_pessoa.html#a54f7ae519388a447626671167f43c8b1" title="Recupera o papel da pessoa." alt="" coords="460,204,585,231"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="117,219,158,198,204,183,272,174,341,177,406,185,463,199,457,200,405,191,341,182,272,180,205,188,160,203,120,223"/>
+<area shape="rect" id="Node000006" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="460,256,585,283"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="150,262,205,273,268,279,331,280,448,277,443,278,331,285,267,284,204,279,151,267"/>
+<area shape="rect" id="Node000007" href="$class_pessoa.html#a07c9dc9687e897de901a0361cdae0401" title="Atribui um novo email a pessoa." alt="" coords="460,311,585,337"/>
+<area shape="poly" id="edge14_Node000001_Node000007" title=" " alt="" coords="133,262,205,285,331,307,448,320,442,321,330,313,204,291,133,267"/>
+<area shape="rect" id="Node000008" href="$class_crtl_servico_backlog.html#acbfd37211f291c3f2ac7af7b93a09c44" title="Lê os dados de uma história de usuário cadastrada no sistema." alt="" coords="222,29,356,72"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="93,220,137,156,168,121,203,89,222,78,218,82,206,93,172,124,142,160,98,222"/>
+<area shape="rect" id="Node000009" href="$class_historia_de_usuario.html#ab474655beab5b02759111dcee1faaa2e" title="Define o estado atual da história (ex: A FAZER, FAZENDO, FEITO)." alt="" coords="221,389,357,432"/>
+<area shape="poly" id="edge15_Node000001_Node000009" title=" " alt="" coords="100,262,146,314,175,343,206,369,224,382,219,381,203,373,171,347,142,318,98,267"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="249,220,248,211,254,202,268,197,289,195,311,197,326,205,321,206,310,202,289,200,269,202,257,207,253,213,254,222"/>
+<area shape="rect" id="Node000003" href="$class_container_backlog.html#a48ae5fc071caf61f59698ac797897e2a" title="Implementa o padrão Singleton para garantir que apenas uma instância do container seja criada." alt="" coords="421,56,624,83"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="306,219,354,167,385,137,420,111,469,88,465,90,422,116,389,141,358,170,310,223"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="337,218,479,157,474,160,340,223"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="373,231,448,225,443,227,374,236"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="373,250,448,260,443,261,374,255"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="342,262,422,292,459,306,453,306,420,297,342,267"/>
+<area shape="poly" id="edge12_Node000008_Node000003" title=" " alt="" coords="355,53,408,59,403,61,357,59"/>
+<area shape="poly" id="edge13_Node000008_Node000008" title=" " alt="" coords="249,28,248,19,254,10,268,5,289,3,311,5,326,13,321,14,310,10,289,8,269,10,257,15,253,21,254,29"/>
+</map>

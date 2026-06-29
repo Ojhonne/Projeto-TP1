@@ -1,0 +1,7 @@
+<map id="HistoriaDeUsuario::setEmailPessoa" name="HistoriaDeUsuario::setEmailPessoa">
+<area shape="rect" id="Node000001" title="Atribui um novo email à história de usuário." alt="" coords="243,43,379,85"/>
+<area shape="rect" id="Node000002" href="$class_crtl_servico_backlog.html#ab6ac2c059eed7107a7f1d42448d194e0" title="Associa uma história de usuário a uma pessoa." alt="" coords="16,5,184,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,50,184,44,184,39,230,49"/>
+<area shape="rect" id="Node000003" href="$class_crtl_servico_backlog.html#a0f7d39437dfc1500b4753ca51291ac94" title="Remove a associação entre uma história de usuário e uma pessoa." alt="" coords="5,72,195,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,79,196,87,195,82,230,78"/>
+</map>

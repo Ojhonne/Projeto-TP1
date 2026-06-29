@@ -1,0 +1,23 @@
+<map id="ContainerBacklog::lerHistoriaUsuario" name="ContainerBacklog::lerHistoriaUsuario">
+<area shape="rect" id="Node000001" title="Lê os dados de uma história de usuário no container." alt="" coords="5,289,197,332"/>
+<area shape="rect" id="Node000002" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="251,5,375,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,288,122,238,150,172,190,103,215,71,243,42,251,38,248,43,246,46,219,74,194,106,155,175,127,240,111,289"/>
+<area shape="rect" id="Node000003" href="$class_historia_de_usuario.html#aab7aeabd6ed310fcd7c065daac70151f" title="Define a ação desejada na história (ex: &quot;...eu quero deletar usuários...&quot;)." alt="" coords="245,56,381,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,288,161,203,199,153,243,109,250,105,247,110,246,113,203,157,166,206,116,290"/>
+<area shape="rect" id="Node000004" href="$class_historia_de_usuario.html#a690b14f914aba2edc9c8282962dc8f0b" title="Atribui um novo código ao projeto associado à história de usuário." alt="" coords="245,123,381,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,287,173,233,243,175,252,172,249,176,246,179,177,237,124,290"/>
+<area shape="rect" id="Node000005" href="$class_historia_de_usuario.html#ab474655beab5b02759111dcee1faaa2e" title="Define o estado atual da história (ex: A FAZER, FAZENDO, FEITO)." alt="" coords="245,189,381,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="147,287,254,237,251,241,150,291"/>
+<area shape="rect" id="Node000006" href="$class_historia_de_usuario.html#af450df77612e06df49401636b21601b9" title="Define a estimativa de tempo/esforço da história." alt="" coords="245,256,381,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="196,293,232,289,228,292,198,298"/>
+<area shape="rect" id="Node000007" href="$class_historia_de_usuario.html#ab8cba0ed537f0332800aca0498d8b67d" title="Define o papel de quem solicitou a história (ex: &quot;como um DESENVOLVEDOR.&quot;)." alt="" coords="245,323,381,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="196,323,232,330,227,332,198,328"/>
+<area shape="rect" id="Node000008" href="$class_historia_de_usuario.html#ae469900db4b1677a31eb966ff0f0b955" title="Define a prioridade de execução." alt="" coords="245,389,381,432"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="148,330,254,381,250,384,148,335"/>
+<area shape="rect" id="Node000009" href="$class_historia_de_usuario.html#afa61720731c9bf2f9eebdfee14fef78a" title="Atribui um novo título." alt="" coords="245,456,381,499"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="122,330,177,384,246,442,253,448,248,448,243,446,173,388,122,335"/>
+<area shape="rect" id="Node000010" href="$class_dominio.html#a220fafcb42edefedd265cedec3f84070" title="Define um novo valor para o domínio." alt="" coords="251,523,375,549"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="113,330,135,369,164,417,201,466,246,509,254,515,248,515,243,513,197,469,159,420,130,372,112,335"/>
+<area shape="rect" id="Node000011" href="$class_historia_de_usuario.html#a798877ec1aa80ca2975d8203e2981fff" title="Define o valor ou benefício da história (ex: &quot;...para manter o sistema seguro.&quot;)." alt="" coords="245,573,381,616"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="110,330,130,378,159,438,198,502,221,532,247,559,250,564,245,563,243,563,217,536,193,505,154,440,125,380,109,335"/>
+</map>

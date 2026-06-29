@@ -1,0 +1,5 @@
+<map id="ContainerPlanoSprint::excluirPlanoSprint" name="ContainerPlanoSprint::excluirPlanoSprint">
+<area shape="rect" id="Node000001" title="Exclui um plano de sprint a partir de seu código." alt="" coords="5,5,150,48"/>
+<area shape="rect" id="Node000002" href="$class_dominio.html#ab26077ed7823e2f75ebe81875b36ccb3" title="Retorna o valor atualmente armazenado no domínio." alt="" coords="198,13,322,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,24,185,26,180,27,150,29"/>
+</map>
